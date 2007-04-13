@@ -1,5 +1,11 @@
 2007-04-13  Emmanuele Bassi  <ebassi@openedhand.com>
 
+	* Makefile.am: Recurse into gapi/ only when making a dist, so
+	that we don't overwrite the custom code inside src/ on every
+	build.
+
+2007-04-13  Emmanuele Bassi  <ebassi@openedhand.com>
+
 	* gapi/clutter-sources.xml.in:
 	* gapi/Makefile.am: Use a template file to get the Clutter
 	API from includedir (we should probably use pkg-config, though).
