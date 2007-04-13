@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<metadata>
+	<!-- ClutterActor renames -->
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Show']" name="name">ShowEvent</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Hide']" name="name">HideEvent</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Destroy']" name="name">DestroyEvent</attr>	
+
+	<!-- ClutterButtonEvent renames -->
+	<attr path="/api/namespace/struct[@cname='ClutterButtonEvent']/method[@name='X']" name="name">GetXPosition</attr>	
+	<attr path="/api/namespace/struct[@cname='ClutterButtonEvent']/method[@name='Y']" name="name">GetYPosition</attr>	
+	<attr path="/api/namespace/struct[@cname='ClutterButtonEvent']/method[@name='Time']" name="name">GetTime</attr>	
+
+	<!-- ClutterGroup renames -->
+	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Add']" name="name">AddEvent</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Remove']" name="name">RemoveEvent</attr>	
+
+	<!-- ClutterGroup renames -->
+	<attr path="/api/namespace/struct[@cname='ClutterKeyEvent']/method[@name='Time']" name="name">GetTime</attr>	
+
+	<!-- ClutterLabel remove -->
+	<remove-node path="/api/namespace/object[@cname='ClutterLabel']/method[@name='GetAlignment']" />
+	
+	<!-- ClutterLabel remove -->
+	<attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='GetDefault']/return-type" name="type">ClutterStage*</attr>
+</metadata>
+
