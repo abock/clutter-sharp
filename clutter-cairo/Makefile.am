@@ -1,7 +1,6 @@
-SUBDIRS = \
-	gapi \
-	src  \
-	examples
+SUBDIRS = src examples
+
+DIST_SUBDIRS = gapi src examples
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = clutter-cairo-sharp.pc

@@ -2,10 +2,10 @@ GAPI_PARSER = gapi2-parser
 GAPI_CODEGEN = gapi2-codegen
 GAPI_FIXUP = gapi2-fixup
 
-SOURCES_XML = $(srcdir)/clutter-cairo-sources.xml
-CLUTTER_CAIRO_METADATA = $(srcdir)/clutter-cairo.metadata
-CLUTTER_CAIRO_RAW_API = $(srcdir)/clutter-cairo-api.raw
-CLUTTER_CAIRO_FIXED_API = $(srcdir)/clutter-cairo-api.xml
+SOURCES_XML = clutter-cairo-sources.xml
+CLUTTER_CAIRO_METADATA = clutter-cairo.metadata
+CLUTTER_CAIRO_RAW_API = clutter-cairo-api.raw
+CLUTTER_CAIRO_FIXED_API = clutter-cairo-api.xml
 
 CLEANFILES = $(CLUTTER_CAIRO_RAW_API) $(CLUTTER_CAIRO_FIXED_API)
 DISTCLEANFILES = Makefile.in
@@ -14,7 +14,14 @@ EXTRA_DIST = $(SOURCES_XML) $(CLUTTER_CAIRO_METADATA)
 gapidir = $(datadir)/gapi-2.0
 gapi_DATA = $(CLUTTER_CAIRO_FIXED_API)
 
-$(CLUTTER_CAIRO_FIXED_API):
+clutterincludedir = $(includedir)
+
+$(SOURCES_XML): clutter-cairo-sources.xml.in
+	@sed \
+		-e "s|@clutterincludedir@|$(clutterincludedir)|" \
+	$< > $(@F)
+
+$(CLUTTER_CAIRO_FIXED_API): $(SOURCES_XML)
 	$(GAPI_PARSER) $(SOURCES_XML)
 	cp $(CLUTTER_CAIRO_RAW_API) $(CLUTTER_CAIRO_FIXED_API)
 	$(GAPI_FIXUP) --api=$(CLUTTER_CAIRO_FIXED_API) --metadata=$(CLUTTER_CAIRO_METADATA)
