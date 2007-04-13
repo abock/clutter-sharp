@@ -37,45 +37,23 @@ namespace Clutter {
 		public Rectangle (Clutter.Color color) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (Rectangle)) {
-				ArrayList vals = new ArrayList();
-				ArrayList names = new ArrayList();
-				names.Add ("color");
-				vals.Add (new GLib.Value (color));
-				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
-				return;
+				throw new InvalidOperationException ("Can't override this constructor.");
 			}
 			Raw = clutter_rectangle_new_with_color(ref color);
 		}
 
-		[GLib.Property ("has-border")]
-		public bool HasBorder {
-			get {
-				GLib.Value val = GetProperty ("has-border");
-				bool ret = (bool) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("has-border", val);
-				val.Dispose ();
-			}
+		[DllImport("clutter")]
+		static extern void clutter_rectangle_get_color(IntPtr raw, ref Clutter.Color color);
+
+		public void GetColor(Clutter.Color color) {
+			clutter_rectangle_get_color(Handle, ref color);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_rectangle_set_color(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_rectangle_set_border_color(IntPtr raw, ref Clutter.Color color);
 
-		[GLib.Property ("color")]
-		public Clutter.Color Color {
-			get {
-				GLib.Value val = GetProperty ("color");
-				Clutter.Color ret = (Clutter.Color) val;
-				val.Dispose ();
-				return ret;
-			}
-			set  {
-				clutter_rectangle_set_color(Handle, ref value);
-			}
+		public void SetBorderColor(Clutter.Color color) {
+			clutter_rectangle_set_border_color(Handle, ref color);
 		}
 
 		[DllImport("clutter")]
@@ -84,39 +62,15 @@ namespace Clutter {
 		[DllImport("clutter")]
 		static extern void clutter_rectangle_set_border_width(IntPtr raw, uint width);
 
-		[GLib.Property ("border-width")]
-		public uint BorderWidth {
-			get  {
+		public uint BorderWidth { 
+			get {
 				uint raw_ret = clutter_rectangle_get_border_width(Handle);
 				uint ret = raw_ret;
 				return ret;
 			}
-			set  {
+			set {
 				clutter_rectangle_set_border_width(Handle, value);
 			}
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_rectangle_set_border_color(IntPtr raw, ref Clutter.Color color);
-
-		[GLib.Property ("border-color")]
-		public Clutter.Color BorderColor {
-			get {
-				GLib.Value val = GetProperty ("border-color");
-				Clutter.Color ret = (Clutter.Color) val;
-				val.Dispose ();
-				return ret;
-			}
-			set  {
-				clutter_rectangle_set_border_color(Handle, ref value);
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_rectangle_get_color(IntPtr raw, ref Clutter.Color color);
-
-		public void GetColor(Clutter.Color color) {
-			clutter_rectangle_get_color(Handle, ref color);
 		}
 
 		[DllImport("clutter")]
@@ -135,6 +89,13 @@ namespace Clutter {
 
 		public void GetBorderColor(Clutter.Color color) {
 			clutter_rectangle_get_border_color(Handle, ref color);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_rectangle_set_color(IntPtr raw, ref Clutter.Color color);
+
+		public void SetColor(Clutter.Color color) {
+			clutter_rectangle_set_color(Handle, ref color);
 		}
 
 #endregion

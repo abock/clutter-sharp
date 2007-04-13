@@ -31,245 +31,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_timeline_get_loop(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_timeline_set_loop(IntPtr raw, bool loop);
-
-		[GLib.Property ("loop")]
-		public bool Loop {
-			get  {
-				bool raw_ret = clutter_timeline_get_loop(Handle);
-				bool ret = raw_ret;
-				return ret;
-			}
-			set  {
-				clutter_timeline_set_loop(Handle, value);
-			}
-		}
-
-		[GLib.Property ("num-frames")]
-		public int NumFrames {
-			get {
-				GLib.Value val = GetProperty ("num-frames");
-				int ret = (int) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("num-frames", val);
-				val.Dispose ();
-			}
-		}
-
-		[GLib.Property ("fps")]
-		public int Fps {
-			get {
-				GLib.Value val = GetProperty ("fps");
-				int ret = (int) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("fps", val);
-				val.Dispose ();
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void StartedVMDelegate (IntPtr timeline);
-
-		static StartedVMDelegate StartedVMCallback;
-
-		static void started_cb (IntPtr timeline)
-		{
-			Timeline timeline_managed = GLib.Object.GetObject (timeline, false) as Timeline;
-			timeline_managed.OnStarted ();
-		}
-
-		private static void OverrideStarted (GLib.GType gtype)
-		{
-			if (StartedVMCallback == null)
-				StartedVMCallback = new StartedVMDelegate (started_cb);
-			OverrideVirtualMethod (gtype, "started", StartedVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Timeline), ConnectionMethod="OverrideStarted")]
-		protected virtual void OnStarted ()
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (1);
-			GLib.Value[] vals = new GLib.Value [1];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("started")]
-		public event System.EventHandler Started {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "started");
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "started");
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void CompletedVMDelegate (IntPtr timeline);
-
-		static CompletedVMDelegate CompletedVMCallback;
-
-		static void completed_cb (IntPtr timeline)
-		{
-			Timeline timeline_managed = GLib.Object.GetObject (timeline, false) as Timeline;
-			timeline_managed.OnCompleted ();
-		}
-
-		private static void OverrideCompleted (GLib.GType gtype)
-		{
-			if (CompletedVMCallback == null)
-				CompletedVMCallback = new CompletedVMDelegate (completed_cb);
-			OverrideVirtualMethod (gtype, "completed", CompletedVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Timeline), ConnectionMethod="OverrideCompleted")]
-		protected virtual void OnCompleted ()
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (1);
-			GLib.Value[] vals = new GLib.Value [1];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("completed")]
-		public event System.EventHandler Completed {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "completed");
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "completed");
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void PausedVMDelegate (IntPtr timeline);
-
-		static PausedVMDelegate PausedVMCallback;
-
-		static void paused_cb (IntPtr timeline)
-		{
-			Timeline timeline_managed = GLib.Object.GetObject (timeline, false) as Timeline;
-			timeline_managed.OnPaused ();
-		}
-
-		private static void OverridePaused (GLib.GType gtype)
-		{
-			if (PausedVMCallback == null)
-				PausedVMCallback = new PausedVMDelegate (paused_cb);
-			OverrideVirtualMethod (gtype, "paused", PausedVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Timeline), ConnectionMethod="OverridePaused")]
-		protected virtual void OnPaused ()
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (1);
-			GLib.Value[] vals = new GLib.Value [1];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("paused")]
-		public event System.EventHandler Paused {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "paused");
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "paused");
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void NewFrameSignalDelegate (IntPtr arg0, int arg1, IntPtr gch);
-
-		static void NewFrameSignalCallback (IntPtr arg0, int arg1, IntPtr gch)
-		{
-			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
-			if (sig == null)
-				throw new Exception("Unknown signal GC handle received " + gch);
-
-			Clutter.NewFrameArgs args = new Clutter.NewFrameArgs ();
-			args.Args = new object[1];
-			args.Args[0] = arg1;
-			Clutter.NewFrameHandler handler = (Clutter.NewFrameHandler) sig.Handler;
-			handler (GLib.Object.GetObject (arg0), args);
-
-		}
-
-		[GLib.CDeclCallback]
-		delegate void NewFrameVMDelegate (IntPtr timeline, int frame_num);
-
-		static NewFrameVMDelegate NewFrameVMCallback;
-
-		static void newframe_cb (IntPtr timeline, int frame_num)
-		{
-			Timeline timeline_managed = GLib.Object.GetObject (timeline, false) as Timeline;
-			timeline_managed.OnNewFrame (frame_num);
-		}
-
-		private static void OverrideNewFrame (GLib.GType gtype)
-		{
-			if (NewFrameVMCallback == null)
-				NewFrameVMCallback = new NewFrameVMDelegate (newframe_cb);
-			OverrideVirtualMethod (gtype, "new-frame", NewFrameVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Timeline), ConnectionMethod="OverrideNewFrame")]
-		protected virtual void OnNewFrame (int frame_num)
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
-			GLib.Value[] vals = new GLib.Value [2];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			vals [1] = new GLib.Value (frame_num);
-			inst_and_params.Append (vals [1]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("new-frame")]
-		public event Clutter.NewFrameHandler NewFrame {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "new-frame", new NewFrameSignalDelegate(NewFrameSignalCallback));
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "new-frame", new NewFrameSignalDelegate(NewFrameSignalCallback));
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[DllImport("clutter")]
 		static extern void clutter_timeline_advance(IntPtr raw, uint frame_num);
 
 		public void Advance(uint frame_num) {
@@ -308,6 +69,23 @@ namespace Clutter {
 				bool raw_ret = clutter_timeline_is_playing(Handle);
 				bool ret = raw_ret;
 				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_timeline_get_loop(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_timeline_set_loop(IntPtr raw, bool loop);
+
+		public bool Loop { 
+			get {
+				bool raw_ret = clutter_timeline_get_loop(Handle);
+				bool ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_timeline_set_loop(Handle, value);
 			}
 		}
 

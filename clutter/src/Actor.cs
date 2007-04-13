@@ -25,327 +25,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_actor_get_name(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_actor_set_name(IntPtr raw, IntPtr name);
-
-		[GLib.Property ("name")]
-		public string Name {
-			get  {
-				IntPtr raw_ret = clutter_actor_get_name(Handle);
-				string ret = GLib.Marshaller.Utf8PtrToString (raw_ret);
-				return ret;
-			}
-			set  {
-				IntPtr name_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_actor_set_name(Handle, name_as_native);
-				GLib.Marshaller.Free (name_as_native);
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern int clutter_actor_get_x(IntPtr raw);
-
-		[GLib.Property ("x")]
-		public int X {
-			get  {
-				int raw_ret = clutter_actor_get_x(Handle);
-				int ret = raw_ret;
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("x", val);
-				val.Dispose ();
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern int clutter_actor_get_y(IntPtr raw);
-
-		[GLib.Property ("y")]
-		public int Y {
-			get  {
-				int raw_ret = clutter_actor_get_y(Handle);
-				int ret = raw_ret;
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("y", val);
-				val.Dispose ();
-			}
-		}
-
-		[GLib.Property ("clip")]
-		public Clutter.Geometry Clip {
-			get {
-				GLib.Value val = GetProperty ("clip");
-				Clutter.Geometry ret = (Clutter.Geometry) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = (GLib.Value) value;
-				SetProperty("clip", val);
-				val.Dispose ();
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern uint clutter_actor_get_width(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_actor_set_width(IntPtr raw, uint width);
-
-		[GLib.Property ("width")]
-		public uint Width {
-			get  {
-				uint raw_ret = clutter_actor_get_width(Handle);
-				uint ret = raw_ret;
-				return ret;
-			}
-			set  {
-				clutter_actor_set_width(Handle, value);
-			}
-		}
-
-		[GLib.Property ("visible")]
-		public bool Visible {
-			get {
-				GLib.Value val = GetProperty ("visible");
-				bool ret = (bool) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("visible", val);
-				val.Dispose ();
-			}
-		}
-
-		[GLib.Property ("has-clip")]
-		public bool HasClip {
-			get {
-				GLib.Value val = GetProperty ("has-clip");
-				bool ret = (bool) val;
-				val.Dispose ();
-				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern uint clutter_actor_get_height(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_actor_set_height(IntPtr raw, uint height);
-
-		[GLib.Property ("height")]
-		public uint Height {
-			get  {
-				uint raw_ret = clutter_actor_get_height(Handle);
-				uint ret = raw_ret;
-				return ret;
-			}
-			set  {
-				clutter_actor_set_height(Handle, value);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void ParentSetSignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr gch);
-
-		static void ParentSetSignalCallback (IntPtr arg0, IntPtr arg1, IntPtr gch)
-		{
-			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
-			if (sig == null)
-				throw new Exception("Unknown signal GC handle received " + gch);
-
-			Clutter.ParentSetArgs args = new Clutter.ParentSetArgs ();
-			args.Args = new object[1];
-			args.Args[0] = GLib.Object.GetObject(arg1) as Clutter.Actor;
-			Clutter.ParentSetHandler handler = (Clutter.ParentSetHandler) sig.Handler;
-			handler (GLib.Object.GetObject (arg0), args);
-
-		}
-
-		[GLib.CDeclCallback]
-		delegate void ParentSetVMDelegate (IntPtr actor, IntPtr old_parent);
-
-		static ParentSetVMDelegate ParentSetVMCallback;
-
-		static void parentset_cb (IntPtr actor, IntPtr old_parent)
-		{
-			Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-			actor_managed.OnParentSet (GLib.Object.GetObject(old_parent) as Clutter.Actor);
-		}
-
-		private static void OverrideParentSet (GLib.GType gtype)
-		{
-			if (ParentSetVMCallback == null)
-				ParentSetVMCallback = new ParentSetVMDelegate (parentset_cb);
-			OverrideVirtualMethod (gtype, "parent-set", ParentSetVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideParentSet")]
-		protected virtual void OnParentSet (Clutter.Actor old_parent)
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
-			GLib.Value[] vals = new GLib.Value [2];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			vals [1] = new GLib.Value (old_parent);
-			inst_and_params.Append (vals [1]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("parent-set")]
-		public event Clutter.ParentSetHandler ParentSet {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "parent-set", new ParentSetSignalDelegate(ParentSetSignalCallback));
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "parent-set", new ParentSetSignalDelegate(ParentSetSignalCallback));
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void HideEventVMDelegate (IntPtr actor);
-
-		static HideEventVMDelegate HideEventVMCallback;
-
-		static void hideevent_cb (IntPtr actor)
-		{
-			Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-			actor_managed.OnHideEvent ();
-		}
-
-		private static void OverrideHideEvent (GLib.GType gtype)
-		{
-			if (HideEventVMCallback == null)
-				HideEventVMCallback = new HideEventVMDelegate (hideevent_cb);
-			OverrideVirtualMethod (gtype, "hide", HideEventVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideHideEvent")]
-		protected virtual void OnHideEvent ()
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (1);
-			GLib.Value[] vals = new GLib.Value [1];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("hide")]
-		public event System.EventHandler HideEvent {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "hide");
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "hide");
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void ShowEventVMDelegate (IntPtr actor);
-
-		static ShowEventVMDelegate ShowEventVMCallback;
-
-		static void showevent_cb (IntPtr actor)
-		{
-			Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-			actor_managed.OnShowEvent ();
-		}
-
-		private static void OverrideShowEvent (GLib.GType gtype)
-		{
-			if (ShowEventVMCallback == null)
-				ShowEventVMCallback = new ShowEventVMDelegate (showevent_cb);
-			OverrideVirtualMethod (gtype, "show", ShowEventVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideShowEvent")]
-		protected virtual void OnShowEvent ()
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (1);
-			GLib.Value[] vals = new GLib.Value [1];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("show")]
-		public event System.EventHandler ShowEvent {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "show");
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "show");
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void DestroyEventVMDelegate (IntPtr actor);
-
-		static DestroyEventVMDelegate DestroyEventVMCallback;
-
-		static void destroyevent_cb (IntPtr actor)
-		{
-			Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-			actor_managed.OnDestroyEvent ();
-		}
-
-		private static void OverrideDestroyEvent (GLib.GType gtype)
-		{
-			if (DestroyEventVMCallback == null)
-				DestroyEventVMCallback = new DestroyEventVMDelegate (destroyevent_cb);
-			OverrideVirtualMethod (gtype, "destroy", DestroyEventVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideDestroyEvent")]
-		protected virtual void OnDestroyEvent ()
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (1);
-			GLib.Value[] vals = new GLib.Value [1];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("destroy")]
-		public event System.EventHandler DestroyEvent {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "destroy");
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "destroy");
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[DllImport("clutter")]
 		static extern void clutter_actor_allocate_coords(IntPtr raw, IntPtr box);
 
 		public void AllocateCoords(Clutter.ActorBox box) {
@@ -444,6 +123,34 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern bool clutter_actor_has_clip(IntPtr raw);
+
+		public bool HasClip { 
+			get {
+				bool raw_ret = clutter_actor_has_clip(Handle);
+				bool ret = raw_ret;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern uint clutter_actor_get_width(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_actor_set_width(IntPtr raw, uint width);
+
+		public uint Width { 
+			get {
+				uint raw_ret = clutter_actor_get_width(Handle);
+				uint ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_actor_set_width(Handle, value);
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_actor_get_scalex(IntPtr raw, out int scale_x, out int scale_y);
 
 		public void GetScalex(out int scale_x, out int scale_y) {
@@ -455,6 +162,28 @@ namespace Clutter {
 
 		public void MoveBy(int dx, int dy) {
 			clutter_actor_move_by(Handle, dx, dy);
+		}
+
+		[DllImport("clutter")]
+		static extern int clutter_actor_get_x(IntPtr raw);
+
+		public int X { 
+			get {
+				int raw_ret = clutter_actor_get_x(Handle);
+				int ret = raw_ret;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern int clutter_actor_get_y(IntPtr raw);
+
+		public int Y { 
+			get {
+				int raw_ret = clutter_actor_get_y(Handle);
+				int ret = raw_ret;
+				return ret;
+			}
 		}
 
 		[DllImport("clutter")]
@@ -510,6 +239,23 @@ namespace Clutter {
 			}
 			set {
 				clutter_actor_set_opacity(Handle, value);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern uint clutter_actor_get_height(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_actor_set_height(IntPtr raw, uint height);
+
+		public uint Height { 
+			get {
+				uint raw_ret = clutter_actor_get_height(Handle);
+				uint ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_actor_set_height(Handle, value);
 			}
 		}
 
@@ -570,6 +316,25 @@ namespace Clutter {
 
 		public void SetPosition(int x, int y) {
 			clutter_actor_set_position(Handle, x, y);
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_actor_get_name(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_actor_set_name(IntPtr raw, IntPtr name);
+
+		public string Name { 
+			get {
+				IntPtr raw_ret = clutter_actor_get_name(Handle);
+				string ret = GLib.Marshaller.Utf8PtrToString (raw_ret);
+				return ret;
+			}
+			set {
+				IntPtr name_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_actor_set_name(Handle, name_as_native);
+				GLib.Marshaller.Free (name_as_native);
+			}
 		}
 
 		[DllImport("clutter")]

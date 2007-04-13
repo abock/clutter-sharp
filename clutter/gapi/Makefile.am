@@ -2,19 +2,26 @@ GAPI_PARSER = gapi2-parser
 GAPI_CODEGEN = gapi2-codegen
 GAPI_FIXUP = gapi2-fixup
 
-SOURCES_XML = $(srcdir)/clutter-sources.xml
-CLUTTER_METADATA = $(srcdir)/clutter.metadata
-CLUTTER_RAW_API = $(srcdir)/clutter-api.raw
-CLUTTER_FIXED_API = $(srcdir)/clutter-api.xml
+SOURCES_XML = clutter-sources.xml
+CLUTTER_METADATA = clutter.metadata
+CLUTTER_RAW_API = clutter-api.raw
+CLUTTER_FIXED_API = clutter-api.xml
 
 gapidir = $(datadir)/gapi-2.0
 gapi_DATA = $(CLUTTER_FIXED_API)
 
-CLEANFILES = $(CLUTTER_RAW_API) $(CLUTTER_FIXED_API)
+clutterincludedir = $(includedir)/clutter-0.2
+
+CLEANFILES = $(SOURCES_XML) $(CLUTTER_RAW_API) $(CLUTTER_FIXED_API)
 DISTCLEANFILES = Makefile.in
 EXTRA_DIST = $(SOURCES_XML) $(CLUTTER_METADATA)
 
-$(CLUTTER_FIXED_API):
+$(SOURCES_XML): clutter-sources.xml.in
+	@sed \
+		-e "s|@clutterincludedir@|$(clutterincludedir)|" \
+	$< > $(@F)
+
+$(CLUTTER_FIXED_API): clutter-sources.xml
 	$(GAPI_PARSER) $(SOURCES_XML)
 	cp $(CLUTTER_RAW_API) $(CLUTTER_FIXED_API)
 	$(GAPI_FIXUP) --api=$(CLUTTER_FIXED_API) --metadata=$(CLUTTER_METADATA)

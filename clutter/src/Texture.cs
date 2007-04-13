@@ -37,242 +37,9 @@ namespace Clutter {
 		public Texture (Gdk.Pixbuf pixbuf) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (Texture)) {
-				ArrayList vals = new ArrayList();
-				ArrayList names = new ArrayList();
-				if (pixbuf != null) {
-					names.Add ("pixbuf");
-					vals.Add (new GLib.Value (pixbuf));
-				}
-				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
-				return;
+				throw new InvalidOperationException ("Can't override this constructor.");
 			}
 			Raw = clutter_texture_new_from_pixbuf(pixbuf == null ? IntPtr.Zero : pixbuf.Handle);
-		}
-
-		[GLib.Property ("sync-size")]
-		public bool SyncSize {
-			get {
-				GLib.Value val = GetProperty ("sync-size");
-				bool ret = (bool) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("sync-size", val);
-				val.Dispose ();
-			}
-		}
-
-		[GLib.Property ("tile-waste")]
-		public int TileWaste {
-			get {
-				GLib.Value val = GetProperty ("tile-waste");
-				int ret = (int) val;
-				val.Dispose ();
-				return ret;
-			}
-		}
-
-		[GLib.Property ("tiled")]
-		public bool Tiled {
-			get {
-				GLib.Value val = GetProperty ("tiled");
-				bool ret = (bool) val;
-				val.Dispose ();
-				return ret;
-			}
-		}
-
-		[GLib.Property ("filter-quality")]
-		public int FilterQuality {
-			get {
-				GLib.Value val = GetProperty ("filter-quality");
-				int ret = (int) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("filter-quality", val);
-				val.Dispose ();
-			}
-		}
-
-		[GLib.Property ("pixel-format")]
-		public int PixelFormat {
-			get {
-				GLib.Value val = GetProperty ("pixel-format");
-				int ret = (int) val;
-				val.Dispose ();
-				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_texture_get_pixbuf(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_texture_set_pixbuf(IntPtr raw, IntPtr pixbuf);
-
-		[GLib.Property ("pixbuf")]
-		public Gdk.Pixbuf Pixbuf {
-			get  {
-				IntPtr raw_ret = clutter_texture_get_pixbuf(Handle);
-				Gdk.Pixbuf ret = GLib.Object.GetObject(raw_ret) as Gdk.Pixbuf;
-				return ret;
-			}
-			set  {
-				clutter_texture_set_pixbuf(Handle, value == null ? IntPtr.Zero : value.Handle);
-			}
-		}
-
-		[GLib.Property ("pixel-type")]
-		public int PixelType {
-			get {
-				GLib.Value val = GetProperty ("pixel-type");
-				int ret = (int) val;
-				val.Dispose ();
-				return ret;
-			}
-		}
-
-		[GLib.Property ("repeat-x")]
-		public bool RepeatX {
-			get {
-				GLib.Value val = GetProperty ("repeat-x");
-				bool ret = (bool) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("repeat-x", val);
-				val.Dispose ();
-			}
-		}
-
-		[GLib.Property ("repeat-y")]
-		public bool RepeatY {
-			get {
-				GLib.Value val = GetProperty ("repeat-y");
-				bool ret = (bool) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("repeat-y", val);
-				val.Dispose ();
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void PixbufChangeVMDelegate (IntPtr texture);
-
-		static PixbufChangeVMDelegate PixbufChangeVMCallback;
-
-		static void pixbufchange_cb (IntPtr texture)
-		{
-			Texture texture_managed = GLib.Object.GetObject (texture, false) as Texture;
-			texture_managed.OnPixbufChange ();
-		}
-
-		private static void OverridePixbufChange (GLib.GType gtype)
-		{
-			if (PixbufChangeVMCallback == null)
-				PixbufChangeVMCallback = new PixbufChangeVMDelegate (pixbufchange_cb);
-			OverrideVirtualMethod (gtype, "pixbuf-change", PixbufChangeVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Texture), ConnectionMethod="OverridePixbufChange")]
-		protected virtual void OnPixbufChange ()
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (1);
-			GLib.Value[] vals = new GLib.Value [1];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("pixbuf-change")]
-		public event System.EventHandler PixbufChange {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "pixbuf-change");
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "pixbuf-change");
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void SizeChangeSignalDelegate (IntPtr arg0, int arg1, int arg2, IntPtr gch);
-
-		static void SizeChangeSignalCallback (IntPtr arg0, int arg1, int arg2, IntPtr gch)
-		{
-			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
-			if (sig == null)
-				throw new Exception("Unknown signal GC handle received " + gch);
-
-			Clutter.SizeChangeArgs args = new Clutter.SizeChangeArgs ();
-			args.Args = new object[2];
-			args.Args[0] = arg1;
-			args.Args[1] = arg2;
-			Clutter.SizeChangeHandler handler = (Clutter.SizeChangeHandler) sig.Handler;
-			handler (GLib.Object.GetObject (arg0), args);
-
-		}
-
-		[GLib.CDeclCallback]
-		delegate void SizeChangeVMDelegate (IntPtr texture, int width, int height);
-
-		static SizeChangeVMDelegate SizeChangeVMCallback;
-
-		static void sizechange_cb (IntPtr texture, int width, int height)
-		{
-			Texture texture_managed = GLib.Object.GetObject (texture, false) as Texture;
-			texture_managed.OnSizeChange (width, height);
-		}
-
-		private static void OverrideSizeChange (GLib.GType gtype)
-		{
-			if (SizeChangeVMCallback == null)
-				SizeChangeVMCallback = new SizeChangeVMDelegate (sizechange_cb);
-			OverrideVirtualMethod (gtype, "size-change", SizeChangeVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Texture), ConnectionMethod="OverrideSizeChange")]
-		protected virtual void OnSizeChange (int width, int height)
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (3);
-			GLib.Value[] vals = new GLib.Value [3];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			vals [1] = new GLib.Value (width);
-			inst_and_params.Append (vals [1]);
-			vals [2] = new GLib.Value (height);
-			inst_and_params.Append (vals [2]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("size-change")]
-		public event Clutter.SizeChangeHandler SizeChange {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "size-change", new SizeChangeSignalDelegate(SizeChangeSignalCallback));
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "size-change", new SizeChangeSignalDelegate(SizeChangeSignalCallback));
-				sig.RemoveDelegate (value);
-			}
 		}
 
 		[DllImport("clutter")]
@@ -332,6 +99,23 @@ namespace Clutter {
 			byte data;
 			clutter_texture_set_from_data(Handle, out data, has_alpha, width, height, rowstride, bpp);
 			return data;
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_texture_get_pixbuf(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_texture_set_pixbuf(IntPtr raw, IntPtr pixbuf);
+
+		public Gdk.Pixbuf Pixbuf { 
+			get {
+				IntPtr raw_ret = clutter_texture_get_pixbuf(Handle);
+				Gdk.Pixbuf ret = GLib.Object.GetObject(raw_ret) as Gdk.Pixbuf;
+				return ret;
+			}
+			set {
+				clutter_texture_set_pixbuf(Handle, value == null ? IntPtr.Zero : value.Handle);
+			}
 		}
 
 		[DllImport("clutter")]

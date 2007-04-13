@@ -38,25 +38,6 @@ namespace Clutter {
 			}
 		}
 
-		[DllImport("glibsharpglue-2")]
-		static extern IntPtr glibsharp_value_get_boxed (ref GLib.Value val);
-
-		[DllImport("glibsharpglue-2")]
-		static extern void glibsharp_value_set_boxed (ref GLib.Value val, ref Clutter.Geometry boxed);
-
-		public static explicit operator GLib.Value (Clutter.Geometry boxed)
-		{
-			GLib.Value val = GLib.Value.Empty;
-			val.Init (Clutter.Geometry.GType);
-			glibsharp_value_set_boxed (ref val, ref boxed);
-			return val;
-		}
-
-		public static explicit operator Clutter.Geometry (GLib.Value val)
-		{
-			IntPtr boxed_ptr = glibsharp_value_get_boxed (ref val);
-			return New (boxed_ptr);
-		}
 #endregion
 	}
 }

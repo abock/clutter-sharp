@@ -37,16 +37,7 @@ namespace Clutter {
 		public Label (string font_name, string text, Clutter.Color color) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (Label)) {
-				ArrayList vals = new ArrayList();
-				ArrayList names = new ArrayList();
-				names.Add ("font_name");
-				vals.Add (new GLib.Value (font_name));
-				names.Add ("text");
-				vals.Add (new GLib.Value (text));
-				names.Add ("color");
-				vals.Add (new GLib.Value (color));
-				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
-				return;
+				throw new InvalidOperationException ("Can't override this constructor.");
 			}
 			IntPtr font_name_as_native = GLib.Marshaller.StringToPtrGStrdup (font_name);
 			IntPtr text_as_native = GLib.Marshaller.StringToPtrGStrdup (text);
@@ -61,176 +52,13 @@ namespace Clutter {
 		public Label (string font_name, string text) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (Label)) {
-				ArrayList vals = new ArrayList();
-				ArrayList names = new ArrayList();
-				names.Add ("font_name");
-				vals.Add (new GLib.Value (font_name));
-				names.Add ("text");
-				vals.Add (new GLib.Value (text));
-				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
-				return;
+				throw new InvalidOperationException ("Can't override this constructor.");
 			}
 			IntPtr font_name_as_native = GLib.Marshaller.StringToPtrGStrdup (font_name);
 			IntPtr text_as_native = GLib.Marshaller.StringToPtrGStrdup (text);
 			Raw = clutter_label_new_with_text(font_name_as_native, text_as_native);
 			GLib.Marshaller.Free (font_name_as_native);
 			GLib.Marshaller.Free (text_as_native);
-		}
-
-		[DllImport("clutter")]
-		static extern int clutter_label_get_ellipsize(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_label_set_ellipsize(IntPtr raw, int mode);
-
-		[GLib.Property ("ellipsize")]
-		public Pango.EllipsizeMode Ellipsize {
-			get  {
-				int raw_ret = clutter_label_get_ellipsize(Handle);
-				Pango.EllipsizeMode ret = (Pango.EllipsizeMode) raw_ret;
-				return ret;
-			}
-			set  {
-				clutter_label_set_ellipsize(Handle, (int) value);
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_label_get_attributes(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_label_set_attributes(IntPtr raw, IntPtr attrs);
-
-		[GLib.Property ("attributes")]
-		public Pango.AttrList Attributes {
-			get  {
-				IntPtr raw_ret = clutter_label_get_attributes(Handle);
-				Pango.AttrList ret = raw_ret == IntPtr.Zero ? null : (Pango.AttrList) GLib.Opaque.GetOpaque (raw_ret, typeof (Pango.AttrList), false);
-				return ret;
-			}
-			set  {
-				clutter_label_set_attributes(Handle, value == null ? IntPtr.Zero : value.Handle);
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern bool clutter_label_get_use_markup(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_label_set_use_markup(IntPtr raw, bool setting);
-
-		[GLib.Property ("use-markup")]
-		public bool UseMarkup {
-			get  {
-				bool raw_ret = clutter_label_get_use_markup(Handle);
-				bool ret = raw_ret;
-				return ret;
-			}
-			set  {
-				clutter_label_set_use_markup(Handle, value);
-			}
-		}
-
-		[GLib.Property ("wrap")]
-		public bool Wrap {
-			get {
-				GLib.Value val = GetProperty ("wrap");
-				bool ret = (bool) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("wrap", val);
-				val.Dispose ();
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_label_set_alignment(IntPtr raw, int alignment);
-
-		[GLib.Property ("alignment")]
-		public Pango.Alignment Alignment {
-			get {
-				GLib.Value val = GetProperty ("alignment");
-				Pango.Alignment ret = (Pango.Alignment) (Enum) val;
-				val.Dispose ();
-				return ret;
-			}
-			set  {
-				clutter_label_set_alignment(Handle, (int) value);
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_label_get_font_name(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_label_set_font_name(IntPtr raw, IntPtr font_name);
-
-		[GLib.Property ("font-name")]
-		public string FontName {
-			get  {
-				IntPtr raw_ret = clutter_label_get_font_name(Handle);
-				string ret = GLib.Marshaller.Utf8PtrToString (raw_ret);
-				return ret;
-			}
-			set  {
-				IntPtr font_name_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_label_set_font_name(Handle, font_name_as_native);
-				GLib.Marshaller.Free (font_name_as_native);
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_label_get_text(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_label_set_text(IntPtr raw, IntPtr text);
-
-		[GLib.Property ("text")]
-		public string Text {
-			get  {
-				IntPtr raw_ret = clutter_label_get_text(Handle);
-				string ret = GLib.Marshaller.Utf8PtrToString (raw_ret);
-				return ret;
-			}
-			set  {
-				IntPtr text_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_label_set_text(Handle, text_as_native);
-				GLib.Marshaller.Free (text_as_native);
-			}
-		}
-
-		[GLib.Property ("wrap-mode")]
-		public Pango.WrapMode WrapMode {
-			get {
-				GLib.Value val = GetProperty ("wrap-mode");
-				Pango.WrapMode ret = (Pango.WrapMode) (Enum) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value((Enum) value);
-				SetProperty("wrap-mode", val);
-				val.Dispose ();
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_label_set_color(IntPtr raw, ref Clutter.Color color);
-
-		[GLib.Property ("color")]
-		public Clutter.Color Color {
-			get {
-				GLib.Value val = GetProperty ("color");
-				Clutter.Color ret = (Clutter.Color) val;
-				val.Dispose ();
-				return ret;
-			}
-			set  {
-				clutter_label_set_color(Handle, ref value);
-			}
 		}
 
 		[DllImport("clutter")]
@@ -251,6 +79,49 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern IntPtr clutter_label_get_text(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_label_set_text(IntPtr raw, IntPtr text);
+
+		public string Text { 
+			get {
+				IntPtr raw_ret = clutter_label_get_text(Handle);
+				string ret = GLib.Marshaller.Utf8PtrToString (raw_ret);
+				return ret;
+			}
+			set {
+				IntPtr text_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_label_set_text(Handle, text_as_native);
+				GLib.Marshaller.Free (text_as_native);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_label_get_attributes(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_label_set_attributes(IntPtr raw, IntPtr attrs);
+
+		public Pango.AttrList Attributes { 
+			get {
+				IntPtr raw_ret = clutter_label_get_attributes(Handle);
+				Pango.AttrList ret = raw_ret == IntPtr.Zero ? null : (Pango.AttrList) GLib.Opaque.GetOpaque (raw_ret, typeof (Pango.AttrList), false);
+				return ret;
+			}
+			set {
+				clutter_label_set_attributes(Handle, value == null ? IntPtr.Zero : value.Handle);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_label_set_color(IntPtr raw, ref Clutter.Color color);
+
+		public void SetColor(Clutter.Color color) {
+			clutter_label_set_color(Handle, ref color);
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_label_get_layout(IntPtr raw);
 
 		public Pango.Layout Layout { 
@@ -258,6 +129,68 @@ namespace Clutter {
 				IntPtr raw_ret = clutter_label_get_layout(Handle);
 				Pango.Layout ret = GLib.Object.GetObject(raw_ret) as Pango.Layout;
 				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern int clutter_label_get_ellipsize(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_label_set_ellipsize(IntPtr raw, int mode);
+
+		public Pango.EllipsizeMode Ellipsize { 
+			get {
+				int raw_ret = clutter_label_get_ellipsize(Handle);
+				Pango.EllipsizeMode ret = (Pango.EllipsizeMode) raw_ret;
+				return ret;
+			}
+			set {
+				clutter_label_set_ellipsize(Handle, (int) value);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_label_set_alignment(IntPtr raw, int alignment);
+
+		public Pango.Alignment Alignment { 
+			set {
+				clutter_label_set_alignment(Handle, (int) value);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_label_get_font_name(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_label_set_font_name(IntPtr raw, IntPtr font_name);
+
+		public string FontName { 
+			get {
+				IntPtr raw_ret = clutter_label_get_font_name(Handle);
+				string ret = GLib.Marshaller.Utf8PtrToString (raw_ret);
+				return ret;
+			}
+			set {
+				IntPtr font_name_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_label_set_font_name(Handle, font_name_as_native);
+				GLib.Marshaller.Free (font_name_as_native);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_label_get_use_markup(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_label_set_use_markup(IntPtr raw, bool setting);
+
+		public bool UseMarkup { 
+			get {
+				bool raw_ret = clutter_label_get_use_markup(Handle);
+				bool ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_label_set_use_markup(Handle, value);
 			}
 		}
 

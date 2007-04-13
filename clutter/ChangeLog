@@ -1,3 +1,9 @@
 2007-04-13  Emmanuele Bassi  <ebassi@openedhand.com>
 
+	* gapi/clutter-sources.xml.in:
+	* gapi/Makefile.am: Use a template file to get the Clutter
+	API from includedir (we should probably use pkg-config, though).
+
+2007-04-13  Emmanuele Bassi  <ebassi@openedhand.com>
+
 	* *: Initial import of the Clutter-sharp bindings.
