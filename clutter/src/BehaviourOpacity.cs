@@ -25,9 +25,50 @@ namespace Clutter {
 		public BehaviourOpacity (Clutter.Alpha alpha, byte opacity_start, byte opacity_end) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourOpacity)) {
-				throw new InvalidOperationException ("Can't override this constructor.");
+				ArrayList vals = new ArrayList();
+				ArrayList names = new ArrayList();
+				if (alpha != null) {
+					names.Add ("alpha");
+					vals.Add (new GLib.Value (alpha));
+				}
+				names.Add ("opacity_start");
+				vals.Add (new GLib.Value (opacity_start));
+				names.Add ("opacity_end");
+				vals.Add (new GLib.Value (opacity_end));
+				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
+				return;
 			}
 			Raw = clutter_behaviour_opacity_new(alpha == null ? IntPtr.Zero : alpha.Handle, opacity_start, opacity_end);
+		}
+
+		[GLib.Property ("opacity-end")]
+		public uint OpacityEnd {
+			get {
+				GLib.Value val = GetProperty ("opacity-end");
+				uint ret = (uint) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("opacity-end", val);
+				val.Dispose ();
+			}
+		}
+
+		[GLib.Property ("opacity-start")]
+		public uint OpacityStart {
+			get {
+				GLib.Value val = GetProperty ("opacity-start");
+				uint ret = (uint) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("opacity-start", val);
+				val.Dispose ();
+			}
 		}
 
 		[DllImport("clutter")]

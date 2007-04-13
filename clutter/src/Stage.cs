@@ -24,11 +24,375 @@ namespace Clutter {
 			CreateNativeObject (new string [0], new GLib.Value [0]);
 		}
 
+		[GLib.Property ("hide-cursor")]
+		public bool HideCursor {
+			get {
+				GLib.Value val = GetProperty ("hide-cursor");
+				bool ret = (bool) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("hide-cursor", val);
+				val.Dispose ();
+			}
+		}
+
 		[DllImport("clutter")]
 		static extern void clutter_stage_set_color(IntPtr raw, ref Clutter.Color color);
 
-		public void SetColor(Clutter.Color color) {
-			clutter_stage_set_color(Handle, ref color);
+		[GLib.Property ("color")]
+		public Clutter.Color Color {
+			get {
+				GLib.Value val = GetProperty ("color");
+				Clutter.Color ret = (Clutter.Color) val;
+				val.Dispose ();
+				return ret;
+			}
+			set  {
+				clutter_stage_set_color(Handle, ref value);
+			}
+		}
+
+		[GLib.Property ("fullscreen")]
+		public bool Fullscreen {
+			get {
+				GLib.Value val = GetProperty ("fullscreen");
+				bool ret = (bool) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("fullscreen", val);
+				val.Dispose ();
+			}
+		}
+
+		[GLib.Property ("offscreen")]
+		public bool Offscreen {
+			get {
+				GLib.Value val = GetProperty ("offscreen");
+				bool ret = (bool) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("offscreen", val);
+				val.Dispose ();
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void MotionEventSignalDelegate (IntPtr arg0, ref Clutter.MotionEvent arg1, IntPtr gch);
+
+		static void MotionEventSignalCallback (IntPtr arg0, ref Clutter.MotionEvent arg1, IntPtr gch)
+		{
+			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+			if (sig == null)
+				throw new Exception("Unknown signal GC handle received " + gch);
+
+			Clutter.MotionEventArgs args = new Clutter.MotionEventArgs ();
+			args.Args = new object[1];
+			args.Args[0] = arg1;
+			Clutter.MotionEventHandler handler = (Clutter.MotionEventHandler) sig.Handler;
+			handler (GLib.Object.GetObject (arg0), args);
+
+		}
+
+		[GLib.CDeclCallback]
+		delegate void MotionEventVMDelegate (IntPtr stage, ref Clutter.MotionEvent evnt);
+
+		static MotionEventVMDelegate MotionEventVMCallback;
+
+		static void motionevent_cb (IntPtr stage, ref Clutter.MotionEvent evnt)
+		{
+			Stage stage_managed = GLib.Object.GetObject (stage, false) as Stage;
+			stage_managed.OnMotionEvent (evnt);
+		}
+
+		private static void OverrideMotionEvent (GLib.GType gtype)
+		{
+			if (MotionEventVMCallback == null)
+				MotionEventVMCallback = new MotionEventVMDelegate (motionevent_cb);
+			OverrideVirtualMethod (gtype, "motion-event", MotionEventVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Stage), ConnectionMethod="OverrideMotionEvent")]
+		protected virtual void OnMotionEvent (Clutter.MotionEvent evnt)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (evnt);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("motion-event")]
+		public event Clutter.MotionEventHandler MotionEvent {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "motion-event", new MotionEventSignalDelegate(MotionEventSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "motion-event", new MotionEventSignalDelegate(MotionEventSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ButtonPressEventSignalDelegate (IntPtr arg0, ref Clutter.ButtonEvent arg1, IntPtr gch);
+
+		static void ButtonPressEventSignalCallback (IntPtr arg0, ref Clutter.ButtonEvent arg1, IntPtr gch)
+		{
+			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+			if (sig == null)
+				throw new Exception("Unknown signal GC handle received " + gch);
+
+			Clutter.ButtonPressEventArgs args = new Clutter.ButtonPressEventArgs ();
+			args.Args = new object[1];
+			args.Args[0] = arg1;
+			Clutter.ButtonPressEventHandler handler = (Clutter.ButtonPressEventHandler) sig.Handler;
+			handler (GLib.Object.GetObject (arg0), args);
+
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ButtonPressEventVMDelegate (IntPtr stage, ref Clutter.ButtonEvent evnt);
+
+		static ButtonPressEventVMDelegate ButtonPressEventVMCallback;
+
+		static void buttonpressevent_cb (IntPtr stage, ref Clutter.ButtonEvent evnt)
+		{
+			Stage stage_managed = GLib.Object.GetObject (stage, false) as Stage;
+			stage_managed.OnButtonPressEvent (evnt);
+		}
+
+		private static void OverrideButtonPressEvent (GLib.GType gtype)
+		{
+			if (ButtonPressEventVMCallback == null)
+				ButtonPressEventVMCallback = new ButtonPressEventVMDelegate (buttonpressevent_cb);
+			OverrideVirtualMethod (gtype, "button-press-event", ButtonPressEventVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Stage), ConnectionMethod="OverrideButtonPressEvent")]
+		protected virtual void OnButtonPressEvent (Clutter.ButtonEvent evnt)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (evnt);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("button-press-event")]
+		public event Clutter.ButtonPressEventHandler ButtonPressEvent {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "button-press-event", new ButtonPressEventSignalDelegate(ButtonPressEventSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "button-press-event", new ButtonPressEventSignalDelegate(ButtonPressEventSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ButtonReleaseEventSignalDelegate (IntPtr arg0, ref Clutter.ButtonEvent arg1, IntPtr gch);
+
+		static void ButtonReleaseEventSignalCallback (IntPtr arg0, ref Clutter.ButtonEvent arg1, IntPtr gch)
+		{
+			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+			if (sig == null)
+				throw new Exception("Unknown signal GC handle received " + gch);
+
+			Clutter.ButtonReleaseEventArgs args = new Clutter.ButtonReleaseEventArgs ();
+			args.Args = new object[1];
+			args.Args[0] = arg1;
+			Clutter.ButtonReleaseEventHandler handler = (Clutter.ButtonReleaseEventHandler) sig.Handler;
+			handler (GLib.Object.GetObject (arg0), args);
+
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ButtonReleaseEventVMDelegate (IntPtr stage, ref Clutter.ButtonEvent evnt);
+
+		static ButtonReleaseEventVMDelegate ButtonReleaseEventVMCallback;
+
+		static void buttonreleaseevent_cb (IntPtr stage, ref Clutter.ButtonEvent evnt)
+		{
+			Stage stage_managed = GLib.Object.GetObject (stage, false) as Stage;
+			stage_managed.OnButtonReleaseEvent (evnt);
+		}
+
+		private static void OverrideButtonReleaseEvent (GLib.GType gtype)
+		{
+			if (ButtonReleaseEventVMCallback == null)
+				ButtonReleaseEventVMCallback = new ButtonReleaseEventVMDelegate (buttonreleaseevent_cb);
+			OverrideVirtualMethod (gtype, "button-release-event", ButtonReleaseEventVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Stage), ConnectionMethod="OverrideButtonReleaseEvent")]
+		protected virtual void OnButtonReleaseEvent (Clutter.ButtonEvent evnt)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (evnt);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("button-release-event")]
+		public event Clutter.ButtonReleaseEventHandler ButtonReleaseEvent {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "button-release-event", new ButtonReleaseEventSignalDelegate(ButtonReleaseEventSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "button-release-event", new ButtonReleaseEventSignalDelegate(ButtonReleaseEventSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void KeyPressEventSignalDelegate (IntPtr arg0, ref Clutter.KeyEvent arg1, IntPtr gch);
+
+		static void KeyPressEventSignalCallback (IntPtr arg0, ref Clutter.KeyEvent arg1, IntPtr gch)
+		{
+			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+			if (sig == null)
+				throw new Exception("Unknown signal GC handle received " + gch);
+
+			Clutter.KeyPressEventArgs args = new Clutter.KeyPressEventArgs ();
+			args.Args = new object[1];
+			args.Args[0] = arg1;
+			Clutter.KeyPressEventHandler handler = (Clutter.KeyPressEventHandler) sig.Handler;
+			handler (GLib.Object.GetObject (arg0), args);
+
+		}
+
+		[GLib.CDeclCallback]
+		delegate void KeyPressEventVMDelegate (IntPtr stage, ref Clutter.KeyEvent evnt);
+
+		static KeyPressEventVMDelegate KeyPressEventVMCallback;
+
+		static void keypressevent_cb (IntPtr stage, ref Clutter.KeyEvent evnt)
+		{
+			Stage stage_managed = GLib.Object.GetObject (stage, false) as Stage;
+			stage_managed.OnKeyPressEvent (evnt);
+		}
+
+		private static void OverrideKeyPressEvent (GLib.GType gtype)
+		{
+			if (KeyPressEventVMCallback == null)
+				KeyPressEventVMCallback = new KeyPressEventVMDelegate (keypressevent_cb);
+			OverrideVirtualMethod (gtype, "key-press-event", KeyPressEventVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Stage), ConnectionMethod="OverrideKeyPressEvent")]
+		protected virtual void OnKeyPressEvent (Clutter.KeyEvent evnt)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (evnt);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("key-press-event")]
+		public event Clutter.KeyPressEventHandler KeyPressEvent {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "key-press-event", new KeyPressEventSignalDelegate(KeyPressEventSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "key-press-event", new KeyPressEventSignalDelegate(KeyPressEventSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void KeyReleaseEventSignalDelegate (IntPtr arg0, ref Clutter.KeyEvent arg1, IntPtr gch);
+
+		static void KeyReleaseEventSignalCallback (IntPtr arg0, ref Clutter.KeyEvent arg1, IntPtr gch)
+		{
+			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+			if (sig == null)
+				throw new Exception("Unknown signal GC handle received " + gch);
+
+			Clutter.KeyReleaseEventArgs args = new Clutter.KeyReleaseEventArgs ();
+			args.Args = new object[1];
+			args.Args[0] = arg1;
+			Clutter.KeyReleaseEventHandler handler = (Clutter.KeyReleaseEventHandler) sig.Handler;
+			handler (GLib.Object.GetObject (arg0), args);
+
+		}
+
+		[GLib.CDeclCallback]
+		delegate void KeyReleaseEventVMDelegate (IntPtr stage, ref Clutter.KeyEvent evnt);
+
+		static KeyReleaseEventVMDelegate KeyReleaseEventVMCallback;
+
+		static void keyreleaseevent_cb (IntPtr stage, ref Clutter.KeyEvent evnt)
+		{
+			Stage stage_managed = GLib.Object.GetObject (stage, false) as Stage;
+			stage_managed.OnKeyReleaseEvent (evnt);
+		}
+
+		private static void OverrideKeyReleaseEvent (GLib.GType gtype)
+		{
+			if (KeyReleaseEventVMCallback == null)
+				KeyReleaseEventVMCallback = new KeyReleaseEventVMDelegate (keyreleaseevent_cb);
+			OverrideVirtualMethod (gtype, "key-release-event", KeyReleaseEventVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Stage), ConnectionMethod="OverrideKeyReleaseEvent")]
+		protected virtual void OnKeyReleaseEvent (Clutter.KeyEvent evnt)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (evnt);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("key-release-event")]
+		public event Clutter.KeyReleaseEventHandler KeyReleaseEvent {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "key-release-event", new KeyReleaseEventSignalDelegate(KeyReleaseEventSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "key-release-event", new KeyReleaseEventSignalDelegate(KeyReleaseEventSignalCallback));
+				sig.RemoveDelegate (value);
+			}
 		}
 
 		[DllImport("clutter")]

@@ -31,6 +31,24 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern IntPtr clutter_clone_texture_get_parent_texture(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_clone_texture_set_parent_texture(IntPtr raw, IntPtr texture);
+
+		[GLib.Property ("parent-texture")]
+		public Clutter.Texture ParentTexture {
+			get  {
+				IntPtr raw_ret = clutter_clone_texture_get_parent_texture(Handle);
+				Clutter.Texture ret = GLib.Object.GetObject(raw_ret) as Clutter.Texture;
+				return ret;
+			}
+			set  {
+				clutter_clone_texture_set_parent_texture(Handle, value == null ? IntPtr.Zero : value.Handle);
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_clone_texture_get_type();
 
 		public static new GLib.GType GType { 
@@ -38,23 +56,6 @@ namespace Clutter {
 				IntPtr raw_ret = clutter_clone_texture_get_type();
 				GLib.GType ret = new GLib.GType(raw_ret);
 				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_clone_texture_get_parent_texture(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_clone_texture_set_parent_texture(IntPtr raw, IntPtr texture);
-
-		public Clutter.Texture ParentTexture { 
-			get {
-				IntPtr raw_ret = clutter_clone_texture_get_parent_texture(Handle);
-				Clutter.Texture ret = GLib.Object.GetObject(raw_ret) as Clutter.Texture;
-				return ret;
-			}
-			set {
-				clutter_clone_texture_set_parent_texture(Handle, value == null ? IntPtr.Zero : value.Handle);
 			}
 		}
 

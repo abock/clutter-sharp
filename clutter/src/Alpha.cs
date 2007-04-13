@@ -55,6 +55,36 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern IntPtr clutter_alpha_get_timeline(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_alpha_set_timeline(IntPtr raw, IntPtr timeline);
+
+		[GLib.Property ("timeline")]
+		public Clutter.Timeline Timeline {
+			get  {
+				IntPtr raw_ret = clutter_alpha_get_timeline(Handle);
+				Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
+				return ret;
+			}
+			set  {
+				clutter_alpha_set_timeline(Handle, value == null ? IntPtr.Zero : value.Handle);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern uint clutter_alpha_get_alpha(IntPtr raw);
+
+		[GLib.Property ("alpha")]
+		public uint AlphaProp {
+			get  {
+				uint raw_ret = clutter_alpha_get_alpha(Handle);
+				uint ret = raw_ret;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_alpha_set_func(IntPtr raw, ClutterSharp.AlphaFuncNative func, IntPtr data, GLib.DestroyNotify destroy);
 
 		public Clutter.AlphaFunc Func { 
@@ -83,34 +113,6 @@ namespace Clutter {
 				IntPtr raw_ret = clutter_alpha_get_type();
 				GLib.GType ret = new GLib.GType(raw_ret);
 				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern uint clutter_alpha_get_alpha(IntPtr raw);
-
-		public uint Alpha { 
-			get {
-				uint raw_ret = clutter_alpha_get_alpha(Handle);
-				uint ret = raw_ret;
-				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_alpha_get_timeline(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_alpha_set_timeline(IntPtr raw, IntPtr timeline);
-
-		public Clutter.Timeline Timeline { 
-			get {
-				IntPtr raw_ret = clutter_alpha_get_timeline(Handle);
-				Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
-				return ret;
-			}
-			set {
-				clutter_alpha_set_timeline(Handle, value == null ? IntPtr.Zero : value.Handle);
 			}
 		}
 

@@ -25,27 +25,28 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_remove(IntPtr raw, IntPtr actor);
-
-		public void Remove(Clutter.Actor actor) {
-			clutter_behaviour_remove(Handle, actor == null ? IntPtr.Zero : actor.Handle);
-		}
-
-		[DllImport("clutter")]
 		static extern IntPtr clutter_behaviour_get_alpha(IntPtr raw);
 
 		[DllImport("clutter")]
 		static extern void clutter_behaviour_set_alpha(IntPtr raw, IntPtr alpha);
 
-		public Clutter.Alpha Alpha { 
-			get {
+		[GLib.Property ("alpha")]
+		public Clutter.Alpha Alpha {
+			get  {
 				IntPtr raw_ret = clutter_behaviour_get_alpha(Handle);
 				Clutter.Alpha ret = GLib.Object.GetObject(raw_ret) as Clutter.Alpha;
 				return ret;
 			}
-			set {
+			set  {
 				clutter_behaviour_set_alpha(Handle, value == null ? IntPtr.Zero : value.Handle);
 			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_remove(IntPtr raw, IntPtr actor);
+
+		public void Remove(Clutter.Actor actor) {
+			clutter_behaviour_remove(Handle, actor == null ? IntPtr.Zero : actor.Handle);
 		}
 
 		[DllImport("clutter")]

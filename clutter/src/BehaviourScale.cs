@@ -41,6 +41,51 @@ namespace Clutter {
 			Raw = clutter_behaviour_scale_newx(alpha == null ? IntPtr.Zero : alpha.Handle, scale_begin, scale_end, (int) gravity);
 		}
 
+		[GLib.Property ("scale-gravity")]
+		public Clutter.Gravity ScaleGravity {
+			get {
+				GLib.Value val = GetProperty ("scale-gravity");
+				Clutter.Gravity ret = (Clutter.Gravity) (Enum) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value((Enum) value);
+				SetProperty("scale-gravity", val);
+				val.Dispose ();
+			}
+		}
+
+		[GLib.Property ("scale-begin")]
+		public double ScaleBegin {
+			get {
+				GLib.Value val = GetProperty ("scale-begin");
+				double ret = (double) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("scale-begin", val);
+				val.Dispose ();
+			}
+		}
+
+		[GLib.Property ("scale-end")]
+		public double ScaleEnd {
+			get {
+				GLib.Value val = GetProperty ("scale-end");
+				double ret = (double) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("scale-end", val);
+				val.Dispose ();
+			}
+		}
+
 		[DllImport("clutter")]
 		static extern IntPtr clutter_behaviour_scale_get_type();
 

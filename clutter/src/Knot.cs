@@ -26,22 +26,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_knot_copy(ref Clutter.Knot raw);
-
-		public Clutter.Knot Copy() {
-			IntPtr raw_ret = clutter_knot_copy(ref this);
-			Clutter.Knot ret = Clutter.Knot.New (raw_ret);
-			return ret;
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_knot_free(ref Clutter.Knot raw);
-
-		public void Free() {
-			clutter_knot_free(ref this);
-		}
-
-		[DllImport("clutter")]
 		static extern IntPtr clutter_knot_get_type();
 
 		public static GLib.GType GType { 
@@ -61,6 +45,25 @@ namespace Clutter {
 			return ret;
 		}
 
+		[DllImport("glibsharpglue-2")]
+		static extern IntPtr glibsharp_value_get_boxed (ref GLib.Value val);
+
+		[DllImport("glibsharpglue-2")]
+		static extern void glibsharp_value_set_boxed (ref GLib.Value val, ref Clutter.Knot boxed);
+
+		public static explicit operator GLib.Value (Clutter.Knot boxed)
+		{
+			GLib.Value val = GLib.Value.Empty;
+			val.Init (Clutter.Knot.GType);
+			glibsharp_value_set_boxed (ref val, ref boxed);
+			return val;
+		}
+
+		public static explicit operator Clutter.Knot (GLib.Value val)
+		{
+			IntPtr boxed_ptr = glibsharp_value_get_boxed (ref val);
+			return New (boxed_ptr);
+		}
 #endregion
 #region Customized extensions
 #line 1 "Knot.custom"

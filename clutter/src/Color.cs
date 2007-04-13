@@ -83,13 +83,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_free(ref Clutter.Color raw);
-
-		public void Free() {
-			clutter_color_free(ref this);
-		}
-
-		[DllImport("clutter")]
 		static extern void clutter_color_shadex(ref Clutter.Color raw, ref Clutter.Color dest, int shade);
 
 		public void Shadex(Clutter.Color dest, int shade) {
@@ -146,15 +139,25 @@ namespace Clutter {
 			}
 		}
 
-		[DllImport("clutter")]
-		static extern IntPtr clutter_color_copy(ref Clutter.Color raw);
+		[DllImport("glibsharpglue-2")]
+		static extern IntPtr glibsharp_value_get_boxed (ref GLib.Value val);
 
-		public Clutter.Color Copy() {
-			IntPtr raw_ret = clutter_color_copy(ref this);
-			Clutter.Color ret = Clutter.Color.New (raw_ret);
-			return ret;
+		[DllImport("glibsharpglue-2")]
+		static extern void glibsharp_value_set_boxed (ref GLib.Value val, ref Clutter.Color boxed);
+
+		public static explicit operator GLib.Value (Clutter.Color boxed)
+		{
+			GLib.Value val = GLib.Value.Empty;
+			val.Init (Clutter.Color.GType);
+			glibsharp_value_set_boxed (ref val, ref boxed);
+			return val;
 		}
 
+		public static explicit operator Clutter.Color (GLib.Value val)
+		{
+			IntPtr boxed_ptr = glibsharp_value_get_boxed (ref val);
+			return New (boxed_ptr);
+		}
 #endregion
 #region Customized extensions
 #line 1 "Color.custom"
