@@ -25,7 +25,10 @@ if test "x$PKG_CONFIG" = "xno"; then
 	AC_MSG_ERROR([Cannot find the "pkg-config" program in your PATH])
 fi
 
-AC_ARG_ENABLE(docs, AC_HELP_STRING([--disable-docs], [Do not build Monodoc documentation]), with_docs=no, with_docs=yes)
+AC_ARG_ENABLE(docs,
+              AC_HELP_STRING([--disable-docs],
+                             [Do not build Monodoc documentation]),
+              with_docs=no, with_docs=yes)
 
 if test "x$with_docs" = "xyes"; then
 	AC_PATH_PROG(MONODOCER, monodocer, no)
@@ -56,7 +59,6 @@ AC_OUTPUT([
 	Makefile
 	clutter-sharp.pc
 	gapi/Makefile
-	gapi/clutter-sources.xml
 	src/Makefile
 	src/AssemblyInfo.cs
 	src/clutter-sharp.dll.config
