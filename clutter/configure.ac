@@ -56,6 +56,7 @@ AC_OUTPUT([
 	Makefile
 	clutter-sharp.pc
 	gapi/Makefile
+	gapi/clutter-sources.xml
 	src/Makefile
 	src/AssemblyInfo.cs
 	src/clutter-sharp.dll.config
