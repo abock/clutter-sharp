@@ -1,3 +1,7 @@
+2007-08-12  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
+	* src/clutter-sharp.dll.config.in: move to correct 
+	src/clutter-cairo-sharp.dll.config.in
+
 2007-04-13  Emmanuele Bassi  <ebassi@openedhand.com>
 
 	* *: Initial import of Clutter-Cairo-Sharp.

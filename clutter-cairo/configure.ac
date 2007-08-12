@@ -59,6 +59,7 @@ AC_OUTPUT([
 	gapi/Makefile
 	src/AssemblyInfo.cs
 	src/Makefile
+	src/clutter-cairo-sharp.dll.config
 	examples/Makefile
 ])
 
