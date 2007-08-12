@@ -15,7 +15,7 @@ namespace Clutter {
 		public uint Time;
 		public int X;
 		public int Y;
-		public uint ModifierState;
+		public Clutter.ModifierType ModifierState;
 		private IntPtr _axes;
 		private IntPtr _device;
 		public Clutter.InputDevice Device {

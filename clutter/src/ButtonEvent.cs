@@ -15,7 +15,7 @@ namespace Clutter {
 		public uint Time;
 		public int X;
 		public int Y;
-		public uint ModifierState;
+		public Clutter.ModifierType ModifierState;
 		public uint Button;
 		private IntPtr _axes;
 		private IntPtr _device;
@@ -37,28 +37,6 @@ namespace Clutter {
 			Clutter.ButtonEvent self = new Clutter.ButtonEvent();
 			self = (Clutter.ButtonEvent) Marshal.PtrToStructure (raw, self.GetType ());
 			return self;
-		}
-
-		[DllImport("clutter")]
-		static extern int clutter_button_event_x(ref Clutter.ButtonEvent raw);
-
-		public int XPosition { 
-			get {
-				int raw_ret = clutter_button_event_x(ref this);
-				int ret = raw_ret;
-				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern int clutter_button_event_y(ref Clutter.ButtonEvent raw);
-
-		public int YPosition { 
-			get {
-				int raw_ret = clutter_button_event_y(ref this);
-				int ret = raw_ret;
-				return ret;
-			}
 		}
 
 		private static GLib.GType GType {

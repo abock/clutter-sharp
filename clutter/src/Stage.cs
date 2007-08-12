@@ -24,21 +24,6 @@ namespace Clutter {
 			CreateNativeObject (new string [0], new GLib.Value [0]);
 		}
 
-		[GLib.Property ("hide-cursor")]
-		public bool HideCursor {
-			get {
-				GLib.Value val = GetProperty ("hide-cursor");
-				bool ret = (bool) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("hide-cursor", val);
-				val.Dispose ();
-			}
-		}
-
 		[DllImport("clutter")]
 		static extern void clutter_stage_set_color(IntPtr raw, ref Clutter.Color color);
 
@@ -52,6 +37,59 @@ namespace Clutter {
 			}
 			set  {
 				clutter_stage_set_color(Handle, ref value);
+			}
+		}
+
+		[GLib.Property ("cursor-visible")]
+		public bool CursorVisible {
+			get {
+				GLib.Value val = GetProperty ("cursor-visible");
+				bool ret = (bool) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("cursor-visible", val);
+				val.Dispose ();
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_stage_get_user_resizable(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_set_user_resizable(IntPtr raw, bool resizable);
+
+		[GLib.Property ("user-resizable")]
+		public bool UserResizable {
+			get  {
+				bool raw_ret = clutter_stage_get_user_resizable(Handle);
+				bool ret = raw_ret;
+				return ret;
+			}
+			set  {
+				clutter_stage_set_user_resizable(Handle, value);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_stage_get_title(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_set_title(IntPtr raw, IntPtr title);
+
+		[GLib.Property ("title")]
+		public string Title {
+			get  {
+				IntPtr raw_ret = clutter_stage_get_title(Handle);
+				string ret = GLib.Marshaller.Utf8PtrToString (raw_ret);
+				return ret;
+			}
+			set  {
+				IntPtr title_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_stage_set_title(Handle, title_as_native);
+				GLib.Marshaller.Free (title_as_native);
 			}
 		}
 
@@ -82,6 +120,68 @@ namespace Clutter {
 				GLib.Value val = new GLib.Value(value);
 				SetProperty("offscreen", val);
 				val.Dispose ();
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ScrollEventSignalDelegate (IntPtr arg0, ref Clutter.ScrollEvent arg1, IntPtr gch);
+
+		static void ScrollEventSignalCallback (IntPtr arg0, ref Clutter.ScrollEvent arg1, IntPtr gch)
+		{
+			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+			if (sig == null)
+				throw new Exception("Unknown signal GC handle received " + gch);
+
+			Clutter.ScrollEventArgs args = new Clutter.ScrollEventArgs ();
+			args.Args = new object[1];
+			args.Args[0] = arg1;
+			Clutter.ScrollEventHandler handler = (Clutter.ScrollEventHandler) sig.Handler;
+			handler (GLib.Object.GetObject (arg0), args);
+
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ScrollEventVMDelegate (IntPtr stage, ref Clutter.ScrollEvent evnt);
+
+		static ScrollEventVMDelegate ScrollEventVMCallback;
+
+		static void scrollevent_cb (IntPtr stage, ref Clutter.ScrollEvent evnt)
+		{
+			Stage stage_managed = GLib.Object.GetObject (stage, false) as Stage;
+			stage_managed.OnScrollEvent (evnt);
+		}
+
+		private static void OverrideScrollEvent (GLib.GType gtype)
+		{
+			if (ScrollEventVMCallback == null)
+				ScrollEventVMCallback = new ScrollEventVMDelegate (scrollevent_cb);
+			OverrideVirtualMethod (gtype, "scroll-event", ScrollEventVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Stage), ConnectionMethod="OverrideScrollEvent")]
+		protected virtual void OnScrollEvent (Clutter.ScrollEvent evnt)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (evnt);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("scroll-event")]
+		public event Clutter.ScrollEventHandler ScrollEvent {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "scroll-event", new ScrollEventSignalDelegate(ScrollEventSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "scroll-event", new ScrollEventSignalDelegate(ScrollEventSignalCallback));
+				sig.RemoveDelegate (value);
 			}
 		}
 
@@ -210,68 +310,6 @@ namespace Clutter {
 		}
 
 		[GLib.CDeclCallback]
-		delegate void ButtonReleaseEventSignalDelegate (IntPtr arg0, ref Clutter.ButtonEvent arg1, IntPtr gch);
-
-		static void ButtonReleaseEventSignalCallback (IntPtr arg0, ref Clutter.ButtonEvent arg1, IntPtr gch)
-		{
-			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
-			if (sig == null)
-				throw new Exception("Unknown signal GC handle received " + gch);
-
-			Clutter.ButtonReleaseEventArgs args = new Clutter.ButtonReleaseEventArgs ();
-			args.Args = new object[1];
-			args.Args[0] = arg1;
-			Clutter.ButtonReleaseEventHandler handler = (Clutter.ButtonReleaseEventHandler) sig.Handler;
-			handler (GLib.Object.GetObject (arg0), args);
-
-		}
-
-		[GLib.CDeclCallback]
-		delegate void ButtonReleaseEventVMDelegate (IntPtr stage, ref Clutter.ButtonEvent evnt);
-
-		static ButtonReleaseEventVMDelegate ButtonReleaseEventVMCallback;
-
-		static void buttonreleaseevent_cb (IntPtr stage, ref Clutter.ButtonEvent evnt)
-		{
-			Stage stage_managed = GLib.Object.GetObject (stage, false) as Stage;
-			stage_managed.OnButtonReleaseEvent (evnt);
-		}
-
-		private static void OverrideButtonReleaseEvent (GLib.GType gtype)
-		{
-			if (ButtonReleaseEventVMCallback == null)
-				ButtonReleaseEventVMCallback = new ButtonReleaseEventVMDelegate (buttonreleaseevent_cb);
-			OverrideVirtualMethod (gtype, "button-release-event", ButtonReleaseEventVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Stage), ConnectionMethod="OverrideButtonReleaseEvent")]
-		protected virtual void OnButtonReleaseEvent (Clutter.ButtonEvent evnt)
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
-			GLib.Value[] vals = new GLib.Value [2];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			vals [1] = new GLib.Value (evnt);
-			inst_and_params.Append (vals [1]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("button-release-event")]
-		public event Clutter.ButtonReleaseEventHandler ButtonReleaseEvent {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "button-release-event", new ButtonReleaseEventSignalDelegate(ButtonReleaseEventSignalCallback));
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "button-release-event", new ButtonReleaseEventSignalDelegate(ButtonReleaseEventSignalCallback));
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[GLib.CDeclCallback]
 		delegate void KeyPressEventSignalDelegate (IntPtr arg0, ref Clutter.KeyEvent arg1, IntPtr gch);
 
 		static void KeyPressEventSignalCallback (IntPtr arg0, ref Clutter.KeyEvent arg1, IntPtr gch)
@@ -329,6 +367,68 @@ namespace Clutter {
 			}
 			remove {
 				GLib.Signal sig = GLib.Signal.Lookup (this, "key-press-event", new KeyPressEventSignalDelegate(KeyPressEventSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ButtonReleaseEventSignalDelegate (IntPtr arg0, ref Clutter.ButtonEvent arg1, IntPtr gch);
+
+		static void ButtonReleaseEventSignalCallback (IntPtr arg0, ref Clutter.ButtonEvent arg1, IntPtr gch)
+		{
+			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+			if (sig == null)
+				throw new Exception("Unknown signal GC handle received " + gch);
+
+			Clutter.ButtonReleaseEventArgs args = new Clutter.ButtonReleaseEventArgs ();
+			args.Args = new object[1];
+			args.Args[0] = arg1;
+			Clutter.ButtonReleaseEventHandler handler = (Clutter.ButtonReleaseEventHandler) sig.Handler;
+			handler (GLib.Object.GetObject (arg0), args);
+
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ButtonReleaseEventVMDelegate (IntPtr stage, ref Clutter.ButtonEvent evnt);
+
+		static ButtonReleaseEventVMDelegate ButtonReleaseEventVMCallback;
+
+		static void buttonreleaseevent_cb (IntPtr stage, ref Clutter.ButtonEvent evnt)
+		{
+			Stage stage_managed = GLib.Object.GetObject (stage, false) as Stage;
+			stage_managed.OnButtonReleaseEvent (evnt);
+		}
+
+		private static void OverrideButtonReleaseEvent (GLib.GType gtype)
+		{
+			if (ButtonReleaseEventVMCallback == null)
+				ButtonReleaseEventVMCallback = new ButtonReleaseEventVMDelegate (buttonreleaseevent_cb);
+			OverrideVirtualMethod (gtype, "button-release-event", ButtonReleaseEventVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Stage), ConnectionMethod="OverrideButtonReleaseEvent")]
+		protected virtual void OnButtonReleaseEvent (Clutter.ButtonEvent evnt)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (evnt);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("button-release-event")]
+		public event Clutter.ButtonReleaseEventHandler ButtonReleaseEvent {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "button-release-event", new ButtonReleaseEventSignalDelegate(ButtonReleaseEventSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "button-release-event", new ButtonReleaseEventSignalDelegate(ButtonReleaseEventSignalCallback));
 				sig.RemoveDelegate (value);
 			}
 		}
@@ -396,6 +496,36 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_stage_set_perspective(IntPtr raw, float fovy, float aspect, float z_near, float z_far);
+
+		public void SetPerspective(float fovy, float aspect, float z_near, float z_far) {
+			clutter_stage_set_perspective(Handle, fovy, aspect, z_near, z_far);
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_stage_snapshot(IntPtr raw, int x, int y, int width, int height);
+
+		public Gdk.Pixbuf Snapshot(int x, int y, int width, int height) {
+			IntPtr raw_ret = clutter_stage_snapshot(Handle, x, y, width, height);
+			Gdk.Pixbuf ret = GLib.Object.GetObject(raw_ret) as Gdk.Pixbuf;
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_show_cursor(IntPtr raw);
+
+		public void ShowCursor() {
+			clutter_stage_show_cursor(Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_hide_cursor(IntPtr raw);
+
+		public void HideCursor() {
+			clutter_stage_hide_cursor(Handle);
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_stage_get_default();
 
 		public static Clutter.Stage Default { 
@@ -407,12 +537,31 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_stage_snapshot(IntPtr raw, int x, int y, int width, int height);
+		static extern void clutter_stage_set_perspectivex(IntPtr raw, ref Clutter.Perspective perspective);
 
-		public Gdk.Pixbuf Snapshot(int x, int y, int width, int height) {
-			IntPtr raw_ret = clutter_stage_snapshot(Handle, x, y, width, height);
-			Gdk.Pixbuf ret = GLib.Object.GetObject(raw_ret) as Gdk.Pixbuf;
-			return ret;
+		public void SetPerspectivex(Clutter.Perspective perspective) {
+			clutter_stage_set_perspectivex(Handle, ref perspective);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_unfullscreen(IntPtr raw);
+
+		public void Unfullscreen() {
+			clutter_stage_unfullscreen(Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_get_perspectivex(IntPtr raw, ref Clutter.Perspective perspective);
+
+		public void GetPerspectivex(Clutter.Perspective perspective) {
+			clutter_stage_get_perspectivex(Handle, ref perspective);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_get_perspective(IntPtr raw, out float fovy, out float aspect, out float z_near, out float z_far);
+
+		public void GetPerspective(out float fovy, out float aspect, out float z_near, out float z_far) {
+			clutter_stage_get_perspective(Handle, out fovy, out aspect, out z_near, out z_far);
 		}
 
 		[DllImport("clutter")]

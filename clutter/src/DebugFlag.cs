@@ -19,6 +19,8 @@ namespace Clutter {
 		Alpha = 1 << 6,
 		Behaviour = 1 << 7,
 		Pango = 1 << 8,
+		Backend = 1 << 9,
+		Scheduler = 1 << 10,
 	}
 #endregion
 }

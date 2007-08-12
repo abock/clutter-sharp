@@ -49,10 +49,10 @@ namespace Clutter {
 		}
 
 		[GLib.Property ("num-frames")]
-		public int NumFrames {
+		public uint NumFrames {
 			get {
 				GLib.Value val = GetProperty ("num-frames");
-				int ret = (int) val;
+				uint ret = (uint) val;
 				val.Dispose ();
 				return ret;
 			}
@@ -63,11 +63,29 @@ namespace Clutter {
 			}
 		}
 
+		[DllImport("clutter")]
+		static extern uint clutter_timeline_get_delay(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_timeline_set_delay(IntPtr raw, uint msecs);
+
+		[GLib.Property ("delay")]
+		public uint Delay {
+			get  {
+				uint raw_ret = clutter_timeline_get_delay(Handle);
+				uint ret = raw_ret;
+				return ret;
+			}
+			set  {
+				clutter_timeline_set_delay(Handle, value);
+			}
+		}
+
 		[GLib.Property ("fps")]
-		public int Fps {
+		public uint Fps {
 			get {
 				GLib.Value val = GetProperty ("fps");
-				int ret = (int) val;
+				uint ret = (uint) val;
 				val.Dispose ();
 				return ret;
 			}
@@ -309,6 +327,15 @@ namespace Clutter {
 				bool ret = raw_ret;
 				return ret;
 			}
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_timeline_clone(IntPtr raw);
+
+		public Clutter.Timeline Clone() {
+			IntPtr raw_ret = clutter_timeline_clone(Handle);
+			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
+			return ret;
 		}
 
 		[DllImport("clutter")]

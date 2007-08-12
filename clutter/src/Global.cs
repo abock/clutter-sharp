@@ -10,12 +10,14 @@ namespace Clutter {
 	public class Global {
 
 		[DllImport("clutter")]
-		static extern bool clutter_want_debug();
+		static extern IntPtr clutter_get_default_backend();
 
-		public static bool WantDebug() {
-			bool raw_ret = clutter_want_debug();
-			bool ret = raw_ret;
-			return ret;
+		public static Clutter.Backend DefaultBackend { 
+			get {
+				IntPtr raw_ret = clutter_get_default_backend();
+				Clutter.Backend ret = GLib.Object.GetObject(raw_ret) as Clutter.Backend;
+				return ret;
+			}
 		}
 
 		[DllImport("clutter")]
@@ -28,12 +30,14 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern uint clutter_sine_func(IntPtr alpha, IntPtr dummy);
+		static extern bool clutter_get_show_fps();
 
-		public static uint SineFunc(Clutter.Alpha alpha, IntPtr dummy) {
-			uint raw_ret = clutter_sine_func(alpha == null ? IntPtr.Zero : alpha.Handle, dummy);
-			uint ret = raw_ret;
-			return ret;
+		public static bool ShowFps { 
+			get {
+				bool raw_ret = clutter_get_show_fps();
+				bool ret = raw_ret;
+				return ret;
+			}
 		}
 
 		[DllImport("clutter")]
@@ -43,6 +47,53 @@ namespace Clutter {
 			uint raw_ret = clutter_square_func(alpha == null ? IntPtr.Zero : alpha.Handle, dummy);
 			uint ret = raw_ret;
 			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_base_init();
+
+		public static void BaseInit() {
+			clutter_base_init();
+		}
+
+		[DllImport("clutter")]
+		static extern int clutter_util_next_p2(int a);
+
+		public static int UtilNextP2(int a) {
+			int raw_ret = clutter_util_next_p2(a);
+			int ret = raw_ret;
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern UIntPtr clutter_get_timestamp();
+
+		public static ulong Timestamp { 
+			get {
+				UIntPtr raw_ret = clutter_get_timestamp();
+				ulong ret = (ulong) raw_ret;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_events_pending();
+
+		public static bool EventsPending() {
+			bool raw_ret = clutter_events_pending();
+			bool ret = raw_ret;
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_get_debug_enabled();
+
+		public static bool DebugEnabled { 
+			get {
+				bool raw_ret = clutter_get_debug_enabled();
+				bool ret = raw_ret;
+				return ret;
+			}
 		}
 
 #endregion

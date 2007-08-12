@@ -14,13 +14,6 @@ EXTRA_DIST = $(SOURCES_XML) $(CLUTTER_CAIRO_METADATA)
 gapidir = $(datadir)/gapi-2.0
 gapi_DATA = $(CLUTTER_CAIRO_FIXED_API)
 
-clutterincludedir = $(includedir)
-
-$(SOURCES_XML): clutter-cairo-sources.xml.in
-	@sed \
-		-e "s|@clutterincludedir@|$(clutterincludedir)|" \
-	$< > $(@F)
-
 $(CLUTTER_CAIRO_FIXED_API): $(SOURCES_XML)
 	$(GAPI_PARSER) $(SOURCES_XML)
 	cp $(CLUTTER_CAIRO_RAW_API) $(CLUTTER_CAIRO_FIXED_API)

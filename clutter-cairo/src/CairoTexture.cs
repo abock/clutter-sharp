@@ -57,6 +57,13 @@ namespace Clutter {
 			return ret;
 		}
 
+		[DllImport("clutter-cairo")]
+		static extern void clutter_cairo_set_source_color(IntPtr cr, ref Clutter.Color color);
+
+		public static void SetSourceColor(Cairo.Context cr, Clutter.Color color) {
+			clutter_cairo_set_source_color(cr == null ? IntPtr.Zero : cr.Handle, ref color);
+		}
+
 
 		static CairoTexture ()
 		{

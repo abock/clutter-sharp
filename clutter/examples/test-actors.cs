@@ -15,15 +15,7 @@ public class SuperOH
 
 	static uint GetRadius ()
 	{
-		return (Stage.Default.Width + Stage.Default.Height) / n_hands;
-	}
-
-	static Clutter.Color StageColor {
-		get {
-		 	Clutter.Color c = new Clutter.Color ();
-			c.FromHls (0x61, 0x64, 0x8c);
-			return c;
-		} 
+		return (Stage.Default.Height + Stage.Default.Height) / n_hands;
 	}
 
 	static void HandleNewFrame (object o, NewFrameArgs args) 
@@ -42,7 +34,7 @@ public class SuperOH
 
 	static void HandleButtonPress (object o, ButtonPressEventArgs args)
 	{
-	 	Actor c = (Stage.Default as Stage).GetActorAtPos (args.Event.XPosition, args.Event.YPosition);
+	 	Actor c = (Stage.Default as Stage).GetActorAtPos (args.Event.X, args.Event.Y);
 
 	 	if (c != null)
 	 	 	c.Hide ();
@@ -58,15 +50,15 @@ public class SuperOH
 	{
 		ClutterRun.Init (); 
 
-		Stage stage = Stage.Default as Stage;	 
-		stage.Color = StageColor;
+		Stage stage = Stage.Default;	 
+		stage.SetSize (800, 600);
+		stage.Color = new Clutter.Color (0x61, 0x64, 0x8c, 0xff);
 		Gdk.Pixbuf hand_pixbuf = new Gdk.Pixbuf ("redhand.png");
 
 		SuperOH oh = new SuperOH();
 		CurrentOH = oh;
 		oh.Group = new Group ();
 		oh.Hands = new Actor[n_hands];
-
 
 		for (int i = 0; i < n_hands; i++) {
 			Texture hand_text = new Texture (hand_pixbuf);
@@ -91,6 +83,7 @@ public class SuperOH
 			oh.Group.Add (oh.Hands[i]);
 		}
 
+		oh.Group.ShowAll ();
 		stage.Add (oh.Group);
 		stage.ButtonPressEvent += HandleButtonPress;
 		stage.KeyPressEvent += HandleKeyPress;
@@ -99,9 +92,7 @@ public class SuperOH
 
 		Timeline timeline = new Timeline (360, 90);
 		timeline.Loop = true;
-
 		timeline.NewFrame += HandleNewFrame;
-
 		timeline.Start ();
 
 		ClutterRun.Main ();

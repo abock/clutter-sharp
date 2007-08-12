@@ -42,6 +42,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_color_to_hlsx(ref Clutter.Color raw, out int hue, out int luminance, out int saturation);
+
+		public void ToHlsx(out int hue, out int luminance, out int saturation) {
+			clutter_color_to_hlsx(ref this, out hue, out luminance, out saturation);
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_color_to_string(ref Clutter.Color raw);
 
 		public override string ToString() {
@@ -87,6 +94,13 @@ namespace Clutter {
 
 		public void Shadex(Clutter.Color dest, int shade) {
 			clutter_color_shadex(ref this, ref dest, shade);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_color_from_hlsx(ref Clutter.Color raw, int hue, int luminance, int saturation);
+
+		public void FromHlsx(int hue, int luminance, int saturation) {
+			clutter_color_from_hlsx(ref this, hue, luminance, saturation);
 		}
 
 		[DllImport("clutter")]

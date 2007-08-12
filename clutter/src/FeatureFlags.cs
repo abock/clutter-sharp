@@ -13,6 +13,11 @@ namespace Clutter {
 
 		TextureRectangle = 1 << 1,
 		SyncToVblank = 1 << 2,
+		TextureYuv = 1 << 3,
+		TextureReadPixels = 1 << 4,
+		StageStatic = 1 << 5,
+		StageUserResize = 1 << 6,
+		StageCursor = 1 << 7,
 	}
 
 	internal class FeatureFlagsGType {

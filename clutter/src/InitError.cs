@@ -11,11 +11,10 @@ namespace Clutter {
 	public enum InitError {
 
 		Success = 1,
-		ErrorUnkown,
+		ErrorUnknown,
 		ErrorThreads = -1,
-		ErrorDisplay = -2,
+		ErrorBackend = -2,
 		ErrorInternal = -3,
-		ErrorOpengl = -4,
 	}
 
 	internal class InitErrorGType {

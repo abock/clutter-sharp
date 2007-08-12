@@ -16,7 +16,13 @@ namespace Clutter {
 		Motion,
 		ButtonPress,
 		TwoButtonPress,
+		ThreeButtonPress,
 		ButtonRelease,
+		Scroll,
+		StageState,
+		DestroyNotify,
+		ClientMessage,
+		Delete,
 	}
 
 	internal class EventTypeGType {

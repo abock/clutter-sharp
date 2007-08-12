@@ -2,7 +2,7 @@
 	<api filename="clutter-cairo-api.raw">
 		<library name="clutter-cairo">
 			<namespace name="Clutter">
-				<dir>../../../../clutter-cairo-0.1.0</dir>
+				<dir>../../../../clutter-cairo-0.4</dir>
 			</namespace>
 		</library>
 	</api>

@@ -11,8 +11,7 @@ public class Flower
 	static Random random;
 
 	static Flower[] flowers;
-	static Label label;
-
+	
  	CairoTexture ctex;
 	int x;
 	int y;

@@ -19,13 +19,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_feature_wait_for_vblank();
-
-		public static void WaitForVblank() {
-			clutter_feature_wait_for_vblank();
-		}
-
-		[DllImport("clutter")]
 		static extern int clutter_feature_get_all();
 
 		public static Clutter.FeatureFlags All { 

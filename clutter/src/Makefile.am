@@ -1,38 +1,56 @@
 ASSEMBLY_NAME = clutter-sharp
 ASSEMBLY = $(ASSEMBLY_NAME).dll
 SOURCES = \
-	Actor.cs		\
-	ActorBox.cs		\
-	ActorFlags.cs		\
+	Actor.cs	\
+	ActorAddedHandler.cs	\
+	ActorBox.cs	\
+	ActorFlags.cs	\
+	ActorRemovedHandler.cs	\
 	AddEventHandler.cs	\
-	Alpha.cs		\
-	AlphaFunc.cs		\
-	AnyEvent.cs		\
-	Behaviour.cs		\
+	Alpha.cs	\
+	AlphaFunc.cs	\
+	AnyEvent.cs	\
+	AppliedHandler.cs	\
+	Backend.cs	\
+	Behaviour.cs	\
+	BehaviourBspline.cs	\
+	BehaviourEllipse.cs	\
 	BehaviourForeachFunc.cs	\
 	BehaviourOpacity.cs	\
 	BehaviourPath.cs	\
+	BehaviourRotate.cs	\
 	BehaviourScale.cs	\
-	ButtonEvent.cs		\
+	Box.cs	\
+	BoxChild.cs	\
+	ButtonEvent.cs	\
 	ButtonPressEventHandler.cs	\
 	ButtonReleaseEventHandler.cs	\
 	Callback.cs	\
 	CloneTexture.cs	\
-	ClutterRun.cs \
+	ClutterRun.cs	\
 	ClutterSharp.AlphaFuncNative.cs	\
 	ClutterSharp.BehaviourForeachFuncNative.cs	\
 	ClutterSharp.CallbackNative.cs	\
+	ClutterSharp.EffectCompleteFuncNative.cs	\
 	Color.cs	\
+	Container.cs	\
+	CursorEventHandler.cs	\
 	DebugFlag.cs	\
+	Effect.cs	\
+	EffectCompleteFunc.cs	\
+	EffectTemplate.cs	\
+	Entry.cs	\
 	ErrorHandler.cs	\
 	Event.cs	\
 	EventType.cs	\
+	Exp.cs	\
 	Feature.cs	\
 	FeatureFlags.cs	\
 	Geometry.cs	\
 	Global.cs	\
 	Gravity.cs	\
 	Group.cs	\
+	HBox.cs	\
 	Init.cs	\
 	InitError.cs	\
 	InputDevice.cs	\
@@ -42,20 +60,40 @@ SOURCES = \
 	Knot.cs	\
 	KnotReachedHandler.cs	\
 	Label.cs	\
+	Layout.cs	\
+	LayoutFlags.cs	\
 	Main.cs	\
+	Margin.cs 	\
 	Media.cs	\
+	ModifierType.cs	\
 	MotionEvent.cs	\
 	MotionEventHandler.cs	\
 	NewFrameHandler.cs	\
+	Padding.cs	\
+	PackType.cs	\
 	ParentSetHandler.cs	\
+	Perspective.cs	\
 	Ramp.cs	\
 	Rectangle.cs	\
-	RemoveEventHandler.cs	\
+	RemovedHandler.cs	\
+	RemoveEventHandler.cs 	\
+	RotateAxis.cs	\
+	RotateDirection.cs	\
+	ScrollDirection.cs	\
+	ScrollEvent.cs	\
+	ScrollEventHandler.cs	\
+	Sine.cs	\
 	SizeChangeHandler.cs	\
+	Smoothstep.cs	\
 	Stage.cs	\
+	StageState.cs	\
+	StageStateEvent.cs	\
 	Texture.cs	\
-	Threads.cs	\
-	Timeline.cs	
+	TextureFlags.cs	\
+	Timeline.cs	\
+	TimeoutPool.cs	\
+	VBox.cs	\
+	Vertex.cs
 
 all: $(ASSEMBLY)
 

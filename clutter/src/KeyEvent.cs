@@ -13,7 +13,7 @@ namespace Clutter {
 
 		public Clutter.EventType Type;
 		public uint Time;
-		public uint ModifierState;
+		public Clutter.ModifierType ModifierState;
 		public uint Keyval;
 		public ushort HardwareKeycode;
 
@@ -52,15 +52,6 @@ namespace Clutter {
 		public ushort Code() {
 			ushort raw_ret = clutter_key_event_code(ref this);
 			ushort ret = raw_ret;
-			return ret;
-		}
-
-		[DllImport("clutter")]
-		static extern uint clutter_key_event_state(ref Clutter.KeyEvent raw);
-
-		public uint State() {
-			uint raw_ret = clutter_key_event_state(ref this);
-			uint ret = raw_ret;
 			return ret;
 		}
 

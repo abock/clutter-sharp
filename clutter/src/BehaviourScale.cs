@@ -87,6 +87,31 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern int clutter_behaviour_scale_get_gravity(IntPtr raw);
+
+		public Clutter.Gravity Gravity { 
+			get {
+				int raw_ret = clutter_behaviour_scale_get_gravity(Handle);
+				Clutter.Gravity ret = (Clutter.Gravity) raw_ret;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_scale_get_boundsx(IntPtr raw, out int scale_begin, out int scale_end);
+
+		public void GetBoundsx(out int scale_begin, out int scale_end) {
+			clutter_behaviour_scale_get_boundsx(Handle, out scale_begin, out scale_end);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_scale_get_bounds(IntPtr raw, out double scale_begin, out double scale_end);
+
+		public void GetBounds(out double scale_begin, out double scale_end) {
+			clutter_behaviour_scale_get_bounds(Handle, out scale_begin, out scale_end);
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_behaviour_scale_get_type();
 
 		public static new GLib.GType GType { 

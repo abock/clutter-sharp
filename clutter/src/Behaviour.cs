@@ -42,11 +42,144 @@ namespace Clutter {
 			}
 		}
 
+		[GLib.CDeclCallback]
+		delegate void RemovedSignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr gch);
+
+		static void RemovedSignalCallback (IntPtr arg0, IntPtr arg1, IntPtr gch)
+		{
+			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+			if (sig == null)
+				throw new Exception("Unknown signal GC handle received " + gch);
+
+			Clutter.RemovedArgs args = new Clutter.RemovedArgs ();
+			args.Args = new object[1];
+			args.Args[0] = GLib.Object.GetObject(arg1) as Clutter.Actor;
+			Clutter.RemovedHandler handler = (Clutter.RemovedHandler) sig.Handler;
+			handler (GLib.Object.GetObject (arg0), args);
+
+		}
+
+		[GLib.CDeclCallback]
+		delegate void RemovedVMDelegate (IntPtr behave, IntPtr actor);
+
+		static RemovedVMDelegate RemovedVMCallback;
+
+		static void removed_cb (IntPtr behave, IntPtr actor)
+		{
+			Behaviour behave_managed = GLib.Object.GetObject (behave, false) as Behaviour;
+			behave_managed.OnRemoved (GLib.Object.GetObject(actor) as Clutter.Actor);
+		}
+
+		private static void OverrideRemoved (GLib.GType gtype)
+		{
+			if (RemovedVMCallback == null)
+				RemovedVMCallback = new RemovedVMDelegate (removed_cb);
+			OverrideVirtualMethod (gtype, "removed", RemovedVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Behaviour), ConnectionMethod="OverrideRemoved")]
+		protected virtual void OnRemoved (Clutter.Actor actor)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (actor);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("removed")]
+		public event Clutter.RemovedHandler Removed {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "removed", new RemovedSignalDelegate(RemovedSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "removed", new RemovedSignalDelegate(RemovedSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void AppliedSignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr gch);
+
+		static void AppliedSignalCallback (IntPtr arg0, IntPtr arg1, IntPtr gch)
+		{
+			GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+			if (sig == null)
+				throw new Exception("Unknown signal GC handle received " + gch);
+
+			Clutter.AppliedArgs args = new Clutter.AppliedArgs ();
+			args.Args = new object[1];
+			args.Args[0] = GLib.Object.GetObject(arg1) as Clutter.Actor;
+			Clutter.AppliedHandler handler = (Clutter.AppliedHandler) sig.Handler;
+			handler (GLib.Object.GetObject (arg0), args);
+
+		}
+
+		[GLib.CDeclCallback]
+		delegate void AppliedVMDelegate (IntPtr behave, IntPtr actor);
+
+		static AppliedVMDelegate AppliedVMCallback;
+
+		static void applied_cb (IntPtr behave, IntPtr actor)
+		{
+			Behaviour behave_managed = GLib.Object.GetObject (behave, false) as Behaviour;
+			behave_managed.OnApplied (GLib.Object.GetObject(actor) as Clutter.Actor);
+		}
+
+		private static void OverrideApplied (GLib.GType gtype)
+		{
+			if (AppliedVMCallback == null)
+				AppliedVMCallback = new AppliedVMDelegate (applied_cb);
+			OverrideVirtualMethod (gtype, "applied", AppliedVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Behaviour), ConnectionMethod="OverrideApplied")]
+		protected virtual void OnApplied (Clutter.Actor actor)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (actor);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("applied")]
+		public event Clutter.AppliedHandler Applied {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "applied", new AppliedSignalDelegate(AppliedSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "applied", new AppliedSignalDelegate(AppliedSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+
 		[DllImport("clutter")]
 		static extern void clutter_behaviour_remove(IntPtr raw, IntPtr actor);
 
 		public void Remove(Clutter.Actor actor) {
 			clutter_behaviour_remove(Handle, actor == null ? IntPtr.Zero : actor.Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_behaviour_is_applied(IntPtr raw, IntPtr actor);
+
+		public bool IsApplied(Clutter.Actor actor) {
+			bool raw_ret = clutter_behaviour_is_applied(Handle, actor == null ? IntPtr.Zero : actor.Handle);
+			bool ret = raw_ret;
+			return ret;
 		}
 
 		[DllImport("clutter")]
@@ -72,6 +205,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_behaviour_remove_all(IntPtr raw);
+
+		public void RemoveAll() {
+			clutter_behaviour_remove_all(Handle);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_behaviour_apply(IntPtr raw, IntPtr actor);
 
 		public void Apply(Clutter.Actor actor) {
@@ -79,10 +219,10 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_get_nth_actor(IntPtr raw, int index);
+		static extern IntPtr clutter_behaviour_get_nth_actor(IntPtr raw, int index_);
 
-		public Clutter.Actor GetNthActor(int index) {
-			IntPtr raw_ret = clutter_behaviour_get_nth_actor(Handle, index);
+		public Clutter.Actor GetNthActor(int index_) {
+			IntPtr raw_ret = clutter_behaviour_get_nth_actor(Handle, index_);
 			Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
 			return ret;
 		}

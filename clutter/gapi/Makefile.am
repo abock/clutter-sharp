@@ -10,14 +10,7 @@ CLUTTER_FIXED_API = clutter-api.xml
 gapidir = $(datadir)/gapi-2.0
 gapi_DATA = $(CLUTTER_FIXED_API)
 
-clutterincludedir = $(includedir)/clutter-0.2
-
-$(SOURCES_XML): clutter-sources.xml.in
-	@sed \
-		-e "s|@clutterincludedir@|$(clutterincludedir)|" \
-	$< > $(@F)
-
-CLEANFILES = $(SOURCES_XML) $(CLUTTER_RAW_API) $(CLUTTER_FIXED_API)
+CLEANFILES = $(CLUTTER_RAW_API) $(CLUTTER_FIXED_API)
 DISTCLEANFILES = Makefile.in
 EXTRA_DIST = $(SOURCES_XML) $(CLUTTER_METADATA)
 

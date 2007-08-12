@@ -1,3 +1,14 @@
+2007-08-12  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
+	Update to clutter 0.4 release
+	
+	* src/*: update according to new release.
+	
+	* gapi/clutter-sources.xml:
+	* gapi/Makefile.am: re-generate the source files using the full 
+	source code.  Only using the headers generates way too little.
+	
+	* examples/*: rename existing samples and add an entry tester		
+
 2007-04-13  Emmanuele Bassi  <ebassi@openedhand.com>
 
 	* Makefile.am: Recurse into gapi/ only when making a dist, so

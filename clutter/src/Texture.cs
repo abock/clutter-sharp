@@ -112,9 +112,6 @@ namespace Clutter {
 		[DllImport("clutter")]
 		static extern IntPtr clutter_texture_get_pixbuf(IntPtr raw);
 
-		[DllImport("clutter")]
-		static extern void clutter_texture_set_pixbuf(IntPtr raw, IntPtr pixbuf);
-
 		[GLib.Property ("pixbuf")]
 		public Gdk.Pixbuf Pixbuf {
 			get  {
@@ -122,8 +119,10 @@ namespace Clutter {
 				Gdk.Pixbuf ret = GLib.Object.GetObject(raw_ret) as Gdk.Pixbuf;
 				return ret;
 			}
-			set  {
-				clutter_texture_set_pixbuf(Handle, value == null ? IntPtr.Zero : value.Handle);
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("pixbuf", val);
+				val.Dispose ();
 			}
 		}
 
@@ -276,21 +275,32 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_texture_has_generated_tiles(IntPtr raw);
-
-		public bool HasGeneratedTiles { 
-			get {
-				bool raw_ret = clutter_texture_has_generated_tiles(Handle);
-				bool ret = raw_ret;
-				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
 		static extern void clutter_texture_get_y_tile_detail(IntPtr raw, int y_index, out int pos, out int size, out int waste);
 
 		public void GetYTileDetail(int y_index, out int pos, out int size, out int waste) {
 			clutter_texture_get_y_tile_detail(Handle, y_index, out pos, out size, out waste);
+		}
+
+		[DllImport("clutter")]
+		static extern unsafe bool clutter_texture_set_pixbuf(IntPtr raw, IntPtr pixbuf, out IntPtr error);
+
+		public unsafe bool SetPixbuf(Gdk.Pixbuf pixbuf) {
+			IntPtr error = IntPtr.Zero;
+			bool raw_ret = clutter_texture_set_pixbuf(Handle, pixbuf == null ? IntPtr.Zero : pixbuf.Handle, out error);
+			bool ret = raw_ret;
+			if (error != IntPtr.Zero) throw new GLib.GException (error);
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern unsafe bool clutter_texture_set_from_yuv_data(IntPtr raw, out byte data, int width, int height, int flags, out IntPtr error);
+
+		public unsafe bool SetFromYuvData(out byte data, int width, int height, Clutter.TextureFlags flags) {
+			IntPtr error = IntPtr.Zero;
+			bool raw_ret = clutter_texture_set_from_yuv_data(Handle, out data, width, height, (int) flags, out error);
+			bool ret = raw_ret;
+			if (error != IntPtr.Zero) throw new GLib.GException (error);
+			return ret;
 		}
 
 		[DllImport("clutter")]
@@ -308,10 +318,21 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_texture_bind_tile(IntPtr raw, int index);
+		static extern void clutter_texture_bind_tile(IntPtr raw, int index_);
 
-		public void BindTile(int index) {
-			clutter_texture_bind_tile(Handle, index);
+		public void BindTile(int index_) {
+			clutter_texture_bind_tile(Handle, index_);
+		}
+
+		[DllImport("clutter")]
+		static extern unsafe bool clutter_texture_set_from_rgb_data(IntPtr raw, out byte data, bool has_alpha, int width, int height, int rowstride, int bpp, int flags, out IntPtr error);
+
+		public unsafe bool SetFromRgbData(out byte data, bool has_alpha, int width, int height, int rowstride, int bpp, Clutter.TextureFlags flags) {
+			IntPtr error = IntPtr.Zero;
+			bool raw_ret = clutter_texture_set_from_rgb_data(Handle, out data, has_alpha, width, height, rowstride, bpp, (int) flags, out error);
+			bool ret = raw_ret;
+			if (error != IntPtr.Zero) throw new GLib.GException (error);
+			return ret;
 		}
 
 		[DllImport("clutter")]
@@ -326,12 +347,23 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_texture_set_from_data(IntPtr raw, out byte data, bool has_alpha, int width, int height, int rowstride, int bpp);
+		static extern int clutter_texture_error_quark();
 
-		public byte SetFromData(bool has_alpha, int width, int height, int rowstride, int bpp) {
-			byte data;
-			clutter_texture_set_from_data(Handle, out data, has_alpha, width, height, rowstride, bpp);
-			return data;
+		public static int ErrorQuark() {
+			int raw_ret = clutter_texture_error_quark();
+			int ret = raw_ret;
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_texture_has_generated_tiles(IntPtr raw);
+
+		public bool HasGeneratedTiles { 
+			get {
+				bool raw_ret = clutter_texture_has_generated_tiles(Handle);
+				bool ret = raw_ret;
+				return ret;
+			}
 		}
 
 		[DllImport("clutter")]

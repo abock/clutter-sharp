@@ -1,7 +1,7 @@
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
 
-AM_INIT_AUTOMAKE(clutter-cairo-sharp, 0.3.0)
+AM_INIT_AUTOMAKE(clutter-cairo-sharp, 0.4.0)
 
 AM_MAINTAINER_MODE
 
@@ -47,19 +47,24 @@ else
 	AM_CONDITIONAL(BUILD_DOCS, false)
 fi
 
-PKG_CHECK_MODULES(CLUTTER_CAIRO, clutter-cairo-0.1 >= 0.1.0)
+PKG_CHECK_MODULES(CLUTTER, clutter-0.4 >= 0.4.0)
+
+CLUTTER_APIVERSION=$(pkg-config --variable apiversion clutter-0.4)
+AC_SUBST(CLUTTER_APIVERSION)
+
+PKG_CHECK_MODULES(CLUTTER_CAIRO, clutter-cairo-0.4 >= 0.4.0)
 
 PKG_CHECK_MODULES(GTKSHARP, gtk-sharp-2.0 > 2.3.92)
 
-PKG_CHECK_MODULES(CLUTTER_SHARP, clutter-sharp >= 0.1.0)
+PKG_CHECK_MODULES(CLUTTER_SHARP, clutter-sharp >= 0.4.0)
 
 AC_OUTPUT([
 	Makefile
 	clutter-cairo-sharp.pc
 	gapi/Makefile
 	src/AssemblyInfo.cs
-	src/Makefile
 	src/clutter-cairo-sharp.dll.config
+	src/Makefile
 	examples/Makefile
 ])
 
