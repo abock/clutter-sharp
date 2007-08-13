@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<metadata>
+	<add-node path="/api/namespace/object[@cname='ClutterGstAudio']"><implements><interface name="Media" /></implements></add-node>	
+	<attr     path="/api/namespace/class[@name='Global']" name="name">GstGlobal</attr>	
+</metadata>
+
