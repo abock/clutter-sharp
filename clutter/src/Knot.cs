@@ -17,12 +17,9 @@ namespace Clutter {
 		public static Clutter.Knot Zero = new Clutter.Knot ();
 
 		public static Clutter.Knot New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.Knot.Zero;
-			}
-			Clutter.Knot self = new Clutter.Knot();
-			self = (Clutter.Knot) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.Knot) Marshal.PtrToStructure (raw, typeof (Clutter.Knot));
 		}
 
 		[DllImport("clutter")]

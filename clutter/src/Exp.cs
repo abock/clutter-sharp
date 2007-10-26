@@ -28,5 +28,17 @@ namespace Clutter {
 		}
 
 #endregion
+#region Customized extensions
+#line 1 "Exp.custom"
+		public static uint DecFunc(Clutter.Alpha alpha) {
+			return DecFunc (alpha, IntPtr.Zero); 
+		}
+
+		public static uint IncFunc(Clutter.Alpha alpha) {
+		 	return IncFunc (alpha, IntPtr.Zero); 
+		}
+
+
+#endregion
 	}
 }

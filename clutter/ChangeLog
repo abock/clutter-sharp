@@ -1,3 +1,21 @@
+2007-10-26  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
+	Update to clutter 0.4.2 release
+
+	* src/*: regenerated against 0.4.2 release
+
+	* src/Source.cs:
+	* src/Timeout.cs:
+	* src/Idle.cs: added classes to use the timeout and idle api
+
+	* src/Sine.custom:
+	* src/Ramp.custom:
+	* src/Exp.custom:
+	* src/Smoothstep.custom: some custom code so we can use default
+	alpha implementations directly from mono
+
+	* examples/test-threads.cs: c# port of the test-threads.c code, 
+	demonstrates the use of threading, and idle handling
+
 2007-08-12  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
 	Update to clutter 0.4 release
 	

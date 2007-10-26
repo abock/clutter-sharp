@@ -19,12 +19,9 @@ namespace Clutter {
 		public static Clutter.Perspective Zero = new Clutter.Perspective ();
 
 		public static Clutter.Perspective New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.Perspective.Zero;
-			}
-			Clutter.Perspective self = new Clutter.Perspective();
-			self = (Clutter.Perspective) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.Perspective) Marshal.PtrToStructure (raw, typeof (Clutter.Perspective));
 		}
 
 		[DllImport("clutter")]

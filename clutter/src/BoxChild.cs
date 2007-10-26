@@ -27,12 +27,9 @@ namespace Clutter {
 		public static Clutter.BoxChild Zero = new Clutter.BoxChild ();
 
 		public static Clutter.BoxChild New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.BoxChild.Zero;
-			}
-			Clutter.BoxChild self = new Clutter.BoxChild();
-			self = (Clutter.BoxChild) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.BoxChild) Marshal.PtrToStructure (raw, typeof (Clutter.BoxChild));
 		}
 
 		private static GLib.GType GType {

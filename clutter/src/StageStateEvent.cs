@@ -18,12 +18,9 @@ namespace Clutter {
 		public static Clutter.StageStateEvent Zero = new Clutter.StageStateEvent ();
 
 		public static Clutter.StageStateEvent New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.StageStateEvent.Zero;
-			}
-			Clutter.StageStateEvent self = new Clutter.StageStateEvent();
-			self = (Clutter.StageStateEvent) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.StageStateEvent) Marshal.PtrToStructure (raw, typeof (Clutter.StageStateEvent));
 		}
 
 		private static GLib.GType GType {

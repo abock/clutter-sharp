@@ -12,7 +12,7 @@ namespace Clutter {
 			}
 
 			[DllImport("clutter")]
-			static extern void clutter_init (int argc, IntPtr argv);
+			static extern InitError clutter_init (int argc, IntPtr argv);
 
 			public static void Init( ) {
 				clutter_init (0, IntPtr.Zero);

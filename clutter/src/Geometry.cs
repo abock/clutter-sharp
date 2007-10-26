@@ -19,12 +19,9 @@ namespace Clutter {
 		public static Clutter.Geometry Zero = new Clutter.Geometry ();
 
 		public static Clutter.Geometry New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.Geometry.Zero;
-			}
-			Clutter.Geometry self = new Clutter.Geometry();
-			self = (Clutter.Geometry) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.Geometry) Marshal.PtrToStructure (raw, typeof (Clutter.Geometry));
 		}
 
 		[DllImport("clutter")]

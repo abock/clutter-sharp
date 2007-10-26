@@ -40,6 +40,16 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern IntPtr clutter_effect_depth(IntPtr template_, IntPtr actor, int start_depth, int end_depth, ClutterSharp.EffectCompleteFuncNative completed_func, IntPtr completed_data);
+
+		public static Clutter.Timeline Depth(Clutter.EffectTemplate template_, Clutter.Actor actor, int start_depth, int end_depth, Clutter.EffectCompleteFunc completed_func) {
+			ClutterSharp.EffectCompleteFuncWrapper completed_func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (completed_func);
+			IntPtr raw_ret = clutter_effect_depth(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, start_depth, end_depth, completed_func_wrapper.NativeDelegate, IntPtr.Zero);
+			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
+			return ret;
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_effect_scale(IntPtr template_, IntPtr actor, double scale_begin, double scale_end, int gravity, ClutterSharp.EffectCompleteFuncNative completed_func, IntPtr completed_data);
 
 		public static Clutter.Timeline Scale(Clutter.EffectTemplate template_, Clutter.Actor actor, double scale_begin, double scale_end, Clutter.Gravity gravity, Clutter.EffectCompleteFunc completed_func) {

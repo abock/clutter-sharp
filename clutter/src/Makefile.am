@@ -51,6 +51,7 @@ SOURCES = \
 	Gravity.cs	\
 	Group.cs	\
 	HBox.cs	\
+	Idle.cs \
 	Init.cs	\
 	InitError.cs	\
 	InputDevice.cs	\
@@ -85,12 +86,15 @@ SOURCES = \
 	Sine.cs	\
 	SizeChangeHandler.cs	\
 	Smoothstep.cs	\
+	Source.cs	\
 	Stage.cs	\
 	StageState.cs	\
 	StageStateEvent.cs	\
 	Texture.cs	\
 	TextureFlags.cs	\
+	Threads.cs 	\
 	Timeline.cs	\
+	Timeout.cs	\
 	TimeoutPool.cs	\
 	VBox.cs	\
 	Vertex.cs

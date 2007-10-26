@@ -16,12 +16,9 @@ namespace Clutter {
 		public static Clutter.AnyEvent Zero = new Clutter.AnyEvent ();
 
 		public static Clutter.AnyEvent New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.AnyEvent.Zero;
-			}
-			Clutter.AnyEvent self = new Clutter.AnyEvent();
-			self = (Clutter.AnyEvent) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.AnyEvent) Marshal.PtrToStructure (raw, typeof (Clutter.AnyEvent));
 		}
 
 		private static GLib.GType GType {

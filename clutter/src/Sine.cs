@@ -46,5 +46,24 @@ namespace Clutter {
 		}
 
 #endregion
+#region Customized extensions
+#line 1 "Sine.custom"
+	 	public static uint Func (Clutter.Alpha alpha) {
+			return Func (alpha, IntPtr.Zero);
+		}
+
+		public static uint HalfFunc(Clutter.Alpha alpha) {
+		 	return HalfFunc (alpha, IntPtr.Zero);
+		}
+	
+		public static uint DecFunc(Clutter.Alpha alpha) {
+			return DecFunc (alpha, IntPtr.Zero);
+		}
+
+		public static uint IncFunc(Clutter.Alpha alpha) {
+		 	return IncFunc (alpha, IntPtr.Zero);
+		}
+
+#endregion
 	}
 }

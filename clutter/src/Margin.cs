@@ -19,12 +19,9 @@ namespace Clutter {
 		public static Clutter.Margin Zero = new Clutter.Margin ();
 
 		public static Clutter.Margin New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.Margin.Zero;
-			}
-			Clutter.Margin self = new Clutter.Margin();
-			self = (Clutter.Margin) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.Margin) Marshal.PtrToStructure (raw, typeof (Clutter.Margin));
 		}
 
 		[DllImport("clutter")]

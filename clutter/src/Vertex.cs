@@ -18,12 +18,9 @@ namespace Clutter {
 		public static Clutter.Vertex Zero = new Clutter.Vertex ();
 
 		public static Clutter.Vertex New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.Vertex.Zero;
-			}
-			Clutter.Vertex self = new Clutter.Vertex();
-			self = (Clutter.Vertex) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.Vertex) Marshal.PtrToStructure (raw, typeof (Clutter.Vertex));
 		}
 
 		[DllImport("clutter")]

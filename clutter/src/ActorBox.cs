@@ -19,12 +19,9 @@ namespace Clutter {
 		public static Clutter.ActorBox Zero = new Clutter.ActorBox ();
 
 		public static Clutter.ActorBox New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.ActorBox.Zero;
-			}
-			Clutter.ActorBox self = new Clutter.ActorBox();
-			self = (Clutter.ActorBox) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.ActorBox) Marshal.PtrToStructure (raw, typeof (Clutter.ActorBox));
 		}
 
 		[DllImport("clutter")]

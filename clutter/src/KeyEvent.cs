@@ -20,12 +20,9 @@ namespace Clutter {
 		public static Clutter.KeyEvent Zero = new Clutter.KeyEvent ();
 
 		public static Clutter.KeyEvent New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.KeyEvent.Zero;
-			}
-			Clutter.KeyEvent self = new Clutter.KeyEvent();
-			self = (Clutter.KeyEvent) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.KeyEvent) Marshal.PtrToStructure (raw, typeof (Clutter.KeyEvent));
 		}
 
 		[DllImport("clutter")]

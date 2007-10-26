@@ -31,12 +31,9 @@ namespace Clutter {
 		public static Clutter.ScrollEvent Zero = new Clutter.ScrollEvent ();
 
 		public static Clutter.ScrollEvent New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.ScrollEvent.Zero;
-			}
-			Clutter.ScrollEvent self = new Clutter.ScrollEvent();
-			self = (Clutter.ScrollEvent) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.ScrollEvent) Marshal.PtrToStructure (raw, typeof (Clutter.ScrollEvent));
 		}
 
 		private static GLib.GType GType {

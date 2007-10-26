@@ -30,12 +30,9 @@ namespace Clutter {
 		public static Clutter.MotionEvent Zero = new Clutter.MotionEvent ();
 
 		public static Clutter.MotionEvent New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.MotionEvent.Zero;
-			}
-			Clutter.MotionEvent self = new Clutter.MotionEvent();
-			self = (Clutter.MotionEvent) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.MotionEvent) Marshal.PtrToStructure (raw, typeof (Clutter.MotionEvent));
 		}
 
 		private static GLib.GType GType {

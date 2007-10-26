@@ -51,7 +51,7 @@ namespace ClutterTest
 			Timeline timeline = new Timeline (100, 26);
 			timeline.Loop = true;
 
-			Alpha alpha = new Alpha (timeline, AlphaRamp);
+			Alpha alpha = new Alpha (timeline, Ramp.Func);
 
 			Behaviour o_behave = new BehaviourOpacity (alpha, 0x33, 0xff); 
 			o_behave.Apply (group);
@@ -67,18 +67,6 @@ namespace ClutterTest
 
 			// launch
 			ClutterRun.Main ();
-		}
-
-		public static uint AlphaRamp (Clutter.Alpha alpha) {
-			Timeline timeline = alpha.Timeline;
-
-			uint current = (uint)timeline.CurrentFrame;
-			uint total = timeline.NFrames;
-
-			if (current > (total / 2))
-			 	return (uint)((total - current) * 0xffff) / (total / 2);
-			else
-			 	return (uint)(current * 0xffff) / (total / 2);
 		}
 	}
 }

@@ -31,12 +31,9 @@ namespace Clutter {
 		public static Clutter.ButtonEvent Zero = new Clutter.ButtonEvent ();
 
 		public static Clutter.ButtonEvent New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.ButtonEvent.Zero;
-			}
-			Clutter.ButtonEvent self = new Clutter.ButtonEvent();
-			self = (Clutter.ButtonEvent) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.ButtonEvent) Marshal.PtrToStructure (raw, typeof (Clutter.ButtonEvent));
 		}
 
 		private static GLib.GType GType {

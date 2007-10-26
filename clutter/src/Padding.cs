@@ -19,12 +19,9 @@ namespace Clutter {
 		public static Clutter.Padding Zero = new Clutter.Padding ();
 
 		public static Clutter.Padding New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.Padding.Zero;
-			}
-			Clutter.Padding self = new Clutter.Padding();
-			self = (Clutter.Padding) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.Padding) Marshal.PtrToStructure (raw, typeof (Clutter.Padding));
 		}
 
 		[DllImport("clutter")]

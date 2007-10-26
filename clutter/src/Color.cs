@@ -19,12 +19,9 @@ namespace Clutter {
 		public static Clutter.Color Zero = new Clutter.Color ();
 
 		public static Clutter.Color New(IntPtr raw) {
-			if (raw == IntPtr.Zero) {
+			if (raw == IntPtr.Zero)
 				return Clutter.Color.Zero;
-			}
-			Clutter.Color self = new Clutter.Color();
-			self = (Clutter.Color) Marshal.PtrToStructure (raw, self.GetType ());
-			return self;
+			return (Clutter.Color) Marshal.PtrToStructure (raw, typeof (Clutter.Color));
 		}
 
 		[DllImport("clutter")]
