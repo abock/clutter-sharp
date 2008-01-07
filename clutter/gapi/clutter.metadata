@@ -12,14 +12,14 @@
 	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Add']" name="name">AddEvent</attr>	
 	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Remove']" name="name">RemoveEvent</attr>	
 
-	<!-- ClutterGroup renames -->
-	<attr path="/api/namespace/struct[@cname='ClutterKeyEvent']/method[@name='Time']" name="name">GetTime</attr>	
-
 	<!-- ClutterLabel remove -->
 	<remove-node path="/api/namespace/object[@cname='ClutterLabel']/method[@name='GetAlignment']" />
 	
 	<!-- ClutterStage fixes -->
 	<attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='GetDefault']/return-type" name="type">ClutterStage*</attr>
-	<remove-node path="/api/namespace/object[@cname='ClutterStage']/method[@cname='clutter_stage_fullscreen']"/>
+	<attr path="/api/namespace/object[@cname='ClutterStage']/signal[@name='Fullscreen']" name="name">FullscreenEvent</attr>
+	<attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='Fullscreen']" name="name">SetFullscreen</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterStage']/signal[@name='Unfullscreen']" name="name">UnfullscreenEvent</attr>	
+
 </metadata>
 

@@ -18,6 +18,7 @@ namespace Clutter {
 		StageStatic = 1 << 5,
 		StageUserResize = 1 << 6,
 		StageCursor = 1 << 7,
+		ShadersGlsl = 1 << 8,
 	}
 
 	internal class FeatureFlagsGType {

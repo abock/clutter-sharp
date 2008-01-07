@@ -125,6 +125,21 @@ namespace Clutter {
 			}
 		}
 
+		[GLib.Property ("x-align")]
+		public double XAlign {
+			get {
+				GLib.Value val = GetProperty ("x-align");
+				double ret = (double) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("x-align", val);
+				val.Dispose ();
+			}
+		}
+
 		[DllImport("clutter")]
 		static extern IntPtr clutter_entry_get_text(IntPtr raw);
 

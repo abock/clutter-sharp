@@ -15,9 +15,9 @@ namespace Clutter {
 		public BehaviourRotate(IntPtr raw) : base(raw) {}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_rotate_new(IntPtr alpha, int axis, int direction, double angle_begin, double angle_end);
+		static extern IntPtr clutter_behaviour_rotate_new(IntPtr alpha, int axis, int direction, double angle_start, double angle_end);
 
-		public BehaviourRotate (Clutter.Alpha alpha, Clutter.RotateAxis axis, Clutter.RotateDirection direction, double angle_begin, double angle_end) : base (IntPtr.Zero)
+		public BehaviourRotate (Clutter.Alpha alpha, Clutter.RotateAxis axis, Clutter.RotateDirection direction, double angle_start, double angle_end) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourRotate)) {
 				ArrayList vals = new ArrayList();
@@ -30,20 +30,20 @@ namespace Clutter {
 				vals.Add (new GLib.Value (axis));
 				names.Add ("direction");
 				vals.Add (new GLib.Value (direction));
-				names.Add ("angle_begin");
-				vals.Add (new GLib.Value (angle_begin));
+				names.Add ("angle_start");
+				vals.Add (new GLib.Value (angle_start));
 				names.Add ("angle_end");
 				vals.Add (new GLib.Value (angle_end));
 				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
 				return;
 			}
-			Raw = clutter_behaviour_rotate_new(alpha == null ? IntPtr.Zero : alpha.Handle, (int) axis, (int) direction, angle_begin, angle_end);
+			Raw = clutter_behaviour_rotate_new(alpha == null ? IntPtr.Zero : alpha.Handle, (int) axis, (int) direction, angle_start, angle_end);
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_rotate_newx(IntPtr alpha, int axis, int direction, int angle_begin, int angle_end);
+		static extern IntPtr clutter_behaviour_rotate_newx(IntPtr alpha, int axis, int direction, int angle_start, int angle_end);
 
-		public BehaviourRotate (Clutter.Alpha alpha, Clutter.RotateAxis axis, Clutter.RotateDirection direction, int angle_begin, int angle_end) : base (IntPtr.Zero)
+		public BehaviourRotate (Clutter.Alpha alpha, Clutter.RotateAxis axis, Clutter.RotateDirection direction, int angle_start, int angle_end) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourRotate)) {
 				ArrayList vals = new ArrayList();
@@ -56,14 +56,14 @@ namespace Clutter {
 				vals.Add (new GLib.Value (axis));
 				names.Add ("direction");
 				vals.Add (new GLib.Value (direction));
-				names.Add ("angle_begin");
-				vals.Add (new GLib.Value (angle_begin));
+				names.Add ("angle_start");
+				vals.Add (new GLib.Value (angle_start));
 				names.Add ("angle_end");
 				vals.Add (new GLib.Value (angle_end));
 				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
 				return;
 			}
-			Raw = clutter_behaviour_rotate_newx(alpha == null ? IntPtr.Zero : alpha.Handle, (int) axis, (int) direction, angle_begin, angle_end);
+			Raw = clutter_behaviour_rotate_newx(alpha == null ? IntPtr.Zero : alpha.Handle, (int) axis, (int) direction, angle_start, angle_end);
 		}
 
 		[GLib.Property ("angle-end")]
@@ -77,6 +77,21 @@ namespace Clutter {
 			set {
 				GLib.Value val = new GLib.Value(value);
 				SetProperty("angle-end", val);
+				val.Dispose ();
+			}
+		}
+
+		[GLib.Property ("angle-start")]
+		public double AngleStart {
+			get {
+				GLib.Value val = GetProperty ("angle-start");
+				double ret = (double) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("angle-start", val);
 				val.Dispose ();
 			}
 		}
@@ -144,21 +159,6 @@ namespace Clutter {
 			}
 		}
 
-		[GLib.Property ("angle-begin")]
-		public double AngleBegin {
-			get {
-				GLib.Value val = GetProperty ("angle-begin");
-				double ret = (double) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value(value);
-				SetProperty("angle-begin", val);
-				val.Dispose ();
-			}
-		}
-
 		[DllImport("clutter")]
 		static extern int clutter_behaviour_rotate_get_axis(IntPtr raw);
 
@@ -178,10 +178,10 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_rotate_set_boundsx(IntPtr raw, int angle_begin, int angle_end);
+		static extern void clutter_behaviour_rotate_set_boundsx(IntPtr raw, int angle_start, int angle_end);
 
-		public void SetBoundsx(int angle_begin, int angle_end) {
-			clutter_behaviour_rotate_set_boundsx(Handle, angle_begin, angle_end);
+		public void SetBoundsx(int angle_start, int angle_end) {
+			clutter_behaviour_rotate_set_boundsx(Handle, angle_start, angle_end);
 		}
 
 		[DllImport("clutter")]
@@ -192,24 +192,24 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_rotate_get_bounds(IntPtr raw, out double angle_begin, out double angle_end);
+		static extern void clutter_behaviour_rotate_get_bounds(IntPtr raw, out double angle_start, out double angle_end);
 
-		public void GetBounds(out double angle_begin, out double angle_end) {
-			clutter_behaviour_rotate_get_bounds(Handle, out angle_begin, out angle_end);
+		public void GetBounds(out double angle_start, out double angle_end) {
+			clutter_behaviour_rotate_get_bounds(Handle, out angle_start, out angle_end);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_rotate_get_boundsx(IntPtr raw, out int angle_begin, out int angle_end);
+		static extern void clutter_behaviour_rotate_get_boundsx(IntPtr raw, out int angle_start, out int angle_end);
 
-		public void GetBoundsx(out int angle_begin, out int angle_end) {
-			clutter_behaviour_rotate_get_boundsx(Handle, out angle_begin, out angle_end);
+		public void GetBoundsx(out int angle_start, out int angle_end) {
+			clutter_behaviour_rotate_get_boundsx(Handle, out angle_start, out angle_end);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_rotate_set_bounds(IntPtr raw, double angle_begin, double angle_end);
+		static extern void clutter_behaviour_rotate_set_bounds(IntPtr raw, double angle_start, double angle_end);
 
-		public void SetBounds(double angle_begin, double angle_end) {
-			clutter_behaviour_rotate_set_bounds(Handle, angle_begin, angle_end);
+		public void SetBounds(double angle_start, double angle_end) {
+			clutter_behaviour_rotate_set_bounds(Handle, angle_start, angle_end);
 		}
 
 		[DllImport("clutter")]

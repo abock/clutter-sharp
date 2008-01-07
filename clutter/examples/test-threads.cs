@@ -141,7 +141,7 @@ namespace ClutterTest
 			rect.SetSize (25, 25);
 			rect.Show ();
 			
-			stage.Add (rect);
+			stage.AddActor (rect);
 
 			timeline = new Timeline (150, 50);
 			timeline.Loop = true;
@@ -153,8 +153,8 @@ namespace ClutterTest
 									360.0);
 			behaviour.Apply (rect);
 
-			stage.Add (count_label);
-			stage.Add (label);
+			stage.AddActor (count_label);
+			stage.AddActor (label);
 
 			stage.ButtonPressEvent += delegate { Clutter.Main.Quit(); };
 			stage.KeyPressEvent += HandleKeyPress;

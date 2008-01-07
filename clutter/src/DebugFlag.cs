@@ -21,6 +21,8 @@ namespace Clutter {
 		Pango = 1 << 8,
 		Backend = 1 << 9,
 		Scheduler = 1 << 10,
+		Script = 1 << 11,
+		Shader = 1 << 12,
 	}
 #endregion
 }

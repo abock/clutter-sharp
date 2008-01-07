@@ -192,6 +192,7 @@ namespace Clutter {
 		[DllImport("clutter")]
 		static extern void clutter_group_raise(IntPtr raw, IntPtr actor, IntPtr sibling);
 
+		[Obsolete]
 		public void Raise(Clutter.Actor actor, Clutter.Actor sibling) {
 			clutter_group_raise(Handle, actor == null ? IntPtr.Zero : actor.Handle, sibling == null ? IntPtr.Zero : sibling.Handle);
 		}
@@ -199,6 +200,7 @@ namespace Clutter {
 		[DllImport("clutter")]
 		static extern void clutter_group_lower(IntPtr raw, IntPtr actor, IntPtr sibling);
 
+		[Obsolete]
 		public void Lower(Clutter.Actor actor, Clutter.Actor sibling) {
 			clutter_group_lower(Handle, actor == null ? IntPtr.Zero : actor.Handle, sibling == null ? IntPtr.Zero : sibling.Handle);
 		}
@@ -206,6 +208,7 @@ namespace Clutter {
 		[DllImport("clutter")]
 		static extern void clutter_group_sort_depth_order(IntPtr raw);
 
+		[Obsolete]
 		public void SortDepthOrder() {
 			clutter_group_sort_depth_order(Handle);
 		}
@@ -219,23 +222,6 @@ namespace Clutter {
 				int ret = raw_ret;
 				return ret;
 			}
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_group_add(IntPtr raw, IntPtr actor);
-
-		[Obsolete]
-		public void Add(Clutter.Actor actor) {
-			clutter_group_add(Handle, actor == null ? IntPtr.Zero : actor.Handle);
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_group_find_child_by_id(IntPtr raw, uint id);
-
-		public Clutter.Actor FindChildById(uint id) {
-			IntPtr raw_ret = clutter_group_find_child_by_id(Handle, id);
-			Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
-			return ret;
 		}
 
 		[DllImport("clutter")]
@@ -257,10 +243,38 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_container_add_valist(IntPtr raw, IntPtr first_actor, IntPtr var_args);
+
+		public void AddValist(Clutter.Actor first_actor, IntPtr var_args) {
+			clutter_container_add_valist(Handle, first_actor == null ? IntPtr.Zero : first_actor.Handle, var_args);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_container_add_actor(IntPtr raw, IntPtr actor);
 
 		public void AddActor(Clutter.Actor actor) {
 			clutter_container_add_actor(Handle, actor == null ? IntPtr.Zero : actor.Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_container_sort_depth_order(IntPtr raw);
+
+		void Clutter.Container.SortDepthOrder() {
+			clutter_container_sort_depth_order(Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_container_lower_child(IntPtr raw, IntPtr actor, IntPtr sibling);
+
+		public void LowerChild(Clutter.Actor actor, Clutter.Actor sibling) {
+			clutter_container_lower_child(Handle, actor == null ? IntPtr.Zero : actor.Handle, sibling == null ? IntPtr.Zero : sibling.Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_container_raise_child(IntPtr raw, IntPtr actor, IntPtr sibling);
+
+		public void RaiseChild(Clutter.Actor actor, Clutter.Actor sibling) {
+			clutter_container_raise_child(Handle, actor == null ? IntPtr.Zero : actor.Handle, sibling == null ? IntPtr.Zero : sibling.Handle);
 		}
 
 		[DllImport("clutter")]
@@ -271,10 +285,14 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_container_add_valist(IntPtr raw, IntPtr first_actor, IntPtr var_args);
+		static extern IntPtr clutter_container_find_child_by_name(IntPtr raw, IntPtr child_name);
 
-		public void AddValist(Clutter.Actor first_actor, IntPtr var_args) {
-			clutter_container_add_valist(Handle, first_actor == null ? IntPtr.Zero : first_actor.Handle, var_args);
+		public Clutter.Actor FindChildByName(string child_name) {
+			IntPtr child_name_as_native = GLib.Marshaller.StringToPtrGStrdup (child_name);
+			IntPtr raw_ret = clutter_container_find_child_by_name(Handle, child_name_as_native);
+			Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
+			GLib.Marshaller.Free (child_name_as_native);
+			return ret;
 		}
 
 		[DllImport("clutter")]

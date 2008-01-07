@@ -288,6 +288,17 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern unsafe bool clutter_texture_set_area_from_rgb_data(IntPtr raw, out byte data, bool has_alpha, int x, int y, int width, int height, int rowstride, int bpp, int flags, out IntPtr error);
+
+		public unsafe bool SetAreaFromRgbData(out byte data, bool has_alpha, int x, int y, int width, int height, int rowstride, int bpp, Clutter.TextureFlags flags) {
+			IntPtr error = IntPtr.Zero;
+			bool raw_ret = clutter_texture_set_area_from_rgb_data(Handle, out data, has_alpha, x, y, width, height, rowstride, bpp, (int) flags, out error);
+			bool ret = raw_ret;
+			if (error != IntPtr.Zero) throw new GLib.GException (error);
+			return ret;
+		}
+
+		[DllImport("clutter")]
 		static extern unsafe bool clutter_texture_set_pixbuf(IntPtr raw, IntPtr pixbuf, out IntPtr error);
 
 		public unsafe bool SetPixbuf(Gdk.Pixbuf pixbuf) {

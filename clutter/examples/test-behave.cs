@@ -26,7 +26,7 @@ namespace ClutterTest
 			stage.Color = stage_color;
 
 			Clutter.Group group = new Group();
-			stage.Add (group);
+			stage.AddActor (group);
 			group.Show ();
 
 			Clutter.Rectangle rect = new Clutter.Rectangle();
@@ -44,8 +44,8 @@ namespace ClutterTest
 			hand.SetPosition (0,0);
 			hand.Show ();
 
-			group.Add (rect);
-			group.Add (hand);
+			group.AddActor (rect);
+			group.AddActor (hand);
 
 			// Make a timeline
 			Timeline timeline = new Timeline (100, 26);

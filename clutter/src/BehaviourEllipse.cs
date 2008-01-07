@@ -15,25 +15,43 @@ namespace Clutter {
 		public BehaviourEllipse(IntPtr raw) : base(raw) {}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_ellipse_new(IntPtr alpha, int x, int y, int width, int height, int direction, double begin, double end);
+		static extern IntPtr clutter_behaviour_ellipse_new(IntPtr alpha, int x, int y, int width, int height, int direction, double start, double end);
 
-		public BehaviourEllipse (Clutter.Alpha alpha, int x, int y, int width, int height, Clutter.RotateDirection direction, double begin, double end) : base (IntPtr.Zero)
+		public BehaviourEllipse (Clutter.Alpha alpha, int x, int y, int width, int height, Clutter.RotateDirection direction, double start, double end) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourEllipse)) {
 				throw new InvalidOperationException ("Can't override this constructor.");
 			}
-			Raw = clutter_behaviour_ellipse_new(alpha == null ? IntPtr.Zero : alpha.Handle, x, y, width, height, (int) direction, begin, end);
+			Raw = clutter_behaviour_ellipse_new(alpha == null ? IntPtr.Zero : alpha.Handle, x, y, width, height, (int) direction, start, end);
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_ellipse_newx(IntPtr alpha, int x, int y, int width, int height, int direction, int begin, int end);
+		static extern IntPtr clutter_behaviour_ellipse_newx(IntPtr alpha, int x, int y, int width, int height, int direction, int start, int end);
 
-		public BehaviourEllipse (Clutter.Alpha alpha, int x, int y, int width, int height, Clutter.RotateDirection direction, int begin, int end) : base (IntPtr.Zero)
+		public BehaviourEllipse (Clutter.Alpha alpha, int x, int y, int width, int height, Clutter.RotateDirection direction, int start, int end) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourEllipse)) {
 				throw new InvalidOperationException ("Can't override this constructor.");
 			}
-			Raw = clutter_behaviour_ellipse_newx(alpha == null ? IntPtr.Zero : alpha.Handle, x, y, width, height, (int) direction, begin, end);
+			Raw = clutter_behaviour_ellipse_newx(alpha == null ? IntPtr.Zero : alpha.Handle, x, y, width, height, (int) direction, start, end);
+		}
+
+		[DllImport("clutter")]
+		static extern double clutter_behaviour_ellipse_get_angle_start(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_ellipse_set_angle_start(IntPtr raw, double angle_start);
+
+		[GLib.Property ("angle-start")]
+		public double AngleStart {
+			get  {
+				double raw_ret = clutter_behaviour_ellipse_get_angle_start(Handle);
+				double ret = raw_ret;
+				return ret;
+			}
+			set  {
+				clutter_behaviour_ellipse_set_angle_start(Handle, value);
+			}
 		}
 
 		[GLib.Property ("angle-tilt-z")]
@@ -63,24 +81,6 @@ namespace Clutter {
 				GLib.Value val = (GLib.Value) value;
 				SetProperty("center", val);
 				val.Dispose ();
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern double clutter_behaviour_ellipse_get_angle_begin(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_behaviour_ellipse_set_angle_begin(IntPtr raw, double angle_begin);
-
-		[GLib.Property ("angle-begin")]
-		public double AngleBegin {
-			get  {
-				double raw_ret = clutter_behaviour_ellipse_get_angle_begin(Handle);
-				double ret = raw_ret;
-				return ret;
-			}
-			set  {
-				clutter_behaviour_ellipse_set_angle_begin(Handle, value);
 			}
 		}
 
@@ -187,23 +187,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern int clutter_behaviour_ellipse_get_angle_beginx(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_behaviour_ellipse_set_angle_beginx(IntPtr raw, int angle_begin);
-
-		public int AngleBeginx { 
-			get {
-				int raw_ret = clutter_behaviour_ellipse_get_angle_beginx(Handle);
-				int ret = raw_ret;
-				return ret;
-			}
-			set {
-				clutter_behaviour_ellipse_set_angle_beginx(Handle, value);
-			}
-		}
-
-		[DllImport("clutter")]
 		static extern void clutter_behaviour_ellipse_set_tilt(IntPtr raw, double angle_tilt_x, double angle_tilt_y, double angle_tilt_z);
 
 		public void SetTilt(double angle_tilt_x, double angle_tilt_y, double angle_tilt_z) {
@@ -227,13 +210,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_ellipse_set_center(IntPtr raw, int x, int y);
-
-		public void SetCenter(int x, int y) {
-			clutter_behaviour_ellipse_set_center(Handle, x, y);
-		}
-
-		[DllImport("clutter")]
 		static extern void clutter_behaviour_ellipse_set_tiltx(IntPtr raw, int angle_tilt_x, int angle_tilt_y, int angle_tilt_z);
 
 		public void SetTiltx(int angle_tilt_x, int angle_tilt_y, int angle_tilt_z) {
@@ -252,6 +228,30 @@ namespace Clutter {
 
 		public void GetCenter(out int x, out int y) {
 			clutter_behaviour_ellipse_get_center(Handle, out x, out y);
+		}
+
+		[DllImport("clutter")]
+		static extern int clutter_behaviour_ellipse_get_angle_startx(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_ellipse_set_angle_startx(IntPtr raw, int angle_start);
+
+		public int AngleStartx { 
+			get {
+				int raw_ret = clutter_behaviour_ellipse_get_angle_startx(Handle);
+				int ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_behaviour_ellipse_set_angle_startx(Handle, value);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_ellipse_set_center(IntPtr raw, int x, int y);
+
+		public void SetCenter(int x, int y) {
+			clutter_behaviour_ellipse_set_center(Handle, x, y);
 		}
 
 		[DllImport("clutter")]

@@ -12,6 +12,17 @@ namespace Clutter {
 	public struct AnyEvent {
 
 		public Clutter.EventType Type;
+		public uint Time;
+		public Clutter.EventFlags Flags;
+		private IntPtr _source;
+		public Clutter.Actor Source {
+			get {
+				return GLib.Object.GetObject(_source) as Clutter.Actor;
+			}
+			set {
+				_source = value == null ? IntPtr.Zero : value.Handle;
+			}
+		}
 
 		public static Clutter.AnyEvent Zero = new Clutter.AnyEvent ();
 

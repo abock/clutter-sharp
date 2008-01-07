@@ -10,71 +10,61 @@ namespace Clutter {
 	public class Effect {
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_effect_rotate_z(IntPtr template_, IntPtr actor, double angle_begin, double angle_end, int center_x, int center_y, int direction, ClutterSharp.EffectCompleteFuncNative completed_func, IntPtr completed_data);
+		static extern IntPtr clutter_effect_move(IntPtr template_, IntPtr actor, int x, int y, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
 
-		public static Clutter.Timeline RotateZ(Clutter.EffectTemplate template_, Clutter.Actor actor, double angle_begin, double angle_end, int center_x, int center_y, Clutter.RotateDirection direction, Clutter.EffectCompleteFunc completed_func) {
-			ClutterSharp.EffectCompleteFuncWrapper completed_func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (completed_func);
-			IntPtr raw_ret = clutter_effect_rotate_z(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, angle_begin, angle_end, center_x, center_y, (int) direction, completed_func_wrapper.NativeDelegate, IntPtr.Zero);
+		public static Clutter.Timeline Move(Clutter.EffectTemplate template_, Clutter.Actor actor, int x, int y, Clutter.EffectCompleteFunc func) {
+			ClutterSharp.EffectCompleteFuncWrapper func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (func);
+			IntPtr raw_ret = clutter_effect_move(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, x, y, func_wrapper.NativeDelegate, IntPtr.Zero);
 			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_effect_move(IntPtr template_, IntPtr actor, ref Clutter.Knot knots, uint n_knots, ClutterSharp.EffectCompleteFuncNative completed_func, IntPtr completed_data);
+		static extern IntPtr clutter_effect_fade(IntPtr template_, IntPtr actor, byte opacity_end, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
 
-		public static Clutter.Timeline Move(Clutter.EffectTemplate template_, Clutter.Actor actor, Clutter.Knot knots, uint n_knots, Clutter.EffectCompleteFunc completed_func) {
-			ClutterSharp.EffectCompleteFuncWrapper completed_func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (completed_func);
-			IntPtr raw_ret = clutter_effect_move(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, ref knots, n_knots, completed_func_wrapper.NativeDelegate, IntPtr.Zero);
+		public static Clutter.Timeline Fade(Clutter.EffectTemplate template_, Clutter.Actor actor, byte opacity_end, Clutter.EffectCompleteFunc func) {
+			ClutterSharp.EffectCompleteFuncWrapper func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (func);
+			IntPtr raw_ret = clutter_effect_fade(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, opacity_end, func_wrapper.NativeDelegate, IntPtr.Zero);
 			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_effect_fade(IntPtr template_, IntPtr actor, byte start_opacity, byte end_opacity, ClutterSharp.EffectCompleteFuncNative completed_func, IntPtr completed_data);
+		static extern IntPtr clutter_effect_path(IntPtr template_, IntPtr actor, ref Clutter.Knot knots, uint n_knots, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
 
-		public static Clutter.Timeline Fade(Clutter.EffectTemplate template_, Clutter.Actor actor, byte start_opacity, byte end_opacity, Clutter.EffectCompleteFunc completed_func) {
-			ClutterSharp.EffectCompleteFuncWrapper completed_func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (completed_func);
-			IntPtr raw_ret = clutter_effect_fade(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, start_opacity, end_opacity, completed_func_wrapper.NativeDelegate, IntPtr.Zero);
+		public static Clutter.Timeline Path(Clutter.EffectTemplate template_, Clutter.Actor actor, Clutter.Knot knots, uint n_knots, Clutter.EffectCompleteFunc func) {
+			ClutterSharp.EffectCompleteFuncWrapper func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (func);
+			IntPtr raw_ret = clutter_effect_path(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, ref knots, n_knots, func_wrapper.NativeDelegate, IntPtr.Zero);
 			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_effect_depth(IntPtr template_, IntPtr actor, int start_depth, int end_depth, ClutterSharp.EffectCompleteFuncNative completed_func, IntPtr completed_data);
+		static extern IntPtr clutter_effect_depth(IntPtr template_, IntPtr actor, int depth_end, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
 
-		public static Clutter.Timeline Depth(Clutter.EffectTemplate template_, Clutter.Actor actor, int start_depth, int end_depth, Clutter.EffectCompleteFunc completed_func) {
-			ClutterSharp.EffectCompleteFuncWrapper completed_func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (completed_func);
-			IntPtr raw_ret = clutter_effect_depth(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, start_depth, end_depth, completed_func_wrapper.NativeDelegate, IntPtr.Zero);
+		public static Clutter.Timeline Depth(Clutter.EffectTemplate template_, Clutter.Actor actor, int depth_end, Clutter.EffectCompleteFunc func) {
+			ClutterSharp.EffectCompleteFuncWrapper func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (func);
+			IntPtr raw_ret = clutter_effect_depth(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, depth_end, func_wrapper.NativeDelegate, IntPtr.Zero);
 			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_effect_scale(IntPtr template_, IntPtr actor, double scale_begin, double scale_end, int gravity, ClutterSharp.EffectCompleteFuncNative completed_func, IntPtr completed_data);
+		static extern IntPtr clutter_effect_scale(IntPtr template_, IntPtr actor, double scale_end, int gravity, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
 
-		public static Clutter.Timeline Scale(Clutter.EffectTemplate template_, Clutter.Actor actor, double scale_begin, double scale_end, Clutter.Gravity gravity, Clutter.EffectCompleteFunc completed_func) {
-			ClutterSharp.EffectCompleteFuncWrapper completed_func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (completed_func);
-			IntPtr raw_ret = clutter_effect_scale(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, scale_begin, scale_end, (int) gravity, completed_func_wrapper.NativeDelegate, IntPtr.Zero);
+		public static Clutter.Timeline Scale(Clutter.EffectTemplate template_, Clutter.Actor actor, double scale_end, Clutter.Gravity gravity, Clutter.EffectCompleteFunc func) {
+			ClutterSharp.EffectCompleteFuncWrapper func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (func);
+			IntPtr raw_ret = clutter_effect_scale(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, scale_end, (int) gravity, func_wrapper.NativeDelegate, IntPtr.Zero);
 			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_effect_rotate_x(IntPtr template_, IntPtr actor, double angle_begin, double angle_end, int center_y, int center_z, int direction, ClutterSharp.EffectCompleteFuncNative completed_func, IntPtr completed_data);
+		static extern IntPtr clutter_effect_rotate(IntPtr template_, IntPtr actor, int axis, double angle, int center_x, int center_y, int center_z, int direction, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
 
-		public static Clutter.Timeline RotateX(Clutter.EffectTemplate template_, Clutter.Actor actor, double angle_begin, double angle_end, int center_y, int center_z, Clutter.RotateDirection direction, Clutter.EffectCompleteFunc completed_func) {
-			ClutterSharp.EffectCompleteFuncWrapper completed_func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (completed_func);
-			IntPtr raw_ret = clutter_effect_rotate_x(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, angle_begin, angle_end, center_y, center_z, (int) direction, completed_func_wrapper.NativeDelegate, IntPtr.Zero);
-			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
-			return ret;
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_effect_rotate_y(IntPtr template_, IntPtr actor, double angle_begin, double angle_end, int center_x, int center_z, int direction, ClutterSharp.EffectCompleteFuncNative completed_func, IntPtr completed_data);
-
-		public static Clutter.Timeline RotateY(Clutter.EffectTemplate template_, Clutter.Actor actor, double angle_begin, double angle_end, int center_x, int center_z, Clutter.RotateDirection direction, Clutter.EffectCompleteFunc completed_func) {
-			ClutterSharp.EffectCompleteFuncWrapper completed_func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (completed_func);
-			IntPtr raw_ret = clutter_effect_rotate_y(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, angle_begin, angle_end, center_x, center_z, (int) direction, completed_func_wrapper.NativeDelegate, IntPtr.Zero);
+		public static Clutter.Timeline Rotate(Clutter.EffectTemplate template_, Clutter.Actor actor, Clutter.RotateAxis axis, double angle, int center_x, int center_y, int center_z, Clutter.RotateDirection direction, Clutter.EffectCompleteFunc func) {
+			ClutterSharp.EffectCompleteFuncWrapper func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (func);
+			IntPtr raw_ret = clutter_effect_rotate(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, (int) axis, angle, center_x, center_y, center_z, (int) direction, func_wrapper.NativeDelegate, IntPtr.Zero);
 			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
 			return ret;
 		}

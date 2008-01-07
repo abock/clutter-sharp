@@ -30,6 +30,45 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern UIntPtr clutter_get_timestamp();
+
+		public static ulong Timestamp { 
+			get {
+				UIntPtr raw_ret = clutter_get_timestamp();
+				ulong ret = (ulong) raw_ret;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern uint clutter_get_motion_events_frequency();
+
+		[DllImport("clutter")]
+		static extern void clutter_set_motion_events_frequency(uint frequency);
+
+		public static uint MotionEventsFrequency { 
+			get {
+				uint raw_ret = clutter_get_motion_events_frequency();
+				uint ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_set_motion_events_frequency(value);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_get_keyboard_grab();
+
+		public static Clutter.Actor KeyboardGrab { 
+			get {
+				IntPtr raw_ret = clutter_get_keyboard_grab();
+				Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern bool clutter_get_show_fps();
 
 		public static bool ShowFps { 
@@ -37,6 +76,58 @@ namespace Clutter {
 				bool raw_ret = clutter_get_show_fps();
 				bool ret = raw_ret;
 				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_get_actor_by_gid(uint id);
+
+		public static Clutter.Actor GetActorByGid(uint id) {
+			IntPtr raw_ret = clutter_get_actor_by_gid(id);
+			Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_get_script_id(IntPtr gobject);
+
+		public static string GetScriptId(GLib.Object gobject) {
+			IntPtr raw_ret = clutter_get_script_id(gobject == null ? IntPtr.Zero : gobject.Handle);
+			string ret = GLib.Marshaller.Utf8PtrToString (raw_ret);
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_get_motion_events_enabled();
+
+		[DllImport("clutter")]
+		static extern void clutter_set_motion_events_enabled(bool enable);
+
+		public static bool MotionEventsEnabled { 
+			get {
+				bool raw_ret = clutter_get_motion_events_enabled();
+				bool ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_set_motion_events_enabled(value);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern uint clutter_get_default_frame_rate();
+
+		[DllImport("clutter")]
+		static extern void clutter_set_default_frame_rate(uint frames_per_sec);
+
+		public static uint DefaultFrameRate { 
+			get {
+				uint raw_ret = clutter_get_default_frame_rate();
+				uint ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_set_default_frame_rate(value);
 			}
 		}
 
@@ -66,12 +157,12 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern UIntPtr clutter_get_timestamp();
+		static extern IntPtr clutter_get_pointer_grab();
 
-		public static ulong Timestamp { 
+		public static Clutter.Actor PointerGrab { 
 			get {
-				UIntPtr raw_ret = clutter_get_timestamp();
-				ulong ret = (ulong) raw_ret;
+				IntPtr raw_ret = clutter_get_pointer_grab();
+				Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
 				return ret;
 			}
 		}

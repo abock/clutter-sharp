@@ -33,7 +33,7 @@ namespace ClutterTest
 			entry.SetSize (600, 50);
 			entry.SetPosition (100, 100);
 
-			stage.Add (entry);
+			stage.AddActor (entry);
 			stage.ShowAll ();
 
 			stage.KeyReleaseEvent += OnKeyRelease;

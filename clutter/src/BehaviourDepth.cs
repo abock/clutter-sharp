@@ -15,9 +15,9 @@ namespace Clutter {
 		public BehaviourDepth(IntPtr raw) : base(raw) {}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_depth_new(IntPtr alpha, int start_depth, int end_depth);
+		static extern IntPtr clutter_behaviour_depth_new(IntPtr alpha, int depth_start, int depth_end);
 
-		public BehaviourDepth (Clutter.Alpha alpha, int start_depth, int end_depth) : base (IntPtr.Zero)
+		public BehaviourDepth (Clutter.Alpha alpha, int depth_start, int depth_end) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourDepth)) {
 				ArrayList vals = new ArrayList();
@@ -26,42 +26,42 @@ namespace Clutter {
 					names.Add ("alpha");
 					vals.Add (new GLib.Value (alpha));
 				}
-				names.Add ("start_depth");
-				vals.Add (new GLib.Value (start_depth));
-				names.Add ("end_depth");
-				vals.Add (new GLib.Value (end_depth));
+				names.Add ("depth_start");
+				vals.Add (new GLib.Value (depth_start));
+				names.Add ("depth_end");
+				vals.Add (new GLib.Value (depth_end));
 				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
 				return;
 			}
-			Raw = clutter_behaviour_depth_new(alpha == null ? IntPtr.Zero : alpha.Handle, start_depth, end_depth);
+			Raw = clutter_behaviour_depth_new(alpha == null ? IntPtr.Zero : alpha.Handle, depth_start, depth_end);
 		}
 
-		[GLib.Property ("end-depth")]
-		public int EndDepth {
+		[GLib.Property ("depth-end")]
+		public int DepthEnd {
 			get {
-				GLib.Value val = GetProperty ("end-depth");
+				GLib.Value val = GetProperty ("depth-end");
 				int ret = (int) val;
 				val.Dispose ();
 				return ret;
 			}
 			set {
 				GLib.Value val = new GLib.Value(value);
-				SetProperty("end-depth", val);
+				SetProperty("depth-end", val);
 				val.Dispose ();
 			}
 		}
 
-		[GLib.Property ("start-depth")]
-		public int StartDepth {
+		[GLib.Property ("depth-start")]
+		public int DepthStart {
 			get {
-				GLib.Value val = GetProperty ("start-depth");
+				GLib.Value val = GetProperty ("depth-start");
 				int ret = (int) val;
 				val.Dispose ();
 				return ret;
 			}
 			set {
 				GLib.Value val = new GLib.Value(value);
-				SetProperty("start-depth", val);
+				SetProperty("depth-start", val);
 				val.Dispose ();
 			}
 		}

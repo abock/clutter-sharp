@@ -26,6 +26,17 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern IntPtr clutter_timeline_new_for_duration(uint msecs);
+
+		public Timeline (uint msecs) : base (IntPtr.Zero)
+		{
+			if (GetType () != typeof (Timeline)) {
+				throw new InvalidOperationException ("Can't override this constructor.");
+			}
+			Raw = clutter_timeline_new_for_duration(msecs);
+		}
+
+		[DllImport("clutter")]
 		static extern bool clutter_timeline_get_loop(IntPtr raw);
 
 		[DllImport("clutter")]
@@ -59,6 +70,24 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern int clutter_timeline_get_direction(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_timeline_set_direction(IntPtr raw, int direction);
+
+		[GLib.Property ("direction")]
+		public Clutter.TimelineDirection Direction {
+			get  {
+				int raw_ret = clutter_timeline_get_direction(Handle);
+				Clutter.TimelineDirection ret = (Clutter.TimelineDirection) raw_ret;
+				return ret;
+			}
+			set  {
+				clutter_timeline_set_direction(Handle, (int) value);
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern uint clutter_timeline_get_delay(IntPtr raw);
 
 		[DllImport("clutter")]
@@ -88,6 +117,24 @@ namespace Clutter {
 				GLib.Value val = new GLib.Value(value);
 				SetProperty("fps", val);
 				val.Dispose ();
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern uint clutter_timeline_get_duration(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_timeline_set_duration(IntPtr raw, uint msecs);
+
+		[GLib.Property ("duration")]
+		public uint Duration {
+			get  {
+				uint raw_ret = clutter_timeline_get_duration(Handle);
+				uint ret = raw_ret;
+				return ret;
+			}
+			set  {
+				clutter_timeline_set_duration(Handle, value);
 			}
 		}
 
@@ -309,6 +356,15 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern uint clutter_timeline_get_delta(IntPtr raw, out uint msecs);
+
+		public uint GetDelta(out uint msecs) {
+			uint raw_ret = clutter_timeline_get_delta(Handle, out msecs);
+			uint ret = raw_ret;
+			return ret;
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_timeline_start(IntPtr raw);
 
 		public void Start() {
@@ -360,6 +416,17 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern double clutter_timeline_get_progress(IntPtr raw);
+
+		public double Progress { 
+			get {
+				double raw_ret = clutter_timeline_get_progress(Handle);
+				double ret = raw_ret;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern int clutter_timeline_get_current_frame(IntPtr raw);
 
 		public int CurrentFrame { 
@@ -378,17 +445,21 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_timeline_stop(IntPtr raw);
-
-		public void Stop() {
-			clutter_timeline_stop(Handle);
-		}
-
-		[DllImport("clutter")]
 		static extern void clutter_timeline_pause(IntPtr raw);
 
 		public void Pause() {
 			clutter_timeline_pause(Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern int clutter_timeline_get_progressx(IntPtr raw);
+
+		public int Progressx { 
+			get {
+				int raw_ret = clutter_timeline_get_progressx(Handle);
+				int ret = raw_ret;
+				return ret;
+			}
 		}
 
 		[DllImport("clutter")]
@@ -406,6 +477,13 @@ namespace Clutter {
 			set {
 				clutter_timeline_set_speed(Handle, value);
 			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_timeline_stop(IntPtr raw);
+
+		public void Stop() {
+			clutter_timeline_stop(Handle);
 		}
 
 		[DllImport("clutter")]

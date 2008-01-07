@@ -10,9 +10,13 @@ namespace Clutter {
 
 		event Clutter.ActorRemovedHandler ActorRemoved;
 		event Clutter.ActorAddedHandler ActorAdded;
-		void AddActor(Clutter.Actor actor);
-		void RemoveValist(Clutter.Actor first_actor, IntPtr var_args);
 		void AddValist(Clutter.Actor first_actor, IntPtr var_args);
+		void AddActor(Clutter.Actor actor);
+		void SortDepthOrder();
+		void LowerChild(Clutter.Actor actor, Clutter.Actor sibling);
+		void RaiseChild(Clutter.Actor actor, Clutter.Actor sibling);
+		void RemoveValist(Clutter.Actor first_actor, IntPtr var_args);
+		Clutter.Actor FindChildByName(string child_name);
 		void RemoveActor(Clutter.Actor actor);
 		void Foreach(Clutter.Callback cb);
 		GLib.List Children { 

@@ -13,6 +13,7 @@ namespace Clutter {
 
 		Mapped = 1 << 1,
 		Realized = 1 << 2,
+		Reactive = 1 << 3,
 	}
 
 	internal class ActorFlagsGType {

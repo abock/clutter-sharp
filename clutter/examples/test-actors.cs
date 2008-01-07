@@ -20,15 +20,19 @@ public class SuperOH
 
 	static void HandleNewFrame (object o, NewFrameArgs args) 
 	{
- 		CurrentOH.Group.RotateZ  (args.FrameNum, 
- 					  (int)Stage.Default.Width / 2, 
- 					  (int)Stage.Default.Height / 2);
+ 		CurrentOH.Group.SetRotation (RotateAxis.ZAxis,
+					     args.FrameNum, 
+ 					     (int)Stage.Default.Width / 2, 
+ 					     (int)Stage.Default.Height / 2,
+					     0);
 
 
 		foreach (Actor hand in CurrentOH.Hands) {
-		 	hand.RotateZ (-6.0F * args.FrameNum,
-				      (int)hand.Width / 2,
-				      (int)hand.Height / 2);
+		 	hand.SetRotation (RotateAxis.ZAxis,
+					  -6.0F * args.FrameNum,
+				      	  (int)hand.Width / 2,
+				          (int)hand.Height / 2,
+					  0);
 		}
 	}
 
@@ -80,11 +84,11 @@ public class SuperOH
 
 			oh.Hands[i].SetPosition (x, y);
 
-			oh.Group.Add (oh.Hands[i]);
+			oh.Group.AddActor (oh.Hands[i]);
 		}
 
 		oh.Group.ShowAll ();
-		stage.Add (oh.Group);
+		stage.AddActor (oh.Group);
 		stage.ButtonPressEvent += HandleButtonPress;
 		stage.KeyPressEvent += HandleKeyPress;
 
