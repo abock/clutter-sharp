@@ -1,4 +1,8 @@
 2008-01-07  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
+	* examples/test-script.cs:
+	* examples/test-script.json: add script test
+	
+2008-01-07  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
 	Update to clutter 0.5.0 pre-release
 
 	* src/*: regenerated against 0.5.0
