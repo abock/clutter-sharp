@@ -10,9 +10,9 @@ if test "x$MONO" = "xno"; then
 	AC_MSG_ERROR([Cannot find the "mono" runtime in your PATH])
 fi
 
-AC_PATH_PROG(MCS, mcs, no)
+AC_PATH_PROG(MCS, gmcs, no)
 if test "x$MCS" = "xno"; then
-	AC_MSG_ERROR([Cannot find the "mcs" compiler in your PATH])
+	AC_MSG_ERROR([Cannot find the "gmcs" compiler in your PATH])
 fi
 
 AC_PATH_PROG(GACUTIL, gacutil, no)

@@ -136,5 +136,15 @@ namespace Clutter {
 		}
 
 #endregion
+#region Customized extensions
+#line 1 "Script.custom"
+		public TObject GetObject<TObject>(string name) 
+		 	where TObject : GLib.Object
+		{
+		 	return (TObject)GetObject(name);
+		}
+
+
+#endregion
 	}
 }

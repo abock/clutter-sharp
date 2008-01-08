@@ -74,8 +74,8 @@ public class ShaderTest
 		script.LoadFromFile ("test-script.json");
 		merge_id = script.LoadFromData (test_unmerge);
 
-		Stage stage = (Stage)script.GetObject("main-stage");
-		Actor red_button = (Actor)script.GetObject("red-button");
+		Stage stage = script.GetObject<Stage>("main-stage");
+		Actor red_button = script.GetObject<Actor>("red-button");
 
 		red_button.ButtonPressEvent += HandleButtonPress;
 

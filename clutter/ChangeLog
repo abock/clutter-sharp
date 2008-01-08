@@ -1,4 +1,13 @@
-2008-01-07  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
+2008-01-08  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
+	* src/Script.custom
+	* src/Script.cs: Add new generic method for easy casting
+
+	* examples/test-script.cs: Use new method
+
+	* configure.ac: switch to gmcs 
+
+
+2008-01-08  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
 	* examples/test-script.cs:
 	* examples/test-script.json: add script test
 	
