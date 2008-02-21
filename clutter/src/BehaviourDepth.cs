@@ -77,6 +77,20 @@ namespace Clutter {
 			}
 		}
 
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_depth_set_bounds(IntPtr raw, int depth_start, int depth_end);
+
+		public void SetBounds(int depth_start, int depth_end) {
+			clutter_behaviour_depth_set_bounds(Handle, depth_start, depth_end);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_depth_get_bounds(IntPtr raw, out int depth_start, out int depth_end);
+
+		public void GetBounds(out int depth_start, out int depth_end) {
+			clutter_behaviour_depth_get_bounds(Handle, out depth_start, out depth_end);
+		}
+
 #endregion
 	}
 }

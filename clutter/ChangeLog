@@ -1,3 +1,6 @@
+2008-02-21  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
+	* *: Update 0.6.0
+
 2008-01-08  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
 	* src/Script.custom
 	* src/Script.cs: Add new generic method for easy casting
@@ -5,7 +8,6 @@
 	* examples/test-script.cs: Use new method
 
 	* configure.ac: switch to gmcs 
-
 
 2008-01-08  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
 	* examples/test-script.cs:

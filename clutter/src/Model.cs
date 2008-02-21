@@ -383,6 +383,15 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_model_prependv(IntPtr raw, uint n_columns, out uint columns, ref GLib.Value values);
+
+		public uint Prependv(uint n_columns, GLib.Value values) {
+			uint columns;
+			clutter_model_prependv(Handle, n_columns, out columns, ref values);
+			return columns;
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_model_set_filter(IntPtr raw, ClutterSharp.ModelFilterFuncNative func, IntPtr user_data, GLib.DestroyNotify notify);
 
 		public Clutter.ModelFilterFunc Filter { 
@@ -494,17 +503,19 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_model_prepend_value(IntPtr raw, uint column, ref GLib.Value value);
-
-		public void PrependValue(uint column, GLib.Value value) {
-			clutter_model_prepend_value(Handle, column, ref value);
-		}
-
-		[DllImport("clutter")]
 		static extern void clutter_model_resort(IntPtr raw);
 
 		public void Resort() {
 			clutter_model_resort(Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_model_appendv(IntPtr raw, uint n_columns, out uint columns, ref GLib.Value values);
+
+		public uint Appendv(uint n_columns, GLib.Value values) {
+			uint columns;
+			clutter_model_appendv(Handle, n_columns, out columns, ref values);
+			return columns;
 		}
 
 		[DllImport("clutter")]
@@ -536,10 +547,12 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_model_append_value(IntPtr raw, uint column, ref GLib.Value value);
+		static extern void clutter_model_insertv(IntPtr raw, uint row, uint n_columns, out uint columns, ref GLib.Value values);
 
-		public void AppendValue(uint column, GLib.Value value) {
-			clutter_model_append_value(Handle, column, ref value);
+		public uint Insertv(uint row, uint n_columns, GLib.Value values) {
+			uint columns;
+			clutter_model_insertv(Handle, row, n_columns, out columns, ref values);
+			return columns;
 		}
 
 #endregion

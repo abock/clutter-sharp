@@ -26,6 +26,7 @@ namespace Clutter {
 		public Clutter.ModifierType ModifierState;
 		public uint Keyval;
 		public ushort HardwareKeycode;
+		public char UnicodeValue;
 
 		public static Clutter.KeyEvent Zero = new Clutter.KeyEvent ();
 

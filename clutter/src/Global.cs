@@ -58,6 +58,23 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern bool clutter_get_motion_events_enabled();
+
+		[DllImport("clutter")]
+		static extern void clutter_set_motion_events_enabled(bool enable);
+
+		public static bool MotionEventsEnabled { 
+			get {
+				bool raw_ret = clutter_get_motion_events_enabled();
+				bool ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_set_motion_events_enabled(value);
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_get_keyboard_grab();
 
 		public static Clutter.Actor KeyboardGrab { 
@@ -80,15 +97,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_get_actor_by_gid(uint id);
-
-		public static Clutter.Actor GetActorByGid(uint id) {
-			IntPtr raw_ret = clutter_get_actor_by_gid(id);
-			Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
-			return ret;
-		}
-
-		[DllImport("clutter")]
 		static extern IntPtr clutter_get_script_id(IntPtr gobject);
 
 		public static string GetScriptId(GLib.Object gobject) {
@@ -98,20 +106,12 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_get_motion_events_enabled();
+		static extern IntPtr clutter_get_actor_by_gid(uint id);
 
-		[DllImport("clutter")]
-		static extern void clutter_set_motion_events_enabled(bool enable);
-
-		public static bool MotionEventsEnabled { 
-			get {
-				bool raw_ret = clutter_get_motion_events_enabled();
-				bool ret = raw_ret;
-				return ret;
-			}
-			set {
-				clutter_set_motion_events_enabled(value);
-			}
+		public static Clutter.Actor GetActorByGid(uint id) {
+			IntPtr raw_ret = clutter_get_actor_by_gid(id);
+			Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
+			return ret;
 		}
 
 		[DllImport("clutter")]

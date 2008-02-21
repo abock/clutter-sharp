@@ -19,6 +19,7 @@ namespace Clutter {
 		StageUserResize = 1 << 6,
 		StageCursor = 1 << 7,
 		ShadersGlsl = 1 << 8,
+		Offscreen = 1 << 9,
 	}
 
 	internal class FeatureFlagsGType {

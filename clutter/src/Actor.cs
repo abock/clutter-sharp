@@ -1308,10 +1308,10 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_destroy(IntPtr raw);
+		static extern void clutter_actor_move_byu(IntPtr raw, int dx, int dy);
 
-		public void Destroy() {
-			clutter_actor_destroy(Handle);
+		public void MoveByu(int dx, int dy) {
+			clutter_actor_move_byu(Handle, dx, dy);
 		}
 
 		[DllImport("clutter")]
@@ -1343,6 +1343,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_actor_move_anchor_point(IntPtr raw, int anchor_x, int anchor_y);
+
+		public void MoveAnchorPoint(int anchor_x, int anchor_y) {
+			clutter_actor_move_anchor_point(Handle, anchor_x, anchor_y);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_actor_hide_all(IntPtr raw);
 
 		public void HideAll() {
@@ -1350,10 +1357,20 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_set_sizeu(IntPtr raw, int width, int height);
+		static extern int clutter_actor_get_xu(IntPtr raw);
 
-		public void SetSizeu(int width, int height) {
-			clutter_actor_set_sizeu(Handle, width, height);
+		[DllImport("clutter")]
+		static extern void clutter_actor_set_xu(IntPtr raw, int x);
+
+		public int Xu { 
+			get {
+				int raw_ret = clutter_actor_get_xu(Handle);
+				int ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_actor_set_xu(Handle, value);
+			}
 		}
 
 		[DllImport("clutter")]
@@ -1443,6 +1460,17 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern bool clutter_actor_is_rotated(IntPtr raw);
+
+		public bool IsRotated { 
+			get {
+				bool raw_ret = clutter_actor_is_rotated(Handle);
+				bool ret = raw_ret;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern int clutter_actor_get_yu(IntPtr raw);
 
 		[DllImport("clutter")]
@@ -1460,6 +1488,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_actor_get_relative_vertices(IntPtr raw, IntPtr ancestor, Clutter.Vertex[] verts);
+
+		public void GetRelativeVertices(Clutter.Actor ancestor, Clutter.Vertex[] verts) {
+			clutter_actor_get_relative_vertices(Handle, ancestor == null ? IntPtr.Zero : ancestor.Handle, verts);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_actor_paint(IntPtr raw);
 
 		public void Paint() {
@@ -1467,10 +1502,10 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_set_anchor_pointu(IntPtr raw, int anchor_x, int anchor_y);
+		static extern void clutter_actor_move_anchor_point_from_gravity(IntPtr raw, int gravity);
 
-		public void SetAnchorPointu(int anchor_x, int anchor_y) {
-			clutter_actor_set_anchor_pointu(Handle, anchor_x, anchor_y);
+		public void MoveAnchorPointFromGravity(Clutter.Gravity gravity) {
+			clutter_actor_move_anchor_point_from_gravity(Handle, (int) gravity);
 		}
 
 		[DllImport("clutter")]
@@ -1519,23 +1554,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern int clutter_actor_get_xu(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_actor_set_xu(IntPtr raw, int x);
-
-		public int Xu { 
-			get {
-				int raw_ret = clutter_actor_get_xu(Handle);
-				int ret = raw_ret;
-				return ret;
-			}
-			set {
-				clutter_actor_set_xu(Handle, value);
-			}
-		}
-
-		[DllImport("clutter")]
 		static extern bool clutter_actor_should_pick_paint(IntPtr raw);
 
 		public bool ShouldPickPaint() {
@@ -1549,6 +1567,13 @@ namespace Clutter {
 
 		public void GetScalex(out int scale_x, out int scale_y) {
 			clutter_actor_get_scalex(Handle, out scale_x, out scale_y);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_actor_set_sizeu(IntPtr raw, int width, int height);
+
+		public void SetSizeu(int width, int height) {
+			clutter_actor_set_sizeu(Handle, width, height);
 		}
 
 		[DllImport("clutter")]
@@ -1577,10 +1602,10 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_actor_apply_shader(IntPtr raw, IntPtr shader);
+		static extern bool clutter_actor_set_shader(IntPtr raw, IntPtr shader);
 
-		public bool ApplyShader(Clutter.Shader shader) {
-			bool raw_ret = clutter_actor_apply_shader(Handle, shader == null ? IntPtr.Zero : shader.Handle);
+		public bool SetShader(Clutter.Shader shader) {
+			bool raw_ret = clutter_actor_set_shader(Handle, shader == null ? IntPtr.Zero : shader.Handle);
 			bool ret = raw_ret;
 			return ret;
 		}
@@ -1613,6 +1638,13 @@ namespace Clutter {
 
 		public void MoveBy(int dx, int dy) {
 			clutter_actor_move_by(Handle, dx, dy);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_actor_move_anchor_pointu(IntPtr raw, int anchor_x, int anchor_y);
+
+		public void MoveAnchorPointu(int anchor_x, int anchor_y) {
+			clutter_actor_move_anchor_pointu(Handle, anchor_x, anchor_y);
 		}
 
 		[DllImport("clutter")]
@@ -1660,6 +1692,17 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern IntPtr clutter_actor_get_shader(IntPtr raw);
+
+		public Clutter.Shader Shader { 
+			get {
+				IntPtr raw_ret = clutter_actor_get_shader(Handle);
+				Clutter.Shader ret = GLib.Object.GetObject(raw_ret) as Clutter.Shader;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_actor_get_parent(IntPtr raw);
 
 		[DllImport("clutter")]
@@ -1691,6 +1734,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_actor_apply_relative_transform_to_point(IntPtr raw, IntPtr ancestor, ref Clutter.Vertex point, ref Clutter.Vertex vertex);
+
+		public void ApplyRelativeTransformToPoint(Clutter.Actor ancestor, Clutter.Vertex point, Clutter.Vertex vertex) {
+			clutter_actor_apply_relative_transform_to_point(Handle, ancestor == null ? IntPtr.Zero : ancestor.Handle, ref point, ref vertex);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_actor_set_clip(IntPtr raw, int xoff, int yoff, int width, int height);
 
 		public void SetClip(int xoff, int yoff, int width, int height) {
@@ -1716,6 +1766,17 @@ namespace Clutter {
 
 		public void SetRotation(Clutter.RotateAxis axis, double angle, int x, int y, int z) {
 			clutter_actor_set_rotation(Handle, (int) axis, angle, x, y, z);
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_actor_is_scaled(IntPtr raw);
+
+		public bool IsScaled { 
+			get {
+				bool raw_ret = clutter_actor_is_scaled(Handle);
+				bool ret = raw_ret;
+				return ret;
+			}
 		}
 
 		[DllImport("clutter")]
@@ -1754,6 +1815,13 @@ namespace Clutter {
 
 		public void GetClip(out int xoff, out int yoff, out int width, out int height) {
 			clutter_actor_get_clip(Handle, out xoff, out yoff, out width, out height);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_actor_destroy(IntPtr raw);
+
+		public void Destroy() {
+			clutter_actor_destroy(Handle);
 		}
 
 		[DllImport("clutter")]
@@ -1838,6 +1906,13 @@ namespace Clutter {
 
 		public void Reparent(Clutter.Actor new_parent) {
 			clutter_actor_reparent(Handle, new_parent == null ? IntPtr.Zero : new_parent.Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_actor_set_anchor_pointu(IntPtr raw, int anchor_x, int anchor_y);
+
+		public void SetAnchorPointu(int anchor_x, int anchor_y) {
+			clutter_actor_set_anchor_pointu(Handle, anchor_x, anchor_y);
 		}
 
 		[DllImport("clutter")]

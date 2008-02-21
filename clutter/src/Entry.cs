@@ -175,21 +175,18 @@ namespace Clutter {
 			}
 		}
 
-		[DllImport("clutter")]
-		static extern int clutter_entry_get_position(IntPtr raw);
-
-		[DllImport("clutter")]
-		static extern void clutter_entry_set_position(IntPtr raw, int position);
-
 		[GLib.Property ("position")]
 		public int Position {
-			get  {
-				int raw_ret = clutter_entry_get_position(Handle);
-				int ret = raw_ret;
+			get {
+				GLib.Value val = GetProperty ("position");
+				int ret = (int) val;
+				val.Dispose ();
 				return ret;
 			}
-			set  {
-				clutter_entry_set_position(Handle, value);
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("position", val);
+				val.Dispose ();
 			}
 		}
 
@@ -430,10 +427,20 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_entry_delete_text(IntPtr raw, IntPtr start_pos, IntPtr end_pos);
+		static extern int clutter_entry_get_cursor_position(IntPtr raw);
 
-		public void DeleteText(long start_pos, long end_pos) {
-			clutter_entry_delete_text(Handle, new IntPtr (start_pos), new IntPtr (end_pos));
+		[DllImport("clutter")]
+		static extern void clutter_entry_set_cursor_position(IntPtr raw, int position);
+
+		public int CursorPosition { 
+			get {
+				int raw_ret = clutter_entry_get_cursor_position(Handle);
+				int ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_entry_set_cursor_position(Handle, value);
+			}
 		}
 
 		[DllImport("clutter")]
@@ -471,6 +478,13 @@ namespace Clutter {
 			IntPtr text_as_native = GLib.Marshaller.StringToPtrGStrdup (text);
 			clutter_entry_insert_text(Handle, text_as_native, new IntPtr (position));
 			GLib.Marshaller.Free (text_as_native);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_entry_delete_text(IntPtr raw, IntPtr start_pos, IntPtr end_pos);
+
+		public void DeleteText(long start_pos, long end_pos) {
+			clutter_entry_delete_text(Handle, new IntPtr (start_pos), new IntPtr (end_pos));
 		}
 
 		[DllImport("clutter")]

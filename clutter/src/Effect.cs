@@ -50,11 +50,11 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_effect_scale(IntPtr template_, IntPtr actor, double scale_end, int gravity, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
+		static extern IntPtr clutter_effect_scale(IntPtr template_, IntPtr actor, double x_scale_end, double y_scale_end, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
 
-		public static Clutter.Timeline Scale(Clutter.EffectTemplate template_, Clutter.Actor actor, double scale_end, Clutter.Gravity gravity, Clutter.EffectCompleteFunc func) {
+		public static Clutter.Timeline Scale(Clutter.EffectTemplate template_, Clutter.Actor actor, double x_scale_end, double y_scale_end, Clutter.EffectCompleteFunc func) {
 			ClutterSharp.EffectCompleteFuncWrapper func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (func);
-			IntPtr raw_ret = clutter_effect_scale(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, scale_end, (int) gravity, func_wrapper.NativeDelegate, IntPtr.Zero);
+			IntPtr raw_ret = clutter_effect_scale(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, x_scale_end, y_scale_end, func_wrapper.NativeDelegate, IntPtr.Zero);
 			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
 			return ret;
 		}

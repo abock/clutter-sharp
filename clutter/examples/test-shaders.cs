@@ -67,7 +67,7 @@ public class ShaderTest
 			shader.Bind ();
 
 			Actor actor = sender as Actor;
-			actor.ApplyShader (shader);
+			actor.SetShader (shader);
 			actor.SetShaderParam ("radius", 3.0f);
 		}
 	}
@@ -95,7 +95,7 @@ public class ShaderTest
 		stage.AddActor (new Label ("Mono 16", "Press the Hand"));
 
 		Texture actor = new Texture(pixbuf);
-		actor.ApplyShader (shader);
+		actor.SetShader (shader);
 		actor.SetShaderParam("brightness", 0.4f);
 		actor.SetShaderParam("contrast", -1.9f);
 		actor.Reactive = true;

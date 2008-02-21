@@ -25,6 +25,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_actor_box_get_from_vertices(Clutter.Vertex[] vtx, ref Clutter.ActorBox box);
+
+		public static void GetFromVertices(Clutter.Vertex[] vtx, Clutter.ActorBox box) {
+			clutter_actor_box_get_from_vertices(vtx, ref box);
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_actor_box_get_type();
 
 		public static GLib.GType GType { 

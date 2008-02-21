@@ -15,95 +15,122 @@ namespace Clutter {
 		public BehaviourScale(IntPtr raw) : base(raw) {}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_scale_new(IntPtr alpha, double scale_start, double scale_end, int gravity);
+		static extern IntPtr clutter_behaviour_scale_new(IntPtr alpha, double x_scale_start, double y_scale_start, double x_scale_end, double y_scale_end);
 
-		public BehaviourScale (Clutter.Alpha alpha, double scale_start, double scale_end, Clutter.Gravity gravity) : base (IntPtr.Zero)
+		public BehaviourScale (Clutter.Alpha alpha, double x_scale_start, double y_scale_start, double x_scale_end, double y_scale_end) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourScale)) {
-				throw new InvalidOperationException ("Can't override this constructor.");
+				ArrayList vals = new ArrayList();
+				ArrayList names = new ArrayList();
+				if (alpha != null) {
+					names.Add ("alpha");
+					vals.Add (new GLib.Value (alpha));
+				}
+				names.Add ("x_scale_start");
+				vals.Add (new GLib.Value (x_scale_start));
+				names.Add ("y_scale_start");
+				vals.Add (new GLib.Value (y_scale_start));
+				names.Add ("x_scale_end");
+				vals.Add (new GLib.Value (x_scale_end));
+				names.Add ("y_scale_end");
+				vals.Add (new GLib.Value (y_scale_end));
+				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
+				return;
 			}
-			Raw = clutter_behaviour_scale_new(alpha == null ? IntPtr.Zero : alpha.Handle, scale_start, scale_end, (int) gravity);
+			Raw = clutter_behaviour_scale_new(alpha == null ? IntPtr.Zero : alpha.Handle, x_scale_start, y_scale_start, x_scale_end, y_scale_end);
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_scale_newx(IntPtr alpha, int scale_start, int scale_end, int gravity);
+		static extern IntPtr clutter_behaviour_scale_newx(IntPtr alpha, int x_scale_start, int y_scale_start, int x_scale_end, int y_scale_end);
 
-		public BehaviourScale (Clutter.Alpha alpha, int scale_start, int scale_end, Clutter.Gravity gravity) : base (IntPtr.Zero)
+		public BehaviourScale (Clutter.Alpha alpha, int x_scale_start, int y_scale_start, int x_scale_end, int y_scale_end) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourScale)) {
-				throw new InvalidOperationException ("Can't override this constructor.");
+				ArrayList vals = new ArrayList();
+				ArrayList names = new ArrayList();
+				if (alpha != null) {
+					names.Add ("alpha");
+					vals.Add (new GLib.Value (alpha));
+				}
+				names.Add ("x_scale_start");
+				vals.Add (new GLib.Value (x_scale_start));
+				names.Add ("y_scale_start");
+				vals.Add (new GLib.Value (y_scale_start));
+				names.Add ("x_scale_end");
+				vals.Add (new GLib.Value (x_scale_end));
+				names.Add ("y_scale_end");
+				vals.Add (new GLib.Value (y_scale_end));
+				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
+				return;
 			}
-			Raw = clutter_behaviour_scale_newx(alpha == null ? IntPtr.Zero : alpha.Handle, scale_start, scale_end, (int) gravity);
+			Raw = clutter_behaviour_scale_newx(alpha == null ? IntPtr.Zero : alpha.Handle, x_scale_start, y_scale_start, x_scale_end, y_scale_end);
 		}
 
-		[GLib.Property ("scale-start")]
-		public double ScaleStart {
+		[GLib.Property ("y-scale-start")]
+		public double YScaleStart {
 			get {
-				GLib.Value val = GetProperty ("scale-start");
+				GLib.Value val = GetProperty ("y-scale-start");
 				double ret = (double) val;
 				val.Dispose ();
 				return ret;
 			}
 			set {
 				GLib.Value val = new GLib.Value(value);
-				SetProperty("scale-start", val);
+				SetProperty("y-scale-start", val);
 				val.Dispose ();
 			}
 		}
 
-		[GLib.Property ("scale-gravity")]
-		public Clutter.Gravity ScaleGravity {
+		[GLib.Property ("x-scale-start")]
+		public double XScaleStart {
 			get {
-				GLib.Value val = GetProperty ("scale-gravity");
-				Clutter.Gravity ret = (Clutter.Gravity) (Enum) val;
-				val.Dispose ();
-				return ret;
-			}
-			set {
-				GLib.Value val = new GLib.Value((Enum) value);
-				SetProperty("scale-gravity", val);
-				val.Dispose ();
-			}
-		}
-
-		[GLib.Property ("scale-end")]
-		public double ScaleEnd {
-			get {
-				GLib.Value val = GetProperty ("scale-end");
+				GLib.Value val = GetProperty ("x-scale-start");
 				double ret = (double) val;
 				val.Dispose ();
 				return ret;
 			}
 			set {
 				GLib.Value val = new GLib.Value(value);
-				SetProperty("scale-end", val);
+				SetProperty("x-scale-start", val);
+				val.Dispose ();
+			}
+		}
+
+		[GLib.Property ("y-scale-end")]
+		public double YScaleEnd {
+			get {
+				GLib.Value val = GetProperty ("y-scale-end");
+				double ret = (double) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("y-scale-end", val);
+				val.Dispose ();
+			}
+		}
+
+		[GLib.Property ("x-scale-end")]
+		public double XScaleEnd {
+			get {
+				GLib.Value val = GetProperty ("x-scale-end");
+				double ret = (double) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("x-scale-end", val);
 				val.Dispose ();
 			}
 		}
 
 		[DllImport("clutter")]
-		static extern int clutter_behaviour_scale_get_gravity(IntPtr raw);
+		static extern void clutter_behaviour_scale_set_bounds(IntPtr raw, double x_scale_start, double y_scale_start, double x_scale_end, double y_scale_end);
 
-		public Clutter.Gravity Gravity { 
-			get {
-				int raw_ret = clutter_behaviour_scale_get_gravity(Handle);
-				Clutter.Gravity ret = (Clutter.Gravity) raw_ret;
-				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_behaviour_scale_get_boundsx(IntPtr raw, out int scale_start, out int scale_end);
-
-		public void GetBoundsx(out int scale_start, out int scale_end) {
-			clutter_behaviour_scale_get_boundsx(Handle, out scale_start, out scale_end);
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_behaviour_scale_get_bounds(IntPtr raw, out double scale_start, out double scale_end);
-
-		public void GetBounds(out double scale_start, out double scale_end) {
-			clutter_behaviour_scale_get_bounds(Handle, out scale_start, out scale_end);
+		public void SetBounds(double x_scale_start, double y_scale_start, double x_scale_end, double y_scale_end) {
+			clutter_behaviour_scale_set_bounds(Handle, x_scale_start, y_scale_start, x_scale_end, y_scale_end);
 		}
 
 		[DllImport("clutter")]
@@ -115,6 +142,27 @@ namespace Clutter {
 				GLib.GType ret = new GLib.GType(raw_ret);
 				return ret;
 			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_scale_get_boundsx(IntPtr raw, out int x_scale_start, out int y_scale_start, out int x_scale_end, out int y_scale_end);
+
+		public void GetBoundsx(out int x_scale_start, out int y_scale_start, out int x_scale_end, out int y_scale_end) {
+			clutter_behaviour_scale_get_boundsx(Handle, out x_scale_start, out y_scale_start, out x_scale_end, out y_scale_end);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_scale_get_bounds(IntPtr raw, out double x_scale_start, out double y_scale_start, out double x_scale_end, out double y_scale_end);
+
+		public void GetBounds(out double x_scale_start, out double y_scale_start, out double x_scale_end, out double y_scale_end) {
+			clutter_behaviour_scale_get_bounds(Handle, out x_scale_start, out y_scale_start, out x_scale_end, out y_scale_end);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_scale_set_boundsx(IntPtr raw, int x_scale_start, int y_scale_start, int x_scale_end, int y_scale_end);
+
+		public void SetBoundsx(int x_scale_start, int y_scale_start, int x_scale_end, int y_scale_end) {
+			clutter_behaviour_scale_set_boundsx(Handle, x_scale_start, y_scale_start, x_scale_end, y_scale_end);
 		}
 
 #endregion

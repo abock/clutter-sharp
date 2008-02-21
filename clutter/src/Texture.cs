@@ -27,6 +27,17 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern IntPtr clutter_texture_new_from_actor(IntPtr actor);
+
+		public Texture (Clutter.Actor actor) : base (IntPtr.Zero)
+		{
+			if (GetType () != typeof (Texture)) {
+				throw new InvalidOperationException ("Can't override this constructor.");
+			}
+			Raw = clutter_texture_new_from_actor(actor == null ? IntPtr.Zero : actor.Handle);
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_texture_new_from_pixbuf(IntPtr pixbuf);
 
 		public Texture (Gdk.Pixbuf pixbuf) : base (IntPtr.Zero)

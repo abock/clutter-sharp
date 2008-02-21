@@ -77,6 +77,20 @@ namespace Clutter {
 			}
 		}
 
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_opacity_set_bounds(IntPtr raw, byte opacity_start, byte opacity_end);
+
+		public void SetBounds(byte opacity_start, byte opacity_end) {
+			clutter_behaviour_opacity_set_bounds(Handle, opacity_start, opacity_end);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_behaviour_opacity_get_bounds(IntPtr raw, out byte opacity_start, out byte opacity_end);
+
+		public void GetBounds(out byte opacity_start, out byte opacity_end) {
+			clutter_behaviour_opacity_get_bounds(Handle, out opacity_start, out opacity_end);
+		}
+
 #endregion
 	}
 }
