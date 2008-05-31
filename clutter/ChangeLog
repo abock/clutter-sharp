@@ -1,3 +1,15 @@
+2008-05-31 Thomas Van Machelen <thomas.vanmachelen@gmail.com> 
+
+	* gapi/clutter.metadata: 
+	* src/BehaviourPath.custom: remove default constructor and 
+	add our own as it resembles the c# coding style better
+
+	* src/*: Regenerated against clutter 0.6.2
+
+	* examples/test-script.cs: Elaborate a bit better
+	* examples/test-threads.cs: Improve to make it work fully with
+	current bindings
+
 2008-02-21  Thomas Van Machelen <thomas.vanmachelen@gmail.com>
 	* *: Update 0.6.0
 

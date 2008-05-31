@@ -27,7 +27,7 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_entry_new_full(IntPtr font_name, IntPtr text, ref Clutter.Color color);
+		static extern IntPtr clutter_entry_new_full(IntPtr font_name, IntPtr text, IntPtr color);
 
 		public Entry (string font_name, string text, Clutter.Color color) : base (IntPtr.Zero)
 		{
@@ -43,11 +43,14 @@ namespace Clutter {
 				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
 				return;
 			}
-			IntPtr font_name_as_native = GLib.Marshaller.StringToPtrGStrdup (font_name);
-			IntPtr text_as_native = GLib.Marshaller.StringToPtrGStrdup (text);
-			Raw = clutter_entry_new_full(font_name_as_native, text_as_native, ref color);
-			GLib.Marshaller.Free (font_name_as_native);
-			GLib.Marshaller.Free (text_as_native);
+			IntPtr native_font_name = GLib.Marshaller.StringToPtrGStrdup (font_name);
+			IntPtr native_text = GLib.Marshaller.StringToPtrGStrdup (text);
+			IntPtr native_color = GLib.Marshaller.StructureToPtrAlloc (color);
+			Raw = clutter_entry_new_full(native_font_name, native_text, native_color);
+			GLib.Marshaller.Free (native_font_name);
+			GLib.Marshaller.Free (native_text);
+			color = Clutter.Color.New (native_color);
+			Marshal.FreeHGlobal (native_color);
 		}
 
 		[DllImport("clutter")]
@@ -65,11 +68,11 @@ namespace Clutter {
 				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
 				return;
 			}
-			IntPtr font_name_as_native = GLib.Marshaller.StringToPtrGStrdup (font_name);
-			IntPtr text_as_native = GLib.Marshaller.StringToPtrGStrdup (text);
-			Raw = clutter_entry_new_with_text(font_name_as_native, text_as_native);
-			GLib.Marshaller.Free (font_name_as_native);
-			GLib.Marshaller.Free (text_as_native);
+			IntPtr native_font_name = GLib.Marshaller.StringToPtrGStrdup (font_name);
+			IntPtr native_text = GLib.Marshaller.StringToPtrGStrdup (text);
+			Raw = clutter_entry_new_with_text(native_font_name, native_text);
+			GLib.Marshaller.Free (native_font_name);
+			GLib.Marshaller.Free (native_text);
 		}
 
 		[GLib.Property ("text-visible")]
@@ -119,9 +122,9 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				IntPtr value_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_entry_set_font_name(Handle, value_as_native);
-				GLib.Marshaller.Free (value_as_native);
+				IntPtr native_value = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_entry_set_font_name(Handle, native_value);
+				GLib.Marshaller.Free (native_value);
 			}
 		}
 
@@ -154,9 +157,9 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				IntPtr value_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_entry_set_text(Handle, value_as_native);
-				GLib.Marshaller.Free (value_as_native);
+				IntPtr native_value = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_entry_set_text(Handle, native_value);
+				GLib.Marshaller.Free (native_value);
 			}
 		}
 
@@ -191,7 +194,7 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_entry_set_color(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_entry_set_color(IntPtr raw, IntPtr value);
 
 		[GLib.Property ("color")]
 		public Clutter.Color Color {
@@ -202,7 +205,10 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				clutter_entry_set_color(Handle, ref value);
+				IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+				clutter_entry_set_color(Handle, native_value);
+				value = Clutter.Color.New (native_value);
+				Marshal.FreeHGlobal (native_value);
 			}
 		}
 
@@ -475,9 +481,9 @@ namespace Clutter {
 		static extern void clutter_entry_insert_text(IntPtr raw, IntPtr text, IntPtr position);
 
 		public void InsertText(string text, long position) {
-			IntPtr text_as_native = GLib.Marshaller.StringToPtrGStrdup (text);
-			clutter_entry_insert_text(Handle, text_as_native, new IntPtr (position));
-			GLib.Marshaller.Free (text_as_native);
+			IntPtr native_text = GLib.Marshaller.StringToPtrGStrdup (text);
+			clutter_entry_insert_text(Handle, native_text, new IntPtr (position));
+			GLib.Marshaller.Free (native_text);
 		}
 
 		[DllImport("clutter")]
@@ -488,10 +494,15 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_entry_handle_key_event(IntPtr raw, ref Clutter.KeyEvent kev);
+		static extern bool clutter_entry_handle_key_event(IntPtr raw, IntPtr kev);
 
-		public void HandleKeyEvent(Clutter.KeyEvent kev) {
-			clutter_entry_handle_key_event(Handle, ref kev);
+		public bool HandleKeyEvent(Clutter.KeyEvent kev) {
+			IntPtr native_kev = GLib.Marshaller.StructureToPtrAlloc (kev);
+			bool raw_ret = clutter_entry_handle_key_event(Handle, native_kev);
+			bool ret = raw_ret;
+			kev = Clutter.KeyEvent.New (native_kev);
+			Marshal.FreeHGlobal (native_kev);
+			return ret;
 		}
 
 		[DllImport("clutter")]
@@ -519,10 +530,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_entry_get_color(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_entry_get_color(IntPtr raw, IntPtr color);
 
 		public void GetColor(Clutter.Color color) {
-			clutter_entry_get_color(Handle, ref color);
+			IntPtr native_color = GLib.Marshaller.StructureToPtrAlloc (color);
+			clutter_entry_get_color(Handle, native_color);
+			color = Clutter.Color.New (native_color);
+			Marshal.FreeHGlobal (native_color);
 		}
 
 		[DllImport("clutter")]

@@ -23,5 +23,16 @@ namespace Clutter {
 			get;
 		}
 	}
+
+	[GLib.GInterface (typeof (ContainerAdapter))]
+	public interface ContainerImplementor : GLib.IWrapper {
+
+		void Add (Clutter.Actor actor);
+		void Remove (Clutter.Actor actor);
+		void Foreach (Clutter.Callback cb);
+		void Raise (Clutter.Actor actor, Clutter.Actor sibling);
+		void Lower (Clutter.Actor actor, Clutter.Actor sibling);
+		void SortDepthOrder ();
+	}
 #endregion
 }

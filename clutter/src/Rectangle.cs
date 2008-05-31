@@ -27,7 +27,7 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_rectangle_new_with_color(ref Clutter.Color color);
+		static extern IntPtr clutter_rectangle_new_with_color(IntPtr color);
 
 		public Rectangle (Clutter.Color color) : base (IntPtr.Zero)
 		{
@@ -39,7 +39,10 @@ namespace Clutter {
 				CreateNativeObject ((string[])names.ToArray (typeof (string)), (GLib.Value[])vals.ToArray (typeof (GLib.Value)));
 				return;
 			}
-			Raw = clutter_rectangle_new_with_color(ref color);
+			IntPtr native_color = GLib.Marshaller.StructureToPtrAlloc (color);
+			Raw = clutter_rectangle_new_with_color(native_color);
+			color = Clutter.Color.New (native_color);
+			Marshal.FreeHGlobal (native_color);
 		}
 
 		[GLib.Property ("has-border")]
@@ -58,7 +61,7 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_rectangle_set_color(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_rectangle_set_color(IntPtr raw, IntPtr value);
 
 		[GLib.Property ("color")]
 		public Clutter.Color Color {
@@ -69,7 +72,10 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				clutter_rectangle_set_color(Handle, ref value);
+				IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+				clutter_rectangle_set_color(Handle, native_value);
+				value = Clutter.Color.New (native_value);
+				Marshal.FreeHGlobal (native_value);
 			}
 		}
 
@@ -92,7 +98,7 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_rectangle_set_border_color(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_rectangle_set_border_color(IntPtr raw, IntPtr value);
 
 		[GLib.Property ("border-color")]
 		public Clutter.Color BorderColor {
@@ -103,15 +109,21 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				clutter_rectangle_set_border_color(Handle, ref value);
+				IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+				clutter_rectangle_set_border_color(Handle, native_value);
+				value = Clutter.Color.New (native_value);
+				Marshal.FreeHGlobal (native_value);
 			}
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_rectangle_get_color(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_rectangle_get_color(IntPtr raw, IntPtr color);
 
 		public void GetColor(Clutter.Color color) {
-			clutter_rectangle_get_color(Handle, ref color);
+			IntPtr native_color = GLib.Marshaller.StructureToPtrAlloc (color);
+			clutter_rectangle_get_color(Handle, native_color);
+			color = Clutter.Color.New (native_color);
+			Marshal.FreeHGlobal (native_color);
 		}
 
 		[DllImport("clutter")]
@@ -126,10 +138,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_rectangle_get_border_color(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_rectangle_get_border_color(IntPtr raw, IntPtr color);
 
 		public void GetBorderColor(Clutter.Color color) {
-			clutter_rectangle_get_border_color(Handle, ref color);
+			IntPtr native_color = GLib.Marshaller.StructureToPtrAlloc (color);
+			clutter_rectangle_get_border_color(Handle, native_color);
+			color = Clutter.Color.New (native_color);
+			Marshal.FreeHGlobal (native_color);
 		}
 
 #endregion

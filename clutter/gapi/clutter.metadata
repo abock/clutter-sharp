@@ -8,6 +8,9 @@
 	<!-- ClutterButtonEvent renames -->
 	<attr path="/api/namespace/struct[@cname='ClutterButtonEvent']/method[@name='Button']" name="name">GetButton</attr>
 
+	<!-- ClutterBehaviourPath constructor removal -->
+	<remove-node path="/api/namespace/object[@name='BehaviourPath']/constructor[@cname='clutter_behaviour_path_new']" />
+
 	<!-- ClutterGroup renames -->
 	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Add']" name="name">AddEvent</attr>	
 	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Remove']" name="name">RemoveEvent</attr>	

@@ -61,10 +61,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_model_iter_set_value(IntPtr raw, uint column, ref GLib.Value value);
+		static extern void clutter_model_iter_set_value(IntPtr raw, uint column, IntPtr value);
 
 		public void SetValue(uint column, GLib.Value value) {
-			clutter_model_iter_set_value(Handle, column, ref value);
+			IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+			clutter_model_iter_set_value(Handle, column, native_value);
+			value = (GLib.Value) Marshal.PtrToStructure (native_value, typeof (GLib.Value));
+			Marshal.FreeHGlobal (native_value);
 		}
 
 		[DllImport("clutter")]
@@ -104,10 +107,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_model_iter_get_value(IntPtr raw, uint column, ref GLib.Value value);
+		static extern void clutter_model_iter_get_value(IntPtr raw, uint column, IntPtr value);
 
 		public void GetValue(uint column, GLib.Value value) {
-			clutter_model_iter_get_value(Handle, column, ref value);
+			IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+			clutter_model_iter_get_value(Handle, column, native_value);
+			value = (GLib.Value) Marshal.PtrToStructure (native_value, typeof (GLib.Value));
+			Marshal.FreeHGlobal (native_value);
 		}
 
 		[DllImport("clutter")]

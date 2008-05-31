@@ -10,6 +10,42 @@ namespace ClutterSharp {
 	[GLib.CDeclCallback]
 	internal delegate void EffectCompleteFuncNative(IntPtr actor, IntPtr user_data);
 
+	internal class EffectCompleteFuncInvoker {
+
+		EffectCompleteFuncNative native_cb;
+		IntPtr __data;
+		GLib.DestroyNotify __notify;
+
+		~EffectCompleteFuncInvoker ()
+		{
+			if (__notify == null)
+				return;
+			__notify (__data);
+		}
+
+		internal EffectCompleteFuncInvoker (EffectCompleteFuncNative native_cb) : this (native_cb, IntPtr.Zero, null) {}
+
+		internal EffectCompleteFuncInvoker (EffectCompleteFuncNative native_cb, IntPtr data) : this (native_cb, data, null) {}
+
+		internal EffectCompleteFuncInvoker (EffectCompleteFuncNative native_cb, IntPtr data, GLib.DestroyNotify notify)
+		{
+			this.native_cb = native_cb;
+			__data = data;
+			__notify = notify;
+		}
+
+		internal Clutter.EffectCompleteFunc Handler {
+			get {
+				return new Clutter.EffectCompleteFunc(InvokeNative);
+			}
+		}
+
+		void InvokeNative (Clutter.Actor actor)
+		{
+			native_cb (actor == null ? IntPtr.Zero : actor.Handle, __data);
+		}
+	}
+
 	internal class EffectCompleteFuncWrapper {
 
 		public void NativeCallback (IntPtr actor, IntPtr user_data)

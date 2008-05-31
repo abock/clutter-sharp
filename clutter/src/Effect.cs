@@ -30,12 +30,15 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_effect_path(IntPtr template_, IntPtr actor, ref Clutter.Knot knots, uint n_knots, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
+		static extern IntPtr clutter_effect_path(IntPtr template_, IntPtr actor, IntPtr knots, uint n_knots, ClutterSharp.EffectCompleteFuncNative func, IntPtr data);
 
 		public static Clutter.Timeline Path(Clutter.EffectTemplate template_, Clutter.Actor actor, Clutter.Knot knots, uint n_knots, Clutter.EffectCompleteFunc func) {
+			IntPtr native_knots = GLib.Marshaller.StructureToPtrAlloc (knots);
 			ClutterSharp.EffectCompleteFuncWrapper func_wrapper = new ClutterSharp.EffectCompleteFuncWrapper (func);
-			IntPtr raw_ret = clutter_effect_path(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, ref knots, n_knots, func_wrapper.NativeDelegate, IntPtr.Zero);
+			IntPtr raw_ret = clutter_effect_path(template_ == null ? IntPtr.Zero : template_.Handle, actor == null ? IntPtr.Zero : actor.Handle, native_knots, n_knots, func_wrapper.NativeDelegate, IntPtr.Zero);
 			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
+			knots = Clutter.Knot.New (native_knots);
+			Marshal.FreeHGlobal (native_knots);
 			return ret;
 		}
 

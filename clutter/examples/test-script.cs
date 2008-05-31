@@ -59,12 +59,6 @@ public class ShaderTest
 	static Script script;
 	static uint merge_id = 0;
 
-	private static void HandleButtonPress(object sender, ButtonPressEventArgs args)
-	{
-	 	Console.WriteLine("Unmerging");
-		script.UnmergeObjects(merge_id);
-	}
-
 	public static void Main ()
 	{
 		ClutterRun.Init (); 
@@ -75,9 +69,25 @@ public class ShaderTest
 		merge_id = script.LoadFromData (test_unmerge);
 
 		Stage stage = script.GetObject<Stage>("main-stage");
+		Actor blue_button = script.GetObject<Actor>("blue-button");
 		Actor red_button = script.GetObject<Actor>("red-button");
 
-		red_button.ButtonPressEvent += HandleButtonPress;
+		blue_button.ButtonPressEvent += delegate
+		{
+	 		Console.WriteLine("Unmerging");
+			script.UnmergeObjects(merge_id);
+		};
+
+		red_button.ButtonPressEvent += delegate
+		{
+		 	Console.WriteLine ("Changing timeline state");
+			Timeline timeline = script.GetObject<Timeline> ("main-timeline");
+
+			if (!timeline.IsPlaying)
+			 	timeline.Start ();
+			else
+			 	timeline.Pause ();
+		};
 
 		stage.ShowAll ();
 

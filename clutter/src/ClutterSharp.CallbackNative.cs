@@ -10,6 +10,42 @@ namespace ClutterSharp {
 	[GLib.CDeclCallback]
 	internal delegate void CallbackNative(IntPtr actor, IntPtr data);
 
+	internal class CallbackInvoker {
+
+		CallbackNative native_cb;
+		IntPtr __data;
+		GLib.DestroyNotify __notify;
+
+		~CallbackInvoker ()
+		{
+			if (__notify == null)
+				return;
+			__notify (__data);
+		}
+
+		internal CallbackInvoker (CallbackNative native_cb) : this (native_cb, IntPtr.Zero, null) {}
+
+		internal CallbackInvoker (CallbackNative native_cb, IntPtr data) : this (native_cb, data, null) {}
+
+		internal CallbackInvoker (CallbackNative native_cb, IntPtr data, GLib.DestroyNotify notify)
+		{
+			this.native_cb = native_cb;
+			__data = data;
+			__notify = notify;
+		}
+
+		internal Clutter.Callback Handler {
+			get {
+				return new Clutter.Callback(InvokeNative);
+			}
+		}
+
+		void InvokeNative (Clutter.Actor actor)
+		{
+			native_cb (actor == null ? IntPtr.Zero : actor.Handle, __data);
+		}
+	}
+
 	internal class CallbackWrapper {
 
 		public void NativeCallback (IntPtr actor, IntPtr data)

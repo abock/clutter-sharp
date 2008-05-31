@@ -14,15 +14,9 @@ namespace Clutter {
 		protected BehaviourPath(GLib.GType gtype) : base(gtype) {}
 		public BehaviourPath(IntPtr raw) : base(raw) {}
 
-		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_path_new(IntPtr alpha, ref Clutter.Knot knots, uint n_knots);
-
-		public BehaviourPath (Clutter.Alpha alpha, Clutter.Knot knots, uint n_knots) : base (IntPtr.Zero)
+		protected BehaviourPath() : base(IntPtr.Zero)
 		{
-			if (GetType () != typeof (BehaviourPath)) {
-				throw new InvalidOperationException ("Can't override this constructor.");
-			}
-			Raw = clutter_behaviour_path_new(alpha == null ? IntPtr.Zero : alpha.Handle, ref knots, n_knots);
+			CreateNativeObject (new string [0], new GLib.Value [0]);
 		}
 
 		[GLib.Property ("knot")]
@@ -104,17 +98,23 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_path_insert_knot(IntPtr raw, uint offset, ref Clutter.Knot knot);
+		static extern void clutter_behaviour_path_insert_knot(IntPtr raw, uint offset, IntPtr knot);
 
 		public void InsertKnot(uint offset, Clutter.Knot knot) {
-			clutter_behaviour_path_insert_knot(Handle, offset, ref knot);
+			IntPtr native_knot = GLib.Marshaller.StructureToPtrAlloc (knot);
+			clutter_behaviour_path_insert_knot(Handle, offset, native_knot);
+			knot = Clutter.Knot.New (native_knot);
+			Marshal.FreeHGlobal (native_knot);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_path_append_knot(IntPtr raw, ref Clutter.Knot knot);
+		static extern void clutter_behaviour_path_append_knot(IntPtr raw, IntPtr knot);
 
 		public void AppendKnot(Clutter.Knot knot) {
-			clutter_behaviour_path_append_knot(Handle, ref knot);
+			IntPtr native_knot = GLib.Marshaller.StructureToPtrAlloc (knot);
+			clutter_behaviour_path_append_knot(Handle, native_knot);
+			knot = Clutter.Knot.New (native_knot);
+			Marshal.FreeHGlobal (native_knot);
 		}
 
 		[DllImport("clutter")]
@@ -154,12 +154,15 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_scriptable_set_custom_property(IntPtr raw, IntPtr script, IntPtr name, ref GLib.Value value);
+		static extern void clutter_scriptable_set_custom_property(IntPtr raw, IntPtr script, IntPtr name, IntPtr value);
 
 		public void SetCustomProperty(Clutter.Script script, string name, GLib.Value value) {
-			IntPtr name_as_native = GLib.Marshaller.StringToPtrGStrdup (name);
-			clutter_scriptable_set_custom_property(Handle, script == null ? IntPtr.Zero : script.Handle, name_as_native, ref value);
-			GLib.Marshaller.Free (name_as_native);
+			IntPtr native_name = GLib.Marshaller.StringToPtrGStrdup (name);
+			IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+			clutter_scriptable_set_custom_property(Handle, script == null ? IntPtr.Zero : script.Handle, native_name, native_value);
+			GLib.Marshaller.Free (native_name);
+			value = (GLib.Value) Marshal.PtrToStructure (native_value, typeof (GLib.Value));
+			Marshal.FreeHGlobal (native_value);
 		}
 
 		[DllImport("clutter")]
@@ -175,15 +178,18 @@ namespace Clutter {
 				return ret;
 			}
 			set {
-				IntPtr value_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_scriptable_set_id(Handle, value_as_native);
-				GLib.Marshaller.Free (value_as_native);
+				IntPtr native_value = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_scriptable_set_id(Handle, native_value);
+				GLib.Marshaller.Free (native_value);
 			}
 		}
 
 #endregion
 #region Customized extensions
 #line 1 "BehaviourPath.custom"
+		[DllImport("clutter")]
+		static extern IntPtr clutter_behaviour_path_new(IntPtr alpha, ref Knot knots, uint n_knots);
+
 		public BehaviourPath (Clutter.Alpha alpha, Clutter.Knot[] knots) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourPath)) {

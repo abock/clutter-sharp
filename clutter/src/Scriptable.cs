@@ -13,5 +13,12 @@ namespace Clutter {
 			get; set;
 		}
 	}
+
+	[GLib.GInterface (typeof (ScriptableAdapter))]
+	public interface ScriptableImplementor : GLib.IWrapper {
+
+		string Id { set; }
+		void SetCustomProperty (Clutter.Script script, string name, GLib.Value value);
+	}
 #endregion
 }

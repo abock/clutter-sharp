@@ -11,7 +11,6 @@ public class SuperOH
 	Actor[] Hands;
 	//public Actor bgtex;
 	Group Group;
-	Gdk.Pixbuf BgPixbuf;
 
 	static uint GetRadius ()
 	{

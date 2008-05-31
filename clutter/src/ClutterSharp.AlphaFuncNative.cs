@@ -10,6 +10,43 @@ namespace ClutterSharp {
 	[GLib.CDeclCallback]
 	internal delegate uint AlphaFuncNative(IntPtr alpha, IntPtr user_data);
 
+	internal class AlphaFuncInvoker {
+
+		AlphaFuncNative native_cb;
+		IntPtr __data;
+		GLib.DestroyNotify __notify;
+
+		~AlphaFuncInvoker ()
+		{
+			if (__notify == null)
+				return;
+			__notify (__data);
+		}
+
+		internal AlphaFuncInvoker (AlphaFuncNative native_cb) : this (native_cb, IntPtr.Zero, null) {}
+
+		internal AlphaFuncInvoker (AlphaFuncNative native_cb, IntPtr data) : this (native_cb, data, null) {}
+
+		internal AlphaFuncInvoker (AlphaFuncNative native_cb, IntPtr data, GLib.DestroyNotify notify)
+		{
+			this.native_cb = native_cb;
+			__data = data;
+			__notify = notify;
+		}
+
+		internal Clutter.AlphaFunc Handler {
+			get {
+				return new Clutter.AlphaFunc(InvokeNative);
+			}
+		}
+
+		uint InvokeNative (Clutter.Alpha alpha)
+		{
+			uint result = native_cb (alpha == null ? IntPtr.Zero : alpha.Handle, __data);
+			return result;
+		}
+	}
+
 	internal class AlphaFuncWrapper {
 
 		public uint NativeCallback (IntPtr alpha, IntPtr user_data)

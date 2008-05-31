@@ -25,10 +25,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_box_get_from_vertices(Clutter.Vertex[] vtx, ref Clutter.ActorBox box);
+		static extern void clutter_actor_box_get_from_vertices(Clutter.Vertex[] vtx, IntPtr box);
 
 		public static void GetFromVertices(Clutter.Vertex[] vtx, Clutter.ActorBox box) {
-			clutter_actor_box_get_from_vertices(vtx, ref box);
+			IntPtr native_box = GLib.Marshaller.StructureToPtrAlloc (box);
+			clutter_actor_box_get_from_vertices(vtx, native_box);
+			box = Clutter.ActorBox.New (native_box);
+			Marshal.FreeHGlobal (native_box);
 		}
 
 		[DllImport("clutter")]

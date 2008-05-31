@@ -37,30 +37,47 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern uint clutter_key_event_unicode(ref Clutter.KeyEvent raw);
+		static extern uint clutter_key_event_unicode(IntPtr raw);
 
 		public uint Unicode() {
-			uint raw_ret = clutter_key_event_unicode(ref this);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			uint raw_ret = clutter_key_event_unicode(this_as_native);
 			uint ret = raw_ret;
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern uint clutter_key_event_symbol(ref Clutter.KeyEvent raw);
+		static extern uint clutter_key_event_symbol(IntPtr raw);
 
 		public uint Symbol() {
-			uint raw_ret = clutter_key_event_symbol(ref this);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			uint raw_ret = clutter_key_event_symbol(this_as_native);
 			uint ret = raw_ret;
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern ushort clutter_key_event_code(ref Clutter.KeyEvent raw);
+		static extern ushort clutter_key_event_code(IntPtr raw);
 
 		public ushort Code() {
-			ushort raw_ret = clutter_key_event_code(ref this);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			ushort raw_ret = clutter_key_event_code(this_as_native);
 			ushort ret = raw_ret;
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 			return ret;
+		}
+
+		static void ReadNative (IntPtr native, ref Clutter.KeyEvent target)
+		{
+			target = New (native);
 		}
 
 		private static GLib.GType GType {

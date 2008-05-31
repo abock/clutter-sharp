@@ -25,117 +25,203 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_lighten(ref Clutter.Color raw, ref Clutter.Color dest);
+		static extern void clutter_color_lighten(IntPtr raw, IntPtr dest);
 
 		public void Lighten(Clutter.Color dest) {
-			clutter_color_lighten(ref this, ref dest);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			IntPtr native_dest = GLib.Marshaller.StructureToPtrAlloc (dest);
+			clutter_color_lighten(this_as_native, native_dest);
+			dest = Clutter.Color.New (native_dest);
+			Marshal.FreeHGlobal (native_dest);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_from_hls(ref Clutter.Color raw, byte hue, byte luminance, byte saturation);
+		static extern void clutter_color_from_hls(IntPtr raw, byte hue, byte luminance, byte saturation);
 
 		public void FromHls(byte hue, byte luminance, byte saturation) {
-			clutter_color_from_hls(ref this, hue, luminance, saturation);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			clutter_color_from_hls(this_as_native, hue, luminance, saturation);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_to_hlsx(ref Clutter.Color raw, out int hue, out int luminance, out int saturation);
+		static extern void clutter_color_to_hlsx(IntPtr raw, out int hue, out int luminance, out int saturation);
 
 		public void ToHlsx(out int hue, out int luminance, out int saturation) {
-			clutter_color_to_hlsx(ref this, out hue, out luminance, out saturation);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			clutter_color_to_hlsx(this_as_native, out hue, out luminance, out saturation);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_color_to_string(ref Clutter.Color raw);
+		static extern IntPtr clutter_color_to_string(IntPtr raw);
 
 		public override string ToString() {
-			IntPtr raw_ret = clutter_color_to_string(ref this);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			IntPtr raw_ret = clutter_color_to_string(this_as_native);
 			string ret = GLib.Marshaller.PtrToStringGFree(raw_ret);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_color_equal(ref Clutter.Color raw, ref Clutter.Color b);
+		static extern bool clutter_color_equal(IntPtr raw, IntPtr b);
 
 		public bool Equal(Clutter.Color b) {
-			bool raw_ret = clutter_color_equal(ref this, ref b);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			IntPtr native_b = GLib.Marshaller.StructureToPtrAlloc (b);
+			bool raw_ret = clutter_color_equal(this_as_native, native_b);
 			bool ret = raw_ret;
+			b = Clutter.Color.New (native_b);
+			Marshal.FreeHGlobal (native_b);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern uint clutter_color_to_pixel(ref Clutter.Color raw);
+		static extern uint clutter_color_to_pixel(IntPtr raw);
 
 		public uint ToPixel() {
-			uint raw_ret = clutter_color_to_pixel(ref this);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			uint raw_ret = clutter_color_to_pixel(this_as_native);
 			uint ret = raw_ret;
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 			return ret;
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_to_hls(ref Clutter.Color raw, out byte hue, out byte luminance, out byte saturation);
+		static extern void clutter_color_to_hls(IntPtr raw, out byte hue, out byte luminance, out byte saturation);
 
 		public void ToHls(out byte hue, out byte luminance, out byte saturation) {
-			clutter_color_to_hls(ref this, out hue, out luminance, out saturation);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			clutter_color_to_hls(this_as_native, out hue, out luminance, out saturation);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_shade(ref Clutter.Color raw, ref Clutter.Color dest, double shade);
+		static extern void clutter_color_shade(IntPtr raw, IntPtr dest, double shade);
 
 		public void Shade(Clutter.Color dest, double shade) {
-			clutter_color_shade(ref this, ref dest, shade);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			IntPtr native_dest = GLib.Marshaller.StructureToPtrAlloc (dest);
+			clutter_color_shade(this_as_native, native_dest, shade);
+			dest = Clutter.Color.New (native_dest);
+			Marshal.FreeHGlobal (native_dest);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_shadex(ref Clutter.Color raw, ref Clutter.Color dest, int shade);
+		static extern void clutter_color_shadex(IntPtr raw, IntPtr dest, int shade);
 
 		public void Shadex(Clutter.Color dest, int shade) {
-			clutter_color_shadex(ref this, ref dest, shade);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			IntPtr native_dest = GLib.Marshaller.StructureToPtrAlloc (dest);
+			clutter_color_shadex(this_as_native, native_dest, shade);
+			dest = Clutter.Color.New (native_dest);
+			Marshal.FreeHGlobal (native_dest);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_from_hlsx(ref Clutter.Color raw, int hue, int luminance, int saturation);
+		static extern void clutter_color_from_hlsx(IntPtr raw, int hue, int luminance, int saturation);
 
 		public void FromHlsx(int hue, int luminance, int saturation) {
-			clutter_color_from_hlsx(ref this, hue, luminance, saturation);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			clutter_color_from_hlsx(this_as_native, hue, luminance, saturation);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_subtract(ref Clutter.Color raw, ref Clutter.Color src2, ref Clutter.Color dest);
+		static extern void clutter_color_subtract(IntPtr raw, IntPtr src2, IntPtr dest);
 
 		public void Subtract(Clutter.Color src2, Clutter.Color dest) {
-			clutter_color_subtract(ref this, ref src2, ref dest);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			IntPtr native_src2 = GLib.Marshaller.StructureToPtrAlloc (src2);
+			IntPtr native_dest = GLib.Marshaller.StructureToPtrAlloc (dest);
+			clutter_color_subtract(this_as_native, native_src2, native_dest);
+			src2 = Clutter.Color.New (native_src2);
+			Marshal.FreeHGlobal (native_src2);
+			dest = Clutter.Color.New (native_dest);
+			Marshal.FreeHGlobal (native_dest);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_add(ref Clutter.Color raw, ref Clutter.Color src2, ref Clutter.Color dest);
+		static extern void clutter_color_add(IntPtr raw, IntPtr src2, IntPtr dest);
 
 		public void Add(Clutter.Color src2, Clutter.Color dest) {
-			clutter_color_add(ref this, ref src2, ref dest);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			IntPtr native_src2 = GLib.Marshaller.StructureToPtrAlloc (src2);
+			IntPtr native_dest = GLib.Marshaller.StructureToPtrAlloc (dest);
+			clutter_color_add(this_as_native, native_src2, native_dest);
+			src2 = Clutter.Color.New (native_src2);
+			Marshal.FreeHGlobal (native_src2);
+			dest = Clutter.Color.New (native_dest);
+			Marshal.FreeHGlobal (native_dest);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_darken(ref Clutter.Color raw, ref Clutter.Color dest);
+		static extern void clutter_color_darken(IntPtr raw, IntPtr dest);
 
 		public void Darken(Clutter.Color dest) {
-			clutter_color_darken(ref this, ref dest);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			IntPtr native_dest = GLib.Marshaller.StructureToPtrAlloc (dest);
+			clutter_color_darken(this_as_native, native_dest);
+			dest = Clutter.Color.New (native_dest);
+			Marshal.FreeHGlobal (native_dest);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_color_from_pixel(ref Clutter.Color raw, uint pixel);
+		static extern void clutter_color_from_pixel(IntPtr raw, uint pixel);
 
 		public void FromPixel(uint pixel) {
-			clutter_color_from_pixel(ref this, pixel);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			clutter_color_from_pixel(this_as_native, pixel);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_color_parse(IntPtr color, ref Clutter.Color dest);
+		static extern bool clutter_color_parse(IntPtr color, IntPtr dest);
 
 		public static bool Parse(string color, Clutter.Color dest) {
-			IntPtr color_as_native = GLib.Marshaller.StringToPtrGStrdup (color);
-			bool raw_ret = clutter_color_parse(color_as_native, ref dest);
+			IntPtr native_color = GLib.Marshaller.StringToPtrGStrdup (color);
+			IntPtr native_dest = GLib.Marshaller.StructureToPtrAlloc (dest);
+			bool raw_ret = clutter_color_parse(native_color, native_dest);
 			bool ret = raw_ret;
-			GLib.Marshaller.Free (color_as_native);
+			GLib.Marshaller.Free (native_color);
+			dest = Clutter.Color.New (native_dest);
+			Marshal.FreeHGlobal (native_dest);
 			return ret;
 		}
 
@@ -148,6 +234,11 @@ namespace Clutter {
 				GLib.GType ret = new GLib.GType(raw_ret);
 				return ret;
 			}
+		}
+
+		static void ReadNative (IntPtr native, ref Clutter.Color target)
+		{
+			target = New (native);
 		}
 
 		[DllImport("glibsharpglue-2")]

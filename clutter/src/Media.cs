@@ -35,5 +35,17 @@ namespace Clutter {
 			get; set;
 		}
 	}
+
+	[GLib.GInterface (typeof (MediaAdapter))]
+	public interface MediaImplementor : GLib.IWrapper {
+
+		string Uri { set; }
+		bool Playing { get; set; }
+		int Position { get; set; }
+		double Volume { get; set; }
+		bool CanSeek ();
+		int BufferPercent { get; }
+		int Duration { get; }
+	}
 #endregion
 }

@@ -15,14 +15,17 @@ namespace Clutter {
 		public BehaviourBspline(IntPtr raw) : base(raw) {}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_behaviour_bspline_new(IntPtr alpha, ref Clutter.Knot knots, uint n_knots);
+		static extern IntPtr clutter_behaviour_bspline_new(IntPtr alpha, IntPtr knots, uint n_knots);
 
 		public BehaviourBspline (Clutter.Alpha alpha, Clutter.Knot knots, uint n_knots) : base (IntPtr.Zero)
 		{
 			if (GetType () != typeof (BehaviourBspline)) {
 				throw new InvalidOperationException ("Can't override this constructor.");
 			}
-			Raw = clutter_behaviour_bspline_new(alpha == null ? IntPtr.Zero : alpha.Handle, ref knots, n_knots);
+			IntPtr native_knots = GLib.Marshaller.StructureToPtrAlloc (knots);
+			Raw = clutter_behaviour_bspline_new(alpha == null ? IntPtr.Zero : alpha.Handle, native_knots, n_knots);
+			knots = Clutter.Knot.New (native_knots);
+			Marshal.FreeHGlobal (native_knots);
 		}
 
 		[GLib.CDeclCallback]
@@ -102,17 +105,23 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_bspline_set_origin(IntPtr raw, ref Clutter.Knot knot);
+		static extern void clutter_behaviour_bspline_set_origin(IntPtr raw, IntPtr knot);
 
 		public void SetOrigin(Clutter.Knot knot) {
-			clutter_behaviour_bspline_set_origin(Handle, ref knot);
+			IntPtr native_knot = GLib.Marshaller.StructureToPtrAlloc (knot);
+			clutter_behaviour_bspline_set_origin(Handle, native_knot);
+			knot = Clutter.Knot.New (native_knot);
+			Marshal.FreeHGlobal (native_knot);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_bspline_append_knot(IntPtr raw, ref Clutter.Knot knot);
+		static extern void clutter_behaviour_bspline_append_knot(IntPtr raw, IntPtr knot);
 
 		public void AppendKnot(Clutter.Knot knot) {
-			clutter_behaviour_bspline_append_knot(Handle, ref knot);
+			IntPtr native_knot = GLib.Marshaller.StructureToPtrAlloc (knot);
+			clutter_behaviour_bspline_append_knot(Handle, native_knot);
+			knot = Clutter.Knot.New (native_knot);
+			Marshal.FreeHGlobal (native_knot);
 		}
 
 		[DllImport("clutter")]
@@ -132,17 +141,23 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_bspline_adjust(IntPtr raw, uint offset, ref Clutter.Knot knot);
+		static extern void clutter_behaviour_bspline_adjust(IntPtr raw, uint offset, IntPtr knot);
 
 		public void Adjust(uint offset, Clutter.Knot knot) {
-			clutter_behaviour_bspline_adjust(Handle, offset, ref knot);
+			IntPtr native_knot = GLib.Marshaller.StructureToPtrAlloc (knot);
+			clutter_behaviour_bspline_adjust(Handle, offset, native_knot);
+			knot = Clutter.Knot.New (native_knot);
+			Marshal.FreeHGlobal (native_knot);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_behaviour_bspline_get_origin(IntPtr raw, ref Clutter.Knot knot);
+		static extern void clutter_behaviour_bspline_get_origin(IntPtr raw, IntPtr knot);
 
 		public void GetOrigin(Clutter.Knot knot) {
-			clutter_behaviour_bspline_get_origin(Handle, ref knot);
+			IntPtr native_knot = GLib.Marshaller.StructureToPtrAlloc (knot);
+			clutter_behaviour_bspline_get_origin(Handle, native_knot);
+			knot = Clutter.Knot.New (native_knot);
+			Marshal.FreeHGlobal (native_knot);
 		}
 
 		[DllImport("clutter")]
@@ -164,12 +179,15 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_scriptable_set_custom_property(IntPtr raw, IntPtr script, IntPtr name, ref GLib.Value value);
+		static extern void clutter_scriptable_set_custom_property(IntPtr raw, IntPtr script, IntPtr name, IntPtr value);
 
 		public void SetCustomProperty(Clutter.Script script, string name, GLib.Value value) {
-			IntPtr name_as_native = GLib.Marshaller.StringToPtrGStrdup (name);
-			clutter_scriptable_set_custom_property(Handle, script == null ? IntPtr.Zero : script.Handle, name_as_native, ref value);
-			GLib.Marshaller.Free (name_as_native);
+			IntPtr native_name = GLib.Marshaller.StringToPtrGStrdup (name);
+			IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+			clutter_scriptable_set_custom_property(Handle, script == null ? IntPtr.Zero : script.Handle, native_name, native_value);
+			GLib.Marshaller.Free (native_name);
+			value = (GLib.Value) Marshal.PtrToStructure (native_value, typeof (GLib.Value));
+			Marshal.FreeHGlobal (native_value);
 		}
 
 		[DllImport("clutter")]
@@ -185,9 +203,9 @@ namespace Clutter {
 				return ret;
 			}
 			set {
-				IntPtr value_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_scriptable_set_id(Handle, value_as_native);
-				GLib.Marshaller.Free (value_as_native);
+				IntPtr native_value = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_scriptable_set_id(Handle, native_value);
+				GLib.Marshaller.Free (native_value);
 			}
 		}
 

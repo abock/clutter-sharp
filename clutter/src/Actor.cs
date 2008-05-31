@@ -33,9 +33,9 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				IntPtr value_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_actor_set_name(Handle, value_as_native);
-				GLib.Marshaller.Free (value_as_native);
+				IntPtr native_value = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_actor_set_name(Handle, native_value);
+				GLib.Marshaller.Free (native_value);
 			}
 		}
 
@@ -347,9 +347,7 @@ namespace Clutter {
 		{
 			try {
 				Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-				Clutter.ButtonEvent myevnt = Clutter.ButtonEvent.New (evnt);
-				return actor_managed.OnButtonPressEvent (myevnt);
-				if (evnt != IntPtr.Zero) System.Runtime.InteropServices.Marshal.StructureToPtr (myevnt, evnt, false);
+				return actor_managed.OnButtonPressEvent (Clutter.ButtonEvent.New (evnt));
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, true);
 				// NOTREACHED: above call doesn't return
@@ -434,9 +432,7 @@ namespace Clutter {
 		{
 			try {
 				Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-				Clutter.KeyEvent myevnt = Clutter.KeyEvent.New (evnt);
-				return actor_managed.OnKeyReleaseEvent (myevnt);
-				if (evnt != IntPtr.Zero) System.Runtime.InteropServices.Marshal.StructureToPtr (myevnt, evnt, false);
+				return actor_managed.OnKeyReleaseEvent (Clutter.KeyEvent.New (evnt));
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, true);
 				// NOTREACHED: above call doesn't return
@@ -568,9 +564,7 @@ namespace Clutter {
 		{
 			try {
 				Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-				Clutter.CrossingEvent myevnt = Clutter.CrossingEvent.New (evnt);
-				return actor_managed.OnEnterEvent (myevnt);
-				if (evnt != IntPtr.Zero) System.Runtime.InteropServices.Marshal.StructureToPtr (myevnt, evnt, false);
+				return actor_managed.OnEnterEvent (Clutter.CrossingEvent.New (evnt));
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, true);
 				// NOTREACHED: above call doesn't return
@@ -655,9 +649,7 @@ namespace Clutter {
 		{
 			try {
 				Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-				Clutter.KeyEvent myevnt = Clutter.KeyEvent.New (evnt);
-				return actor_managed.OnKeyPressEvent (myevnt);
-				if (evnt != IntPtr.Zero) System.Runtime.InteropServices.Marshal.StructureToPtr (myevnt, evnt, false);
+				return actor_managed.OnKeyPressEvent (Clutter.KeyEvent.New (evnt));
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, true);
 				// NOTREACHED: above call doesn't return
@@ -742,9 +734,7 @@ namespace Clutter {
 		{
 			try {
 				Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-				Clutter.ButtonEvent myevnt = Clutter.ButtonEvent.New (evnt);
-				return actor_managed.OnButtonReleaseEvent (myevnt);
-				if (evnt != IntPtr.Zero) System.Runtime.InteropServices.Marshal.StructureToPtr (myevnt, evnt, false);
+				return actor_managed.OnButtonReleaseEvent (Clutter.ButtonEvent.New (evnt));
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, true);
 				// NOTREACHED: above call doesn't return
@@ -945,9 +935,7 @@ namespace Clutter {
 		{
 			try {
 				Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-				Clutter.ScrollEvent myevnt = Clutter.ScrollEvent.New (evnt);
-				return actor_managed.OnScrollEvent (myevnt);
-				if (evnt != IntPtr.Zero) System.Runtime.InteropServices.Marshal.StructureToPtr (myevnt, evnt, false);
+				return actor_managed.OnScrollEvent (Clutter.ScrollEvent.New (evnt));
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, true);
 				// NOTREACHED: above call doesn't return
@@ -1079,9 +1067,7 @@ namespace Clutter {
 		{
 			try {
 				Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-				Clutter.CrossingEvent myevnt = Clutter.CrossingEvent.New (evnt);
-				return actor_managed.OnLeaveEvent (myevnt);
-				if (evnt != IntPtr.Zero) System.Runtime.InteropServices.Marshal.StructureToPtr (myevnt, evnt, false);
+				return actor_managed.OnLeaveEvent (Clutter.CrossingEvent.New (evnt));
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, true);
 				// NOTREACHED: above call doesn't return
@@ -1260,9 +1246,7 @@ namespace Clutter {
 		{
 			try {
 				Actor actor_managed = GLib.Object.GetObject (actor, false) as Actor;
-				Clutter.MotionEvent myevnt = Clutter.MotionEvent.New (evnt);
-				return actor_managed.OnMotionEvent (myevnt);
-				if (evnt != IntPtr.Zero) System.Runtime.InteropServices.Marshal.StructureToPtr (myevnt, evnt, false);
+				return actor_managed.OnMotionEvent (Clutter.MotionEvent.New (evnt));
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, true);
 				// NOTREACHED: above call doesn't return
@@ -1374,10 +1358,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_query_coords(IntPtr raw, ref Clutter.ActorBox box);
+		static extern void clutter_actor_query_coords(IntPtr raw, IntPtr box);
 
 		public void QueryCoords(Clutter.ActorBox box) {
-			clutter_actor_query_coords(Handle, ref box);
+			IntPtr native_box = GLib.Marshaller.StructureToPtrAlloc (box);
+			clutter_actor_query_coords(Handle, native_box);
+			box = Clutter.ActorBox.New (native_box);
+			Marshal.FreeHGlobal (native_box);
 		}
 
 		[DllImport("clutter")]
@@ -1454,9 +1441,9 @@ namespace Clutter {
 		static extern void clutter_actor_set_shader_param(IntPtr raw, IntPtr param, float value);
 
 		public void SetShaderParam(string param, float value) {
-			IntPtr param_as_native = GLib.Marshaller.StringToPtrGStrdup (param);
-			clutter_actor_set_shader_param(Handle, param_as_native, value);
-			GLib.Marshaller.Free (param_as_native);
+			IntPtr native_param = GLib.Marshaller.StringToPtrGStrdup (param);
+			clutter_actor_set_shader_param(Handle, native_param, value);
+			GLib.Marshaller.Free (native_param);
 		}
 
 		[DllImport("clutter")]
@@ -1526,17 +1513,23 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_request_coords(IntPtr raw, ref Clutter.ActorBox box);
+		static extern void clutter_actor_request_coords(IntPtr raw, IntPtr box);
 
 		public void RequestCoords(Clutter.ActorBox box) {
-			clutter_actor_request_coords(Handle, ref box);
+			IntPtr native_box = GLib.Marshaller.StructureToPtrAlloc (box);
+			clutter_actor_request_coords(Handle, native_box);
+			box = Clutter.ActorBox.New (native_box);
+			Marshal.FreeHGlobal (native_box);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_get_geometry(IntPtr raw, ref Clutter.Geometry geometry);
+		static extern void clutter_actor_get_geometry(IntPtr raw, IntPtr geometry);
 
 		public void GetGeometry(Clutter.Geometry geometry) {
-			clutter_actor_get_geometry(Handle, ref geometry);
+			IntPtr native_geometry = GLib.Marshaller.StructureToPtrAlloc (geometry);
+			clutter_actor_get_geometry(Handle, native_geometry);
+			geometry = Clutter.Geometry.New (native_geometry);
+			Marshal.FreeHGlobal (native_geometry);
 		}
 
 		[DllImport("clutter")]
@@ -1720,10 +1713,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_set_geometry(IntPtr raw, ref Clutter.Geometry geometry);
+		static extern void clutter_actor_set_geometry(IntPtr raw, IntPtr geometry);
 
 		public void SetGeometry(Clutter.Geometry geometry) {
-			clutter_actor_set_geometry(Handle, ref geometry);
+			IntPtr native_geometry = GLib.Marshaller.StructureToPtrAlloc (geometry);
+			clutter_actor_set_geometry(Handle, native_geometry);
+			geometry = Clutter.Geometry.New (native_geometry);
+			Marshal.FreeHGlobal (native_geometry);
 		}
 
 		[DllImport("clutter")]
@@ -1734,10 +1730,16 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_apply_relative_transform_to_point(IntPtr raw, IntPtr ancestor, ref Clutter.Vertex point, ref Clutter.Vertex vertex);
+		static extern void clutter_actor_apply_relative_transform_to_point(IntPtr raw, IntPtr ancestor, IntPtr point, IntPtr vertex);
 
 		public void ApplyRelativeTransformToPoint(Clutter.Actor ancestor, Clutter.Vertex point, Clutter.Vertex vertex) {
-			clutter_actor_apply_relative_transform_to_point(Handle, ancestor == null ? IntPtr.Zero : ancestor.Handle, ref point, ref vertex);
+			IntPtr native_point = GLib.Marshaller.StructureToPtrAlloc (point);
+			IntPtr native_vertex = GLib.Marshaller.StructureToPtrAlloc (vertex);
+			clutter_actor_apply_relative_transform_to_point(Handle, ancestor == null ? IntPtr.Zero : ancestor.Handle, native_point, native_vertex);
+			point = Clutter.Vertex.New (native_point);
+			Marshal.FreeHGlobal (native_point);
+			vertex = Clutter.Vertex.New (native_vertex);
+			Marshal.FreeHGlobal (native_vertex);
 		}
 
 		[DllImport("clutter")]
@@ -1780,10 +1782,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_pick(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_actor_pick(IntPtr raw, IntPtr color);
 
 		public void Pick(Clutter.Color color) {
-			clutter_actor_pick(Handle, ref color);
+			IntPtr native_color = GLib.Marshaller.StructureToPtrAlloc (color);
+			clutter_actor_pick(Handle, native_color);
+			color = Clutter.Color.New (native_color);
+			Marshal.FreeHGlobal (native_color);
 		}
 
 		[DllImport("clutter")]
@@ -1916,10 +1921,16 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_actor_apply_transform_to_point(IntPtr raw, ref Clutter.Vertex point, ref Clutter.Vertex vertex);
+		static extern void clutter_actor_apply_transform_to_point(IntPtr raw, IntPtr point, IntPtr vertex);
 
 		public void ApplyTransformToPoint(Clutter.Vertex point, Clutter.Vertex vertex) {
-			clutter_actor_apply_transform_to_point(Handle, ref point, ref vertex);
+			IntPtr native_point = GLib.Marshaller.StructureToPtrAlloc (point);
+			IntPtr native_vertex = GLib.Marshaller.StructureToPtrAlloc (vertex);
+			clutter_actor_apply_transform_to_point(Handle, native_point, native_vertex);
+			point = Clutter.Vertex.New (native_point);
+			Marshal.FreeHGlobal (native_point);
+			vertex = Clutter.Vertex.New (native_vertex);
+			Marshal.FreeHGlobal (native_vertex);
 		}
 
 		[DllImport("clutter")]

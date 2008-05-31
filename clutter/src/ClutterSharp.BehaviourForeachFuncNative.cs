@@ -10,6 +10,42 @@ namespace ClutterSharp {
 	[GLib.CDeclCallback]
 	internal delegate void BehaviourForeachFuncNative(IntPtr behaviour, IntPtr actor, IntPtr data);
 
+	internal class BehaviourForeachFuncInvoker {
+
+		BehaviourForeachFuncNative native_cb;
+		IntPtr __data;
+		GLib.DestroyNotify __notify;
+
+		~BehaviourForeachFuncInvoker ()
+		{
+			if (__notify == null)
+				return;
+			__notify (__data);
+		}
+
+		internal BehaviourForeachFuncInvoker (BehaviourForeachFuncNative native_cb) : this (native_cb, IntPtr.Zero, null) {}
+
+		internal BehaviourForeachFuncInvoker (BehaviourForeachFuncNative native_cb, IntPtr data) : this (native_cb, data, null) {}
+
+		internal BehaviourForeachFuncInvoker (BehaviourForeachFuncNative native_cb, IntPtr data, GLib.DestroyNotify notify)
+		{
+			this.native_cb = native_cb;
+			__data = data;
+			__notify = notify;
+		}
+
+		internal Clutter.BehaviourForeachFunc Handler {
+			get {
+				return new Clutter.BehaviourForeachFunc(InvokeNative);
+			}
+		}
+
+		void InvokeNative (Clutter.Behaviour behaviour, Clutter.Actor actor)
+		{
+			native_cb (behaviour == null ? IntPtr.Zero : behaviour.Handle, actor == null ? IntPtr.Zero : actor.Handle, __data);
+		}
+	}
+
 	internal class BehaviourForeachFuncWrapper {
 
 		public void NativeCallback (IntPtr behaviour, IntPtr actor, IntPtr data)

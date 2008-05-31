@@ -288,10 +288,10 @@ namespace Clutter {
 		static extern IntPtr clutter_container_find_child_by_name(IntPtr raw, IntPtr child_name);
 
 		public Clutter.Actor FindChildByName(string child_name) {
-			IntPtr child_name_as_native = GLib.Marshaller.StringToPtrGStrdup (child_name);
-			IntPtr raw_ret = clutter_container_find_child_by_name(Handle, child_name_as_native);
+			IntPtr native_child_name = GLib.Marshaller.StringToPtrGStrdup (child_name);
+			IntPtr raw_ret = clutter_container_find_child_by_name(Handle, native_child_name);
 			Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
-			GLib.Marshaller.Free (child_name_as_native);
+			GLib.Marshaller.Free (native_child_name);
 			return ret;
 		}
 

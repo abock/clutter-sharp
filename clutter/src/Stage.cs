@@ -38,7 +38,7 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_stage_set_color(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_stage_set_color(IntPtr raw, IntPtr value);
 
 		[GLib.Property ("color")]
 		public Clutter.Color Color {
@@ -49,7 +49,10 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				clutter_stage_set_color(Handle, ref value);
+				IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+				clutter_stage_set_color(Handle, native_value);
+				value = Clutter.Color.New (native_value);
+				Marshal.FreeHGlobal (native_value);
 			}
 		}
 
@@ -100,9 +103,9 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				IntPtr value_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_stage_set_title(Handle, value_as_native);
-				GLib.Marshaller.Free (value_as_native);
+				IntPtr native_value = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_stage_set_title(Handle, native_value);
+				GLib.Marshaller.Free (native_value);
 			}
 		}
 
@@ -354,24 +357,33 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_stage_get_fogx(IntPtr raw, ref Clutter.Fog fog);
+		static extern void clutter_stage_get_fogx(IntPtr raw, IntPtr fog);
 
 		public void GetFogx(Clutter.Fog fog) {
-			clutter_stage_get_fogx(Handle, ref fog);
+			IntPtr native_fog = GLib.Marshaller.StructureToPtrAlloc (fog);
+			clutter_stage_get_fogx(Handle, native_fog);
+			fog = Clutter.Fog.New (native_fog);
+			Marshal.FreeHGlobal (native_fog);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_stage_set_perspectivex(IntPtr raw, ref Clutter.Perspective perspective);
+		static extern void clutter_stage_set_perspectivex(IntPtr raw, IntPtr perspective);
 
 		public void SetPerspectivex(Clutter.Perspective perspective) {
-			clutter_stage_set_perspectivex(Handle, ref perspective);
+			IntPtr native_perspective = GLib.Marshaller.StructureToPtrAlloc (perspective);
+			clutter_stage_set_perspectivex(Handle, native_perspective);
+			perspective = Clutter.Perspective.New (native_perspective);
+			Marshal.FreeHGlobal (native_perspective);
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_stage_set_fogx(IntPtr raw, ref Clutter.Fog fog);
+		static extern void clutter_stage_set_fogx(IntPtr raw, IntPtr fog);
 
 		public void SetFogx(Clutter.Fog fog) {
-			clutter_stage_set_fogx(Handle, ref fog);
+			IntPtr native_fog = GLib.Marshaller.StructureToPtrAlloc (fog);
+			clutter_stage_set_fogx(Handle, native_fog);
+			fog = Clutter.Fog.New (native_fog);
+			Marshal.FreeHGlobal (native_fog);
 		}
 
 		[DllImport("clutter")]
@@ -449,10 +461,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_stage_get_perspectivex(IntPtr raw, ref Clutter.Perspective perspective);
+		static extern void clutter_stage_get_perspectivex(IntPtr raw, IntPtr perspective);
 
 		public void GetPerspectivex(Clutter.Perspective perspective) {
-			clutter_stage_get_perspectivex(Handle, ref perspective);
+			IntPtr native_perspective = GLib.Marshaller.StructureToPtrAlloc (perspective);
+			clutter_stage_get_perspectivex(Handle, native_perspective);
+			perspective = Clutter.Perspective.New (native_perspective);
+			Marshal.FreeHGlobal (native_perspective);
 		}
 
 		[DllImport("clutter")]
@@ -470,10 +485,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_stage_get_color(IntPtr raw, ref Clutter.Color color);
+		static extern void clutter_stage_get_color(IntPtr raw, IntPtr color);
 
 		public void GetColor(Clutter.Color color) {
-			clutter_stage_get_color(Handle, ref color);
+			IntPtr native_color = GLib.Marshaller.StructureToPtrAlloc (color);
+			clutter_stage_get_color(Handle, native_color);
+			color = Clutter.Color.New (native_color);
+			Marshal.FreeHGlobal (native_color);
 		}
 
 		[DllImport("clutter")]

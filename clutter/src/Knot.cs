@@ -34,12 +34,24 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_knot_equal(ref Clutter.Knot raw, ref Clutter.Knot knot_b);
+		static extern bool clutter_knot_equal(IntPtr raw, IntPtr knot_b);
 
 		public bool Equal(Clutter.Knot knot_b) {
-			bool raw_ret = clutter_knot_equal(ref this, ref knot_b);
+			IntPtr this_as_native = System.Runtime.InteropServices.Marshal.AllocHGlobal (System.Runtime.InteropServices.Marshal.SizeOf (this));
+			System.Runtime.InteropServices.Marshal.StructureToPtr (this, this_as_native, false);
+			IntPtr native_knot_b = GLib.Marshaller.StructureToPtrAlloc (knot_b);
+			bool raw_ret = clutter_knot_equal(this_as_native, native_knot_b);
 			bool ret = raw_ret;
+			knot_b = Clutter.Knot.New (native_knot_b);
+			Marshal.FreeHGlobal (native_knot_b);
+			ReadNative (this_as_native, ref this);
+			System.Runtime.InteropServices.Marshal.FreeHGlobal (this_as_native);
 			return ret;
+		}
+
+		static void ReadNative (IntPtr native, ref Clutter.Knot target)
+		{
+			target = New (native);
 		}
 
 		[DllImport("glibsharpglue-2")]

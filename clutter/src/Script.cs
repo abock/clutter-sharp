@@ -47,13 +47,21 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_script_connect_signals_full(IntPtr raw, ClutterSharp.ScriptConnectFuncNative func, IntPtr user_data);
+
+		public void ConnectSignalsFull(Clutter.ScriptConnectFunc func) {
+			ClutterSharp.ScriptConnectFuncWrapper func_wrapper = new ClutterSharp.ScriptConnectFuncWrapper (func);
+			clutter_script_connect_signals_full(Handle, func_wrapper.NativeDelegate, IntPtr.Zero);
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_script_get_type_from_name(IntPtr raw, IntPtr type_name);
 
 		public GLib.GType GetTypeFromName(string type_name) {
-			IntPtr type_name_as_native = GLib.Marshaller.StringToPtrGStrdup (type_name);
-			IntPtr raw_ret = clutter_script_get_type_from_name(Handle, type_name_as_native);
+			IntPtr native_type_name = GLib.Marshaller.StringToPtrGStrdup (type_name);
+			IntPtr raw_ret = clutter_script_get_type_from_name(Handle, native_type_name);
 			GLib.GType ret = new GLib.GType(raw_ret);
-			GLib.Marshaller.Free (type_name_as_native);
+			GLib.Marshaller.Free (native_type_name);
 			return ret;
 		}
 
@@ -61,11 +69,11 @@ namespace Clutter {
 		static extern unsafe uint clutter_script_load_from_file(IntPtr raw, IntPtr filename, out IntPtr error);
 
 		public unsafe uint LoadFromFile(string filename) {
-			IntPtr filename_as_native = GLib.Marshaller.StringToPtrGStrdup (filename);
+			IntPtr native_filename = GLib.Marshaller.StringToPtrGStrdup (filename);
 			IntPtr error = IntPtr.Zero;
-			uint raw_ret = clutter_script_load_from_file(Handle, filename_as_native, out error);
+			uint raw_ret = clutter_script_load_from_file(Handle, native_filename, out error);
 			uint ret = raw_ret;
-			GLib.Marshaller.Free (filename_as_native);
+			GLib.Marshaller.Free (native_filename);
 			if (error != IntPtr.Zero) throw new GLib.GException (error);
 			return ret;
 		}
@@ -74,11 +82,11 @@ namespace Clutter {
 		static extern unsafe uint clutter_script_load_from_data(IntPtr raw, IntPtr data, IntPtr length, out IntPtr error);
 
 		public unsafe uint LoadFromData(string data) {
-			IntPtr data_as_native = GLib.Marshaller.StringToPtrGStrdup (data);
+			IntPtr native_data = GLib.Marshaller.StringToPtrGStrdup (data);
 			IntPtr error = IntPtr.Zero;
-			uint raw_ret = clutter_script_load_from_data(Handle, data_as_native, new IntPtr ((long) System.Text.Encoding.UTF8.GetByteCount (data)), out error);
+			uint raw_ret = clutter_script_load_from_data(Handle, native_data, new IntPtr ((long) System.Text.Encoding.UTF8.GetByteCount (data)), out error);
 			uint ret = raw_ret;
-			GLib.Marshaller.Free (data_as_native);
+			GLib.Marshaller.Free (native_data);
 			if (error != IntPtr.Zero) throw new GLib.GException (error);
 			return ret;
 		}
@@ -94,10 +102,10 @@ namespace Clutter {
 		static extern IntPtr clutter_script_get_object(IntPtr raw, IntPtr name);
 
 		public GLib.Object GetObject(string name) {
-			IntPtr name_as_native = GLib.Marshaller.StringToPtrGStrdup (name);
-			IntPtr raw_ret = clutter_script_get_object(Handle, name_as_native);
+			IntPtr native_name = GLib.Marshaller.StringToPtrGStrdup (name);
+			IntPtr raw_ret = clutter_script_get_object(Handle, native_name);
 			GLib.Object ret = GLib.Object.GetObject (raw_ret);
-			GLib.Marshaller.Free (name_as_native);
+			GLib.Marshaller.Free (native_name);
 			return ret;
 		}
 

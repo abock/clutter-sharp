@@ -17,6 +17,27 @@ namespace Clutter {
 			clutter_timeout_pool_remove(Handle, id);
 		}
 
+		[DllImport("clutter")]
+		static extern uint clutter_timeout_pool_add(IntPtr raw, uint interval, GLibSharp.GSourceFuncNative func, IntPtr data, GLib.DestroyNotify notify);
+
+		public uint Add(uint interval, GLib.GSourceFunc func) {
+			GLibSharp.GSourceFuncWrapper func_wrapper;
+			IntPtr data;
+			GLib.DestroyNotify notify;
+			if (func == null) {
+				func_wrapper = null;
+				data = IntPtr.Zero;
+				notify = null;
+			} else {
+				func_wrapper = new GLibSharp.GSourceFuncWrapper (func);
+				data = (IntPtr) GCHandle.Alloc (func_wrapper);
+				notify = GLib.DestroyHelper.NotifyHandler;
+			}
+			uint raw_ret = clutter_timeout_pool_add(Handle, interval, func_wrapper.NativeDelegate, data, notify);
+			uint ret = raw_ret;
+			return ret;
+		}
+
 		public TimeoutPool(IntPtr raw) : base(raw) {}
 
 		[DllImport("clutter")]

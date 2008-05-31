@@ -10,6 +10,43 @@ namespace ClutterSharp {
 	[GLib.CDeclCallback]
 	internal delegate bool ModelForeachFuncNative(IntPtr model, IntPtr iter, IntPtr user_data);
 
+	internal class ModelForeachFuncInvoker {
+
+		ModelForeachFuncNative native_cb;
+		IntPtr __data;
+		GLib.DestroyNotify __notify;
+
+		~ModelForeachFuncInvoker ()
+		{
+			if (__notify == null)
+				return;
+			__notify (__data);
+		}
+
+		internal ModelForeachFuncInvoker (ModelForeachFuncNative native_cb) : this (native_cb, IntPtr.Zero, null) {}
+
+		internal ModelForeachFuncInvoker (ModelForeachFuncNative native_cb, IntPtr data) : this (native_cb, data, null) {}
+
+		internal ModelForeachFuncInvoker (ModelForeachFuncNative native_cb, IntPtr data, GLib.DestroyNotify notify)
+		{
+			this.native_cb = native_cb;
+			__data = data;
+			__notify = notify;
+		}
+
+		internal Clutter.ModelForeachFunc Handler {
+			get {
+				return new Clutter.ModelForeachFunc(InvokeNative);
+			}
+		}
+
+		bool InvokeNative (Clutter.Model model, Clutter.ModelIter iter)
+		{
+			bool result = native_cb (model == null ? IntPtr.Zero : model.Handle, iter == null ? IntPtr.Zero : iter.Handle, __data);
+			return result;
+		}
+	}
+
 	internal class ModelForeachFuncWrapper {
 
 		public bool NativeCallback (IntPtr model, IntPtr iter, IntPtr user_data)

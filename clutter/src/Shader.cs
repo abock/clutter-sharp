@@ -40,9 +40,9 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				IntPtr value_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_shader_set_vertex_source(Handle, value_as_native, new IntPtr ((long) System.Text.Encoding.UTF8.GetByteCount (value)));
-				GLib.Marshaller.Free (value_as_native);
+				IntPtr native_value = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_shader_set_vertex_source(Handle, native_value, new IntPtr ((long) System.Text.Encoding.UTF8.GetByteCount (value)));
+				GLib.Marshaller.Free (native_value);
 			}
 		}
 
@@ -60,9 +60,9 @@ namespace Clutter {
 				return ret;
 			}
 			set  {
-				IntPtr value_as_native = GLib.Marshaller.StringToPtrGStrdup (value);
-				clutter_shader_set_fragment_source(Handle, value_as_native, new IntPtr ((long) System.Text.Encoding.UTF8.GetByteCount (value)));
-				GLib.Marshaller.Free (value_as_native);
+				IntPtr native_value = GLib.Marshaller.StringToPtrGStrdup (value);
+				clutter_shader_set_fragment_source(Handle, native_value, new IntPtr ((long) System.Text.Encoding.UTF8.GetByteCount (value)));
+				GLib.Marshaller.Free (native_value);
 			}
 		}
 
@@ -126,9 +126,9 @@ namespace Clutter {
 		static extern void clutter_shader_set_uniform_1f(IntPtr raw, IntPtr name, float value);
 
 		public void SetUniform1f(string name, float value) {
-			IntPtr name_as_native = GLib.Marshaller.StringToPtrGStrdup (name);
-			clutter_shader_set_uniform_1f(Handle, name_as_native, value);
-			GLib.Marshaller.Free (name_as_native);
+			IntPtr native_name = GLib.Marshaller.StringToPtrGStrdup (name);
+			clutter_shader_set_uniform_1f(Handle, native_name, value);
+			GLib.Marshaller.Free (native_name);
 		}
 
 		[DllImport("clutter")]

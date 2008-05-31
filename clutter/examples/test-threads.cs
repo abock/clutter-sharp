@@ -87,6 +87,7 @@ namespace ClutterTest
 
 		// FIXME: it looks like with threading we need to keep reference to all
 		// these items :-(
+		static Alpha alpha;
 		static Label count_label;
 		static Label label;
 		static Rectangle rect;
@@ -117,12 +118,13 @@ namespace ClutterTest
 		}
 
 		static void Main () {
-			// GLib.Thread.Init ();
-			
-			ClutterRun.Init ();
+			if (!GLib.Thread.Supported)
+				GLib.Thread.Init ();
 
 			Clutter.Threads.Init ();
 			Clutter.Threads.Enter ();  
+
+			ClutterRun.Init ();
 
 			stage = Stage.Default;
 			stage.Color = stage_color;
@@ -140,19 +142,19 @@ namespace ClutterTest
 			rect.SetPosition (150, 150);
 			rect.SetSize (25, 25);
 			rect.Show ();
-			
-			stage.AddActor (rect);
 
 			timeline = new Timeline (150, 50);
 			timeline.Loop = true;
 
-			behaviour = new BehaviourRotate  (new Alpha (timeline, Sine.Func), 
-									RotateAxis.ZAxis, 
-									RotateDirection.Cw,
-									0.0,
-									360.0);
+			alpha = new Alpha (timeline, Sine.Func);
+			behaviour = new BehaviourRotate(alpha, 
+							RotateAxis.ZAxis, 
+							RotateDirection.Cw,
+							0.0,
+							360.0);
 			behaviour.Apply (rect);
 
+			stage.AddActor (rect);
 			stage.AddActor (count_label);
 			stage.AddActor (label);
 

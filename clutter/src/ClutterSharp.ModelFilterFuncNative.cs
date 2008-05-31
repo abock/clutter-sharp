@@ -10,6 +10,43 @@ namespace ClutterSharp {
 	[GLib.CDeclCallback]
 	internal delegate bool ModelFilterFuncNative(IntPtr model, IntPtr iter, IntPtr user_data);
 
+	internal class ModelFilterFuncInvoker {
+
+		ModelFilterFuncNative native_cb;
+		IntPtr __data;
+		GLib.DestroyNotify __notify;
+
+		~ModelFilterFuncInvoker ()
+		{
+			if (__notify == null)
+				return;
+			__notify (__data);
+		}
+
+		internal ModelFilterFuncInvoker (ModelFilterFuncNative native_cb) : this (native_cb, IntPtr.Zero, null) {}
+
+		internal ModelFilterFuncInvoker (ModelFilterFuncNative native_cb, IntPtr data) : this (native_cb, data, null) {}
+
+		internal ModelFilterFuncInvoker (ModelFilterFuncNative native_cb, IntPtr data, GLib.DestroyNotify notify)
+		{
+			this.native_cb = native_cb;
+			__data = data;
+			__notify = notify;
+		}
+
+		internal Clutter.ModelFilterFunc Handler {
+			get {
+				return new Clutter.ModelFilterFunc(InvokeNative);
+			}
+		}
+
+		bool InvokeNative (Clutter.Model model, Clutter.ModelIter iter)
+		{
+			bool result = native_cb (model == null ? IntPtr.Zero : model.Handle, iter == null ? IntPtr.Zero : iter.Handle, __data);
+			return result;
+		}
+	}
+
 	internal class ModelFilterFuncWrapper {
 
 		public bool NativeCallback (IntPtr model, IntPtr iter, IntPtr user_data)
