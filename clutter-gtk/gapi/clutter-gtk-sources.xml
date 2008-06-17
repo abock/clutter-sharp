@@ -2,7 +2,7 @@
 	<api filename="clutter-gtk-api.raw">
 		<library name="clutter-gtk">
 			<namespace name="Clutter">
-				<dir>../../../../clutter-gtk-0.4/clutter-gtk</dir>
+				<dir>../../../../clutter-gtk-0.6/clutter-gtk</dir>
 			</namespace>
 		</library>
 	</api>

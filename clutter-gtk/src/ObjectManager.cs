@@ -13,7 +13,7 @@ namespace GtkSharp.ClutterSharp {
 				return;
 
 			initialized = true;
-			GLib.GType.Register (Clutter.GtkClutter.GType, typeof (Clutter.GtkClutter));
+			GLib.GType.Register (Clutter.Embed.GType, typeof (Clutter.Embed));
 		}
 	}
 }

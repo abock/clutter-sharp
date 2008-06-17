@@ -1,7 +1,7 @@
 ASSEMBLY_NAME = clutter-gtk-sharp
 ASSEMBLY = $(ASSEMBLY_NAME).dll
 SOURCES = \
-	GtkClutter.cs \
+	Embed.cs		\
 	ObjectManager.cs
 
 all: $(ASSEMBLY)

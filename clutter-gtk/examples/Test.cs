@@ -8,6 +8,7 @@ public class SuperOH
 	public Actor[] Hands;
 	public Group Group;
 	public Gdk.Pixbuf BgPixbuf; 
+	public Timeline FadeTimeline;
 }
 
 public class Test
@@ -25,18 +26,19 @@ public class Test
 
 	static void HandleNewFrame (object o, NewFrameArgs args) 
 	{
- 		CurrentOH.Group.RotateZ  (args.FrameNum, 
- 					  (int)Stage.Default.Width / 2, 
- 					  (int)Stage.Default.Height / 2);
+	 	CurrentOH.Group.SetRotation (RotateAxis.ZAxis,
+					     args.FrameNum, 
+ 					     (int)Stage.Default.Width / 2, 
+ 					     (int)Stage.Default.Height / 2,
+					     0);
 
 
 		foreach (Actor hand in CurrentOH.Hands) {
-		 	hand.RotateZ (-6.0F * args.FrameNum,
-				      (int)hand.Width / 2,
-				      (int)hand.Height / 2);
-
-			if (fade)
-			 	hand.Opacity = (byte)(255 - (args.FrameNum % 255));
+		 	hand.SetRotation (RotateAxis.ZAxis,
+					  -6.0F * args.FrameNum,
+				      	  (int)hand.Width / 2,
+				          (int)hand.Height / 2,
+					  0);
 		}
 	}
 
@@ -61,7 +63,10 @@ public class Test
 
 	public static void HandleClickity (object o, EventArgs args)
 	{
-		fade = !fade; 
+		if (!CurrentOH.FadeTimeline.IsPlaying)
+		 	CurrentOH.FadeTimeline.Start ();
+		else
+		 	CurrentOH.FadeTimeline.Pause ();
 	}
 
 	public static void Main ()
@@ -78,7 +83,7 @@ public class Test
 		Gtk.VBox vbox = new Gtk.VBox (false, 6);
 		window.Add (vbox);
 
-		GtkClutter clutter = new GtkClutter ();
+		Embed clutter = new Embed ();
 		vbox.Add (clutter);
 
 		Stage stage = Stage.Default;
@@ -103,7 +108,6 @@ public class Test
 		oh.Group = new Group ();
 		oh.Hands = new Actor[n_hands];
 
-
 		for (int i = 0; i < n_hands; i++) {
 			Texture hand_text = new Texture (hand_pixbuf);
 			uint w = hand_text.Width;
@@ -122,12 +126,17 @@ public class Test
 
 			oh.Hands[i].SetPosition (x, y);
 
-			oh.Group.Add (oh.Hands[i]);
+			oh.Group.AddActor (oh.Hands[i]);
 		}
 
 		oh.Group.ShowAll ();
 
-		stage.Add (oh.Group);
+		oh.FadeTimeline = new Timeline (2000);
+		oh.FadeTimeline.Loop = true;
+		BehaviourOpacity behaviour = new BehaviourOpacity (new Alpha (oh.FadeTimeline, Sine.Func), 0xff, 0x00);
+		behaviour.Apply (oh.Group);
+
+		stage.AddActor (oh.Group);
 		stage.ButtonPressEvent += HandleButtonPress;
 		stage.KeyPressEvent += HandleKeyPress;
 
@@ -140,6 +149,7 @@ public class Test
 
 		window.ExposeEvent += delegate { timeline.Start (); };
 
+		window.SetDefaultSize (400, 600);
 		window.ShowAll ();
 
 		Gtk.Application.Run ();
