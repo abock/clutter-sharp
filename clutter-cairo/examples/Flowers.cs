@@ -125,8 +125,11 @@ public class Flower
 			Actor current_flower = flowers[i].ctex;
 
 			current_flower.SetPosition (flowers[i].x, flowers[i].y);
-
-			current_flower.RotateZ (flowers[i].rot, (int)current_flower.Width / 2, (int)current_flower.Height /2);
+			current_flower.SetRotation(RotateAxis.ZAxis,
+					           flowers[i].rot, 
+						   (int)current_flower.Width / 2, 
+						   (int)current_flower.Height /2,
+						   0);
 		}
 
 		return true;
@@ -163,7 +166,7 @@ public class Flower
 			flowers[i].rv = rand () % 5 + 1;
 			flowers[i].v = rand () % 10 + 2;
 
-			stage.Add (flowers[i].ctex);
+			stage.AddActor (flowers[i].ctex);
 			flowers[i].ctex.SetPosition (flowers[i].x, flowers[i].y);
 		}
 
