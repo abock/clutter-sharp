@@ -14,9 +14,16 @@ namespace Clutter {
 		protected Stage(GLib.GType gtype) : base(gtype) {}
 		public Stage(IntPtr raw) : base(raw) {}
 
-		protected Stage() : base(IntPtr.Zero)
+		[DllImport("clutter")]
+		static extern IntPtr clutter_stage_new();
+
+		public Stage () : base (IntPtr.Zero)
 		{
-			CreateNativeObject (new string [0], new GLib.Value [0]);
+			if (GetType () != typeof (Stage)) {
+				CreateNativeObject (new string [0], new GLib.Value[0]);
+				return;
+			}
+			Raw = clutter_stage_new();
 		}
 
 		[DllImport("clutter")]
@@ -357,13 +364,10 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_stage_get_fogx(IntPtr raw, IntPtr fog);
+		static extern void clutter_stage_fullscreen(IntPtr raw);
 
-		public void GetFogx(Clutter.Fog fog) {
-			IntPtr native_fog = GLib.Marshaller.StructureToPtrAlloc (fog);
-			clutter_stage_get_fogx(Handle, native_fog);
-			fog = Clutter.Fog.New (native_fog);
-			Marshal.FreeHGlobal (native_fog);
+		public void SetFullscreen() {
+			clutter_stage_fullscreen(Handle);
 		}
 
 		[DllImport("clutter")]
@@ -407,6 +411,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_stage_ensure_current(IntPtr raw);
+
+		public void EnsureCurrent() {
+			clutter_stage_ensure_current(Handle);
+		}
+
+		[DllImport("clutter")]
 		static extern IntPtr clutter_stage_get_key_focus(IntPtr raw);
 
 		[DllImport("clutter")]
@@ -424,43 +435,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_stage_fullscreen(IntPtr raw);
-
-		public void SetFullscreen() {
-			clutter_stage_fullscreen(Handle);
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_stage_hide_cursor(IntPtr raw);
-
-		public void HideCursor() {
-			clutter_stage_hide_cursor(Handle);
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_stage_snapshot(IntPtr raw, int x, int y, int width, int height);
-
-		public Gdk.Pixbuf Snapshot(int x, int y, int width, int height) {
-			IntPtr raw_ret = clutter_stage_snapshot(Handle, x, y, width, height);
-			Gdk.Pixbuf ret = GLib.Object.GetObject(raw_ret) as Gdk.Pixbuf;
-			return ret;
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_stage_get_fog(IntPtr raw, out double density, out double z_near, out double z_far);
-
-		public void GetFog(out double density, out double z_near, out double z_far) {
-			clutter_stage_get_fog(Handle, out density, out z_near, out z_far);
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_stage_get_perspective(IntPtr raw, out float fovy, out float aspect, out float z_near, out float z_far);
-
-		public void GetPerspective(out float fovy, out float aspect, out float z_near, out float z_far) {
-			clutter_stage_get_perspective(Handle, out fovy, out aspect, out z_near, out z_far);
-		}
-
-		[DllImport("clutter")]
 		static extern void clutter_stage_get_perspectivex(IntPtr raw, IntPtr perspective);
 
 		public void GetPerspectivex(Clutter.Perspective perspective) {
@@ -471,6 +445,47 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_stage_hide_cursor(IntPtr raw);
+
+		public void HideCursor() {
+			clutter_stage_hide_cursor(Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_get_fog(IntPtr raw, out double density, out double z_near, out double z_far);
+
+		public void GetFog(out double density, out double z_near, out double z_far) {
+			clutter_stage_get_fog(Handle, out density, out z_near, out z_far);
+		}
+
+		[DllImport("clutter")]
+		static extern byte clutter_stage_read_pixels(IntPtr raw, int x, int y, int width, int height);
+
+		public byte ReadPixels(int x, int y, int width, int height) {
+			byte raw_ret = clutter_stage_read_pixels(Handle, x, y, width, height);
+			byte ret = raw_ret;
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_stage_is_default(IntPtr raw);
+
+		public bool IsDefault { 
+			get {
+				bool raw_ret = clutter_stage_is_default(Handle);
+				bool ret = raw_ret;
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_get_perspective(IntPtr raw, out float fovy, out float aspect, out float z_near, out float z_far);
+
+		public void GetPerspective(out float fovy, out float aspect, out float z_near, out float z_far) {
+			clutter_stage_get_perspective(Handle, out fovy, out aspect, out z_near, out z_far);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_stage_set_fog(IntPtr raw, double density, double z_near, double z_far);
 
 		public void SetFog(double density, double z_near, double z_far) {
@@ -478,10 +493,27 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_stage_set_perspective(IntPtr raw, float fovy, float aspect, float z_near, float z_far);
+
+		public void SetPerspective(float fovy, float aspect, float z_near, float z_far) {
+			clutter_stage_set_perspective(Handle, fovy, aspect, z_near, z_far);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_stage_unfullscreen(IntPtr raw);
 
 		public void Unfullscreen() {
 			clutter_stage_unfullscreen(Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_stage_get_fogx(IntPtr raw, IntPtr fog);
+
+		public void GetFogx(Clutter.Fog fog) {
+			IntPtr native_fog = GLib.Marshaller.StructureToPtrAlloc (fog);
+			clutter_stage_get_fogx(Handle, native_fog);
+			fog = Clutter.Fog.New (native_fog);
+			Marshal.FreeHGlobal (native_fog);
 		}
 
 		[DllImport("clutter")]
@@ -506,10 +538,10 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_stage_set_perspective(IntPtr raw, float fovy, float aspect, float z_near, float z_far);
+		static extern void clutter_stage_queue_redraw(IntPtr raw);
 
-		public void SetPerspective(float fovy, float aspect, float z_near, float z_far) {
-			clutter_stage_set_perspective(Handle, fovy, aspect, z_near, z_far);
+		public new void QueueRedraw() {
+			clutter_stage_queue_redraw(Handle);
 		}
 
 #endregion

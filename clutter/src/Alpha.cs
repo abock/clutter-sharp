@@ -111,6 +111,15 @@ namespace Clutter {
 			}
 		}
 
+		[DllImport("clutter")]
+		static extern void clutter_alpha_set_closure(IntPtr raw, IntPtr closure);
+
+		public IntPtr Closure { 
+			set {
+				clutter_alpha_set_closure(Handle, value);
+			}
+		}
+
 #endregion
 	}
 }

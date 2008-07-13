@@ -10,6 +10,13 @@ namespace Clutter {
 	public class Grab {
 
 		[DllImport("clutter")]
+		static extern void clutter_grab_pointer_for_device(IntPtr actor, int id);
+
+		public static void PointerForDevice(Clutter.Actor actor, int id) {
+			clutter_grab_pointer_for_device(actor == null ? IntPtr.Zero : actor.Handle, id);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_grab_pointer(IntPtr actor);
 
 		public static void Pointer(Clutter.Actor actor) {

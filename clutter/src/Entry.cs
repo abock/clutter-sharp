@@ -494,15 +494,14 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_entry_handle_key_event(IntPtr raw, IntPtr kev);
+		static extern void clutter_entry_handle_key_event(IntPtr raw, IntPtr kev);
 
-		public bool HandleKeyEvent(Clutter.KeyEvent kev) {
+		[Obsolete]
+		public void HandleKeyEvent(Clutter.KeyEvent kev) {
 			IntPtr native_kev = GLib.Marshaller.StructureToPtrAlloc (kev);
-			bool raw_ret = clutter_entry_handle_key_event(Handle, native_kev);
-			bool ret = raw_ret;
+			clutter_entry_handle_key_event(Handle, native_kev);
 			kev = Clutter.KeyEvent.New (native_kev);
 			Marshal.FreeHGlobal (native_kev);
-			return ret;
 		}
 
 		[DllImport("clutter")]

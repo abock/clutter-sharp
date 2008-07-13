@@ -10,11 +10,6 @@ namespace ClutterTest
 		static Color entry_color = new Color (0x33, 0xdd, 0xff, 0xff);
 		static Entry entry;
 
-		static void OnKeyRelease (object o, KeyReleaseEventArgs args)
-		{
-			entry.HandleKeyEvent (args.Event);
-		}
-	 
 	 	public static void Main ()
 		{
 		 	ClutterRun.Init ();
@@ -33,10 +28,9 @@ namespace ClutterTest
 			entry.SetSize (600, 50);
 			entry.SetPosition (100, 100);
 
+			stage.KeyFocus = entry;
 			stage.AddActor (entry);
 			stage.ShowAll ();
-
-			stage.KeyReleaseEvent += OnKeyRelease;
 
 			ClutterRun.Main ();
 		}

@@ -10,6 +10,13 @@ namespace Clutter {
 	public class Ungrab {
 
 		[DllImport("clutter")]
+		static extern void clutter_ungrab_pointer_for_device(int id);
+
+		public static void PointerForDevice(int id) {
+			clutter_ungrab_pointer_for_device(id);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_ungrab_pointer();
 
 		public static void Pointer() {

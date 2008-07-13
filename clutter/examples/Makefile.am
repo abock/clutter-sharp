@@ -1,4 +1,4 @@
-SAMPLES=test-actors.cs test-behave.cs test-entry.cs test-scale.cs test-shaders.cs test-script.cs test-threads.cs
+SAMPLES=test-actors.cs test-behave.cs test-entry.cs test-scale.cs test-shaders.cs test-script.cs test-scroll-actor.cs test-threads.cs
 MCSFLAGS= -debug -nologo -r:clutter-sharp.dll
 
 EXTRA_DIST=$(SAMPLES)

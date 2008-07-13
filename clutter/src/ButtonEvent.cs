@@ -14,6 +14,15 @@ namespace Clutter {
 		public Clutter.EventType Type;
 		public uint Time;
 		public Clutter.EventFlags Flags;
+		private IntPtr _stage;
+		public Clutter.Stage Stage {
+			get {
+				return GLib.Object.GetObject(_stage) as Clutter.Stage;
+			}
+			set {
+				_stage = value == null ? IntPtr.Zero : value.Handle;
+			}
+		}
 		private IntPtr _source;
 		public Clutter.Actor Source {
 			get {

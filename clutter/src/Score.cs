@@ -324,10 +324,10 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_score_get_timeline(IntPtr raw, uint id);
+		static extern IntPtr clutter_score_get_timeline(IntPtr raw, UIntPtr id);
 
-		public Clutter.Timeline GetTimeline(uint id) {
-			IntPtr raw_ret = clutter_score_get_timeline(Handle, id);
+		public Clutter.Timeline GetTimeline(ulong id) {
+			IntPtr raw_ret = clutter_score_get_timeline(Handle, new UIntPtr (id));
 			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
 			return ret;
 		}
@@ -342,10 +342,10 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_score_remove(IntPtr raw, uint id);
+		static extern void clutter_score_remove(IntPtr raw, UIntPtr id);
 
-		public void Remove(uint id) {
-			clutter_score_remove(Handle, id);
+		public void Remove(ulong id) {
+			clutter_score_remove(Handle, new UIntPtr (id));
 		}
 
 		[DllImport("clutter")]
@@ -374,6 +374,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_score_remove_all(IntPtr raw);
+
+		public void RemoveAll() {
+			clutter_score_remove_all(Handle);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_score_stop(IntPtr raw);
 
 		public void Stop() {
@@ -381,11 +388,11 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern uint clutter_score_append(IntPtr raw, IntPtr parent, IntPtr timeline);
+		static extern UIntPtr clutter_score_append(IntPtr raw, IntPtr parent, IntPtr timeline);
 
-		public uint Append(Clutter.Timeline parent, Clutter.Timeline timeline) {
-			uint raw_ret = clutter_score_append(Handle, parent == null ? IntPtr.Zero : parent.Handle, timeline == null ? IntPtr.Zero : timeline.Handle);
-			uint ret = raw_ret;
+		public ulong Append(Clutter.Timeline parent, Clutter.Timeline timeline) {
+			UIntPtr raw_ret = clutter_score_append(Handle, parent == null ? IntPtr.Zero : parent.Handle, timeline == null ? IntPtr.Zero : timeline.Handle);
+			ulong ret = (ulong) raw_ret;
 			return ret;
 		}
 
@@ -408,10 +415,14 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_score_remove_all(IntPtr raw);
+		static extern UIntPtr clutter_score_append_at_marker(IntPtr raw, IntPtr parent, IntPtr marker_name, IntPtr timeline);
 
-		public void RemoveAll() {
-			clutter_score_remove_all(Handle);
+		public ulong AppendAtMarker(Clutter.Timeline parent, string marker_name, Clutter.Timeline timeline) {
+			IntPtr native_marker_name = GLib.Marshaller.StringToPtrGStrdup (marker_name);
+			UIntPtr raw_ret = clutter_score_append_at_marker(Handle, parent == null ? IntPtr.Zero : parent.Handle, native_marker_name, timeline == null ? IntPtr.Zero : timeline.Handle);
+			ulong ret = (ulong) raw_ret;
+			GLib.Marshaller.Free (native_marker_name);
+			return ret;
 		}
 
 #endregion

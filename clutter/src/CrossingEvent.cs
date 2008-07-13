@@ -14,6 +14,15 @@ namespace Clutter {
 		public Clutter.EventType Type;
 		public uint Time;
 		public Clutter.EventFlags Flags;
+		private IntPtr _stage;
+		public Clutter.Stage Stage {
+			get {
+				return GLib.Object.GetObject(_stage) as Clutter.Stage;
+			}
+			set {
+				_stage = value == null ? IntPtr.Zero : value.Handle;
+			}
+		}
 		private IntPtr _source;
 		public Clutter.Actor Source {
 			get {
@@ -25,6 +34,15 @@ namespace Clutter {
 		}
 		public int X;
 		public int Y;
+		private IntPtr _device;
+		public Clutter.InputDevice Device {
+			get {
+				return _device == IntPtr.Zero ? null : (Clutter.InputDevice) GLib.Opaque.GetOpaque (_device, typeof (Clutter.InputDevice), false);
+			}
+			set {
+				_device = value == null ? IntPtr.Zero : value.Handle;
+			}
+		}
 		private IntPtr _related;
 		public Clutter.Actor Related {
 			get {

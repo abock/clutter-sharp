@@ -11,15 +11,16 @@ namespace Clutter {
 	[GLib.GType (typeof (Clutter.FeatureFlagsGType))]
 	public enum FeatureFlags {
 
-		TextureRectangle = 1 << 1,
-		SyncToVblank = 1 << 2,
-		TextureYuv = 1 << 3,
-		TextureReadPixels = 1 << 4,
-		StageStatic = 1 << 5,
-		StageUserResize = 1 << 6,
-		StageCursor = 1 << 7,
-		ShadersGlsl = 1 << 8,
-		Offscreen = 1 << 9,
+		TextureNpot = 1 << 2,
+		SyncToVblank = 1 << 3,
+		TextureYuv = 1 << 4,
+		TextureReadPixels = 1 << 5,
+		StageStatic = 1 << 6,
+		StageUserResize = 1 << 7,
+		StageCursor = 1 << 8,
+		ShadersGlsl = 1 << 9,
+		Offscreen = 1 << 10,
+		StageMultiple = 1 << 11,
 	}
 
 	internal class FeatureFlagsGType {

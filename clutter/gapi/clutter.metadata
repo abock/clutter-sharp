@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
 <metadata>
 	<!-- ClutterActor renames -->
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Show']" name="name">ShowEvent</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Hide']" name="name">HideEvent</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Destroy']" name="name">DestroyEvent</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Show']" name="name">Shown</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Hide']" name="name">Hidden</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Destroy']" name="name">Destoryed</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Paint']" name="name">Painted</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Realize']" name="name">Realized</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Unrealize']" name="name">Unrealized</attr>	
+
+	<!-- ClutterBackend removal -->
+	<remove-node path="/api/namespace/object[@cname='ClutterBackend']/method[@name='GetFontOptions']"/>
+	<remove-node path="/api/namespace/object[@cname='ClutterBackend']/method[@name='SetFontOptions']"/>
 
 	<!-- ClutterButtonEvent renames -->
 	<attr path="/api/namespace/struct[@cname='ClutterButtonEvent']/method[@name='Button']" name="name">GetButton</attr>
@@ -12,8 +19,8 @@
 	<remove-node path="/api/namespace/object[@name='BehaviourPath']/constructor[@cname='clutter_behaviour_path_new']" />
 
 	<!-- ClutterGroup renames -->
-	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Add']" name="name">AddEvent</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Remove']" name="name">RemoveEvent</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Add']" name="name">Added</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Remove']" name="name">Removed</attr>	
 
 	<!-- ClutterLabel remove -->
 	<remove-node path="/api/namespace/object[@cname='ClutterLabel']/method[@name='GetAlignment']" />

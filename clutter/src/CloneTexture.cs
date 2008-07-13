@@ -43,6 +43,36 @@ namespace Clutter {
 			}
 		}
 
+		[GLib.Property ("repeat-x")]
+		public bool RepeatX {
+			get {
+				GLib.Value val = GetProperty ("repeat-x");
+				bool ret = (bool) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("repeat-x", val);
+				val.Dispose ();
+			}
+		}
+
+		[GLib.Property ("repeat-y")]
+		public bool RepeatY {
+			get {
+				GLib.Value val = GetProperty ("repeat-y");
+				bool ret = (bool) val;
+				val.Dispose ();
+				return ret;
+			}
+			set {
+				GLib.Value val = new GLib.Value(value);
+				SetProperty("repeat-y", val);
+				val.Dispose ();
+			}
+		}
+
 		[DllImport("clutter")]
 		static extern IntPtr clutter_clone_texture_get_type();
 

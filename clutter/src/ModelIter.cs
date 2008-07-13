@@ -138,6 +138,15 @@ namespace Clutter {
 			}
 		}
 
+		[DllImport("clutter")]
+		static extern IntPtr clutter_model_iter_copy(IntPtr raw);
+
+		public Clutter.ModelIter Copy() {
+			IntPtr raw_ret = clutter_model_iter_copy(Handle);
+			Clutter.ModelIter ret = GLib.Object.GetObject(raw_ret, true) as Clutter.ModelIter;
+			return ret;
+		}
+
 #endregion
 	}
 }

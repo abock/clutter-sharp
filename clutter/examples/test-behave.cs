@@ -19,8 +19,6 @@ namespace ClutterTest
 				Clutter.Main.Quit(); 
 			};
 
-			Pixbuf pixbuf = new Gdk.Pixbuf ("redhand.png");
-			
 			// fixme: add constructor
 			Clutter.Color stage_color = new Clutter.Color (0xcc, 0xcc, 0xcc, 0xff);
 			stage.Color = stage_color;
@@ -29,20 +27,20 @@ namespace ClutterTest
 			stage.AddActor (group);
 			group.Show ();
 
+			// Make a hand
+			Clutter.Actor hand = new Texture ("redhand.png");
+			hand.SetPosition (0,0);
+			hand.Show ();
+
+			// Make a rect
 			Clutter.Rectangle rect = new Clutter.Rectangle();
 			rect.SetPosition (0,0);
-			rect.SetSize (pixbuf.Width, pixbuf.Height);
+			rect.SetSize ((int)hand.Width, (int)hand.Height);
 
 			Clutter.Color rect_bg_color = new Clutter.Color (0x33, 0x22, 0x22, 0xff);
 			rect.Color = rect_bg_color;
 			rect.BorderWidth = 10;
-
 			rect.Show ();
-
-			// Make a hand
-			Clutter.Actor hand = new Texture (pixbuf);
-			hand.SetPosition (0,0);
-			hand.Show ();
 
 			group.AddActor (rect);
 			group.AddActor (hand);

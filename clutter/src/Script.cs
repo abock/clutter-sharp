@@ -55,14 +55,18 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern IntPtr clutter_script_get_type_from_name(IntPtr raw, IntPtr type_name);
+		static extern void clutter_script_add_search_paths(IntPtr raw, IntPtr[] paths, UIntPtr n_paths);
 
-		public GLib.GType GetTypeFromName(string type_name) {
-			IntPtr native_type_name = GLib.Marshaller.StringToPtrGStrdup (type_name);
-			IntPtr raw_ret = clutter_script_get_type_from_name(Handle, native_type_name);
-			GLib.GType ret = new GLib.GType(raw_ret);
-			GLib.Marshaller.Free (native_type_name);
-			return ret;
+		public void AddSearchPaths(string[] paths) {
+			int cnt_paths = paths == null ? 0 : paths.Length;
+			IntPtr[] native_paths = new IntPtr [cnt_paths];
+			for (int i = 0; i < cnt_paths; i++)
+				native_paths [i] = GLib.Marshaller.StringToPtrGStrdup (paths[i]);
+			clutter_script_add_search_paths(Handle, native_paths, new UIntPtr ((ulong) (paths == null ? 0 : paths.Length)));
+			for (int i = 0; i < native_paths.Length; i++) {
+				paths [i] = GLib.Marshaller.Utf8PtrToString (native_paths[i]);
+				GLib.Marshaller.Free (native_paths[i]);
+			}
 		}
 
 		[DllImport("clutter")]
@@ -92,6 +96,13 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_script_unmerge_objects(IntPtr raw, uint merge_id);
+
+		public void UnmergeObjects(uint merge_id) {
+			clutter_script_unmerge_objects(Handle, merge_id);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_script_ensure_objects(IntPtr raw);
 
 		public void EnsureObjects() {
@@ -106,6 +117,17 @@ namespace Clutter {
 			IntPtr raw_ret = clutter_script_get_object(Handle, native_name);
 			GLib.Object ret = GLib.Object.GetObject (raw_ret);
 			GLib.Marshaller.Free (native_name);
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_script_get_type_from_name(IntPtr raw, IntPtr type_name);
+
+		public GLib.GType GetTypeFromName(string type_name) {
+			IntPtr native_type_name = GLib.Marshaller.StringToPtrGStrdup (type_name);
+			IntPtr raw_ret = clutter_script_get_type_from_name(Handle, native_type_name);
+			GLib.GType ret = new GLib.GType(raw_ret);
+			GLib.Marshaller.Free (native_type_name);
 			return ret;
 		}
 
@@ -137,10 +159,14 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_script_unmerge_objects(IntPtr raw, uint merge_id);
+		static extern IntPtr clutter_script_lookup_filename(IntPtr raw, IntPtr filename);
 
-		public void UnmergeObjects(uint merge_id) {
-			clutter_script_unmerge_objects(Handle, merge_id);
+		public string LookupFilename(string filename) {
+			IntPtr native_filename = GLib.Marshaller.StringToPtrGStrdup (filename);
+			IntPtr raw_ret = clutter_script_lookup_filename(Handle, native_filename);
+			string ret = GLib.Marshaller.PtrToStringGFree(raw_ret);
+			GLib.Marshaller.Free (native_filename);
+			return ret;
 		}
 
 #endregion

@@ -46,6 +46,16 @@ namespace Clutter {
 			}
 		}
 
+		[GLib.Property ("compiled")]
+		public bool Compiled {
+			get {
+				GLib.Value val = GetProperty ("compiled");
+				bool ret = (bool) val;
+				val.Dispose ();
+				return ret;
+			}
+		}
+
 		[DllImport("clutter")]
 		static extern IntPtr clutter_shader_get_fragment_source(IntPtr raw);
 
@@ -81,21 +91,15 @@ namespace Clutter {
 			}
 		}
 
-		[GLib.Property ("bound")]
-		public bool Bound {
+		[DllImport("clutter")]
+		static extern bool clutter_shader_is_compiled(IntPtr raw);
+
+		public bool IsCompiled { 
 			get {
-				GLib.Value val = GetProperty ("bound");
-				bool ret = (bool) val;
-				val.Dispose ();
+				bool raw_ret = clutter_shader_is_compiled(Handle);
+				bool ret = raw_ret;
 				return ret;
 			}
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_shader_release_all();
-
-		public static void ReleaseAll() {
-			clutter_shader_release_all();
 		}
 
 		[DllImport("clutter")]
@@ -132,22 +136,11 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_shader_is_bound(IntPtr raw);
+		static extern unsafe bool clutter_shader_compile(IntPtr raw, out IntPtr error);
 
-		public bool IsBound { 
-			get {
-				bool raw_ret = clutter_shader_is_bound(Handle);
-				bool ret = raw_ret;
-				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern unsafe bool clutter_shader_bind(IntPtr raw, out IntPtr error);
-
-		public unsafe bool Bind() {
+		public unsafe bool Compile() {
 			IntPtr error = IntPtr.Zero;
-			bool raw_ret = clutter_shader_bind(Handle, out error);
+			bool raw_ret = clutter_shader_compile(Handle, out error);
 			bool ret = raw_ret;
 			if (error != IntPtr.Zero) throw new GLib.GException (error);
 			return ret;

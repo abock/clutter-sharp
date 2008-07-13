@@ -17,18 +17,23 @@ namespace Clutter {
 
 			public IntPtr actor_added;
 			public IntPtr actor_removed;
+			public IntPtr child_notify;
 			public IntPtr add;
 			public IntPtr _remove;
 			public ForeachDelegate for_each;
 			public IntPtr raise;
 			public IntPtr lower;
 			public SortDepthOrderDelegate sort_depth_order;
+			public IntPtr create_child_meta;
+			public IntPtr destroy_child_meta;
+			public GetChildMetaDelegate get_child_meta;
 		}
 
 		static ContainerAdapter ()
 		{
 			iface.for_each = new ForeachDelegate (ForeachCallback);
 			iface.sort_depth_order = new SortDepthOrderDelegate (SortDepthOrderCallback);
+			iface.get_child_meta = new GetChildMetaDelegate (GetChildMetaCallback);
 		}
 
 
@@ -58,6 +63,22 @@ namespace Clutter {
 				GLib.ExceptionManager.RaiseUnhandledException (e, false);
 			}
 		}
+
+		[GLib.CDeclCallback]
+		delegate IntPtr GetChildMetaDelegate (IntPtr container, IntPtr actor);
+
+		static IntPtr GetChildMetaCallback (IntPtr container, IntPtr actor)
+		{
+			try {
+				Clutter.ContainerImplementor __obj = GLib.Object.GetObject (container, false) as Clutter.ContainerImplementor;
+				Clutter.ChildMeta __result = __obj.GetChildMeta (GLib.Object.GetObject(actor) as Clutter.Actor);
+				return __result == null ? IntPtr.Zero : __result.Handle;
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, true);
+				// NOTREACHED: above call does not return.
+				throw e;
+			}
+		}
 		static void Initialize (IntPtr ifaceptr, IntPtr data)
 		{
 			ContainerIface native_iface = (ContainerIface) Marshal.PtrToStructure (ifaceptr, typeof (ContainerIface));
@@ -67,6 +88,9 @@ namespace Clutter {
 			native_iface.raise = iface.raise;
 			native_iface.lower = iface.lower;
 			native_iface.sort_depth_order = iface.sort_depth_order;
+			native_iface.create_child_meta = iface.create_child_meta;
+			native_iface.destroy_child_meta = iface.destroy_child_meta;
+			native_iface.get_child_meta = iface.get_child_meta;
 			Marshal.StructureToPtr (native_iface, ifaceptr, false);
 			GCHandle gch = (GCHandle) data;
 			gch.Free ();
@@ -123,6 +147,39 @@ namespace Clutter {
 		public ContainerImplementor Implementor {
 			get {
 				return implementor;
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ChildNotifySignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr arg2, IntPtr gch);
+
+		static void ChildNotifySignalCallback (IntPtr arg0, IntPtr arg1, IntPtr arg2, IntPtr gch)
+		{
+			Clutter.ChildNotifyArgs args = new Clutter.ChildNotifyArgs ();
+			try {
+				GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+				if (sig == null)
+					throw new Exception("Unknown signal GC handle received " + gch);
+
+				args.Args = new object[2];
+				args.Args[0] = GLib.Object.GetObject(arg1) as Clutter.Actor;
+				args.Args[1] = arg2;
+				Clutter.ChildNotifyHandler handler = (Clutter.ChildNotifyHandler) sig.Handler;
+				handler (GLib.Object.GetObject (arg0), args);
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, false);
+			}
+		}
+
+		[GLib.Signal("child-notify")]
+		public event Clutter.ChildNotifyHandler ChildNotify {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (GLib.Object.GetObject (Handle), "child-notify", new ChildNotifySignalDelegate(ChildNotifySignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (GLib.Object.GetObject (Handle), "child-notify", new ChildNotifySignalDelegate(ChildNotifySignalCallback));
+				sig.RemoveDelegate (value);
 			}
 		}
 
@@ -219,6 +276,18 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_container_child_get_property(IntPtr raw, IntPtr child, IntPtr property, IntPtr value);
+
+		public void ChildGetProperty(Clutter.Actor child, string property, GLib.Value value) {
+			IntPtr native_property = GLib.Marshaller.StringToPtrGStrdup (property);
+			IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+			clutter_container_child_get_property(Handle, child == null ? IntPtr.Zero : child.Handle, native_property, native_value);
+			GLib.Marshaller.Free (native_property);
+			value = (GLib.Value) Marshal.PtrToStructure (native_value, typeof (GLib.Value));
+			Marshal.FreeHGlobal (native_value);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_container_raise_child(IntPtr raw, IntPtr actor, IntPtr sibling);
 
 		public void RaiseChild(Clutter.Actor actor, Clutter.Actor sibling) {
@@ -240,6 +309,15 @@ namespace Clutter {
 			IntPtr raw_ret = clutter_container_find_child_by_name(Handle, native_child_name);
 			Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
 			GLib.Marshaller.Free (native_child_name);
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_container_get_child_meta(IntPtr raw, IntPtr actor);
+
+		public Clutter.ChildMeta GetChildMeta(Clutter.Actor actor) {
+			IntPtr raw_ret = clutter_container_get_child_meta(Handle, actor == null ? IntPtr.Zero : actor.Handle);
+			Clutter.ChildMeta ret = GLib.Object.GetObject(raw_ret) as Clutter.ChildMeta;
 			return ret;
 		}
 
@@ -267,6 +345,18 @@ namespace Clutter {
 				GLib.List ret = new GLib.List(raw_ret);
 				return ret;
 			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_container_child_set_property(IntPtr raw, IntPtr child, IntPtr property, IntPtr value);
+
+		public void ChildSetProperty(Clutter.Actor child, string property, GLib.Value value) {
+			IntPtr native_property = GLib.Marshaller.StringToPtrGStrdup (property);
+			IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+			clutter_container_child_set_property(Handle, child == null ? IntPtr.Zero : child.Handle, native_property, native_value);
+			GLib.Marshaller.Free (native_property);
+			value = (GLib.Value) Marshal.PtrToStructure (native_value, typeof (GLib.Value));
+			Marshal.FreeHGlobal (native_value);
 		}
 
 #endregion

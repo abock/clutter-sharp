@@ -6,7 +6,7 @@ SOURCES = \
 	ActorBox.cs					\
 	ActorFlags.cs					\
 	ActorRemovedHandler.cs				\
-	AddEventHandler.cs				\
+	AddedHandler.cs					\
 	Alpha.cs					\
 	AlphaFunc.cs					\
 	AnyEvent.cs					\
@@ -25,6 +25,8 @@ SOURCES = \
 	ButtonPressEventHandler.cs			\
 	ButtonReleaseEventHandler.cs			\
 	Callback.cs					\
+	ChildMeta.cs					\
+	ChildNotifyHandler.cs				\
 	CloneTexture.cs					\
 	ClutterRun.cs					\
 	ClutterSharp.AlphaFuncNative.cs			\
@@ -54,12 +56,14 @@ SOURCES = \
 	Feature.cs					\
 	FeatureFlags.cs					\
 	Fog.cs						\
+	Frame.cs					\
 	GLibSharp.GSourceFuncNative.cs			\
 	Geometry.cs					\
 	Global.cs					\
 	Grab.cs						\
 	Gravity.cs					\
 	Group.cs					\
+	IDPool.cs					\
 	Idle.cs						\
 	Init.cs						\
 	InitError.cs					\
@@ -73,6 +77,7 @@ SOURCES = \
 	LeaveEventHandler.cs				\
 	ListModel.cs					\
 	Main.cs						\
+	MarkerReachedHandler.cs				\
 	Media.cs					\
 	MediaAdapter.cs					\
 	Model.cs					\
@@ -88,8 +93,8 @@ SOURCES = \
 	Perspective.cs					\
 	Ramp.cs						\
 	Rectangle.cs					\
-	RemoveEventHandler.cs				\
 	RemovedHandler.cs				\
+	RequestMode.cs					\
 	RotateAxis.cs					\
 	RotateDirection.cs				\
 	RowAddedHandler.cs				\
@@ -111,11 +116,17 @@ SOURCES = \
 	Smoothstep.cs					\
 	Source.cs					\
 	Stage.cs					\
+	StageAddedHandler.cs				\
+	StageManager.cs					\
+	StageRemovedHandler.cs				\
 	StageState.cs					\
 	StageStateEvent.cs				\
+	StageWindow.cs					\
+	StageWindowAdapter.cs				\
 	Texture.cs					\
 	TextureError.cs					\
 	TextureFlags.cs					\
+	TextureQuality.cs				\
 	Threads.cs					\
 	Timeline.cs					\
 	TimelineCompletedHandler.cs			\
@@ -124,6 +135,7 @@ SOURCES = \
 	Timeout.cs					\
 	TimeoutPool.cs					\
 	Ungrab.cs					\
+	Value.cs					\
 	Vertex.cs
 
 all: $(ASSEMBLY)
@@ -136,9 +148,9 @@ install-data-local:
 
 uninstall-local:
 	$(GACUTIL) /u $(ASSEMBLY_NAME) /package $(ASSEMBLY_NAME) /gacdir $(libdir) /root $(DESTDIR)$(libdir)
-
+	
 CLEANFILES = $(ASSEMBLY) *.mdb
-DISTCLEANFILES = Makefile.in
+DISTCLEANFILES = Makefile.am
 EXTRA_DIST = \
 	$(SOURCES) \
 	$(srcdir)/AssemblyInfo.cs.in \

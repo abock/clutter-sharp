@@ -23,6 +23,7 @@ namespace Clutter {
 		Scheduler = 1 << 10,
 		Script = 1 << 11,
 		Shader = 1 << 12,
+		Multistage = 1 << 13,
 	}
 #endregion
 }

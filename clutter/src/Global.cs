@@ -86,6 +86,39 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern IntPtr clutter_get_input_device_for_id(int id);
+
+		public static Clutter.InputDevice GetInputDeviceForId(int id) {
+			IntPtr raw_ret = clutter_get_input_device_for_id(id);
+			Clutter.InputDevice ret = raw_ret == IntPtr.Zero ? null : (Clutter.InputDevice) GLib.Opaque.GetOpaque (raw_ret, typeof (Clutter.InputDevice), false);
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_clear_glyph_cache();
+
+		public static void ClearGlyphCache() {
+			clutter_clear_glyph_cache();
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_get_use_mipmapped_text();
+
+		[DllImport("clutter")]
+		static extern void clutter_set_use_mipmapped_text(bool value);
+
+		public static bool UseMipmappedText { 
+			get {
+				bool raw_ret = clutter_get_use_mipmapped_text();
+				bool ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_set_use_mipmapped_text(value);
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern bool clutter_get_show_fps();
 
 		public static bool ShowFps { 
@@ -177,6 +210,15 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern IntPtr clutter_unit_get_type();
+
+		public static GLib.GType UnitGetType() {
+			IntPtr raw_ret = clutter_unit_get_type();
+			GLib.GType ret = new GLib.GType(raw_ret);
+			return ret;
+		}
+
+		[DllImport("clutter")]
 		static extern bool clutter_get_debug_enabled();
 
 		public static bool DebugEnabled { 
@@ -185,6 +227,15 @@ namespace Clutter {
 				bool ret = raw_ret;
 				return ret;
 			}
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_fixed_get_type();
+
+		public static GLib.GType FixedGetType() {
+			IntPtr raw_ret = clutter_fixed_get_type();
+			GLib.GType ret = new GLib.GType(raw_ret);
+			return ret;
 		}
 
 #endregion

@@ -8,7 +8,7 @@ namespace Clutter {
 	public delegate void RemovedHandler(object o, RemovedArgs args);
 
 	public class RemovedArgs : GLib.SignalArgs {
-		public Clutter.Actor Actor{
+		public Clutter.Actor Child{
 			get {
 				return (Clutter.Actor) Args[0];
 			}

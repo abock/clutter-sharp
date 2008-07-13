@@ -56,7 +56,6 @@ public class SuperOH
 		Stage stage = Stage.Default;	 
 		stage.SetSize (800, 600);
 		stage.Color = new Clutter.Color (0x61, 0x64, 0x8c, 0xff);
-		Gdk.Pixbuf hand_pixbuf = new Gdk.Pixbuf ("redhand.png");
 
 		SuperOH oh = new SuperOH();
 		CurrentOH = oh;
@@ -64,7 +63,7 @@ public class SuperOH
 		oh.Hands = new Actor[n_hands];
 
 		for (int i = 0; i < n_hands; i++) {
-			Texture hand_text = new Texture (hand_pixbuf);
+			Texture hand_text = new Texture ("redhand.png");
 			uint w = hand_text.Width;
 			uint h = hand_text.Height;
 

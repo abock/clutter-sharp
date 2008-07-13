@@ -5,9 +5,9 @@ namespace Clutter {
 
 	using System;
 
-	public delegate void AddEventHandler(object o, AddEventArgs args);
+	public delegate void AddedHandler(object o, AddedArgs args);
 
-	public class AddEventArgs : GLib.SignalArgs {
+	public class AddedArgs : GLib.SignalArgs {
 		public Clutter.Actor Child{
 			get {
 				return (Clutter.Actor) Args[0];

@@ -89,6 +89,9 @@ public class ShaderTest
 			 	timeline.Pause ();
 		};
 
+		stage.Unrealized += delegate  { Clutter.Main.Quit (); };
+		stage.KeyPressEvent += delegate { Clutter.Main.Quit ();	};
+
 		stage.ShowAll ();
 
 		ClutterRun.Main ();

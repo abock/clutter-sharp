@@ -27,11 +27,11 @@ namespace Clutter {
 		}
 
 		[GLib.CDeclCallback]
-		delegate void AddEventSignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr gch);
+		delegate void RemovedSignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr gch);
 
-		static void AddEventSignalCallback (IntPtr arg0, IntPtr arg1, IntPtr gch)
+		static void RemovedSignalCallback (IntPtr arg0, IntPtr arg1, IntPtr gch)
 		{
-			Clutter.AddEventArgs args = new Clutter.AddEventArgs ();
+			Clutter.RemovedArgs args = new Clutter.RemovedArgs ();
 			try {
 				GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
 				if (sig == null)
@@ -39,7 +39,7 @@ namespace Clutter {
 
 				args.Args = new object[1];
 				args.Args[0] = GLib.Object.GetObject(arg1) as Clutter.Actor;
-				Clutter.AddEventHandler handler = (Clutter.AddEventHandler) sig.Handler;
+				Clutter.RemovedHandler handler = (Clutter.RemovedHandler) sig.Handler;
 				handler (GLib.Object.GetObject (arg0), args);
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, false);
@@ -47,98 +47,29 @@ namespace Clutter {
 		}
 
 		[GLib.CDeclCallback]
-		delegate void AddEventVMDelegate (IntPtr group, IntPtr child);
+		delegate void RemovedVMDelegate (IntPtr group, IntPtr child);
 
-		static AddEventVMDelegate AddEventVMCallback;
+		static RemovedVMDelegate RemovedVMCallback;
 
-		static void addevent_cb (IntPtr group, IntPtr child)
+		static void removed_cb (IntPtr group, IntPtr child)
 		{
 			try {
 				Group group_managed = GLib.Object.GetObject (group, false) as Group;
-				group_managed.OnAddEvent (GLib.Object.GetObject(child) as Clutter.Actor);
+				group_managed.OnRemoved (GLib.Object.GetObject(child) as Clutter.Actor);
 			} catch (Exception e) {
 				GLib.ExceptionManager.RaiseUnhandledException (e, false);
 			}
 		}
 
-		private static void OverrideAddEvent (GLib.GType gtype)
+		private static void OverrideRemoved (GLib.GType gtype)
 		{
-			if (AddEventVMCallback == null)
-				AddEventVMCallback = new AddEventVMDelegate (addevent_cb);
-			OverrideVirtualMethod (gtype, "add", AddEventVMCallback);
+			if (RemovedVMCallback == null)
+				RemovedVMCallback = new RemovedVMDelegate (removed_cb);
+			OverrideVirtualMethod (gtype, "remove", RemovedVMCallback);
 		}
 
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Group), ConnectionMethod="OverrideAddEvent")]
-		protected virtual void OnAddEvent (Clutter.Actor child)
-		{
-			GLib.Value ret = GLib.Value.Empty;
-			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
-			GLib.Value[] vals = new GLib.Value [2];
-			vals [0] = new GLib.Value (this);
-			inst_and_params.Append (vals [0]);
-			vals [1] = new GLib.Value (child);
-			inst_and_params.Append (vals [1]);
-			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
-			foreach (GLib.Value v in vals)
-				v.Dispose ();
-		}
-
-		[GLib.Signal("add")]
-		public event Clutter.AddEventHandler AddEvent {
-			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "add", new AddEventSignalDelegate(AddEventSignalCallback));
-				sig.AddDelegate (value);
-			}
-			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "add", new AddEventSignalDelegate(AddEventSignalCallback));
-				sig.RemoveDelegate (value);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void RemoveEventSignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr gch);
-
-		static void RemoveEventSignalCallback (IntPtr arg0, IntPtr arg1, IntPtr gch)
-		{
-			Clutter.RemoveEventArgs args = new Clutter.RemoveEventArgs ();
-			try {
-				GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
-				if (sig == null)
-					throw new Exception("Unknown signal GC handle received " + gch);
-
-				args.Args = new object[1];
-				args.Args[0] = GLib.Object.GetObject(arg1) as Clutter.Actor;
-				Clutter.RemoveEventHandler handler = (Clutter.RemoveEventHandler) sig.Handler;
-				handler (GLib.Object.GetObject (arg0), args);
-			} catch (Exception e) {
-				GLib.ExceptionManager.RaiseUnhandledException (e, false);
-			}
-		}
-
-		[GLib.CDeclCallback]
-		delegate void RemoveEventVMDelegate (IntPtr group, IntPtr child);
-
-		static RemoveEventVMDelegate RemoveEventVMCallback;
-
-		static void removeevent_cb (IntPtr group, IntPtr child)
-		{
-			try {
-				Group group_managed = GLib.Object.GetObject (group, false) as Group;
-				group_managed.OnRemoveEvent (GLib.Object.GetObject(child) as Clutter.Actor);
-			} catch (Exception e) {
-				GLib.ExceptionManager.RaiseUnhandledException (e, false);
-			}
-		}
-
-		private static void OverrideRemoveEvent (GLib.GType gtype)
-		{
-			if (RemoveEventVMCallback == null)
-				RemoveEventVMCallback = new RemoveEventVMDelegate (removeevent_cb);
-			OverrideVirtualMethod (gtype, "remove", RemoveEventVMCallback);
-		}
-
-		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Group), ConnectionMethod="OverrideRemoveEvent")]
-		protected virtual void OnRemoveEvent (Clutter.Actor child)
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Group), ConnectionMethod="OverrideRemoved")]
+		protected virtual void OnRemoved (Clutter.Actor child)
 		{
 			GLib.Value ret = GLib.Value.Empty;
 			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
@@ -153,13 +84,82 @@ namespace Clutter {
 		}
 
 		[GLib.Signal("remove")]
-		public event Clutter.RemoveEventHandler RemoveEvent {
+		public event Clutter.RemovedHandler Removed {
 			add {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "remove", new RemoveEventSignalDelegate(RemoveEventSignalCallback));
+				GLib.Signal sig = GLib.Signal.Lookup (this, "remove", new RemovedSignalDelegate(RemovedSignalCallback));
 				sig.AddDelegate (value);
 			}
 			remove {
-				GLib.Signal sig = GLib.Signal.Lookup (this, "remove", new RemoveEventSignalDelegate(RemoveEventSignalCallback));
+				GLib.Signal sig = GLib.Signal.Lookup (this, "remove", new RemovedSignalDelegate(RemovedSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void AddedSignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr gch);
+
+		static void AddedSignalCallback (IntPtr arg0, IntPtr arg1, IntPtr gch)
+		{
+			Clutter.AddedArgs args = new Clutter.AddedArgs ();
+			try {
+				GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+				if (sig == null)
+					throw new Exception("Unknown signal GC handle received " + gch);
+
+				args.Args = new object[1];
+				args.Args[0] = GLib.Object.GetObject(arg1) as Clutter.Actor;
+				Clutter.AddedHandler handler = (Clutter.AddedHandler) sig.Handler;
+				handler (GLib.Object.GetObject (arg0), args);
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, false);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void AddedVMDelegate (IntPtr group, IntPtr child);
+
+		static AddedVMDelegate AddedVMCallback;
+
+		static void added_cb (IntPtr group, IntPtr child)
+		{
+			try {
+				Group group_managed = GLib.Object.GetObject (group, false) as Group;
+				group_managed.OnAdded (GLib.Object.GetObject(child) as Clutter.Actor);
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, false);
+			}
+		}
+
+		private static void OverrideAdded (GLib.GType gtype)
+		{
+			if (AddedVMCallback == null)
+				AddedVMCallback = new AddedVMDelegate (added_cb);
+			OverrideVirtualMethod (gtype, "add", AddedVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Group), ConnectionMethod="OverrideAdded")]
+		protected virtual void OnAdded (Clutter.Actor child)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (2);
+			GLib.Value[] vals = new GLib.Value [2];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (child);
+			inst_and_params.Append (vals [1]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("add")]
+		public event Clutter.AddedHandler Added {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "add", new AddedSignalDelegate(AddedSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "add", new AddedSignalDelegate(AddedSignalCallback));
 				sig.RemoveDelegate (value);
 			}
 		}
@@ -271,6 +271,18 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_container_child_get_property(IntPtr raw, IntPtr child, IntPtr property, IntPtr value);
+
+		public void ChildGetProperty(Clutter.Actor child, string property, GLib.Value value) {
+			IntPtr native_property = GLib.Marshaller.StringToPtrGStrdup (property);
+			IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+			clutter_container_child_get_property(Handle, child == null ? IntPtr.Zero : child.Handle, native_property, native_value);
+			GLib.Marshaller.Free (native_property);
+			value = (GLib.Value) Marshal.PtrToStructure (native_value, typeof (GLib.Value));
+			Marshal.FreeHGlobal (native_value);
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_container_raise_child(IntPtr raw, IntPtr actor, IntPtr sibling);
 
 		public void RaiseChild(Clutter.Actor actor, Clutter.Actor sibling) {
@@ -292,6 +304,15 @@ namespace Clutter {
 			IntPtr raw_ret = clutter_container_find_child_by_name(Handle, native_child_name);
 			Clutter.Actor ret = GLib.Object.GetObject(raw_ret) as Clutter.Actor;
 			GLib.Marshaller.Free (native_child_name);
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_container_get_child_meta(IntPtr raw, IntPtr actor);
+
+		public Clutter.ChildMeta GetChildMeta(Clutter.Actor actor) {
+			IntPtr raw_ret = clutter_container_get_child_meta(Handle, actor == null ? IntPtr.Zero : actor.Handle);
+			Clutter.ChildMeta ret = GLib.Object.GetObject(raw_ret) as Clutter.ChildMeta;
 			return ret;
 		}
 
@@ -318,6 +339,90 @@ namespace Clutter {
 				IntPtr raw_ret = clutter_container_get_children(Handle);
 				GLib.List ret = new GLib.List(raw_ret);
 				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_container_child_set_property(IntPtr raw, IntPtr child, IntPtr property, IntPtr value);
+
+		public void ChildSetProperty(Clutter.Actor child, string property, GLib.Value value) {
+			IntPtr native_property = GLib.Marshaller.StringToPtrGStrdup (property);
+			IntPtr native_value = GLib.Marshaller.StructureToPtrAlloc (value);
+			clutter_container_child_set_property(Handle, child == null ? IntPtr.Zero : child.Handle, native_property, native_value);
+			GLib.Marshaller.Free (native_property);
+			value = (GLib.Value) Marshal.PtrToStructure (native_value, typeof (GLib.Value));
+			Marshal.FreeHGlobal (native_value);
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ChildNotifySignalDelegate (IntPtr arg0, IntPtr arg1, IntPtr arg2, IntPtr gch);
+
+		static void ChildNotifySignalCallback (IntPtr arg0, IntPtr arg1, IntPtr arg2, IntPtr gch)
+		{
+			Clutter.ChildNotifyArgs args = new Clutter.ChildNotifyArgs ();
+			try {
+				GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+				if (sig == null)
+					throw new Exception("Unknown signal GC handle received " + gch);
+
+				args.Args = new object[2];
+				args.Args[0] = GLib.Object.GetObject(arg1) as Clutter.Actor;
+				args.Args[1] = arg2;
+				Clutter.ChildNotifyHandler handler = (Clutter.ChildNotifyHandler) sig.Handler;
+				handler (GLib.Object.GetObject (arg0), args);
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, false);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void ChildNotifyVMDelegate (IntPtr container, IntPtr actor, IntPtr pspec);
+
+		static ChildNotifyVMDelegate ChildNotifyVMCallback;
+
+		static void childnotify_cb (IntPtr container, IntPtr actor, IntPtr pspec)
+		{
+			try {
+				Group container_managed = GLib.Object.GetObject (container, false) as Group;
+				container_managed.OnChildNotify (GLib.Object.GetObject(actor) as Clutter.Actor, pspec);
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, false);
+			}
+		}
+
+		private static void OverrideChildNotify (GLib.GType gtype)
+		{
+			if (ChildNotifyVMCallback == null)
+				ChildNotifyVMCallback = new ChildNotifyVMDelegate (childnotify_cb);
+			OverrideVirtualMethod (gtype, "child-notify", ChildNotifyVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Group), ConnectionMethod="OverrideChildNotify")]
+		protected virtual void OnChildNotify (Clutter.Actor actor, IntPtr pspec)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (3);
+			GLib.Value[] vals = new GLib.Value [3];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (actor);
+			inst_and_params.Append (vals [1]);
+			vals [2] = new GLib.Value (pspec);
+			inst_and_params.Append (vals [2]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("child-notify")]
+		public event Clutter.ChildNotifyHandler ChildNotify {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "child-notify", new ChildNotifySignalDelegate(ChildNotifySignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "child-notify", new ChildNotifySignalDelegate(ChildNotifySignalCallback));
+				sig.RemoveDelegate (value);
 			}
 		}
 

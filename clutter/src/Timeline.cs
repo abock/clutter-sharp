@@ -139,6 +139,78 @@ namespace Clutter {
 		}
 
 		[GLib.CDeclCallback]
+		delegate void MarkerReachedSignalDelegate (IntPtr arg0, IntPtr arg1, int arg2, IntPtr gch);
+
+		static void MarkerReachedSignalCallback (IntPtr arg0, IntPtr arg1, int arg2, IntPtr gch)
+		{
+			Clutter.MarkerReachedArgs args = new Clutter.MarkerReachedArgs ();
+			try {
+				GLib.Signal sig = ((GCHandle) gch).Target as GLib.Signal;
+				if (sig == null)
+					throw new Exception("Unknown signal GC handle received " + gch);
+
+				args.Args = new object[2];
+				args.Args[0] = GLib.Marshaller.Utf8PtrToString (arg1);
+				args.Args[1] = arg2;
+				Clutter.MarkerReachedHandler handler = (Clutter.MarkerReachedHandler) sig.Handler;
+				handler (GLib.Object.GetObject (arg0), args);
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, false);
+			}
+		}
+
+		[GLib.CDeclCallback]
+		delegate void MarkerReachedVMDelegate (IntPtr timeline, IntPtr marker_name, int frame_num);
+
+		static MarkerReachedVMDelegate MarkerReachedVMCallback;
+
+		static void markerreached_cb (IntPtr timeline, IntPtr marker_name, int frame_num)
+		{
+			try {
+				Timeline timeline_managed = GLib.Object.GetObject (timeline, false) as Timeline;
+				timeline_managed.OnMarkerReached (GLib.Marshaller.Utf8PtrToString (marker_name), frame_num);
+			} catch (Exception e) {
+				GLib.ExceptionManager.RaiseUnhandledException (e, false);
+			}
+		}
+
+		private static void OverrideMarkerReached (GLib.GType gtype)
+		{
+			if (MarkerReachedVMCallback == null)
+				MarkerReachedVMCallback = new MarkerReachedVMDelegate (markerreached_cb);
+			OverrideVirtualMethod (gtype, "marker-reached", MarkerReachedVMCallback);
+		}
+
+		[GLib.DefaultSignalHandler(Type=typeof(Clutter.Timeline), ConnectionMethod="OverrideMarkerReached")]
+		protected virtual void OnMarkerReached (string marker_name, int frame_num)
+		{
+			GLib.Value ret = GLib.Value.Empty;
+			GLib.ValueArray inst_and_params = new GLib.ValueArray (3);
+			GLib.Value[] vals = new GLib.Value [3];
+			vals [0] = new GLib.Value (this);
+			inst_and_params.Append (vals [0]);
+			vals [1] = new GLib.Value (marker_name);
+			inst_and_params.Append (vals [1]);
+			vals [2] = new GLib.Value (frame_num);
+			inst_and_params.Append (vals [2]);
+			g_signal_chain_from_overridden (inst_and_params.ArrayPtr, ref ret);
+			foreach (GLib.Value v in vals)
+				v.Dispose ();
+		}
+
+		[GLib.Signal("marker-reached")]
+		public event Clutter.MarkerReachedHandler MarkerReached {
+			add {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "marker-reached", new MarkerReachedSignalDelegate(MarkerReachedSignalCallback));
+				sig.AddDelegate (value);
+			}
+			remove {
+				GLib.Signal sig = GLib.Signal.Lookup (this, "marker-reached", new MarkerReachedSignalDelegate(MarkerReachedSignalCallback));
+				sig.RemoveDelegate (value);
+			}
+		}
+
+		[GLib.CDeclCallback]
 		delegate void StartedVMDelegate (IntPtr timeline);
 
 		static StartedVMDelegate StartedVMCallback;
@@ -349,6 +421,24 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
+		static extern void clutter_timeline_pause(IntPtr raw);
+
+		public void Pause() {
+			clutter_timeline_pause(Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_timeline_get_type();
+
+		public static new GLib.GType GType { 
+			get {
+				IntPtr raw_ret = clutter_timeline_get_type();
+				GLib.GType ret = new GLib.GType(raw_ret);
+				return ret;
+			}
+		}
+
+		[DllImport("clutter")]
 		static extern void clutter_timeline_advance(IntPtr raw, uint frame_num);
 
 		public void Advance(uint frame_num) {
@@ -356,11 +446,42 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern uint clutter_timeline_get_delta(IntPtr raw, out uint msecs);
+		static extern void clutter_timeline_skip(IntPtr raw, uint n_frames);
 
-		public uint GetDelta(out uint msecs) {
-			uint raw_ret = clutter_timeline_get_delta(Handle, out msecs);
-			uint ret = raw_ret;
+		public void Skip(uint n_frames) {
+			clutter_timeline_skip(Handle, n_frames);
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_timeline_rewind(IntPtr raw);
+
+		public void Rewind() {
+			clutter_timeline_rewind(Handle);
+		}
+
+		[DllImport("clutter")]
+		static extern uint clutter_timeline_get_speed(IntPtr raw);
+
+		[DllImport("clutter")]
+		static extern void clutter_timeline_set_speed(IntPtr raw, uint fps);
+
+		public uint Speed { 
+			get {
+				uint raw_ret = clutter_timeline_get_speed(Handle);
+				uint ret = raw_ret;
+				return ret;
+			}
+			set {
+				clutter_timeline_set_speed(Handle, value);
+			}
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_timeline_clone(IntPtr raw);
+
+		public Clutter.Timeline Clone() {
+			IntPtr raw_ret = clutter_timeline_clone(Handle);
+			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
 			return ret;
 		}
 
@@ -389,30 +510,12 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern bool clutter_timeline_is_playing(IntPtr raw);
+		static extern void clutter_timeline_add_marker_at_time(IntPtr raw, IntPtr marker_name, uint msecs);
 
-		public bool IsPlaying { 
-			get {
-				bool raw_ret = clutter_timeline_is_playing(Handle);
-				bool ret = raw_ret;
-				return ret;
-			}
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_timeline_clone(IntPtr raw);
-
-		public Clutter.Timeline Clone() {
-			IntPtr raw_ret = clutter_timeline_clone(Handle);
-			Clutter.Timeline ret = GLib.Object.GetObject(raw_ret) as Clutter.Timeline;
-			return ret;
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_timeline_rewind(IntPtr raw);
-
-		public void Rewind() {
-			clutter_timeline_rewind(Handle);
+		public void AddMarkerAtTime(string marker_name, uint msecs) {
+			IntPtr native_marker_name = GLib.Marshaller.StringToPtrGStrdup (marker_name);
+			clutter_timeline_add_marker_at_time(Handle, native_marker_name, msecs);
+			GLib.Marshaller.Free (native_marker_name);
 		}
 
 		[DllImport("clutter")]
@@ -438,20 +541,6 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern void clutter_timeline_skip(IntPtr raw, uint n_frames);
-
-		public void Skip(uint n_frames) {
-			clutter_timeline_skip(Handle, n_frames);
-		}
-
-		[DllImport("clutter")]
-		static extern void clutter_timeline_pause(IntPtr raw);
-
-		public void Pause() {
-			clutter_timeline_pause(Handle);
-		}
-
-		[DllImport("clutter")]
 		static extern int clutter_timeline_get_progressx(IntPtr raw);
 
 		public int Progressx { 
@@ -463,20 +552,72 @@ namespace Clutter {
 		}
 
 		[DllImport("clutter")]
-		static extern uint clutter_timeline_get_speed(IntPtr raw);
+		static extern void clutter_timeline_add_marker_at_frame(IntPtr raw, IntPtr marker_name, uint frame_num);
+
+		public void AddMarkerAtFrame(string marker_name, uint frame_num) {
+			IntPtr native_marker_name = GLib.Marshaller.StringToPtrGStrdup (marker_name);
+			clutter_timeline_add_marker_at_frame(Handle, native_marker_name, frame_num);
+			GLib.Marshaller.Free (native_marker_name);
+		}
 
 		[DllImport("clutter")]
-		static extern void clutter_timeline_set_speed(IntPtr raw, uint fps);
+		static extern bool clutter_timeline_has_marker(IntPtr raw, IntPtr marker_name);
 
-		public uint Speed { 
+		public bool HasMarker(string marker_name) {
+			IntPtr native_marker_name = GLib.Marshaller.StringToPtrGStrdup (marker_name);
+			bool raw_ret = clutter_timeline_has_marker(Handle, native_marker_name);
+			bool ret = raw_ret;
+			GLib.Marshaller.Free (native_marker_name);
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_timeline_advance_to_marker(IntPtr raw, IntPtr marker_name);
+
+		public void AdvanceToMarker(string marker_name) {
+			IntPtr native_marker_name = GLib.Marshaller.StringToPtrGStrdup (marker_name);
+			clutter_timeline_advance_to_marker(Handle, native_marker_name);
+			GLib.Marshaller.Free (native_marker_name);
+		}
+
+		[DllImport("clutter")]
+		static extern uint clutter_timeline_get_delta(IntPtr raw, out uint msecs);
+
+		public uint GetDelta(out uint msecs) {
+			uint raw_ret = clutter_timeline_get_delta(Handle, out msecs);
+			uint ret = raw_ret;
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern bool clutter_timeline_is_playing(IntPtr raw);
+
+		public bool IsPlaying { 
 			get {
-				uint raw_ret = clutter_timeline_get_speed(Handle);
-				uint ret = raw_ret;
+				bool raw_ret = clutter_timeline_is_playing(Handle);
+				bool ret = raw_ret;
 				return ret;
 			}
-			set {
-				clutter_timeline_set_speed(Handle, value);
-			}
+		}
+
+		[DllImport("clutter")]
+		static extern IntPtr clutter_timeline_list_markers(IntPtr raw, int frame_num, out UIntPtr n_markers);
+
+		public string ListMarkers(int frame_num, out ulong n_markers) {
+			UIntPtr native_n_markers;
+			IntPtr raw_ret = clutter_timeline_list_markers(Handle, frame_num, out native_n_markers);
+			string ret = GLib.Marshaller.PtrToStringGFree(raw_ret);
+			n_markers = (ulong) native_n_markers;
+			return ret;
+		}
+
+		[DllImport("clutter")]
+		static extern void clutter_timeline_remove_marker(IntPtr raw, IntPtr marker_name);
+
+		public void RemoveMarker(string marker_name) {
+			IntPtr native_marker_name = GLib.Marshaller.StringToPtrGStrdup (marker_name);
+			clutter_timeline_remove_marker(Handle, native_marker_name);
+			GLib.Marshaller.Free (native_marker_name);
 		}
 
 		[DllImport("clutter")]
@@ -484,17 +625,6 @@ namespace Clutter {
 
 		public void Stop() {
 			clutter_timeline_stop(Handle);
-		}
-
-		[DllImport("clutter")]
-		static extern IntPtr clutter_timeline_get_type();
-
-		public static new GLib.GType GType { 
-			get {
-				IntPtr raw_ret = clutter_timeline_get_type();
-				GLib.GType ret = new GLib.GType(raw_ret);
-				return ret;
-			}
 		}
 
 #endregion

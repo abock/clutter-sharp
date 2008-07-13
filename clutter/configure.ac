@@ -1,7 +1,7 @@
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
 
-AM_INIT_AUTOMAKE(clutter-sharp, 0.6.2)
+AM_INIT_AUTOMAKE(clutter-sharp, 0.8.0)
 
 AM_MAINTAINER_MODE
 
@@ -53,10 +53,10 @@ fi
 PKG_CHECK_MODULES(GTKSHARP, gtk-sharp-2.0 > 2.3.92)
 AC_SUBST(GTKSHARP_LIBS)
 
-PKG_CHECK_MODULES(CLUTTER, clutter-0.6 >= 0.6.2)
+PKG_CHECK_MODULES(CLUTTER, clutter-0.8 >= 0.8.0)
 
-CLUTTER_APIVERSION=$(pkg-config --variable apiversion clutter-0.6)
-CLUTTER_BACKEND=$(pkg-config --variable backend clutter-0.6)
+CLUTTER_APIVERSION=$(pkg-config --variable apiversion clutter-0.8)
+CLUTTER_BACKEND=$(pkg-config --variable backend clutter-0.8)
 
 AC_SUBST(CLUTTER_APIVERSION)
 AC_SUBST(CLUTTER_BACKEND)
