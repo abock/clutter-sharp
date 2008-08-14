@@ -15,7 +15,7 @@ DISTCLEANFILES = Makefile.in
 EXTRA_DIST = $(SOURCES_XML) $(CLUTTER_METADATA)
 
 $(CLUTTER_FIXED_API): 
-	@if test -n '$(CLUTTER_RAW_API)'; then 		\
+	@if ! [ -e '$(CLUTTER_RAW_API)' ]; then 		\
 		$(GAPI_PARSER) $(SOURCES_XML);		\
 	fi
 	cp $(CLUTTER_RAW_API) $(CLUTTER_FIXED_API)
