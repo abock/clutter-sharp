@@ -1,4 +1,5 @@
 SUBDIRS = \
+	gapi     \
 	src 	 \
 	examples
 

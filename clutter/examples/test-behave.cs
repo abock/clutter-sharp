@@ -1,7 +1,6 @@
 using System;
 
 using Clutter;
-using Gdk;
 
 namespace ClutterTest
 {

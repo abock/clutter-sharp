@@ -7,7 +7,7 @@ CLEANFILES= *.exe *.mdb *.pdb *.dll
 noinst_SCRIPTS=$(SAMPLES:.cs=.exe)
 
 %.exe: %.cs clutter-sharp.dll
-	$(MCS) $(MCSFLAGS) `pkg-config --libs gtk-sharp-2.0` -out:$@ $<
+	$(MCS) $(MCSFLAGS) $(GTKSHARP_LIBS) -out:$@ $<
 
 clutter-sharp.dll: $(top_builddir)/src/clutter-sharp.dll
 	cp $(top_builddir)/src/clutter-sharp.dll* .

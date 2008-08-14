@@ -1,6 +1,5 @@
 using System;
 using Clutter;
-using Gdk;
 
 public class ShaderTest
 {

@@ -31,5 +31,11 @@
 	<attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='Fullscreen']" name="name">SetFullscreen</attr>	
 	<attr path="/api/namespace/object[@cname='ClutterStage']/signal[@name='Unfullscreen']" name="name">UnfullscreenEvent</attr>	
 
+	<!-- ListModel fixes -->
+	<attr path="/api/namespace/object[@cname='ClutterListModel']/constructor[@cname='clutter_list_model_newv']/*/*[@name='types']" name="array">1</attr>
+
+	<!-- These don't work (and I don't think we want them anyway) -->
+	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecFixed']" />
+	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecUnit']" />
 </metadata>
 
