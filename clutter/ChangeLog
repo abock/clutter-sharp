@@ -1,3 +1,11 @@
+2008-09-23  Iain Holmes  <iain@linux.intel.com>
+
+	* src/Makefile.am: Compile AssemblyInfo.cs into the assembly. Use 
+	gacutil to install the assembly. Remove clutter-sharp.pc.in from the
+	extra dist
+
+	* Makefile.am: Add clutter-sharp.pc.in to the extra dist.
+
 2008-08-14  Thomas Van Machelen <thomas.vanmachelen@gmail.com>:
 
 	* clutter/gapi/clutter-api.raw: 

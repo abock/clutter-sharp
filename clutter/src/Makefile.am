@@ -1,11 +1,9 @@
 ASSEMBLY_NAME = clutter-sharp
 ASSEMBLY = clutter-sharp.dll
 TARGET = $(ASSEMBLY) $(ASSEMBLY).config
-assemblydir = $(libdir)/clutter-sharp
-assembly_DATA = $(TARGET)
 CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb generated-stamp generated/*.cs $(API)
 DISTCLEANFILES = $(ASSEMBLY).config
-EXTRA_DIST = $(RAW_API) $(METADATA) $(customs) $(sources) clutter-sharp.pc.in clutter-sharp.dll.config.in
+EXTRA_DIST = $(RAW_API) $(METADATA) $(customs) $(sources) clutter-sharp.dll.config.in
 
 references = $(GTKSHARP_LIBS)
 
@@ -30,5 +28,10 @@ api_includes = $(GTKSHARP_CFLAGS)
 
 $(ASSEMBLY): $(sources)
 	@rm -f $(ASSEMBLY).mdb
-	$(MCS) $(CSFLAGS) -out:$@ -target:library -nowarn:0169 -unsafe $(references) generated/*.cs $(sources)
+	$(MCS) $(CSFLAGS) -out:$@ -target:library -nowarn:0169 -unsafe $(references) generated/*.cs $(sources) AssemblyInfo.cs
 
+install-data-local:
+	$(GACUTIL) /i $(ASSEMBLY) /f /package $(ASSEMBLY_NAME) /gacdir $(DESTDIR)$(libdir)
+
+uninstall-local:
+	$(GACUTIL) /u $(ASSEMBLY_NAME) /package $(ASSEMBLY_NAME) /gacdir $(libdir) /root $(DESTDIR)$(libdir)
