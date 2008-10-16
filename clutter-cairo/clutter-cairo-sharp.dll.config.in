@@ -1,0 +1,4 @@
+<configuration>
+	<dllmap dll="clutter-cairo" target="libclutter-cairo-@CLUTTER_APIVERSION@.so" />
+</configuration>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<api>
+  <!--
+
+        This file was automatically generated.
+        Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
+
+-->
+  <namespace name="Clutter" library="clutter-gtk">
+    <enum name="GtkInitError" cname="ClutterGtkInitError" type="enum">
+      <member cname="CLUTTER_INIT_ERROR_LAST" name="Last" value="Internal" />
+      <member cname="CLUTTER_INIT_ERROR_GTK" name="Gtk" value="CLUTTER_INIT_ERROR_LAST - 1" />
+    </enum>
+    <object name="Embed" cname="GtkClutterEmbed" parent="GtkWidget">
+      <field name="Priv" cname="priv" type="GtkClutterEmbedPrivate*" />
+      <method name="GetStage" cname="gtk_clutter_embed_get_stage">
+        <return-type type="ClutterActor*" />
+      </method>
+      <method name="GetType" cname="gtk_clutter_embed_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="gtk_clutter_embed_new" />
+    </object>
+  </namespace>
+</api>

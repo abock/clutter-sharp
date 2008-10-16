@@ -1,0 +1,12 @@
+		public static uint DecFunc(Clutter.Alpha alpha) {
+			return DecFunc (alpha, IntPtr.Zero);
+		}
+
+		public static uint Func(Clutter.Alpha alpha) {
+		 	return Func (alpha, IntPtr.Zero);
+		}
+
+		public static uint IncFunc(Clutter.Alpha alpha) {
+			return IncFunc (alpha, IntPtr.Zero); 
+		}
+		

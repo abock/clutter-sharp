@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<api>
+  <!--
+
+        This file was automatically generated.
+        Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
+
+-->
+  <namespace name="Clutter" library="clutter-gst">
+    <object name="GstAudio" cname="ClutterGstAudio" parent="GObject">
+      <field name="Priv" cname="priv" type="ClutterGstAudioPrivate*" />
+      <implements>
+        <interface cname="ClutterMedia" />
+      </implements>
+      <method name="GetPlaybin" cname="clutter_gst_audio_get_playbin">
+        <return-type type="GstElement*" />
+      </method>
+      <method name="GetType" cname="clutter_gst_audio_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="clutter_gst_audio_new" />
+    </object>
+    <object name="GstVideoSink" cname="ClutterGstVideoSink" parent="GstBaseSink">
+      <field name="Priv" cname="priv" type="ClutterGstVideoSinkPrivate*" />
+      <property name="Texture" cname="texture" type="ClutterTexture" readable="true" writeable="true" />
+      <property name="UseShaders" cname="use_shaders" type="gboolean" readable="true" writeable="true" />
+      <method name="GetType" cname="clutter_gst_video_sink_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="clutter_gst_video_sink_new">
+        <parameters>
+          <parameter type="ClutterTexture*" name="texture" />
+        </parameters>
+      </constructor>
+    </object>
+    <object name="GstVideoTexture" cname="ClutterGstVideoTexture" parent="ClutterTexture">
+      <field name="Priv" cname="priv" type="ClutterGstVideoTexturePrivate*" />
+      <implements>
+        <interface cname="ClutterMedia" />
+      </implements>
+      <method name="GetPlaybin" cname="clutter_gst_video_texture_get_playbin">
+        <return-type type="GstElement*" />
+      </method>
+      <method name="GetType" cname="clutter_gst_video_texture_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="clutter_gst_video_texture_new" />
+    </object>
+    <class name="Global" cname="ClutterGlobal">
+      <method name="GstInit" cname="clutter_gst_init" shared="true">
+        <return-type type="ClutterInitError" />
+        <parameters>
+          <parameter type="int*" name="argc" />
+          <parameter type="char***" name="argv" />
+        </parameters>
+      </method>
+    </class>
+  </namespace>
+</api>

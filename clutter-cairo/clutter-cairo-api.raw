@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<api>
+  <!--
+
+        This file was automatically generated.
+        Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
+
+-->
+  <namespace name="Clutter" library="clutter-cairo">
+    <object name="Cairo" cname="ClutterCairo" parent="ClutterTexture">
+      <field name="Priv" cname="priv" type="ClutterCairoPrivate*" />
+      <property name="SurfaceWidth" cname="surface-width" type="gint" />
+      <property name="SurfaceHeight" cname="surface-height" type="gint" />
+      <virtual_method name="ClutterCairo1" cname="_clutter_cairo_1">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterCairo2" cname="_clutter_cairo_2">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterCairo3" cname="_clutter_cairo_3">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterCairo4" cname="_clutter_cairo_4">
+        <return-type type="void" />
+      </virtual_method>
+      <method name="Create" cname="clutter_cairo_create">
+        <return-type type="cairo_t*" />
+      </method>
+      <method name="CreateRegion" cname="clutter_cairo_create_region">
+        <return-type type="cairo_t*" />
+        <parameters>
+          <parameter type="gint" name="x_offset" />
+          <parameter type="gint" name="y_offset" />
+          <parameter type="guint" name="width" />
+          <parameter type="guint" name="height" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="clutter_cairo_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="clutter_cairo_new">
+        <parameters>
+          <parameter type="guint" name="width" />
+          <parameter type="guint" name="height" />
+        </parameters>
+      </constructor>
+      <method name="SetSourceColor" cname="clutter_cairo_set_source_color" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="cairo_t*" name="cr" />
+          <parameter type="const-ClutterColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="SurfaceResize" cname="clutter_cairo_surface_resize">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="width" />
+          <parameter type="guint" name="height" />
+        </parameters>
+      </method>
+    </object>
+  </namespace>
+</api>

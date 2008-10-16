@@ -1,0 +1,10 @@
+		[DllImport("clutter")]
+		static extern IntPtr clutter_behaviour_path_new(IntPtr alpha, ref Knot knots, uint n_knots);
+
+		public BehaviourPath (Clutter.Alpha alpha, Clutter.Knot[] knots) : base (IntPtr.Zero)
+		{
+			if (GetType () != typeof (BehaviourPath)) {
+				throw new InvalidOperationException ("Can't override this constructor.");
+			}
+			Raw = clutter_behaviour_path_new(alpha == null ? IntPtr.Zero : alpha.Handle, ref knots[0], (uint)knots.Length);
+		}

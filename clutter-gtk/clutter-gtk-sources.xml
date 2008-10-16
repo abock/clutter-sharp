@@ -1,0 +1,10 @@
+<gapi-parser-input>
+	<api filename="clutter-gtk-api.raw">
+		<library name="clutter-gtk">
+			<namespace name="Clutter">
+				<dir>../../../clutter-gtk-0.8/clutter-gtk</dir>
+			</namespace>
+		</library>
+	</api>
+</gapi-parser-input>
+

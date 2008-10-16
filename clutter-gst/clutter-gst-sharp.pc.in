@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+gapidir=${prefix}/share/gapi-2.0
+
+Name: clutter-gst-sharp
+Description: clutter-gst-sharp - Clutter-Gst C#/Mono Bindings
+Version: @VERSION@
+Libs: -r:${libdir}/mono/clutter-sharp/clutter-gst-sharp.dll
+

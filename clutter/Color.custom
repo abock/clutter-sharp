@@ -1,0 +1,6 @@
+		public Color (byte red, byte green, byte blue, byte alpha) {
+			this.Red = red;
+			this.Green = green;
+			this.Blue = blue;
+			this.Alpha = alpha;	
+		}

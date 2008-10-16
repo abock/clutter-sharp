@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<metadata>
+	<remove-node path="/api/namespace/enum[@cname='ClutterGtkInitError']"/>
+</metadata>
+
