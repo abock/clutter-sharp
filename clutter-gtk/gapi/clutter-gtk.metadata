@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<metadata>
-	<attr path="/api/namespace/object[@cname='GtkClutter']/method[@name='GetStage']/return-type" name="type">ClutterStage*</attr>
-</metadata>
-

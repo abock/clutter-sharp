@@ -1,6 +1,0 @@
-		public TObject GetObject<TObject>(string name) 
-		 	where TObject : GLib.Object
-		{
-		 	return (TObject)GetObject(name);
-		}
-
