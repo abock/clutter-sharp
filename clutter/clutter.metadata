@@ -38,5 +38,6 @@
 	<!-- These don't work (and I don't think we want them anyway) -->
 	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecFixed']" />
 	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecUnit']" />
+	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecColor']" />
 </metadata>
 
