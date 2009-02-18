@@ -212,21 +212,21 @@
       </parameters>
     </callback>
     <interface name="Container" cname="ClutterContainer">
-      <signal name="ActorAdded" cname="actor-added" when="FIRST">
+      <signal name="ActorAdded" cname="actor-added" when="FIRST" field_name="actor_added">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </signal>
-      <signal name="ActorRemoved" cname="actor-removed" when="FIRST">
+      <signal name="ActorRemoved" cname="actor-removed" when="FIRST" field_name="actor_removed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </signal>
-      <signal name="ChildNotify" cname="child-notify" when="FIRST">
+      <signal name="ChildNotify" cname="child-notify" when="FIRST" field_name="child_notify">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterContainer*" name="container" />
@@ -436,19 +436,6 @@
       <property name="CanSeek" cname="can-seek" type="gboolean" readable="true" />
       <property name="BufferPercent" cname="buffer-percent" type="gint" readable="true" />
       <property name="Duration" cname="duration" type="gint" readable="true" />
-      <signal name="Eos" cname="eos" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-        </parameters>
-      </signal>
-      <signal name="Error" cname="error" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-          <parameter type="GError*" name="error" />
-        </parameters>
-      </signal>
       <virtual_method name="SetUri" cname="set_uri">
         <return-type type="void" />
         <parameters>
@@ -463,6 +450,12 @@
           <parameter type="gboolean" name="playing" />
         </parameters>
       </virtual_method>
+      <signal name="Eos" cname="eos" when="LAST" field_name="eos">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterMedia*" name="media" />
+        </parameters>
+      </signal>
       <virtual_method name="GetPlaying" cname="get_playing">
         <return-type type="gboolean" />
         <parameters>
@@ -513,6 +506,13 @@
           <parameter type="ClutterMedia*" name="media" />
         </parameters>
       </virtual_method>
+      <signal name="Error" cname="error" when="LAST" manual="true" field_name="error">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterMedia*" name="media" />
+          <parameter type="GError*" name="error" />
+        </parameters>
+      </signal>
       <method name="GetBufferPercent" cname="clutter_media_get_buffer_percent">
         <return-type type="int" />
       </method>
@@ -703,143 +703,64 @@
       <property name="AnchorX" cname="anchor-x" type="gint" readable="true" writeable="true" />
       <property name="AnchorY" cname="anchor-y" type="gint" readable="true" writeable="true" />
       <property name="ShowOnSetParent" cname="show-on-set-parent" type="gboolean" readable="true" writeable="true" />
-      <signal name="Destroy" cname="destroy" when="CLEANUP">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="Show" cname="show" when="FIRST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="Hide" cname="hide" when="FIRST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="ParentSet" cname="parent-set" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterActor*" name="old_parent" />
-        </parameters>
-      </signal>
-      <signal name="Event" cname="event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="ButtonPressEvent" cname="button-press-event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterButtonEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="ButtonReleaseEvent" cname="button-release-event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterButtonEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="ScrollEvent" cname="scroll-event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterScrollEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="KeyPressEvent" cname="key-press-event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterKeyEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="KeyReleaseEvent" cname="key-release-event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterKeyEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="MotionEvent" cname="motion-event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterMotionEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="FocusIn" cname="focus-in" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="FocusOut" cname="focus-out" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="EnterEvent" cname="enter-event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterCrossingEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="LeaveEvent" cname="leave-event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterCrossingEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="CapturedEvent" cname="captured-event" when="LAST">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="Paint" cname="paint" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="Realize" cname="realize" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="Unrealize" cname="unrealize" when="LAST">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
       <virtual_method name="ShowAll" cname="show_all">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </virtual_method>
+      <signal name="Destroy" cname="destroy" when="CLEANUP" field_name="destroy">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+        </parameters>
+      </signal>
+      <signal name="Show" cname="show" when="FIRST" field_name="show">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+        </parameters>
+      </signal>
       <virtual_method name="HideAll" cname="hide_all">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </virtual_method>
+      <signal name="Hide" cname="hide" when="FIRST" field_name="hide">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+        </parameters>
+      </signal>
+      <signal name="ParentSet" cname="parent-set" when="LAST" field_name="parent_set">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterActor*" name="old_parent" />
+        </parameters>
+      </signal>
+      <signal name="Event" cname="event" when="LAST" field_name="event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="ButtonPressEvent" cname="button-press-event" when="LAST" field_name="button_press_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterButtonEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="ButtonReleaseEvent" cname="button-release-event" when="LAST" field_name="button_release_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterButtonEvent*" name="event" />
+        </parameters>
+      </signal>
       <virtual_method name="Pick" cname="pick">
         <return-type type="void" />
         <parameters>
@@ -873,6 +794,85 @@
           <parameter type="gboolean" name="absolute_origin_changed" />
         </parameters>
       </virtual_method>
+      <signal name="ScrollEvent" cname="scroll-event" when="LAST" field_name="scroll_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterScrollEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="KeyPressEvent" cname="key-press-event" when="LAST" field_name="key_press_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterKeyEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="KeyReleaseEvent" cname="key-release-event" when="LAST" field_name="key_release_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterKeyEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="MotionEvent" cname="motion-event" when="LAST" field_name="motion_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterMotionEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="FocusIn" cname="focus-in" when="LAST" field_name="focus_in">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+        </parameters>
+      </signal>
+      <signal name="FocusOut" cname="focus-out" when="LAST" field_name="focus_out">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+        </parameters>
+      </signal>
+      <signal name="EnterEvent" cname="enter-event" when="LAST" field_name="enter_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterCrossingEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="LeaveEvent" cname="leave-event" when="LAST" field_name="leave_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterCrossingEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="CapturedEvent" cname="captured-event" when="LAST" field_name="captured_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="Paint" cname="paint" when="LAST" field_name="paint">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+        </parameters>
+      </signal>
+      <signal name="Realize" cname="realize" when="LAST" field_name="realize">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+        </parameters>
+      </signal>
+      <signal name="Unrealize" cname="unrealize" when="LAST" field_name="unrealize">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+        </parameters>
+      </signal>
       <method name="Allocate" cname="clutter_actor_allocate">
         <return-type type="void" />
         <parameters>
@@ -890,14 +890,14 @@
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterActor*" name="ancestor" />
-          <parameter type="ClutterVertex*" name="point" />
+          <parameter type="const-ClutterVertex*" name="point" />
           <parameter type="ClutterVertex*" name="vertex" />
         </parameters>
       </method>
       <method name="ApplyTransformToPoint" cname="clutter_actor_apply_transform_to_point">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterVertex*" name="point" />
+          <parameter type="const-ClutterVertex*" name="point" />
           <parameter type="ClutterVertex*" name="vertex" />
         </parameters>
       </method>
@@ -1009,6 +1009,9 @@
       </method>
       <method name="GetPaintOpacity" cname="clutter_actor_get_paint_opacity">
         <return-type type="guint8" />
+      </method>
+      <method name="GetPaintVisibility" cname="clutter_actor_get_paint_visibility">
+        <return-type type="gboolean" />
       </method>
       <method name="GetParent" cname="clutter_actor_get_parent">
         <return-type type="ClutterActor*" />
@@ -1667,14 +1670,14 @@
     <object name="Behaviour" cname="ClutterBehaviour" parent="GObject">
       <field name="Priv" cname="priv" type="ClutterBehaviourPrivate*" />
       <property name="Alpha" cname="alpha" type="ClutterAlpha" readable="true" writeable="true" />
-      <signal name="Applied" cname="applied" when="FIRST">
+      <signal name="Applied" cname="applied" when="FIRST" field_name="applied">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterBehaviour*" name="behave" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </signal>
-      <signal name="Removed" cname="removed" when="FIRST">
+      <signal name="Removed" cname="removed" when="FIRST" field_name="removed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterBehaviour*" name="behave" />
@@ -1761,7 +1764,7 @@
     </object>
     <object name="BehaviourBspline" cname="ClutterBehaviourBspline" parent="ClutterBehaviour">
       <field name="Priv" cname="priv" type="ClutterBehaviourBsplinePrivate*" />
-      <signal name="KnotReached" cname="knot-reached" when="LAST">
+      <signal name="KnotReached" cname="knot-reached" when="LAST" field_name="knot_reached">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterBehaviourBspline*" name="bsplineb" />
@@ -2101,7 +2104,7 @@
     <object name="BehaviourPath" cname="ClutterBehaviourPath" parent="ClutterBehaviour">
       <field name="Priv" cname="priv" type="ClutterBehaviourPathPrivate*" />
       <property name="Knot" cname="knot" type="ClutterKnot" writeable="true" />
-      <signal name="KnotReached" cname="knot-reached" when="LAST">
+      <signal name="KnotReached" cname="knot-reached" when="LAST" field_name="knot_reached">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterBehaviourPath*" name="pathb" />
@@ -2431,20 +2434,20 @@
       <property name="MaxLength" cname="max-length" type="gint" readable="true" writeable="true" />
       <property name="EntryPadding" cname="entry-padding" type="guint" readable="true" writeable="true" />
       <property name="XAlign" cname="x-align" type="gdouble" readable="true" writeable="true" />
-      <signal name="TextChanged" cname="text-changed" when="LAST">
+      <signal name="TextChanged" cname="text-changed" when="LAST" field_name="text_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterEntry*" name="entry" />
         </parameters>
       </signal>
-      <signal name="CursorEvent" cname="cursor-event" when="LAST">
+      <signal name="CursorEvent" cname="cursor-event" when="LAST" field_name="cursor_event">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterEntry*" name="entry" />
           <parameter type="ClutterGeometry*" name="geometry" />
         </parameters>
       </signal>
-      <signal name="Activate" cname="activate" when="LAST">
+      <signal name="Activate" cname="activate" when="LAST" field_name="activate">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterEntry*" name="entry" />
@@ -2607,14 +2610,14 @@
     </object>
     <object name="Group" cname="ClutterGroup" parent="ClutterActor">
       <field name="Priv" cname="priv" type="ClutterGroupPrivate*" />
-      <signal name="Add" cname="add" when="FIRST">
+      <signal name="Add" cname="add" when="FIRST" field_name="add">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterGroup*" name="group" />
           <parameter type="ClutterActor*" name="child" />
         </parameters>
       </signal>
-      <signal name="Remove" cname="remove" when="FIRST">
+      <signal name="Remove" cname="remove" when="FIRST" field_name="remove">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterGroup*" name="group" />
@@ -2836,34 +2839,34 @@
     </object>
     <object name="Model" cname="ClutterModel" parent="GObject">
       <field name="Priv" cname="priv" type="ClutterModelPrivate*" />
-      <signal name="RowAdded" cname="row-added" when="LAST">
+      <signal name="RowAdded" cname="row-added" when="LAST" field_name="row_added">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterModel*" name="model" />
           <parameter type="ClutterModelIter*" name="iter" />
         </parameters>
       </signal>
-      <signal name="RowRemoved" cname="row-removed" when="LAST">
+      <signal name="RowRemoved" cname="row-removed" when="LAST" field_name="row_removed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterModel*" name="model" />
           <parameter type="ClutterModelIter*" name="iter" />
         </parameters>
       </signal>
-      <signal name="RowChanged" cname="row-changed" when="LAST">
+      <signal name="RowChanged" cname="row-changed" when="LAST" field_name="row_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterModel*" name="model" />
           <parameter type="ClutterModelIter*" name="iter" />
         </parameters>
       </signal>
-      <signal name="SortChanged" cname="sort-changed" when="LAST">
+      <signal name="SortChanged" cname="sort-changed" when="LAST" field_name="sort_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterModel*" name="model" />
         </parameters>
       </signal>
-      <signal name="FilterChanged" cname="filter-changed" when="LAST">
+      <signal name="FilterChanged" cname="filter-changed" when="LAST" field_name="filter_changed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterModel*" name="model" />
@@ -3220,6 +3223,9 @@
         </parameters>
       </method>
     </object>
+    <object name="ParamSpecColor" cname="ClutterParamSpecColor" parent="GParamSpec">
+      <field name="DefaultValue" cname="default_value" type="ClutterColor*" access="public" />
+    </object>
     <object name="ParamSpecFixed" cname="ClutterParamSpecFixed" parent="GParamSpec">
       <field name="Minimum" cname="minimum" type="ClutterFixed" access="public" />
       <field name="Maximum" cname="maximum" type="ClutterFixed" access="public" />
@@ -3294,33 +3300,33 @@
     <object name="Score" cname="ClutterScore" parent="GObject">
       <field name="Priv" cname="priv" type="ClutterScorePrivate*" />
       <property name="Loop" cname="loop" type="gboolean" readable="true" writeable="true" />
-      <signal name="TimelineStarted" cname="timeline-started" when="LAST">
+      <signal name="TimelineStarted" cname="timeline-started" when="LAST" field_name="timeline_started">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterScore*" name="score" />
           <parameter type="ClutterTimeline*" name="timeline" />
         </parameters>
       </signal>
-      <signal name="TimelineCompleted" cname="timeline-completed" when="LAST">
+      <signal name="TimelineCompleted" cname="timeline-completed" when="LAST" field_name="timeline_completed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterScore*" name="score" />
           <parameter type="ClutterTimeline*" name="timeline" />
         </parameters>
       </signal>
-      <signal name="Completed" cname="completed" when="LAST">
+      <signal name="Completed" cname="completed" when="LAST" field_name="completed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterScore*" name="score" />
         </parameters>
       </signal>
-      <signal name="Started" cname="started" when="LAST">
+      <signal name="Started" cname="started" when="LAST" field_name="started">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterScore*" name="score" />
         </parameters>
       </signal>
-      <signal name="Paused" cname="paused" when="LAST">
+      <signal name="Paused" cname="paused" when="LAST" field_name="paused">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterScore*" name="score" />
@@ -3462,6 +3468,9 @@
           <parameter type="const-gchar*" name="type_name" />
         </parameters>
       </method>
+      <method name="ListObjects" cname="clutter_script_list_objects">
+        <return-type type="GList*" />
+      </method>
       <method name="LoadFromData" cname="clutter_script_load_from_data">
         <return-type type="guint" />
         <parameters>
@@ -3560,27 +3569,28 @@
       <property name="CursorVisible" cname="cursor-visible" type="gboolean" readable="true" writeable="true" construct="true" />
       <property name="UserResizable" cname="user-resizable" type="gboolean" readable="true" writeable="true" construct="true" />
       <property name="Color" cname="color" type="ClutterColor" readable="true" writeable="true" />
+      <property name="Perspective" cname="perspective" type="ClutterPerspective" readable="true" writeable="true" />
       <property name="Title" cname="title" type="gchar*" readable="true" writeable="true" />
       <property name="UseFog" cname="use-fog" type="gboolean" readable="true" writeable="true" />
-      <signal name="Fullscreen" cname="fullscreen" when="FIRST">
+      <signal name="Fullscreen" cname="fullscreen" when="FIRST" field_name="fullscreen">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterStage*" name="stage" />
         </parameters>
       </signal>
-      <signal name="Unfullscreen" cname="unfullscreen" when="LAST">
+      <signal name="Unfullscreen" cname="unfullscreen" when="LAST" field_name="unfullscreen">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterStage*" name="stage" />
         </parameters>
       </signal>
-      <signal name="Activate" cname="activate" when="LAST">
+      <signal name="Activate" cname="activate" when="LAST" field_name="activate">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterStage*" name="stage" />
         </parameters>
       </signal>
-      <signal name="Deactivate" cname="deactivate" when="LAST">
+      <signal name="Deactivate" cname="deactivate" when="LAST" field_name="deactivate">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterStage*" name="stage" />
@@ -3751,14 +3761,14 @@
     </object>
     <object name="StageManager" cname="ClutterStageManager" parent="GObject">
       <property name="DefaultStage" cname="default-stage" type="ClutterStage" readable="true" writeable="true" />
-      <signal name="StageAdded" cname="stage-added" when="LAST">
+      <signal name="StageAdded" cname="stage-added" when="LAST" field_name="stage_added">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterStageManager*" name="stage_manager" />
           <parameter type="ClutterStage*" name="stage" />
         </parameters>
       </signal>
-      <signal name="StageRemoved" cname="stage-removed" when="LAST">
+      <signal name="StageRemoved" cname="stage-removed" when="LAST" field_name="stage_removed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterStageManager*" name="stage_manager" />
@@ -3796,7 +3806,7 @@
       <property name="CoglTexture" cname="cogl-texture" type="ClutterTextureHandle" readable="true" writeable="true" />
       <property name="Filename" cname="filename" type="gchar*" writeable="true" />
       <property name="KeepAspectRatio" cname="keep-aspect-ratio" type="gboolean" readable="true" writeable="true" />
-      <signal name="SizeChange" cname="size-change" when="LAST">
+      <signal name="SizeChange" cname="size-change" when="LAST" field_name="size_change">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTexture*" name="texture" />
@@ -3804,7 +3814,7 @@
           <parameter type="gint" name="height" />
         </parameters>
       </signal>
-      <signal name="PixbufChange" cname="pixbuf-change" when="LAST">
+      <signal name="PixbufChange" cname="pixbuf-change" when="LAST" field_name="pixbuf_change">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTexture*" name="texture" />
@@ -3940,32 +3950,32 @@
       <property name="Delay" cname="delay" type="guint" readable="true" writeable="true" />
       <property name="Duration" cname="duration" type="guint" readable="true" writeable="true" />
       <property name="Direction" cname="direction" type="ClutterTimelineDirection" readable="true" writeable="true" />
-      <signal name="NewFrame" cname="new-frame" when="LAST">
+      <signal name="NewFrame" cname="new-frame" when="LAST" field_name="new_frame">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTimeline*" name="timeline" />
           <parameter type="gint" name="frame_num" />
         </parameters>
       </signal>
-      <signal name="Completed" cname="completed" when="LAST">
+      <signal name="Completed" cname="completed" when="LAST" field_name="completed">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTimeline*" name="timeline" />
         </parameters>
       </signal>
-      <signal name="Started" cname="started" when="LAST">
+      <signal name="Started" cname="started" when="LAST" field_name="started">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTimeline*" name="timeline" />
         </parameters>
       </signal>
-      <signal name="Paused" cname="paused" when="LAST">
+      <signal name="Paused" cname="paused" when="LAST" field_name="paused">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTimeline*" name="timeline" />
         </parameters>
       </signal>
-      <signal name="MarkerReached" cname="marker-reached" when="LAST">
+      <signal name="MarkerReached" cname="marker-reached" when="LAST" field_name="marker_reached">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTimeline*" name="timeline" />
@@ -4517,6 +4527,9 @@
       <method name="GetOptionGroup" cname="clutter_get_option_group" shared="true">
         <return-type type="GOptionGroup*" />
       </method>
+      <method name="GetOptionGroupWithoutInit" cname="clutter_get_option_group_without_init" shared="true">
+        <return-type type="GOptionGroup*" />
+      </method>
       <method name="GetPointerGrab" cname="clutter_get_pointer_grab" shared="true">
         <return-type type="ClutterActor*" />
       </method>
@@ -4808,9 +4821,9 @@
         <parameters>
           <parameter type="int*" name="argc" />
           <parameter type="char***" name="argv" />
-          <parameter type="char*" name="parameter_string" />
+          <parameter type="const-char*" name="parameter_string" />
           <parameter type="GOptionEntry*" name="entries" />
-          <parameter type="char*" name="translation_domain" />
+          <parameter type="const-char*" name="translation_domain" />
           <parameter type="GError**" name="error" />
         </parameters>
       </method>
@@ -4824,8 +4837,21 @@
       </method>
     </class>
     <class name="Param" cname="ClutterParam_">
+      <method name="ColorGetType" cname="clutter_param_color_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
       <method name="FixedGetType" cname="clutter_param_fixed_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+      <method name="SpecColor" cname="clutter_param_spec_color" shared="true">
+        <return-type type="GParamSpec*" />
+        <parameters>
+          <parameter type="const-gchar*" name="name" />
+          <parameter type="const-gchar*" name="nick" />
+          <parameter type="const-gchar*" name="blurb" />
+          <parameter type="const-ClutterColor*" name="default_value" />
+          <parameter type="GParamFlags" name="flags" />
+        </parameters>
       </method>
       <method name="SpecFixed" cname="clutter_param_spec_fixed" shared="true">
         <return-type type="GParamSpec*" />
@@ -5009,6 +5035,12 @@
       </method>
     </class>
     <class name="Value" cname="ClutterValue_">
+      <method name="GetColor" cname="clutter_value_get_color" shared="true">
+        <return-type type="const-ClutterColor*" />
+        <parameters>
+          <parameter type="const-GValue*" name="value" />
+        </parameters>
+      </method>
       <method name="GetFixed" cname="clutter_value_get_fixed" shared="true">
         <return-type type="ClutterFixed" />
         <parameters>
@@ -5019,6 +5051,13 @@
         <return-type type="ClutterUnit" />
         <parameters>
           <parameter type="const-GValue*" name="value" />
+        </parameters>
+      </method>
+      <method name="SetColor" cname="clutter_value_set_color" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GValue*" name="value" />
+          <parameter type="ClutterColor*" name="color" />
         </parameters>
       </method>
       <method name="SetFixed" cname="clutter_value_set_fixed" shared="true">
