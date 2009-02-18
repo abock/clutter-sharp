@@ -7,6 +7,7 @@
 	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Paint']" name="name">Painted</attr>	
 	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Realize']" name="name">Realized</attr>	
 	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Unrealize']" name="name">Unrealized</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/method[@cname='clutter_actor_event']" name="name">Emit</attr>	
 
 	<!-- ClutterBackend removal -->
 	<remove-node path="/api/namespace/object[@cname='ClutterBackend']/method[@name='GetFontOptions']"/>
