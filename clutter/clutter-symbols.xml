@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api>
+  <symbol type="marshal" cname="ClutterEvent" name="Clutter.Event" marshal_type="IntPtr" call_fmt="{0}.Handle" from_fmt="Clutter.Event.GetEvent ({0})"/>
+  <symbol type="marshal" cname="ClutterAnyEvent" name="Clutter.Event" marshal_type="IntPtr" call_fmt="{0}.Handle" from_fmt="Clutter.Event.GetEvent ({0})"/>
+  <symbol type="manual" cname="ClutterButtonEvent" name="Clutter.ButtonEvent"/>
+  <symbol type="manual" cname="ClutterCrossingEvent" name="Clutter.CrossingEvent"/>
+  <symbol type="manual" cname="ClutterKeyEvent" name="Clutter.KeyEvent"/>
+  <symbol type="manual" cname="ClutterMotionEvent" name="Clutter.MotionEvent"/>
+  <symbol type="manual" cname="ClutterScrollEvent" name="Clutter.ScrollEvent"/>
+  <symbol type="manual" cname="ClutterStageStateEvent" name="Clutter.StageEvent"/>
+</api>
+

@@ -6,6 +6,8 @@ CLUTTER_FIXED_API = clutter-api.xml
 ASSEMBLY_NAME = clutter-sharp
 ASSEMBLY = clutter-sharp.dll
 
+SYMBOLS = clutter-symbols.xml
+
 TARGET = $(ASSEMBLY) $(ASSEMBLY).config
 
 custom_extradist= clutter-sharp.pc.in clutter-sharp.dll.config.in
@@ -13,9 +15,16 @@ custom_api_includes=
 custom_references=
 
 sources =		\
+	$(srcdir)/ButtonEvent.cs	\
 	$(srcdir)/ClutterRun.cs		\
+	$(srcdir)/CrossingEvent.cs	\
+	$(srcdir)/Event.cs		\
 	$(srcdir)/Idle.cs		\
+	$(srcdir)/KeyEvent.cs		\
+	$(srcdir)/MotionEvent.cs	\
+	$(srcdir)/ScrollEvent.cs	\
 	$(srcdir)/Source.cs		\
+	$(srcdir)/StageStateEvent.cs	\
 	$(srcdir)/Timeout.cs	
 
 customs =			\

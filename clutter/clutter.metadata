@@ -35,6 +35,15 @@
 	<!-- ListModel fixes -->
 	<attr path="/api/namespace/object[@cname='ClutterListModel']/constructor[@cname='clutter_list_model_newv']/*/*[@name='types']" name="array">1</attr>
 
+	<!-- be creative with Events -->
+	<attr path="/api/namespace/class[@cname='ClutterEvent_']" name="name">EventHelper</attr>
+	<attr path="/api/namespace/struct[@cname='ClutterButtonEvent']" name="hidden">1</attr>
+	<attr path="/api/namespace/struct[@cname='ClutterCrossingEvent']" name="hidden">1</attr>
+	<attr path="/api/namespace/struct[@cname='ClutterKeyEvent']" name="hidden">1</attr>
+	<attr path="/api/namespace/struct[@cname='ClutterMotionEvent']" name="hidden">1</attr>
+	<attr path="/api/namespace/struct[@cname='ClutterScrollEvent']" name="hidden">1</attr>
+	<attr path="/api/namespace/struct[@cname='ClutterStageStateEvent']" name="hidden">1</attr>
+
 	<!-- These don't work (and I don't think we want them anyway) -->
 	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecFixed']" />
 	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecUnit']" />
