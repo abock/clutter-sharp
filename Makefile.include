@@ -18,7 +18,7 @@ api_includes = $(GTKSHARP_CFLAGS) $(custom_api_includes)
 
 references = $(GTKSHARP_LIBS) $(custom_references)
 
-$(CLUTTER_FIXED_API): 
+$(CLUTTER_FIXED_API): $(CLUTTER_RAW_API) $(CLUTTER_METADATA)
 	@if ! [ -e '$(CLUTTER_RAW_API)' ]; then 		\
 		$(GAPI_PARSER) $(SOURCES_XML);		\
 	fi
