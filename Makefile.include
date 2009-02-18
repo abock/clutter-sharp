@@ -9,7 +9,9 @@ assemblydir = $(libdir)/clutter-sharp
 assembly_DATA = $(TARGET)
 CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb generated-stamp generated/*.cs $(API) $(CLUTTER_FIXED_API) clutter-sharp.snk
 DISTCLEANFILES = $(ASSEMBLY).config Makefile.in
-EXTRA_DIST = $(RAW_API) $(METADATA) $(customs) $(sources) $(SOURCES_XML) $(CLUTTER_METADATA) $(custom_extradist)
+EXTRA_DIST = $(RAW_API) $(METADATA) $(SYMBOLS) $(customs) $(sources) $(SOURCES_XML) $(CLUTTER_METADATA) $(custom_extradist)
+
+build_symbols = $(addprefix --symbols=$(srcdir)/, $(SYMBOLS))
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = $(ASSEMBLY_NAME).pc
@@ -21,9 +23,9 @@ references = $(GTKSHARP_LIBS) $(custom_references)
 api:
 	$(GAPI_PARSER) $(SOURCES_XML)
 
-$(CLUTTER_FIXED_API): $(CLUTTER_RAW_API) $(CLUTTER_METADATA)
+$(CLUTTER_FIXED_API): $(CLUTTER_RAW_API) $(CLUTTER_METADATA) $(SYMBOLS)
 	cp $(CLUTTER_RAW_API) $(CLUTTER_FIXED_API)
-	$(GAPI_FIXUP) --api=$(CLUTTER_FIXED_API) --metadata=$(CLUTTER_METADATA)
+	$(GAPI_FIXUP) --api=$(CLUTTER_FIXED_API) --metadata=$(CLUTTER_METADATA) $(build_symbols)
 	$(GAPI_CODEGEN) --outdir=./generated --customdir=. $(api_includes) --generate $(CLUTTER_FIXED_API)
 
 clutter-sharp.snk:
