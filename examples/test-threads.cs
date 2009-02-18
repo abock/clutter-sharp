@@ -97,7 +97,7 @@ namespace ClutterTest
 		static Stage stage;
 
 		static void HandleKeyPress (object sender, KeyPressEventArgs args) {
-			uint symbol = args.Event.Symbol ();
+			uint symbol = args.Event.Symbol;
 			Gdk.Key key = (Gdk.Key) Enum.Parse (typeof(Gdk.Key), symbol.ToString ()); 
 
 			switch (key) {

@@ -48,7 +48,7 @@ public class VideoApp
 		control.Opacity = (byte)opacity;
 	}
 
-	void HandleControlTimelineCompleted (object o, EventArgs args)
+	void HandleControlTimelineCompleted (object o, System.EventArgs args)
 	{
 		if (!controls_showing)
 		 	control.HideAll (); 
@@ -189,7 +189,7 @@ public class VideoApp
 
 	void HandleKeyReleaseEvent (object o, KeyReleaseEventArgs args)
 	{
-		uint symbol = args.Event.Symbol ();
+		uint symbol = args.Event.Symbol;
 
 		Gdk.Key key = (Gdk.Key) Enum.Parse (typeof(Gdk.Key), symbol.ToString ());
 

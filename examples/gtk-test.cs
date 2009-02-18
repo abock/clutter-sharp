@@ -55,12 +55,12 @@ public class Test
 		 Clutter.Main.Quit ();
 	}
 
-	public static void HandleDelete (object o, EventArgs args)
+	public static void HandleDelete (object o, System.EventArgs args)
 	{
 		Gtk.Application.Quit (); 
 	}
 
-	public static void HandleClickity (object o, EventArgs args)
+	public static void HandleClickity (object o, System.EventArgs args)
 	{
 		if (!CurrentOH.FadeTimeline.IsPlaying)
 		 	CurrentOH.FadeTimeline.Start ();

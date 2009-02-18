@@ -22,7 +22,7 @@ public class TestEvents
 {
 	static EventApp app; 
  
-	public static void HandleDelete (object o, EventArgs args)
+	public static void HandleDelete (object o, System.EventArgs args)
 	{
 		Gtk.Application.Quit (); 
 	}
