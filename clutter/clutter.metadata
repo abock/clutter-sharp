@@ -39,6 +39,7 @@
 	<attr path="/api/namespace/class[@cname='ClutterEvent_']" name="name">EventHelper</attr>
 	<attr path="/api/namespace/struct[@cname='ClutterButtonEvent']" name="hidden">1</attr>
 	<attr path="/api/namespace/struct[@cname='ClutterCrossingEvent']" name="hidden">1</attr>
+	<attr path="/api/namespace/struct[@cname='ClutterAnyEvent']" name="hidden">1</attr>
 	<attr path="/api/namespace/struct[@cname='ClutterKeyEvent']" name="hidden">1</attr>
 	<attr path="/api/namespace/struct[@cname='ClutterMotionEvent']" name="hidden">1</attr>
 	<attr path="/api/namespace/struct[@cname='ClutterScrollEvent']" name="hidden">1</attr>
