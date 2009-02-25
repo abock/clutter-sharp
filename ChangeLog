@@ -1,3 +1,41 @@
+2009-02-25  Stephane Delcroix <stephane@delcroix.org>:
+	* examples/gst-play-video.cs:
+	* examples/gtk-test-events.cs:
+	* examples/gtk-test.cs:
+	* examples/test-threads.cs: Fix the samples
+
+2009-02-25  Stephane Delcroix <stephane@delcroix.org>:
+	* clutter/ButtonEvent.cs:
+	* clutter/CrossingEvent.cs:
+	* clutter/Event.cs:
+	* clutter/KeyEvent.cs:
+	* clutter/MotionEvent.cs:
+	* clutter/ScrollEvent.cs:
+	* clutter/clutter-symbols.xml:
+	* clutter/clutter.metadata:
+	* clutter/StageStateEvent.cs: Wrap the Event stuffs manually, cause the generator doesn't quite like unions
+
+2009-02-25  Stephane Delcroix <stephane@delcroix.org>:
+	* clutter/clutter-api.raw: Regenerated from 0.8.6
+
+2009-02-25  Stephane Delcroix <stephane@delcroix.org>:
+	* Makefile.include: Support for symbol files
+
+2009-02-25  Stephane Delcroix <stephane@delcroix.org>:
+	* clutter/clutter.metadata: Drop ParamSpecColor node, introduced in latests 0.8.x
+
+2009-02-25  Stephane Delcroix <stephane@delcroix.org>:
+	* Makefile.include: New rule to reparse the api
+
+2009-02-25  Stephane Delcroix <stephane@delcroix.org>:
+	* clutter/clutter.metadata: Rename Event() to Emit() to avoid name crash with the signal named Event
+
+2009-02-25: Stephane Delcroix <stephane@delcroix.org>:
+	* Makefile.include: Fix the dependencies
+
+2009-02-25: Stephane Delcroix <stephane@delcroix.org>:
+	* clutter/clutter.metadata: Fix typo in signal name (Stephane Delcroix)
+
 2008-10-16  Thomas Van Machelen <thomas.vanmachelen@gmail.com>:
 	
 	Add restructured clutter-sharp; all-in-one package now.
