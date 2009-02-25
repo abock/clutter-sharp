@@ -3,7 +3,7 @@
 	<!-- ClutterActor renames -->
 	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Show']" name="name">Shown</attr>	
 	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Hide']" name="name">Hidden</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Destroy']" name="name">Destoryed</attr>	
+	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Destroy']" name="name">Destroyed</attr>
 	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Paint']" name="name">Painted</attr>	
 	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Realize']" name="name">Realized</attr>	
 	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Unrealize']" name="name">Unrealized</attr>	
