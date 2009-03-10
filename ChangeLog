@@ -1,4 +1,8 @@
 2009-02-25  Stephane Delcroix <stephane@delcroix.org>:
+	* clutter-gtk/clutter-gtk.metadata: Applying add nodes to map gtk-clutter-util.h 
+	functions as static methods in a GtkUtil class
+
+2009-02-25  Stephane Delcroix <stephane@delcroix.org>:
 	* examples/gst-play-video.cs:
 	* examples/gtk-test-events.cs:
 	* examples/gtk-test.cs:

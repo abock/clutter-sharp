@@ -1,5 +1,120 @@
 <?xml version="1.0"?>
 <metadata>
 	<remove-node path="/api/namespace/enum[@cname='ClutterGtkInitError']"/>
+	<add-node path="/api/namespace">
+	  <struct name="GtkUtil">
+	    <method name="TextureNewFromPixbuf" cname="gtk_clutter_texture_new_from_pixbuf" shared="true">
+	      <return-type type="ClutterActor*"/>
+	      <parameters>
+	        <parameter type="GdkPixbuf*" name="pixbuf"/>
+	      </parameters>
+	    </method>
+	    <method name="TextureNewFromStock" cname="gtk_clutter_texture_new_from_stock" shared="true">
+	      <return-type type="ClutterActor*"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="const-gchar*" name="stock_id"/>
+		<parameter type="GtkIconSize" name="size"/>
+	      </parameters>
+	    </method>
+	    <method name="TextureNewFromIconName" cname="gtk_clutter_texture_new_from_icon_name" shared="true">
+	      <return-type type="ClutterActor*"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="const-gchar*" name="icon_name"/>
+		<parameter type="GtkIconSize" name="size"/>
+	      </parameters>
+	    </method>
+	    <method name="GetFgColor" cname="gtk_clutter_get_fg_color" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="GtkStateType" name="state"/>
+		<parameter type="ClutterColor*" name="color" pass_as="out"/>
+	      </parameters>
+	    </method>
+	    <method name="GetBgColor" cname="gtk_clutter_get_bg_color" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="GtkStateType" name="state"/>
+		<parameter type="ClutterColor*" name="color" pass_as="out"/>
+	      </parameters>
+	    </method>
+	    <method name="GetTextColor" cname="gtk_clutter_get_text_color" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="GtkStateType" name="state"/>
+		<parameter type="ClutterColor*" name="color" pass_as="out"/>
+	      </parameters>
+	    </method>
+	    <method name="GetTextAaColor" cname="gtk_clutter_get_text_aa_color" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="GtkStateType" name="state"/>
+		<parameter type="ClutterColor*" name="color" pass_as="out"/>
+	      </parameters>
+	    </method>
+	    <method name="GetBaseColor" cname="gtk_clutter_get_base_color" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="GtkStateType" name="state"/>
+		<parameter type="ClutterColor*" name="color" pass_as="out"/>
+	      </parameters>
+	    </method>
+	    <method name="GetLightColor" cname="gtk_clutter_get_light_color" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="GtkStateType" name="state"/>
+		<parameter type="ClutterColor*" name="color" pass_as="out"/>
+	      </parameters>
+	    </method>
+	    <method name="GetDarkColor" cname="gtk_clutter_get_dark_color" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="GtkStateType" name="state"/>
+		<parameter type="ClutterColor*" name="color" pass_as="out"/>
+	      </parameters>
+	    </method>
+	    <method name="GetMidColor" cname="gtk_clutter_get_mid_color" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="GtkWidget*" name="widget"/>
+		<parameter type="GtkStateType" name="state"/>
+		<parameter type="ClutterColor*" name="color" pass_as="out"/>
+	      </parameters>
+	    </method>
+	    <method name="TextureSetFromPixbuf" cname="gtk_clutter_texture_set_from_pixbuf" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="ClutterTexture*" name="texture"/>
+		<parameter type="GdkPixbuf*" name="pixbuf"/>
+	      </parameters>
+	    </method>
+	    <method name="TextureSetFromStock" cname="gtk_clutter_texture_set_from_stock" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="ClutterTexture*" name="texture"/>
+		<parameter type="GtkWidget*" name="widget"/>
+		<parameter type="const-gchar*" name="stock_id"/>
+		<parameter type="GtkIconsize" name="size"/>
+	      </parameters>
+	    </method>
+	    <method name="TextureSetFromIconName" cname="gtk_clutter_texture_set_from_icon_name" shared="true">
+	      <return-type type="void"/>
+	      <parameters>
+	        <parameter type="ClutterTexture*" name="texture"/>
+		<parameter type="GtkWidget*" name="widget"/>
+		<parameter type="const-gchar*" name="icon_name"/>
+		<parameter type="GtkIconsize" name="size"/>
+	      </parameters>
+	    </method>
+	  </struct>
+	</add-node>
 </metadata>
 
