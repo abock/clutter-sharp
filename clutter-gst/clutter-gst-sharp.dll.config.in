@@ -1,5 +1,0 @@
-<configuration>
-	<dllmap dll="clutter" 	  target="libclutter-@CLUTTER_BACKEND@-@CLUTTER_APIVERSION@.so" />
-	<dllmap dll="clutter-gst" target="libclutter-gst-@CLUTTER_APIVERSION@.so" />
-</configuration>
-

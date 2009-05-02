@@ -1,9 +1,6 @@
 SUBDIRS = \
-	clutter	 \
-	clutter-cairo \
-	clutter-gtk \
-	clutter-gst \
-	examples
+	clutter \
+	clutter-gtk
 
 DIST_SUBDIRS = clutter examples
 

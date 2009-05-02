@@ -1,7 +1,7 @@
 AC_INIT(README)
 AC_CANONICAL_SYSTEM
 
-AM_INIT_AUTOMAKE(clutter-sharp, 0.8.0)
+AM_INIT_AUTOMAKE(clutter-sharp, 0.9.0)
 
 AM_MAINTAINER_MODE
 
@@ -58,28 +58,18 @@ AC_SUBST(GAPI_CODEGEN)
 AC_PATH_PROG(GAPI_FIXUP, gapi2-fixup, no)
 AC_SUBST(GAPI_FIXUP)
 
-PKG_CHECK_MODULES(GTKSHARP, gtk-sharp-2.0 > 2.3.92)
+PKG_CHECK_MODULES(GTKSHARP, gtk-sharp-2.0 > 2.12)
 AC_SUBST(GTKSHARP_LIBS)
 
-PKG_CHECK_MODULES(CLUTTER, clutter-0.8 >= 0.8.0)
+PKG_CHECK_MODULES(CLUTTER, clutter-0.9 >= 0.9.0)
 
-CLUTTER_APIVERSION=$(pkg-config --variable apiversion clutter-0.8)
-CLUTTER_BACKEND=$(pkg-config --variable backend clutter-0.8)
+CLUTTER_APIVERSION=$(pkg-config --variable apiversion clutter-0.9)
+CLUTTER_BACKEND=$(pkg-config --variable backend clutter-0.9)
 
-CLUTTER_CAIRO_REQUIRED_VERSION=0.8.0
-PKG_CHECK_MODULES(CLUTTER_CAIRO, clutter-cairo-0.8 >= $CLUTTER_CAIRO_REQUIRED_VERSION, enable_cairo=yes, enable_cairo=no)
-
-AM_CONDITIONAL(ENABLE_CAIRO, test "x$enable_cairo" = "xyes")
-
-CLUTTER_GTK_REQUIRED_VERSION=0.8.0
-PKG_CHECK_MODULES(CLUTTER_GTK, clutter-gtk-0.8 >= $CLUTTER_GTK_REQUIRED_VERSION, enable_gtk=yes, enable_gtk=no)
+CLUTTER_GTK_REQUIRED_VERSION=0.9.0
+PKG_CHECK_MODULES(CLUTTER_GTK, clutter-gtk-0.9 >= $CLUTTER_GTK_REQUIRED_VERSION, enable_gtk=yes, enable_gtk=no)
 
 AM_CONDITIONAL(ENABLE_GTK, test "x$enable_gtk" = "xyes")
-
-CLUTTER_GST_REQUIRED_VERSION=0.8.0
-PKG_CHECK_MODULES(CLUTTER_GST, clutter-gst-0.8 >= $CLUTTER_GST_REQUIRED_VERSION, enable_gst=yes, enable_gst=no)
-
-AM_CONDITIONAL(ENABLE_GST, test "x$enable_gst" = "xyes")
 
 AC_SUBST(CLUTTER_APIVERSION)
 AC_SUBST(CLUTTER_BACKEND)
@@ -90,18 +80,10 @@ AC_OUTPUT([
 	clutter/Makefile
 	clutter/AssemblyInfo.cs
 	clutter/clutter-sharp.dll.config
-	clutter-cairo/clutter-cairo-sharp.pc
-	clutter-cairo/Makefile
-	clutter-cairo/AssemblyInfo.cs
-	clutter-cairo/clutter-cairo-sharp.dll.config
 	clutter-gtk/clutter-gtk-sharp.pc
 	clutter-gtk/Makefile
 	clutter-gtk/AssemblyInfo.cs
 	clutter-gtk/clutter-gtk-sharp.dll.config
-	clutter-gst/clutter-gst-sharp.pc
-	clutter-gst/Makefile
-	clutter-gst/AssemblyInfo.cs
-	clutter-gst/clutter-gst-sharp.dll.config
 	examples/Makefile
 ])
 

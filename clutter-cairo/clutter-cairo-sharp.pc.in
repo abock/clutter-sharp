@@ -1,9 +1,0 @@
-prefix=@prefix@
-exec_prefix=@exec_prefix@
-libdir=@libdir@
-
-Name: clutter-cairo-sharp
-Description: clutter-cairo-sharp - Clutter-Cairo C#/Mono Bindings
-Version: @VERSION@
-Libs: -r:${libdir}/mono/clutter-sharp/clutter-cairo-sharp.dll
-

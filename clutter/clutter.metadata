@@ -1,53 +1,56 @@
 <?xml version="1.0"?>
 <metadata>
-	<!-- ClutterActor renames -->
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Show']" name="name">Shown</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Hide']" name="name">Hidden</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Destroy']" name="name">Destroyed</attr>
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Paint']" name="name">Painted</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Realize']" name="name">Realized</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Unrealize']" name="name">Unrealized</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterActor']/method[@cname='clutter_actor_event']" name="name">Emit</attr>	
+  <!-- ClutterActor renames -->
+  <attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Show']" name="name">Shown</attr>  
+  <attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Hide']" name="name">Hidden</attr>  
+  <attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Destroy']" name="name">Destroyed</attr>
+  <attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Paint']" name="name">Painted</attr>  
+  <attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Realize']" name="name">Realized</attr>  
+  <attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Unrealize']" name="name">Unrealized</attr>  
+  <attr path="/api/namespace/object[@cname='ClutterActor']/method[@cname='clutter_actor_event']" name="name">Emit</attr>  
 
-	<!-- ClutterBackend removal -->
-	<remove-node path="/api/namespace/object[@cname='ClutterBackend']/method[@name='GetFontOptions']"/>
-	<remove-node path="/api/namespace/object[@cname='ClutterBackend']/method[@name='SetFontOptions']"/>
+  <!-- ClutterBackend removal -->
+  <remove-node path="/api/namespace/object[@cname='ClutterBackend']/method[@name='GetFontOptions']"/>
+  <remove-node path="/api/namespace/object[@cname='ClutterBackend']/method[@name='SetFontOptions']"/>
 
-	<!-- ClutterButtonEvent renames -->
-	<attr path="/api/namespace/struct[@cname='ClutterButtonEvent']/method[@name='Button']" name="name">GetButton</attr>
+  <!-- ClutterButtonEvent renames -->
+  <attr path="/api/namespace/struct[@cname='ClutterButtonEvent']/method[@name='Button']" name="name">GetButton</attr>
 
-	<!-- ClutterBehaviourPath constructor removal -->
-	<remove-node path="/api/namespace/object[@name='BehaviourPath']/constructor[@cname='clutter_behaviour_path_new']" />
+  <!-- ClutterBehaviourPath constructor removal -->
+  <remove-node path="/api/namespace/object[@name='BehaviourPath']/constructor[@cname='clutter_behaviour_path_new']" />
 
-	<!-- ClutterGroup renames -->
-	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Add']" name="name">Added</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Remove']" name="name">Removed</attr>	
+  <!-- ClutterGroup renames -->
+  <attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Add']" name="name">Added</attr>  
+  <attr path="/api/namespace/object[@cname='ClutterGroup']/signal[@name='Remove']" name="name">Removed</attr>  
 
-	<!-- ClutterLabel remove -->
-	<remove-node path="/api/namespace/object[@cname='ClutterLabel']/method[@name='GetAlignment']" />
-	
-	<!-- ClutterStage fixes -->
-	<attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='GetDefault']/return-type" name="type">ClutterStage*</attr>
-	<attr path="/api/namespace/object[@cname='ClutterStage']/signal[@name='Fullscreen']" name="name">FullscreenEvent</attr>
-	<attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='Fullscreen']" name="name">SetFullscreen</attr>	
-	<attr path="/api/namespace/object[@cname='ClutterStage']/signal[@name='Unfullscreen']" name="name">UnfullscreenEvent</attr>	
+  <remove-node path="/api/namespace/interface[@cname='ClutterContainer']/method[@name='AddValist']"/>
+  <remove-node path="/api/namespace/interface[@cname='ClutterContainer']/method[@name='RemoveValist']"/>
+    
+  <!-- ClutterLabel remove -->
+  <remove-node path="/api/namespace/object[@cname='ClutterLabel']/method[@name='GetAlignment']" />
+  
+  <!-- ClutterStage fixes -->
+  <attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='GetDefault']/return-type" name="type">ClutterStage*</attr>
+  <attr path="/api/namespace/object[@cname='ClutterStage']/signal[@name='Fullscreen']" name="name">FullscreenEvent</attr>
+  <attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='Fullscreen']" name="name">SetFullscreen</attr>  
+  <attr path="/api/namespace/object[@cname='ClutterStage']/signal[@name='Unfullscreen']" name="name">UnfullscreenEvent</attr>  
 
-	<!-- ListModel fixes -->
-	<attr path="/api/namespace/object[@cname='ClutterListModel']/constructor[@cname='clutter_list_model_newv']/*/*[@name='types']" name="array">1</attr>
+  <!-- ListModel fixes -->
+  <attr path="/api/namespace/object[@cname='ClutterListModel']/constructor[@cname='clutter_list_model_newv']/*/*[@name='types']" name="array">1</attr>
 
-	<!-- be creative with Events -->
-	<attr path="/api/namespace/class[@cname='ClutterEvent_']" name="name">EventHelper</attr>
-	<attr path="/api/namespace/struct[@cname='ClutterButtonEvent']" name="hidden">1</attr>
-	<attr path="/api/namespace/struct[@cname='ClutterCrossingEvent']" name="hidden">1</attr>
-	<attr path="/api/namespace/struct[@cname='ClutterAnyEvent']" name="hidden">1</attr>
-	<attr path="/api/namespace/struct[@cname='ClutterKeyEvent']" name="hidden">1</attr>
-	<attr path="/api/namespace/struct[@cname='ClutterMotionEvent']" name="hidden">1</attr>
-	<attr path="/api/namespace/struct[@cname='ClutterScrollEvent']" name="hidden">1</attr>
-	<attr path="/api/namespace/struct[@cname='ClutterStageStateEvent']" name="hidden">1</attr>
+  <!-- be creative with Events -->
+  <attr path="/api/namespace/class[@cname='ClutterEvent_']" name="name">EventHelper</attr>
+  <attr path="/api/namespace/struct[@cname='ClutterButtonEvent']" name="hidden">1</attr>
+  <attr path="/api/namespace/struct[@cname='ClutterCrossingEvent']" name="hidden">1</attr>
+  <attr path="/api/namespace/struct[@cname='ClutterAnyEvent']" name="hidden">1</attr>
+  <attr path="/api/namespace/struct[@cname='ClutterKeyEvent']" name="hidden">1</attr>
+  <attr path="/api/namespace/struct[@cname='ClutterMotionEvent']" name="hidden">1</attr>
+  <attr path="/api/namespace/struct[@cname='ClutterScrollEvent']" name="hidden">1</attr>
+  <attr path="/api/namespace/struct[@cname='ClutterStageStateEvent']" name="hidden">1</attr>
 
-	<!-- These don't work (and I don't think we want them anyway) -->
-	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecFixed']" />
-	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecUnit']" />
-	<remove-node path="/api/namespace/object[@cname='ClutterParamSpecColor']" />
+  <!-- These don't work (and I don't think we want them anyway) -->
+  <remove-node path="/api/namespace/object[@cname='ClutterParamSpecFixed']" />
+  <remove-node path="/api/namespace/object[@cname='ClutterParamSpecUnit']" />
+  <remove-node path="/api/namespace/object[@cname='ClutterParamSpecColor']" />
 </metadata>
 

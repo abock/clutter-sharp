@@ -1,58 +1,68 @@
-#!/bin/sh
-# Run this to generate all the initial makefiles, etc.
+#!/bin/bash
 
-DIE=0
-
-PACKAGE=clutter-sharp
-
-echo "Generating configuration files for $PACKAGE, please wait..."
-
-(autoconf --version) < /dev/null > /dev/null 2>&1 || {
-	echo
-	echo "You must have autoconf installed to compile $PACKAGE."
-	echo "Download the appropriate package for your distribution,"
-	echo "or get the source tarball at ftp://ftp.gnu.org/pub/gnu/"
-	DIE=1
+function error () {
+	echo "Error: $1" 1>&2
+	exit 1
 }
 
-(libtool --version) < /dev/null > /dev/null 2>&1 || {
-	echo
-	echo "You must have libtool installed to compile $PACKAGE."
-	echo "Download the appropriate package for your distribution,"
-	echo "or get the source tarball at ftp://ftp.gnu.org/pub/gnu/"
-	DIE=1
-}
+function check_autotool_version () {
+	which $1 &>/dev/null || {
+		error "$1 is not installed, and is required to configure $PROJECT"
+	}
 
-(automake --version) < /dev/null > /dev/null 2>&1 || {
-	echo
-	echo "You must have automake installed to compile $PACKAGE."
-	echo "Download the appropriate package for your distribution,"
-	echo "or get the source tarball at ftp://ftp.gnu.org/pub/gnu/"
-	DIE=1
-}
+	version=$($1 --version | head -n 1 | cut -f4 -d' ')
+	major=$(echo $version | cut -f1 -d.)
+	minor=$(echo $version | cut -f2 -d.)
+	rev=$(echo $version | cut -f3 -d.)
+	major_check=$(echo $2 | cut -f1 -d.)
+	minor_check=$(echo $2 | cut -f2 -d.)
+	rev_check=$(echo $2 | cut -f3 -d.)
 
-[ $DIE -eq 1 ] && exit 1;
-
-echo "  libtoolize --copy --force"
-libtoolize --copy --force
-echo "  aclocal $ACLOCAL_FLAGS"
-aclocal $ACLOCAL_FLAGS
-echo "  autoheader"
-autoheader
-echo "  automake --add-missing"
-automake --add-missing
-echo "  autoconf"
-autoconf
-
-if [ -x config.status -a -z "$*" ]; then
-	./config.status --recheck
-else
-	if test -z "$*"; then
-		echo "I am going to run ./configure with no arguments - if you wish"
-		echo "to pass any to it, please specify them on the $0  command line."
-		echo "If you do not wish to run ./configure, press  Ctrl-C now."
-		trap 'echo "configure aborted" ; exit 0' 1 2 15
-		sleep 1
+	if [ $major -lt $major_check ]; then
+		do_bail=yes
+	elif [[ $minor -lt $minor_check && $major = $major_check ]]; then
+		do_bail=yes
+	elif [[ $rev -lt $rev_check && $minor = $minor_check && $major = $major_check ]]; then
+		do_bail=yes
 	fi
-	./configure "$@";
+
+	if [ x"$do_bail" = x"yes" ]; then
+		error "$1 version $2 or better is required to configure $PROJECT"
+	fi
+}
+
+function run () {
+	echo "Running $@ ..."
+	$@ 2>.autogen.log || {
+		cat .autogen.log 1>&2
+		rm .autogen.log
+		error "Could not run $1, which is required to configure $PROJECT"
+	}
+	rm .autogen.log
+}
+
+srcdir=$(dirname $0)
+test -z "$srcdir" && srcdir=.
+
+(test -f $srcdir/configure.ac) || {
+	error "Directory \"$srcdir\" does not look like the top-level $PROJECT directory"
+}
+
+PROJECT=$(basename $PWD)
+
+check_autotool_version aclocal 1.9
+check_autotool_version automake 1.9
+check_autotool_version autoconf 2.53
+check_autotool_version pkg-config 0.14.0
+
+run aclocal $ACLOCAL_FLAGS
+run autoconf
+run automake --gnu --add-missing --force --copy \
+	-Wno-portability -Wno-portability
+
+if [ $# = 0 ]; then
+	echo "WARNING: I am going to run configure without any arguments."
 fi
+
+run ./configure --enable-maintainer-mode $@
+

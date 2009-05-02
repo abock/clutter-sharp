@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<metadata>
-	<remove-node path="/api/namespace/object[@cname='ClutterGstVideoSink']"/>
-	<attr     path="/api/namespace/class[@name='Global']" name="name">GstGlobal</attr>	
-</metadata>
-
