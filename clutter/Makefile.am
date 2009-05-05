@@ -10,13 +10,13 @@ SYMBOLS = clutter-symbols.xml
 
 TARGET = $(ASSEMBLY) $(ASSEMBLY).config
 
-custom_extradist= clutter-sharp.pc.in clutter-sharp.dll.config.in
-custom_api_includes=
-custom_references=
+custom_extradist = clutter-sharp.pc.in clutter-sharp.dll.config.in
+custom_api_includes =
+custom_references = -r:Mono.Cairo
 
 sources =		\
 	$(srcdir)/ButtonEvent.cs	\
-	$(srcdir)/ClutterRun.cs		\
+	$(srcdir)/Application.cs		\
 	$(srcdir)/CrossingEvent.cs	\
 	$(srcdir)/Event.cs		\
 	$(srcdir)/Idle.cs		\

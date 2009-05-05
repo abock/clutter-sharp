@@ -1,6 +1,36 @@
-		public Color (byte red, byte green, byte blue, byte alpha) {
-			this.Red = red;
-			this.Green = green;
-			this.Blue = blue;
-			this.Alpha = alpha;	
-		}
+public static Color Black = new Color (0, 0, 0);
+public static Color White = new Color (255, 255, 255);
+
+public Color (byte red, byte green, byte blue)
+	: this (red, green, blue, 255)
+{
+}
+
+public Color (double red, double green, double blue) 
+    : this ((byte)(red * 255.0), (byte)(green * 255.0), (byte)(blue * 255.0))
+{
+}
+
+public Color (double red, double green, double blue, double alpha)
+    : this ((byte)(red * 255.0), (byte)(green * 255.0), (byte)(blue * 255.0), (byte)(alpha * 255.0))
+{
+}
+
+public Color (uint rgbaColor) : this (
+    (byte)(rgbaColor >> 24),
+    (byte)((rgbaColor >> 16) & 0xff),
+    (byte)((rgbaColor >> 8) & 0xff),
+    (byte)(rgbaColor & 0xff))
+{
+}
+
+public static Color FromRgb (uint rgbColor)
+{
+    return new Color ((rgbColor << 8) | 0xff);
+}
+
+public static Color FromRgba (uint rgbaColor)
+{
+    return new Color (rgbaColor);
+}
+ 

@@ -12,6 +12,41 @@
       <member cname="CLUTTER_ACTOR_REALIZED" name="Realized" value="1 &lt;&lt; 2" />
       <member cname="CLUTTER_ACTOR_REACTIVE" name="Reactive" value="1 &lt;&lt; 3" />
     </enum>
+    <enum name="AnimationMode" cname="ClutterAnimationMode" gtype="clutter_animation_mode_get_type" type="enum">
+      <member cname="CLUTTER_CUSTOM_MODE" name="CustomMode" />
+      <member cname="CLUTTER_LINEAR" name="Linear" />
+      <member cname="CLUTTER_EASE_IN_QUAD" name="EaseInQuad" />
+      <member cname="CLUTTER_EASE_OUT_QUAD" name="EaseOutQuad" />
+      <member cname="CLUTTER_EASE_IN_OUT_QUAD" name="EaseInOutQuad" />
+      <member cname="CLUTTER_EASE_IN_CUBIC" name="EaseInCubic" />
+      <member cname="CLUTTER_EASE_OUT_CUBIC" name="EaseOutCubic" />
+      <member cname="CLUTTER_EASE_IN_OUT_CUBIC" name="EaseInOutCubic" />
+      <member cname="CLUTTER_EASE_IN_QUART" name="EaseInQuart" />
+      <member cname="CLUTTER_EASE_OUT_QUART" name="EaseOutQuart" />
+      <member cname="CLUTTER_EASE_IN_OUT_QUART" name="EaseInOutQuart" />
+      <member cname="CLUTTER_EASE_IN_QUINT" name="EaseInQuint" />
+      <member cname="CLUTTER_EASE_OUT_QUINT" name="EaseOutQuint" />
+      <member cname="CLUTTER_EASE_IN_OUT_QUINT" name="EaseInOutQuint" />
+      <member cname="CLUTTER_EASE_IN_SINE" name="EaseInSine" />
+      <member cname="CLUTTER_EASE_OUT_SINE" name="EaseOutSine" />
+      <member cname="CLUTTER_EASE_IN_OUT_SINE" name="EaseInOutSine" />
+      <member cname="CLUTTER_EASE_IN_EXPO" name="EaseInExpo" />
+      <member cname="CLUTTER_EASE_OUT_EXPO" name="EaseOutExpo" />
+      <member cname="CLUTTER_EASE_IN_OUT_EXPO" name="EaseInOutExpo" />
+      <member cname="CLUTTER_EASE_IN_CIRC" name="EaseInCirc" />
+      <member cname="CLUTTER_EASE_OUT_CIRC" name="EaseOutCirc" />
+      <member cname="CLUTTER_EASE_IN_OUT_CIRC" name="EaseInOutCirc" />
+      <member cname="CLUTTER_EASE_IN_ELASTIC" name="EaseInElastic" />
+      <member cname="CLUTTER_EASE_OUT_ELASTIC" name="EaseOutElastic" />
+      <member cname="CLUTTER_EASE_IN_OUT_ELASTIC" name="EaseInOutElastic" />
+      <member cname="CLUTTER_EASE_IN_BACK" name="EaseInBack" />
+      <member cname="CLUTTER_EASE_OUT_BACK" name="EaseOutBack" />
+      <member cname="CLUTTER_EASE_IN_OUT_BACK" name="EaseInOutBack" />
+      <member cname="CLUTTER_EASE_IN_BOUNCE" name="EaseInBounce" />
+      <member cname="CLUTTER_EASE_OUT_BOUNCE" name="EaseOutBounce" />
+      <member cname="CLUTTER_EASE_IN_OUT_BOUNCE" name="EaseInOutBounce" />
+      <member cname="CLUTTER_ANIMATION_LAST" name="AnimationLast" />
+    </enum>
     <enum name="DebugFlag" cname="ClutterDebugFlag" type="flags">
       <member cname="CLUTTER_DEBUG_MISC" name="Misc" value="1 &lt;&lt; 0" />
       <member cname="CLUTTER_DEBUG_ACTOR" name="Actor" value="1 &lt;&lt; 1" />
@@ -27,6 +62,8 @@
       <member cname="CLUTTER_DEBUG_SCRIPT" name="Script" value="1 &lt;&lt; 11" />
       <member cname="CLUTTER_DEBUG_SHADER" name="Shader" value="1 &lt;&lt; 12" />
       <member cname="CLUTTER_DEBUG_MULTISTAGE" name="Multistage" value="1 &lt;&lt; 13" />
+      <member cname="CLUTTER_DEBUG_ANIMATION" name="Animation" value="1 &lt;&lt; 14" />
+      <member cname="CLUTTER_DEBUG_LAYOUT" name="Layout" value="1 &lt;&lt; 15" />
     </enum>
     <enum name="EventFlags" cname="ClutterEventFlags" gtype="clutter_event_flags_get_type" type="flags">
       <member cname="CLUTTER_EVENT_FLAG_SYNTHETIC" name="Synthetic" value="1 &lt;&lt; 0" />
@@ -57,6 +94,10 @@
       <member cname="CLUTTER_FEATURE_SHADERS_GLSL" name="ShadersGlsl" value="1 &lt;&lt; 9" />
       <member cname="CLUTTER_FEATURE_OFFSCREEN" name="Offscreen" value="1 &lt;&lt; 10" />
       <member cname="CLUTTER_FEATURE_STAGE_MULTIPLE" name="StageMultiple" value="1 &lt;&lt; 11" />
+    </enum>
+    <enum name="FontFlags" cname="ClutterFontFlags" gtype="clutter_font_flags_get_type" type="flags">
+      <member cname="CLUTTER_FONT_MIPMAPPING" name="Mipmapping" value="1 &lt;&lt; 0" />
+      <member cname="CLUTTER_FONT_HINTING" name="Hinting" value="1 &lt;&lt; 1" />
     </enum>
     <enum name="Gravity" cname="ClutterGravity" gtype="clutter_gravity_get_type" type="enum">
       <member cname="CLUTTER_GRAVITY_NONE" name="None" />
@@ -91,6 +132,20 @@
       <member cname="CLUTTER_BUTTON3_MASK" name="Button3Mask" value="1 &lt;&lt; 10" />
       <member cname="CLUTTER_BUTTON4_MASK" name="Button4Mask" value="1 &lt;&lt; 11" />
       <member cname="CLUTTER_BUTTON5_MASK" name="Button5Mask" value="1 &lt;&lt; 12" />
+      <member cname="CLUTTER_SUPER_MASK" name="SuperMask" value="1 &lt;&lt; 26" />
+      <member cname="CLUTTER_HYPER_MASK" name="HyperMask" value="1 &lt;&lt; 27" />
+      <member cname="CLUTTER_META_MASK" name="MetaMask" value="1 &lt;&lt; 28" />
+      <member cname="CLUTTER_RELEASE_MASK" name="ReleaseMask" value="1 &lt;&lt; 30" />
+      <member cname="CLUTTER_MODIFIER_MASK" name="ModifierMask" value="0x5c001fff" />
+    </enum>
+    <enum name="PathNodeType" cname="ClutterPathNodeType" gtype="clutter_path_node_type_get_type" type="enum">
+      <member cname="CLUTTER_PATH_MOVE_TO" name="MoveTo" />
+      <member cname="CLUTTER_PATH_LINE_TO" name="LineTo" value="1" />
+      <member cname="CLUTTER_PATH_CURVE_TO" name="CurveTo" value="2" />
+      <member cname="CLUTTER_PATH_CLOSE" name="Close" value="3" />
+      <member cname="CLUTTER_PATH_REL_MOVE_TO" name="RelMoveTo" value="CLUTTER_PATH_MOVE_TO | CLUTTER_PATH_RELATIVE" />
+      <member cname="CLUTTER_PATH_REL_LINE_TO" name="RelLineTo" value="CLUTTER_PATH_LINE_TO | CLUTTER_PATH_RELATIVE" />
+      <member cname="CLUTTER_PATH_REL_CURVE_TO" name="RelCurveTo" value="CLUTTER_PATH_CURVE_TO | CLUTTER_PATH_RELATIVE" />
     </enum>
     <enum name="RequestMode" cname="ClutterRequestMode" gtype="clutter_request_mode_get_type" type="enum">
       <member cname="CLUTTER_REQUEST_HEIGHT_FOR_WIDTH" name="HeightForWidth" />
@@ -146,7 +201,7 @@
       <member cname="CLUTTER_TIMELINE_BACKWARD" name="Backward" />
     </enum>
     <callback name="AlphaFunc" cname="ClutterAlphaFunc">
-      <return-type type="guint32" />
+      <return-type type="gdouble" />
       <parameters>
         <parameter type="ClutterAlpha*" name="alpha" />
         <parameter type="gpointer" name="user_data" />
@@ -160,18 +215,20 @@
         <parameter type="gpointer" name="data" />
       </parameters>
     </callback>
+    <callback name="BindingActionFunc" cname="ClutterBindingActionFunc">
+      <return-type type="gboolean" />
+      <parameters>
+        <parameter type="GObject*" name="gobject" />
+        <parameter type="const-gchar*" name="action_name" />
+        <parameter type="guint" name="key_val" />
+        <parameter type="ClutterModifierType" name="modifiers" />
+      </parameters>
+    </callback>
     <callback name="Callback" cname="ClutterCallback">
       <return-type type="void" />
       <parameters>
         <parameter type="ClutterActor*" name="actor" />
         <parameter type="gpointer" name="data" />
-      </parameters>
-    </callback>
-    <callback name="EffectCompleteFunc" cname="ClutterEffectCompleteFunc">
-      <return-type type="void" />
-      <parameters>
-        <parameter type="ClutterActor*" name="actor" />
-        <parameter type="gpointer" name="user_data" />
       </parameters>
     </callback>
     <callback name="ModelFilterFunc" cname="ClutterModelFilterFunc">
@@ -199,6 +256,22 @@
         <parameter type="gpointer" name="user_data" />
       </parameters>
     </callback>
+    <callback name="PathCallback" cname="ClutterPathCallback">
+      <return-type type="void" />
+      <parameters>
+        <parameter type="const-ClutterPathNode*" name="node" />
+        <parameter type="gpointer" name="data" />
+      </parameters>
+    </callback>
+    <callback name="ProgressFunc" cname="ClutterProgressFunc">
+      <return-type type="gboolean" />
+      <parameters>
+        <parameter type="const-GValue*" name="a" />
+        <parameter type="const-GValue*" name="b" />
+        <parameter type="gdouble" name="progress" />
+        <parameter type="GValue*" name="retval" />
+      </parameters>
+    </callback>
     <callback name="ScriptConnectFunc" cname="ClutterScriptConnectFunc">
       <return-type type="void" />
       <parameters>
@@ -211,6 +284,34 @@
         <parameter type="gpointer" name="user_data" />
       </parameters>
     </callback>
+    <interface name="Animatable" cname="ClutterAnimatable">
+      <virtual_method name="AnimateProperty" cname="animate_property">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterAnimatable*" name="animatable" />
+          <parameter type="ClutterAnimation*" name="animation" />
+          <parameter type="const-gchar*" name="property_name" />
+          <parameter type="const-GValue*" name="initial_value" />
+          <parameter type="const-GValue*" name="final_value" />
+          <parameter type="gdouble" name="progress" />
+          <parameter type="GValue*" name="value" />
+        </parameters>
+      </virtual_method>
+      <method name="AnimateProperty" cname="clutter_animatable_animate_property">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterAnimation*" name="animation" />
+          <parameter type="const-gchar*" name="property_name" />
+          <parameter type="const-GValue*" name="initial_value" />
+          <parameter type="const-GValue*" name="final_value" />
+          <parameter type="gdouble" name="progress" />
+          <parameter type="GValue*" name="value" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="clutter_animatable_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </interface>
     <interface name="Container" cname="ClutterContainer">
       <signal name="ActorAdded" cname="actor-added" when="FIRST" field_name="actor_added">
         <return-type type="void" />
@@ -429,113 +530,55 @@
       </method>
     </interface>
     <interface name="Media" cname="ClutterMedia">
-      <property name="Uri" cname="uri" type="gchar*" readable="true" writeable="true" />
-      <property name="Playing" cname="playing" type="gboolean" readable="true" writeable="true" />
-      <property name="Position" cname="position" type="gint" readable="true" writeable="true" />
-      <property name="Volume" cname="volume" type="gdouble" readable="true" writeable="true" />
-      <property name="CanSeek" cname="can-seek" type="gboolean" readable="true" />
-      <property name="BufferPercent" cname="buffer-percent" type="gint" readable="true" />
-      <property name="Duration" cname="duration" type="gint" readable="true" />
-      <virtual_method name="SetUri" cname="set_uri">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-          <parameter type="const-char*" name="uri" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="SetPlaying" cname="set_playing">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-          <parameter type="gboolean" name="playing" />
-        </parameters>
-      </virtual_method>
+      <property name="" cname="" type="ginterface" />
+      <property name="" cname="" type="ginterface" />
+      <property name="" cname="" type="ginterface" />
+      <property name="" cname="" type="ginterface" />
+      <property name="" cname="" type="ginterface" />
+      <property name="" cname="" type="ginterface" />
+      <property name="" cname="" type="ginterface" />
       <signal name="Eos" cname="eos" when="LAST" field_name="eos">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterMedia*" name="media" />
         </parameters>
       </signal>
-      <virtual_method name="GetPlaying" cname="get_playing">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="SetPosition" cname="set_position">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-          <parameter type="int" name="position" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="GetPosition" cname="get_position">
-        <return-type type="int" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="SetVolume" cname="set_volume">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-          <parameter type="double" name="volume" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="GetVolume" cname="get_volume">
-        <return-type type="double" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="CanSeek" cname="can_seek">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="GetBufferPercent" cname="get_buffer_percent">
-        <return-type type="int" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="GetDuration" cname="get_duration">
-        <return-type type="int" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-        </parameters>
-      </virtual_method>
       <signal name="Error" cname="error" when="LAST" manual="true" field_name="error">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterMedia*" name="media" />
-          <parameter type="GError*" name="error" />
+          <parameter type="const-GError*" name="error" />
         </parameters>
       </signal>
-      <method name="GetBufferPercent" cname="clutter_media_get_buffer_percent">
-        <return-type type="int" />
+      <method name="GetAudioVolume" cname="clutter_media_get_audio_volume">
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetBufferFill" cname="clutter_media_get_buffer_fill">
+        <return-type type="gdouble" />
       </method>
       <method name="GetCanSeek" cname="clutter_media_get_can_seek">
         <return-type type="gboolean" />
       </method>
       <method name="GetDuration" cname="clutter_media_get_duration">
-        <return-type type="int" />
+        <return-type type="gdouble" />
       </method>
       <method name="GetPlaying" cname="clutter_media_get_playing">
         <return-type type="gboolean" />
       </method>
-      <method name="GetPosition" cname="clutter_media_get_position">
-        <return-type type="int" />
+      <method name="GetProgress" cname="clutter_media_get_progress">
+        <return-type type="gdouble" />
       </method>
       <method name="GetType" cname="clutter_media_get_type" shared="true">
         <return-type type="GType" />
       </method>
       <method name="GetUri" cname="clutter_media_get_uri">
-        <return-type type="const-char*" />
+        <return-type type="gchar*" />
       </method>
-      <method name="GetVolume" cname="clutter_media_get_volume">
-        <return-type type="double" />
+      <method name="SetAudioVolume" cname="clutter_media_set_audio_volume">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gdouble" name="volume" />
+        </parameters>
       </method>
       <method name="SetFilename" cname="clutter_media_set_filename">
         <return-type type="void" />
@@ -549,22 +592,16 @@
           <parameter type="gboolean" name="playing" />
         </parameters>
       </method>
-      <method name="SetPosition" cname="clutter_media_set_position">
+      <method name="SetProgress" cname="clutter_media_set_progress">
         <return-type type="void" />
         <parameters>
-          <parameter type="int" name="position" />
+          <parameter type="gdouble" name="progress" />
         </parameters>
       </method>
       <method name="SetUri" cname="clutter_media_set_uri">
         <return-type type="void" />
         <parameters>
-          <parameter type="const-char*" name="uri" />
-        </parameters>
-      </method>
-      <method name="SetVolume" cname="clutter_media_set_volume">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="double" name="volume" />
+          <parameter type="const-gchar*" name="uri" />
         </parameters>
       </method>
     </interface>
@@ -694,15 +731,21 @@
       <property name="Name" cname="name" type="gchar*" readable="true" writeable="true" />
       <property name="ScaleX" cname="scale-x" type="gdouble" readable="true" writeable="true" />
       <property name="ScaleY" cname="scale-y" type="gdouble" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
       <property name="RotationAngleX" cname="rotation-angle-x" type="gdouble" readable="true" writeable="true" />
       <property name="RotationAngleY" cname="rotation-angle-y" type="gdouble" readable="true" writeable="true" />
       <property name="RotationAngleZ" cname="rotation-angle-z" type="gdouble" readable="true" writeable="true" />
       <property name="RotationCenterX" cname="rotation-center-x" type="ClutterVertex" readable="true" writeable="true" />
       <property name="RotationCenterY" cname="rotation-center-y" type="ClutterVertex" readable="true" writeable="true" />
       <property name="RotationCenterZ" cname="rotation-center-z" type="ClutterVertex" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
       <property name="AnchorX" cname="anchor-x" type="gint" readable="true" writeable="true" />
       <property name="AnchorY" cname="anchor-y" type="gint" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
       <property name="ShowOnSetParent" cname="show-on-set-parent" type="gboolean" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
       <virtual_method name="ShowAll" cname="show_all">
         <return-type type="void" />
         <parameters>
@@ -740,6 +783,13 @@
           <parameter type="ClutterActor*" name="old_parent" />
         </parameters>
       </signal>
+      <signal name="QueueRedraw" cname="queue-redraw" when="LAST" field_name="queue_redraw">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="ClutterActor*" name="leaf_that_queued" />
+        </parameters>
+      </signal>
       <signal name="Event" cname="event" when="LAST" field_name="event">
         <return-type type="gboolean" />
         <parameters>
@@ -761,13 +811,13 @@
           <parameter type="ClutterButtonEvent*" name="event" />
         </parameters>
       </signal>
-      <virtual_method name="Pick" cname="pick">
-        <return-type type="void" />
+      <signal name="ScrollEvent" cname="scroll-event" when="LAST" field_name="scroll_event">
+        <return-type type="gboolean" />
         <parameters>
           <parameter type="ClutterActor*" name="actor" />
-          <parameter type="const-ClutterColor*" name="color" />
+          <parameter type="ClutterScrollEvent*" name="event" />
         </parameters>
-      </virtual_method>
+      </signal>
       <virtual_method name="GetPreferredWidth" cname="get_preferred_width">
         <return-type type="void" />
         <parameters>
@@ -794,13 +844,6 @@
           <parameter type="gboolean" name="absolute_origin_changed" />
         </parameters>
       </virtual_method>
-      <signal name="ScrollEvent" cname="scroll-event" when="LAST" field_name="scroll_event">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterScrollEvent*" name="event" />
-        </parameters>
-      </signal>
       <signal name="KeyPressEvent" cname="key-press-event" when="LAST" field_name="key_press_event">
         <return-type type="gboolean" />
         <parameters>
@@ -873,6 +916,13 @@
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </signal>
+      <signal name="Pick" cname="pick" when="LAST" field_name="pick">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterActor*" name="actor" />
+          <parameter type="const-ClutterColor*" name="color" />
+        </parameters>
+      </signal>
       <method name="Allocate" cname="clutter_actor_allocate">
         <return-type type="void" />
         <parameters>
@@ -884,6 +934,61 @@
         <return-type type="void" />
         <parameters>
           <parameter type="gboolean" name="absolute_origin_changed" />
+        </parameters>
+      </method>
+      <method name="Animate" cname="clutter_actor_animate">
+        <return-type type="ClutterAnimation*" />
+        <parameters>
+          <parameter type="gulong" name="mode" />
+          <parameter type="guint" name="duration" />
+          <parameter type="const-gchar*" name="first_property_name" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </method>
+      <method name="AnimateWithAlpha" cname="clutter_actor_animate_with_alpha">
+        <return-type type="ClutterAnimation*" />
+        <parameters>
+          <parameter type="ClutterAlpha*" name="alpha" />
+          <parameter type="const-gchar*" name="first_property_name" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </method>
+      <method name="AnimateWithAlphav" cname="clutter_actor_animate_with_alphav">
+        <return-type type="ClutterAnimation*" />
+        <parameters>
+          <parameter type="ClutterAlpha*" name="alpha" />
+          <parameter type="gint" name="n_properties" />
+          <parameter type="const-gchar*" array="true" name="properties" />
+          <parameter type="const-GValue*" name="values" />
+        </parameters>
+      </method>
+      <method name="AnimateWithTimeline" cname="clutter_actor_animate_with_timeline">
+        <return-type type="ClutterAnimation*" />
+        <parameters>
+          <parameter type="gulong" name="mode" />
+          <parameter type="ClutterTimeline*" name="timeline" />
+          <parameter type="const-gchar*" name="first_property_name" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </method>
+      <method name="AnimateWithTimelinev" cname="clutter_actor_animate_with_timelinev">
+        <return-type type="ClutterAnimation*" />
+        <parameters>
+          <parameter type="gulong" name="mode" />
+          <parameter type="ClutterTimeline*" name="timeline" />
+          <parameter type="gint" name="n_properties" />
+          <parameter type="const-gchar*" array="true" name="properties" />
+          <parameter type="const-GValue*" name="values" />
+        </parameters>
+      </method>
+      <method name="Animatev" cname="clutter_actor_animatev">
+        <return-type type="ClutterAnimation*" />
+        <parameters>
+          <parameter type="gulong" name="mode" />
+          <parameter type="guint" name="duration" />
+          <parameter type="gint" name="n_properties" />
+          <parameter type="const-gchar*" array="true" name="properties" />
+          <parameter type="const-GValue*" name="values" />
         </parameters>
       </method>
       <method name="ApplyRelativeTransformToPoint" cname="clutter_actor_apply_relative_transform_to_point">
@@ -899,6 +1004,15 @@
         <parameters>
           <parameter type="const-ClutterVertex*" name="point" />
           <parameter type="ClutterVertex*" name="vertex" />
+        </parameters>
+      </method>
+      <method name="CreatePangoContext" cname="clutter_actor_create_pango_context">
+        <return-type type="PangoContext*" />
+      </method>
+      <method name="CreatePangoLayout" cname="clutter_actor_create_pango_layout">
+        <return-type type="PangoLayout*" />
+        <parameters>
+          <parameter type="const-gchar*" name="text" />
         </parameters>
       </method>
       <method name="Destroy" cname="clutter_actor_destroy">
@@ -952,12 +1066,18 @@
           <parameter type="gint*" name="anchor_y" />
         </parameters>
       </method>
+      <method name="GetAnchorPointGravity" cname="clutter_actor_get_anchor_point_gravity">
+        <return-type type="ClutterGravity" />
+      </method>
       <method name="GetAnchorPointu" cname="clutter_actor_get_anchor_pointu">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterUnit*" name="anchor_x" />
           <parameter type="ClutterUnit*" name="anchor_y" />
         </parameters>
+      </method>
+      <method name="GetAnimation" cname="clutter_actor_get_animation">
+        <return-type type="ClutterAnimation*" />
       </method>
       <method name="GetClip" cname="clutter_actor_get_clip">
         <return-type type="void" />
@@ -1012,6 +1132,9 @@
       </method>
       <method name="GetPaintVisibility" cname="clutter_actor_get_paint_visibility">
         <return-type type="gboolean" />
+      </method>
+      <method name="GetPangoContext" cname="clutter_actor_get_pango_context">
+        <return-type type="PangoContext*" />
       </method>
       <method name="GetParent" cname="clutter_actor_get_parent">
         <return-type type="ClutterActor*" />
@@ -1076,15 +1199,6 @@
           <parameter type="ClutterUnit*" name="z" />
         </parameters>
       </method>
-      <method name="GetRotationx" cname="clutter_actor_get_rotationx">
-        <return-type type="ClutterFixed" />
-        <parameters>
-          <parameter type="ClutterRotateAxis" name="axis" />
-          <parameter type="gint*" name="x" />
-          <parameter type="gint*" name="y" />
-          <parameter type="gint*" name="z" />
-        </parameters>
-      </method>
       <method name="GetScale" cname="clutter_actor_get_scale">
         <return-type type="void" />
         <parameters>
@@ -1092,12 +1206,22 @@
           <parameter type="gdouble*" name="scale_y" />
         </parameters>
       </method>
-      <method name="GetScalex" cname="clutter_actor_get_scalex">
+      <method name="GetScaleCenter" cname="clutter_actor_get_scale_center">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed*" name="scale_x" />
-          <parameter type="ClutterFixed*" name="scale_y" />
+          <parameter type="gint*" name="center_x" />
+          <parameter type="gint*" name="center_y" />
         </parameters>
+      </method>
+      <method name="GetScaleCenteru" cname="clutter_actor_get_scale_centeru">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterUnit*" name="center_x" />
+          <parameter type="ClutterUnit*" name="center_y" />
+        </parameters>
+      </method>
+      <method name="GetScaleGravity" cname="clutter_actor_get_scale_gravity">
+        <return-type type="ClutterGravity" />
       </method>
       <method name="GetShader" cname="clutter_actor_get_shader">
         <return-type type="ClutterShader*" />
@@ -1167,6 +1291,12 @@
       </method>
       <method name="GetYu" cname="clutter_actor_get_yu">
         <return-type type="ClutterUnit" />
+      </method>
+      <method name="GetZRotationGravity" cname="clutter_actor_get_z_rotation_gravity">
+        <return-type type="ClutterGravity" />
+      </method>
+      <method name="GrabKeyFocus" cname="clutter_actor_grab_key_focus">
+        <return-type type="void" />
       </method>
       <method name="HasClip" cname="clutter_actor_has_clip">
         <return-type type="gboolean" />
@@ -1394,16 +1524,6 @@
           <parameter type="ClutterUnit" name="z" />
         </parameters>
       </method>
-      <method name="SetRotationx" cname="clutter_actor_set_rotationx">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterRotateAxis" name="axis" />
-          <parameter type="ClutterFixed" name="angle" />
-          <parameter type="gint" name="x" />
-          <parameter type="gint" name="y" />
-          <parameter type="gint" name="z" />
-        </parameters>
-      </method>
       <method name="SetScale" cname="clutter_actor_set_scale">
         <return-type type="void" />
         <parameters>
@@ -1411,11 +1531,30 @@
           <parameter type="gdouble" name="scale_y" />
         </parameters>
       </method>
-      <method name="SetScalex" cname="clutter_actor_set_scalex">
+      <method name="SetScaleFull" cname="clutter_actor_set_scale_full">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed" name="scale_x" />
-          <parameter type="ClutterFixed" name="scale_y" />
+          <parameter type="gdouble" name="scale_x" />
+          <parameter type="gdouble" name="scale_y" />
+          <parameter type="int" name="center_x" />
+          <parameter type="int" name="center_y" />
+        </parameters>
+      </method>
+      <method name="SetScaleFullu" cname="clutter_actor_set_scale_fullu">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gdouble" name="scale_x" />
+          <parameter type="gdouble" name="scale_y" />
+          <parameter type="ClutterUnit" name="center_x" />
+          <parameter type="ClutterUnit" name="center_y" />
+        </parameters>
+      </method>
+      <method name="SetScaleWithGravity" cname="clutter_actor_set_scale_with_gravity">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gdouble" name="scale_x" />
+          <parameter type="gdouble" name="scale_y" />
+          <parameter type="ClutterGravity" name="gravity" />
         </parameters>
       </method>
       <method name="SetShader" cname="clutter_actor_set_shader">
@@ -1428,7 +1567,21 @@
         <return-type type="void" />
         <parameters>
           <parameter type="const-gchar*" name="param" />
+          <parameter type="const-GValue*" name="value" />
+        </parameters>
+      </method>
+      <method name="SetShaderParamFloat" cname="clutter_actor_set_shader_param_float">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="param" />
           <parameter type="gfloat" name="value" />
+        </parameters>
+      </method>
+      <method name="SetShaderParamInt" cname="clutter_actor_set_shader_param_int">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="param" />
+          <parameter type="gint" name="value" />
         </parameters>
       </method>
       <method name="SetSize" cname="clutter_actor_set_size">
@@ -1481,6 +1634,13 @@
           <parameter type="ClutterUnit" name="y" />
         </parameters>
       </method>
+      <method name="SetZRotationFromGravity" cname="clutter_actor_set_z_rotation_from_gravity">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gdouble" name="angle" />
+          <parameter type="ClutterGravity" name="gravity" />
+        </parameters>
+      </method>
       <method name="ShouldPickPaint" cname="clutter_actor_should_pick_paint">
         <return-type type="gboolean" />
       </method>
@@ -1508,8 +1668,9 @@
     </object>
     <object name="Alpha" cname="ClutterAlpha" parent="GInitiallyUnowned">
       <field name="Priv" cname="priv" type="ClutterAlphaPrivate*" />
-      <property name="Timeline" cname="timeline" type="ClutterTimeline" readable="true" writeable="true" />
-      <property name="Alpha" cname="alpha" type="guint" readable="true" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
       <virtual_method name="ClutterAlpha1" cname="_clutter_alpha_1">
         <return-type type="void" />
       </virtual_method>
@@ -1526,7 +1687,10 @@
         <return-type type="void" />
       </virtual_method>
       <method name="GetAlpha" cname="clutter_alpha_get_alpha">
-        <return-type type="guint32" />
+        <return-type type="gdouble" />
+      </method>
+      <method name="GetMode" cname="clutter_alpha_get_mode">
+        <return-type type="gulong" />
       </method>
       <method name="GetTimeline" cname="clutter_alpha_get_timeline">
         <return-type type="ClutterTimeline*" />
@@ -1538,11 +1702,30 @@
       <constructor cname="clutter_alpha_new_full">
         <parameters>
           <parameter type="ClutterTimeline*" name="timeline" />
+          <parameter type="gulong" name="mode" />
+        </parameters>
+      </constructor>
+      <constructor cname="clutter_alpha_new_with_func">
+        <parameters>
+          <parameter type="ClutterTimeline*" name="timeline" />
           <parameter type="ClutterAlphaFunc" name="func" />
           <parameter type="gpointer" name="data" />
           <parameter type="GDestroyNotify" name="destroy" />
         </parameters>
       </constructor>
+      <method name="RegisterClosure" cname="clutter_alpha_register_closure" shared="true">
+        <return-type type="gulong" />
+        <parameters>
+          <parameter type="GClosure*" name="closure" />
+        </parameters>
+      </method>
+      <method name="RegisterFunc" cname="clutter_alpha_register_func" shared="true">
+        <return-type type="gulong" />
+        <parameters>
+          <parameter type="ClutterAlphaFunc" name="func" />
+          <parameter type="gpointer" name="data" />
+        </parameters>
+      </method>
       <method name="SetClosure" cname="clutter_alpha_set_closure">
         <return-type type="void" />
         <parameters>
@@ -1557,10 +1740,137 @@
           <parameter type="GDestroyNotify" name="destroy" />
         </parameters>
       </method>
+      <method name="SetMode" cname="clutter_alpha_set_mode">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gulong" name="mode" />
+        </parameters>
+      </method>
       <method name="SetTimeline" cname="clutter_alpha_set_timeline">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTimeline*" name="timeline" />
+        </parameters>
+      </method>
+    </object>
+    <object name="Animation" cname="ClutterAnimation" parent="GInitiallyUnowned">
+      <field name="Priv" cname="priv" type="ClutterAnimationPrivate*" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <signal name="Started" cname="started" when="LAST" field_name="started">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterAnimation*" name="animation" />
+        </parameters>
+      </signal>
+      <signal name="Completed" cname="completed" when="LAST" field_name="completed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterAnimation*" name="animation" />
+        </parameters>
+      </signal>
+      <method name="Bind" cname="clutter_animation_bind">
+        <return-type type="ClutterAnimation*" />
+        <parameters>
+          <parameter type="const-gchar*" name="property_name" />
+          <parameter type="const-GValue*" name="final" />
+        </parameters>
+      </method>
+      <method name="BindInterval" cname="clutter_animation_bind_interval">
+        <return-type type="ClutterAnimation*" />
+        <parameters>
+          <parameter type="const-gchar*" name="property_name" />
+          <parameter type="ClutterInterval*" name="interval" />
+        </parameters>
+      </method>
+      <method name="Completed" cname="clutter_animation_completed">
+        <return-type type="void" />
+      </method>
+      <method name="GetAlpha" cname="clutter_animation_get_alpha">
+        <return-type type="ClutterAlpha*" />
+      </method>
+      <method name="GetDuration" cname="clutter_animation_get_duration">
+        <return-type type="guint" />
+      </method>
+      <method name="GetInterval" cname="clutter_animation_get_interval">
+        <return-type type="ClutterInterval*" />
+        <parameters>
+          <parameter type="const-gchar*" name="property_name" />
+        </parameters>
+      </method>
+      <method name="GetLoop" cname="clutter_animation_get_loop">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetMode" cname="clutter_animation_get_mode">
+        <return-type type="gulong" />
+      </method>
+      <method name="GetObject" cname="clutter_animation_get_object">
+        <return-type type="GObject*" />
+      </method>
+      <method name="GetTimeline" cname="clutter_animation_get_timeline">
+        <return-type type="ClutterTimeline*" />
+      </method>
+      <method name="GetType" cname="clutter_animation_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="HasProperty" cname="clutter_animation_has_property">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="property_name" />
+        </parameters>
+      </method>
+      <constructor cname="clutter_animation_new" />
+      <method name="SetAlpha" cname="clutter_animation_set_alpha">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterAlpha*" name="alpha" />
+        </parameters>
+      </method>
+      <method name="SetDuration" cname="clutter_animation_set_duration">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="msecs" />
+        </parameters>
+      </method>
+      <method name="SetLoop" cname="clutter_animation_set_loop">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="loop" />
+        </parameters>
+      </method>
+      <method name="SetMode" cname="clutter_animation_set_mode">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gulong" name="mode" />
+        </parameters>
+      </method>
+      <method name="SetObject" cname="clutter_animation_set_object">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GObject*" name="object" />
+        </parameters>
+      </method>
+      <method name="SetTimeline" cname="clutter_animation_set_timeline">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterTimeline*" name="timeline" />
+        </parameters>
+      </method>
+      <method name="UnbindProperty" cname="clutter_animation_unbind_property">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="property_name" />
+        </parameters>
+      </method>
+      <method name="UpdateInterval" cname="clutter_animation_update_interval">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="property_name" />
+          <parameter type="ClutterInterval*" name="interval" />
         </parameters>
       </method>
     </object>
@@ -1627,14 +1937,29 @@
           <parameter type="ClutterStage*" name="stage" />
         </parameters>
       </virtual_method>
+      <signal name="ResolutionChanged" cname="resolution-changed" when="FIRST" field_name="resolution_changed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterBackend*" name="backend" />
+        </parameters>
+      </signal>
+      <signal name="FontChanged" cname="font-changed" when="FIRST" field_name="font_changed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterBackend*" name="backend" />
+        </parameters>
+      </signal>
       <method name="GetDoubleClickDistance" cname="clutter_backend_get_double_click_distance">
         <return-type type="guint" />
       </method>
       <method name="GetDoubleClickTime" cname="clutter_backend_get_double_click_time">
         <return-type type="guint" />
       </method>
+      <method name="GetFontName" cname="clutter_backend_get_font_name">
+        <return-type type="const-gchar*" />
+      </method>
       <method name="GetFontOptions" cname="clutter_backend_get_font_options">
-        <return-type type="cairo_font_options_t*" />
+        <return-type type="const-cairo_font_options_t*" />
       </method>
       <method name="GetResolution" cname="clutter_backend_get_resolution">
         <return-type type="gdouble" />
@@ -1654,10 +1979,16 @@
           <parameter type="guint" name="msec" />
         </parameters>
       </method>
+      <method name="SetFontName" cname="clutter_backend_set_font_name">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="font_name" />
+        </parameters>
+      </method>
       <method name="SetFontOptions" cname="clutter_backend_set_font_options">
         <return-type type="void" />
         <parameters>
-          <parameter type="cairo_font_options_t*" name="options" />
+          <parameter type="const-cairo_font_options_t*" name="options" />
         </parameters>
       </method>
       <method name="SetResolution" cname="clutter_backend_set_resolution">
@@ -1688,7 +2019,7 @@
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterBehaviour*" name="behave" />
-          <parameter type="guint32" name="alpha_value" />
+          <parameter type="gdouble" name="alpha_value" />
         </parameters>
       </virtual_method>
       <virtual_method name="ClutterBehaviour1" cname="_clutter_behaviour1">
@@ -1762,94 +2093,6 @@
         </parameters>
       </method>
     </object>
-    <object name="BehaviourBspline" cname="ClutterBehaviourBspline" parent="ClutterBehaviour">
-      <field name="Priv" cname="priv" type="ClutterBehaviourBsplinePrivate*" />
-      <signal name="KnotReached" cname="knot-reached" when="LAST" field_name="knot_reached">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterBehaviourBspline*" name="bsplineb" />
-          <parameter type="const-ClutterKnot*" name="knot" />
-        </parameters>
-      </signal>
-      <virtual_method name="ClutterBspline1" cname="_clutter_bspline_1">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterBspline2" cname="_clutter_bspline_2">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterBspline3" cname="_clutter_bspline_3">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterBspline4" cname="_clutter_bspline_4">
-        <return-type type="void" />
-      </virtual_method>
-      <implements>
-        <interface cname="ClutterScriptable" />
-      </implements>
-      <method name="Adjust" cname="clutter_behaviour_bspline_adjust">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="guint" name="offset" />
-          <parameter type="ClutterKnot*" name="knot" />
-        </parameters>
-      </method>
-      <method name="AppendKnot" cname="clutter_behaviour_bspline_append_knot">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-ClutterKnot*" name="knot" />
-        </parameters>
-      </method>
-      <method name="AppendKnots" cname="clutter_behaviour_bspline_append_knots">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-ClutterKnot*" name="first_knot" />
-          <parameter ellipsis="true" />
-        </parameters>
-      </method>
-      <method name="Clear" cname="clutter_behaviour_bspline_clear">
-        <return-type type="void" />
-      </method>
-      <method name="GetOrigin" cname="clutter_behaviour_bspline_get_origin">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterKnot*" name="knot" />
-        </parameters>
-      </method>
-      <method name="GetType" cname="clutter_behaviour_bspline_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-      <method name="Join" cname="clutter_behaviour_bspline_join">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterBehaviourBspline*" name="bs2" />
-        </parameters>
-      </method>
-      <constructor cname="clutter_behaviour_bspline_new">
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="const-ClutterKnot*" name="knots" />
-          <parameter type="guint" name="n_knots" />
-        </parameters>
-      </constructor>
-      <method name="SetOrigin" cname="clutter_behaviour_bspline_set_origin">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterKnot*" name="knot" />
-        </parameters>
-      </method>
-      <method name="Split" cname="clutter_behaviour_bspline_split">
-        <return-type type="ClutterBehaviour*" />
-        <parameters>
-          <parameter type="guint" name="offset" />
-        </parameters>
-      </method>
-      <method name="Truncate" cname="clutter_behaviour_bspline_truncate">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="guint" name="offset" />
-        </parameters>
-      </method>
-    </object>
     <object name="BehaviourDepth" cname="ClutterBehaviourDepth" parent="ClutterBehaviour">
       <field name="Priv" cname="priv" type="ClutterBehaviourDepthPrivate*" />
       <property name="DepthStart" cname="depth-start" type="gint" readable="true" writeable="true" />
@@ -1881,45 +2124,26 @@
     </object>
     <object name="BehaviourEllipse" cname="ClutterBehaviourEllipse" parent="ClutterBehaviour">
       <field name="Priv" cname="priv" type="ClutterBehaviourEllipsePrivate*" />
-      <property name="AngleStart" cname="angle-start" type="gdouble" readable="true" writeable="true" />
-      <property name="AngleEnd" cname="angle-end" type="gdouble" readable="true" writeable="true" />
-      <property name="AngleTiltX" cname="angle-tilt-x" type="gdouble" readable="true" writeable="true" />
-      <property name="AngleTiltY" cname="angle-tilt-y" type="gdouble" readable="true" writeable="true" />
-      <property name="AngleTiltZ" cname="angle-tilt-z" type="gdouble" readable="true" writeable="true" />
-      <property name="Width" cname="width" type="gint" readable="true" writeable="true" />
-      <property name="Height" cname="height" type="gint" readable="true" writeable="true" />
-      <property name="Center" cname="center" type="ClutterKnot" readable="true" writeable="true" />
-      <property name="Direction" cname="direction" type="ClutterRotateDirection" readable="true" writeable="true" />
-      <virtual_method name="KnotReached" cname="knot_reached">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterBehaviourEllipse*" name="ellipseb" />
-          <parameter type="const-ClutterKnot*" name="knot" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="ClutterEllipse1" cname="_clutter_ellipse_1">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterEllipse2" cname="_clutter_ellipse_2">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterEllipse3" cname="_clutter_ellipse_3">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterEllipse4" cname="_clutter_ellipse_4">
-        <return-type type="void" />
-      </virtual_method>
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
       <method name="GetAngleEnd" cname="clutter_behaviour_ellipse_get_angle_end">
         <return-type type="gdouble" />
       </method>
       <method name="GetAngleEndx" cname="clutter_behaviour_ellipse_get_angle_endx">
-        <return-type type="ClutterFixed" />
+        <return-type type="CoglFixed" />
       </method>
       <method name="GetAngleStart" cname="clutter_behaviour_ellipse_get_angle_start">
         <return-type type="gdouble" />
       </method>
       <method name="GetAngleStartx" cname="clutter_behaviour_ellipse_get_angle_startx">
-        <return-type type="ClutterFixed" />
+        <return-type type="CoglFixed" />
       </method>
       <method name="GetAngleTilt" cname="clutter_behaviour_ellipse_get_angle_tilt">
         <return-type type="gdouble" />
@@ -1928,7 +2152,7 @@
         </parameters>
       </method>
       <method name="GetAngleTiltx" cname="clutter_behaviour_ellipse_get_angle_tiltx">
-        <return-type type="ClutterFixed" />
+        <return-type type="CoglFixed" />
         <parameters>
           <parameter type="ClutterRotateAxis" name="axis" />
         </parameters>
@@ -1957,9 +2181,9 @@
       <method name="GetTiltx" cname="clutter_behaviour_ellipse_get_tiltx">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed*" name="angle_tilt_x" />
-          <parameter type="ClutterFixed*" name="angle_tilt_y" />
-          <parameter type="ClutterFixed*" name="angle_tilt_z" />
+          <parameter type="CoglFixed*" name="angle_tilt_x" />
+          <parameter type="CoglFixed*" name="angle_tilt_y" />
+          <parameter type="CoglFixed*" name="angle_tilt_z" />
         </parameters>
       </method>
       <method name="GetType" cname="clutter_behaviour_ellipse_get_type" shared="true">
@@ -1988,8 +2212,8 @@
           <parameter type="gint" name="width" />
           <parameter type="gint" name="height" />
           <parameter type="ClutterRotateDirection" name="direction" />
-          <parameter type="ClutterFixed" name="start" />
-          <parameter type="ClutterFixed" name="end" />
+          <parameter type="CoglFixed" name="start" />
+          <parameter type="CoglFixed" name="end" />
         </parameters>
       </constructor>
       <method name="SetAngleEnd" cname="clutter_behaviour_ellipse_set_angle_end">
@@ -2001,7 +2225,7 @@
       <method name="SetAngleEndx" cname="clutter_behaviour_ellipse_set_angle_endx">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed" name="angle_end" />
+          <parameter type="CoglFixed" name="angle_end" />
         </parameters>
       </method>
       <method name="SetAngleStart" cname="clutter_behaviour_ellipse_set_angle_start">
@@ -2013,7 +2237,7 @@
       <method name="SetAngleStartx" cname="clutter_behaviour_ellipse_set_angle_startx">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed" name="angle_start" />
+          <parameter type="CoglFixed" name="angle_start" />
         </parameters>
       </method>
       <method name="SetAngleTilt" cname="clutter_behaviour_ellipse_set_angle_tilt">
@@ -2027,7 +2251,7 @@
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterRotateAxis" name="axis" />
-          <parameter type="ClutterFixed" name="angle_tilt" />
+          <parameter type="CoglFixed" name="angle_tilt" />
         </parameters>
       </method>
       <method name="SetCenter" cname="clutter_behaviour_ellipse_set_center">
@@ -2060,9 +2284,9 @@
       <method name="SetTiltx" cname="clutter_behaviour_ellipse_set_tiltx">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed" name="angle_tilt_x" />
-          <parameter type="ClutterFixed" name="angle_tilt_y" />
-          <parameter type="ClutterFixed" name="angle_tilt_z" />
+          <parameter type="CoglFixed" name="angle_tilt_x" />
+          <parameter type="CoglFixed" name="angle_tilt_y" />
+          <parameter type="CoglFixed" name="angle_tilt_z" />
         </parameters>
       </method>
       <method name="SetWidth" cname="clutter_behaviour_ellipse_set_width">
@@ -2103,12 +2327,12 @@
     </object>
     <object name="BehaviourPath" cname="ClutterBehaviourPath" parent="ClutterBehaviour">
       <field name="Priv" cname="priv" type="ClutterBehaviourPathPrivate*" />
-      <property name="Knot" cname="knot" type="ClutterKnot" writeable="true" />
+      <property name="" cname="" type="class" />
       <signal name="KnotReached" cname="knot-reached" when="LAST" field_name="knot_reached">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterBehaviourPath*" name="pathb" />
-          <parameter type="const-ClutterKnot*" name="knot" />
+          <parameter type="guint" name="knot_num" />
         </parameters>
       </signal>
       <virtual_method name="ClutterPath1" cname="_clutter_path_1">
@@ -2126,58 +2350,47 @@
       <implements>
         <interface cname="ClutterScriptable" />
       </implements>
-      <method name="AppendKnot" cname="clutter_behaviour_path_append_knot">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-ClutterKnot*" name="knot" />
-        </parameters>
-      </method>
-      <method name="AppendKnots" cname="clutter_behaviour_path_append_knots">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-ClutterKnot*" name="first_knot" />
-          <parameter ellipsis="true" />
-        </parameters>
-      </method>
-      <method name="Clear" cname="clutter_behaviour_path_clear">
-        <return-type type="void" />
-      </method>
-      <method name="GetKnots" cname="clutter_behaviour_path_get_knots">
-        <return-type type="GSList*" />
+      <method name="GetPath" cname="clutter_behaviour_path_get_path">
+        <return-type type="ClutterPath*" />
       </method>
       <method name="GetType" cname="clutter_behaviour_path_get_type" shared="true">
         <return-type type="GType" />
       </method>
-      <method name="InsertKnot" cname="clutter_behaviour_path_insert_knot">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="guint" name="offset" />
-          <parameter type="const-ClutterKnot*" name="knot" />
-        </parameters>
-      </method>
       <constructor cname="clutter_behaviour_path_new">
+        <parameters>
+          <parameter type="ClutterAlpha*" name="alpha" />
+          <parameter type="ClutterPath*" name="path" />
+        </parameters>
+      </constructor>
+      <constructor cname="clutter_behaviour_path_new_with_description">
+        <parameters>
+          <parameter type="ClutterAlpha*" name="alpha" />
+          <parameter type="const-gchar*" name="desc" />
+        </parameters>
+      </constructor>
+      <constructor cname="clutter_behaviour_path_new_with_knots">
         <parameters>
           <parameter type="ClutterAlpha*" name="alpha" />
           <parameter type="const-ClutterKnot*" name="knots" />
           <parameter type="guint" name="n_knots" />
         </parameters>
       </constructor>
-      <method name="RemoveKnot" cname="clutter_behaviour_path_remove_knot">
+      <method name="SetPath" cname="clutter_behaviour_path_set_path">
         <return-type type="void" />
         <parameters>
-          <parameter type="guint" name="offset" />
+          <parameter type="ClutterPath*" name="path" />
         </parameters>
       </method>
     </object>
     <object name="BehaviourRotate" cname="ClutterBehaviourRotate" parent="ClutterBehaviour">
       <field name="Priv" cname="priv" type="ClutterBehaviourRotatePrivate*" />
-      <property name="AngleStart" cname="angle-start" type="gdouble" readable="true" writeable="true" />
-      <property name="AngleEnd" cname="angle-end" type="gdouble" readable="true" writeable="true" />
-      <property name="Axis" cname="axis" type="ClutterRotateAxis" readable="true" writeable="true" />
-      <property name="Direction" cname="direction" type="ClutterRotateDirection" readable="true" writeable="true" />
-      <property name="CenterX" cname="center-x" type="gint" readable="true" writeable="true" />
-      <property name="CenterY" cname="center-y" type="gint" readable="true" writeable="true" />
-      <property name="CenterZ" cname="center-z" type="gint" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
       <method name="GetAxis" cname="clutter_behaviour_rotate_get_axis">
         <return-type type="ClutterRotateAxis" />
       </method>
@@ -2191,8 +2404,8 @@
       <method name="GetBoundsx" cname="clutter_behaviour_rotate_get_boundsx">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed*" name="angle_start" />
-          <parameter type="ClutterFixed*" name="angle_end" />
+          <parameter type="CoglFixed*" name="angle_start" />
+          <parameter type="CoglFixed*" name="angle_end" />
         </parameters>
       </method>
       <method name="GetCenter" cname="clutter_behaviour_rotate_get_center">
@@ -2223,8 +2436,8 @@
           <parameter type="ClutterAlpha*" name="alpha" />
           <parameter type="ClutterRotateAxis" name="axis" />
           <parameter type="ClutterRotateDirection" name="direction" />
-          <parameter type="ClutterFixed" name="angle_start" />
-          <parameter type="ClutterFixed" name="angle_end" />
+          <parameter type="CoglFixed" name="angle_start" />
+          <parameter type="CoglFixed" name="angle_end" />
         </parameters>
       </constructor>
       <method name="SetAxis" cname="clutter_behaviour_rotate_set_axis">
@@ -2243,8 +2456,8 @@
       <method name="SetBoundsx" cname="clutter_behaviour_rotate_set_boundsx">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed" name="angle_start" />
-          <parameter type="ClutterFixed" name="angle_end" />
+          <parameter type="CoglFixed" name="angle_start" />
+          <parameter type="CoglFixed" name="angle_end" />
         </parameters>
       </method>
       <method name="SetCenter" cname="clutter_behaviour_rotate_set_center">
@@ -2264,10 +2477,10 @@
     </object>
     <object name="BehaviourScale" cname="ClutterBehaviourScale" parent="ClutterBehaviour">
       <field name="Priv" cname="priv" type="ClutterBehaviourScalePrivate*" />
-      <property name="XScaleStart" cname="x-scale-start" type="gdouble" readable="true" writeable="true" />
-      <property name="XScaleEnd" cname="x-scale-end" type="gdouble" readable="true" writeable="true" />
-      <property name="YScaleStart" cname="y-scale-start" type="gdouble" readable="true" writeable="true" />
-      <property name="YScaleEnd" cname="y-scale-end" type="gdouble" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
       <method name="GetBounds" cname="clutter_behaviour_scale_get_bounds">
         <return-type type="void" />
         <parameters>
@@ -2280,10 +2493,10 @@
       <method name="GetBoundsx" cname="clutter_behaviour_scale_get_boundsx">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed*" name="x_scale_start" />
-          <parameter type="ClutterFixed*" name="y_scale_start" />
-          <parameter type="ClutterFixed*" name="x_scale_end" />
-          <parameter type="ClutterFixed*" name="y_scale_end" />
+          <parameter type="CoglFixed*" name="x_scale_start" />
+          <parameter type="CoglFixed*" name="y_scale_start" />
+          <parameter type="CoglFixed*" name="x_scale_end" />
+          <parameter type="CoglFixed*" name="y_scale_end" />
         </parameters>
       </method>
       <method name="GetType" cname="clutter_behaviour_scale_get_type" shared="true">
@@ -2301,10 +2514,10 @@
       <constructor cname="clutter_behaviour_scale_newx">
         <parameters>
           <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="ClutterFixed" name="x_scale_start" />
-          <parameter type="ClutterFixed" name="y_scale_start" />
-          <parameter type="ClutterFixed" name="x_scale_end" />
-          <parameter type="ClutterFixed" name="y_scale_end" />
+          <parameter type="CoglFixed" name="x_scale_start" />
+          <parameter type="CoglFixed" name="y_scale_start" />
+          <parameter type="CoglFixed" name="x_scale_end" />
+          <parameter type="CoglFixed" name="y_scale_end" />
         </parameters>
       </constructor>
       <method name="SetBounds" cname="clutter_behaviour_scale_set_bounds">
@@ -2319,10 +2532,157 @@
       <method name="SetBoundsx" cname="clutter_behaviour_scale_set_boundsx">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterFixed" name="x_scale_start" />
-          <parameter type="ClutterFixed" name="y_scale_start" />
-          <parameter type="ClutterFixed" name="x_scale_end" />
-          <parameter type="ClutterFixed" name="y_scale_end" />
+          <parameter type="CoglFixed" name="x_scale_start" />
+          <parameter type="CoglFixed" name="y_scale_start" />
+          <parameter type="CoglFixed" name="x_scale_end" />
+          <parameter type="CoglFixed" name="y_scale_end" />
+        </parameters>
+      </method>
+    </object>
+    <object name="BindingPool" cname="ClutterBindingPool" parent="GObject">
+      <property name="" cname="" type="class" />
+      <method name="Activate" cname="clutter_binding_pool_activate">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="guint" name="key_val" />
+          <parameter type="ClutterModifierType" name="modifiers" />
+          <parameter type="GObject*" name="gobject" />
+        </parameters>
+      </method>
+      <method name="BlockAction" cname="clutter_binding_pool_block_action">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="action_name" />
+        </parameters>
+      </method>
+      <method name="Find" cname="clutter_binding_pool_find" shared="true">
+        <return-type type="ClutterBindingPool*" />
+        <parameters>
+          <parameter type="const-gchar*" name="name" />
+        </parameters>
+      </method>
+      <method name="FindAction" cname="clutter_binding_pool_find_action">
+        <return-type type="const-gchar*" />
+        <parameters>
+          <parameter type="guint" name="key_val" />
+          <parameter type="ClutterModifierType" name="modifiers" />
+        </parameters>
+      </method>
+      <method name="GetForClass" cname="clutter_binding_pool_get_for_class" shared="true">
+        <return-type type="ClutterBindingPool*" />
+        <parameters>
+          <parameter type="gpointer" name="klass" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="clutter_binding_pool_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="InstallAction" cname="clutter_binding_pool_install_action">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="action_name" />
+          <parameter type="guint" name="key_val" />
+          <parameter type="ClutterModifierType" name="modifiers" />
+          <parameter type="GCallback" name="callback" />
+          <parameter type="gpointer" name="data" />
+          <parameter type="GDestroyNotify" name="notify" />
+        </parameters>
+      </method>
+      <method name="InstallClosure" cname="clutter_binding_pool_install_closure">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="action_name" />
+          <parameter type="guint" name="key_val" />
+          <parameter type="ClutterModifierType" name="modifiers" />
+          <parameter type="GClosure*" name="closure" />
+        </parameters>
+      </method>
+      <constructor cname="clutter_binding_pool_new">
+        <parameters>
+          <parameter type="const-gchar*" name="name" />
+        </parameters>
+      </constructor>
+      <method name="OverrideAction" cname="clutter_binding_pool_override_action">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="key_val" />
+          <parameter type="ClutterModifierType" name="modifiers" />
+          <parameter type="GCallback" name="callback" />
+          <parameter type="gpointer" name="data" />
+          <parameter type="GDestroyNotify" name="notify" />
+        </parameters>
+      </method>
+      <method name="OverrideClosure" cname="clutter_binding_pool_override_closure">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="key_val" />
+          <parameter type="ClutterModifierType" name="modifiers" />
+          <parameter type="GClosure*" name="closure" />
+        </parameters>
+      </method>
+      <method name="RemoveAction" cname="clutter_binding_pool_remove_action">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="key_val" />
+          <parameter type="ClutterModifierType" name="modifiers" />
+        </parameters>
+      </method>
+      <method name="UnblockAction" cname="clutter_binding_pool_unblock_action">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="action_name" />
+        </parameters>
+      </method>
+    </object>
+    <object name="CairoTexture" cname="ClutterCairoTexture" parent="ClutterTexture">
+      <field name="Priv" cname="priv" type="ClutterCairoTexturePrivate*" />
+      <property name="SurfaceWidth" cname="surface-width" type="guint" readable="true" writeable="true" />
+      <property name="SurfaceHeight" cname="surface-height" type="guint" readable="true" writeable="true" />
+      <virtual_method name="ClutterCairo1" cname="_clutter_cairo_1">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterCairo2" cname="_clutter_cairo_2">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterCairo3" cname="_clutter_cairo_3">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterCairo4" cname="_clutter_cairo_4">
+        <return-type type="void" />
+      </virtual_method>
+      <method name="Create" cname="clutter_cairo_texture_create">
+        <return-type type="cairo_t*" />
+      </method>
+      <method name="CreateRegion" cname="clutter_cairo_texture_create_region">
+        <return-type type="cairo_t*" />
+        <parameters>
+          <parameter type="gint" name="x_offset" />
+          <parameter type="gint" name="y_offset" />
+          <parameter type="gint" name="width" />
+          <parameter type="gint" name="height" />
+        </parameters>
+      </method>
+      <method name="GetSurfaceSize" cname="clutter_cairo_texture_get_surface_size">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint*" name="width" />
+          <parameter type="guint*" name="height" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="clutter_cairo_texture_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="clutter_cairo_texture_new">
+        <parameters>
+          <parameter type="guint" name="width" />
+          <parameter type="guint" name="height" />
+        </parameters>
+      </constructor>
+      <method name="SetSurfaceSize" cname="clutter_cairo_texture_set_surface_size">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="width" />
+          <parameter type="guint" name="height" />
         </parameters>
       </method>
     </object>
@@ -2341,306 +2701,44 @@
         <return-type type="GType" />
       </method>
     </object>
-    <object name="CloneTexture" cname="ClutterCloneTexture" parent="ClutterActor">
-      <field name="Priv" cname="priv" type="ClutterCloneTexturePrivate*" />
-      <property name="ParentTexture" cname="parent-texture" type="ClutterTexture" readable="true" writeable="true" />
-      <property name="RepeatX" cname="repeat-x" type="gboolean" readable="true" writeable="true" />
-      <property name="RepeatY" cname="repeat-y" type="gboolean" readable="true" writeable="true" />
-      <virtual_method name="ClutterClone1" cname="_clutter_clone_1">
+    <object name="Clone" cname="ClutterClone" parent="ClutterActor">
+      <field name="Priv" cname="priv" type="ClutterClonePrivate*" />
+      <property name="" cname="" type="class" />
+      <virtual_method name="ClutterActorClone1" cname="_clutter_actor_clone1">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterClone2" cname="_clutter_clone_2">
+      <virtual_method name="ClutterActorClone2" cname="_clutter_actor_clone2">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterClone3" cname="_clutter_clone_3">
+      <virtual_method name="ClutterActorClone3" cname="_clutter_actor_clone3">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterClone4" cname="_clutter_clone_4">
+      <virtual_method name="ClutterActorClone4" cname="_clutter_actor_clone4">
         <return-type type="void" />
       </virtual_method>
-      <method name="GetParentTexture" cname="clutter_clone_texture_get_parent_texture">
-        <return-type type="ClutterTexture*" />
+      <method name="GetSource" cname="clutter_clone_get_source">
+        <return-type type="ClutterActor*" />
       </method>
-      <method name="GetType" cname="clutter_clone_texture_get_type" shared="true">
+      <method name="GetType" cname="clutter_clone_get_type" shared="true">
         <return-type type="GType" />
       </method>
-      <constructor cname="clutter_clone_texture_new">
+      <constructor cname="clutter_clone_new">
         <parameters>
-          <parameter type="ClutterTexture*" name="texture" />
+          <parameter type="ClutterActor*" name="source" />
         </parameters>
       </constructor>
-      <method name="SetParentTexture" cname="clutter_clone_texture_set_parent_texture">
+      <method name="SetSource" cname="clutter_clone_set_source">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterTexture*" name="texture" />
-        </parameters>
-      </method>
-    </object>
-    <object name="EffectTemplate" cname="ClutterEffectTemplate" parent="GObject">
-      <field name="Priv" cname="priv" type="ClutterEffectTemplatePrivate*" />
-      <property name="Timeline" cname="timeline" type="ClutterTimeline" readable="true" writeable="true" construct-only="true" />
-      <property name="Clone" cname="clone" type="gboolean" readable="true" writeable="true" />
-      <method name="Construct" cname="clutter_effect_template_construct">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterTimeline*" name="timeline" />
-          <parameter type="ClutterAlphaFunc" name="alpha_func" />
-          <parameter type="gpointer" name="user_data" />
-          <parameter type="GDestroyNotify" name="notify" />
-        </parameters>
-      </method>
-      <method name="GetTimelineClone" cname="clutter_effect_template_get_timeline_clone">
-        <return-type type="gboolean" />
-      </method>
-      <method name="GetType" cname="clutter_effect_template_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-      <constructor cname="clutter_effect_template_new">
-        <parameters>
-          <parameter type="ClutterTimeline*" name="timeline" />
-          <parameter type="ClutterAlphaFunc" name="alpha_func" />
-        </parameters>
-      </constructor>
-      <constructor cname="clutter_effect_template_new_for_duration">
-        <parameters>
-          <parameter type="guint" name="msecs" />
-          <parameter type="ClutterAlphaFunc" name="alpha_func" />
-        </parameters>
-      </constructor>
-      <constructor cname="clutter_effect_template_new_full">
-        <parameters>
-          <parameter type="ClutterTimeline*" name="timeline" />
-          <parameter type="ClutterAlphaFunc" name="alpha_func" />
-          <parameter type="gpointer" name="user_data" />
-          <parameter type="GDestroyNotify" name="notify" />
-        </parameters>
-      </constructor>
-      <method name="SetTimelineClone" cname="clutter_effect_template_set_timeline_clone">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="setting" />
-        </parameters>
-      </method>
-    </object>
-    <object name="Entry" cname="ClutterEntry" parent="ClutterActor">
-      <field name="Priv" cname="priv" type="ClutterEntryPrivate*" />
-      <property name="FontName" cname="font-name" type="gchar*" readable="true" writeable="true" />
-      <property name="Text" cname="text" type="gchar*" readable="true" writeable="true" />
-      <property name="Color" cname="color" type="ClutterColor" readable="true" writeable="true" />
-      <property name="Alignment" cname="alignment" type="PangoAlignment" readable="true" writeable="true" />
-      <property name="Position" cname="position" type="gint" readable="true" writeable="true" />
-      <property name="CursorVisible" cname="cursor-visible" type="gboolean" readable="true" writeable="true" />
-      <property name="TextVisible" cname="text-visible" type="gboolean" readable="true" writeable="true" />
-      <property name="MaxLength" cname="max-length" type="gint" readable="true" writeable="true" />
-      <property name="EntryPadding" cname="entry-padding" type="guint" readable="true" writeable="true" />
-      <property name="XAlign" cname="x-align" type="gdouble" readable="true" writeable="true" />
-      <signal name="TextChanged" cname="text-changed" when="LAST" field_name="text_changed">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterEntry*" name="entry" />
-        </parameters>
-      </signal>
-      <signal name="CursorEvent" cname="cursor-event" when="LAST" field_name="cursor_event">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterEntry*" name="entry" />
-          <parameter type="ClutterGeometry*" name="geometry" />
-        </parameters>
-      </signal>
-      <signal name="Activate" cname="activate" when="LAST" field_name="activate">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterEntry*" name="entry" />
-        </parameters>
-      </signal>
-      <virtual_method name="PaintCursor" cname="paint_cursor">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterEntry*" name="entry" />
-        </parameters>
-      </virtual_method>
-      <virtual_method name="ClutterEntry1" cname="_clutter_entry_1">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterEntry2" cname="_clutter_entry_2">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterEntry3" cname="_clutter_entry_3">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterEntry4" cname="_clutter_entry_4">
-        <return-type type="void" />
-      </virtual_method>
-      <method name="DeleteChars" cname="clutter_entry_delete_chars">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="guint" name="len" />
-        </parameters>
-      </method>
-      <method name="DeleteText" cname="clutter_entry_delete_text">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gssize" name="start_pos" />
-          <parameter type="gssize" name="end_pos" />
-        </parameters>
-      </method>
-      <method name="GetAlignment" cname="clutter_entry_get_alignment">
-        <return-type type="PangoAlignment" />
-      </method>
-      <method name="GetColor" cname="clutter_entry_get_color">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterColor*" name="color" />
-        </parameters>
-      </method>
-      <method name="GetCursorPosition" cname="clutter_entry_get_cursor_position">
-        <return-type type="gint" />
-      </method>
-      <method name="GetFontName" cname="clutter_entry_get_font_name">
-        <return-type type="const-gchar*" />
-      </method>
-      <method name="GetInvisibleChar" cname="clutter_entry_get_invisible_char">
-        <return-type type="gunichar" />
-      </method>
-      <method name="GetLayout" cname="clutter_entry_get_layout">
-        <return-type type="PangoLayout*" />
-      </method>
-      <method name="GetMaxLength" cname="clutter_entry_get_max_length">
-        <return-type type="gint" />
-      </method>
-      <method name="GetText" cname="clutter_entry_get_text">
-        <return-type type="const-gchar*" />
-      </method>
-      <method name="GetType" cname="clutter_entry_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-      <method name="GetVisibility" cname="clutter_entry_get_visibility">
-        <return-type type="gboolean" />
-      </method>
-      <method name="GetVisibleCursor" cname="clutter_entry_get_visible_cursor">
-        <return-type type="gboolean" />
-      </method>
-      <method name="HandleKeyEvent" cname="clutter_entry_handle_key_event" deprecated="1">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterKeyEvent*" name="kev" />
-        </parameters>
-      </method>
-      <method name="InsertText" cname="clutter_entry_insert_text">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-gchar*" name="text" />
-          <parameter type="gssize" name="position" />
-        </parameters>
-      </method>
-      <method name="InsertUnichar" cname="clutter_entry_insert_unichar">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gunichar" name="wc" />
-        </parameters>
-      </method>
-      <constructor cname="clutter_entry_new" />
-      <constructor cname="clutter_entry_new_full">
-        <parameters>
-          <parameter type="const-gchar*" name="font_name" />
-          <parameter type="const-gchar*" name="text" />
-          <parameter type="const-ClutterColor*" name="color" />
-        </parameters>
-      </constructor>
-      <constructor cname="clutter_entry_new_with_text">
-        <parameters>
-          <parameter type="const-gchar*" name="font_name" />
-          <parameter type="const-gchar*" name="text" />
-        </parameters>
-      </constructor>
-      <method name="SetAlignment" cname="clutter_entry_set_alignment">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="PangoAlignment" name="alignment" />
-        </parameters>
-      </method>
-      <method name="SetColor" cname="clutter_entry_set_color">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-ClutterColor*" name="color" />
-        </parameters>
-      </method>
-      <method name="SetCursorPosition" cname="clutter_entry_set_cursor_position">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gint" name="position" />
-        </parameters>
-      </method>
-      <method name="SetFontName" cname="clutter_entry_set_font_name">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-gchar*" name="font_name" />
-        </parameters>
-      </method>
-      <method name="SetInvisibleChar" cname="clutter_entry_set_invisible_char">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gunichar" name="wc" />
-        </parameters>
-      </method>
-      <method name="SetMaxLength" cname="clutter_entry_set_max_length">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gint" name="max" />
-        </parameters>
-      </method>
-      <method name="SetText" cname="clutter_entry_set_text">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-gchar*" name="text" />
-        </parameters>
-      </method>
-      <method name="SetVisibility" cname="clutter_entry_set_visibility">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="visible" />
-        </parameters>
-      </method>
-      <method name="SetVisibleCursor" cname="clutter_entry_set_visible_cursor">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="visible" />
+          <parameter type="ClutterActor*" name="source" />
         </parameters>
       </method>
     </object>
     <object name="Group" cname="ClutterGroup" parent="ClutterActor">
       <field name="Priv" cname="priv" type="ClutterGroupPrivate*" />
-      <signal name="Add" cname="add" when="FIRST" field_name="add">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterGroup*" name="group" />
-          <parameter type="ClutterActor*" name="child" />
-        </parameters>
-      </signal>
-      <signal name="Remove" cname="remove" when="FIRST" field_name="remove">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterGroup*" name="group" />
-          <parameter type="ClutterActor*" name="child" />
-        </parameters>
-      </signal>
       <implements>
         <interface cname="ClutterContainer" />
       </implements>
-      <method name="AddMany" cname="clutter_group_add_many" deprecated="1">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="first_actor" />
-          <parameter ellipsis="true" />
-        </parameters>
-      </method>
-      <method name="AddManyValist" cname="clutter_group_add_many_valist" deprecated="1">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="first_actor" />
-          <parameter type="va_list" name="var_args" />
-        </parameters>
-      </method>
       <method name="GetNChildren" cname="clutter_group_get_n_children">
         <return-type type="gint" />
       </method>
@@ -2653,173 +2751,116 @@
       <method name="GetType" cname="clutter_group_get_type" shared="true">
         <return-type type="GType" />
       </method>
-      <method name="Lower" cname="clutter_group_lower" deprecated="1">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterActor*" name="sibling" />
-        </parameters>
-      </method>
       <constructor cname="clutter_group_new" />
-      <method name="Raise" cname="clutter_group_raise" deprecated="1">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterActor*" name="sibling" />
-        </parameters>
-      </method>
-      <method name="Remove" cname="clutter_group_remove" deprecated="1">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </method>
       <method name="RemoveAll" cname="clutter_group_remove_all">
         <return-type type="void" />
       </method>
-      <method name="SortDepthOrder" cname="clutter_group_sort_depth_order" deprecated="1">
-        <return-type type="void" />
-      </method>
     </object>
-    <object name="Label" cname="ClutterLabel" parent="ClutterActor">
-      <field name="Priv" cname="priv" type="ClutterLabelPrivate*" />
-      <property name="FontName" cname="font-name" type="gchar*" readable="true" writeable="true" />
-      <property name="Text" cname="text" type="gchar*" readable="true" writeable="true" />
-      <property name="Color" cname="color" type="ClutterColor" readable="true" writeable="true" />
-      <property name="Attributes" cname="attributes" type="PangoAttrList" readable="true" writeable="true" />
-      <property name="UseMarkup" cname="use-markup" type="gboolean" readable="true" writeable="true" />
-      <property name="Wrap" cname="wrap" type="gboolean" readable="true" writeable="true" />
-      <property name="WrapMode" cname="wrap-mode" type="PangoWrapMode" readable="true" writeable="true" />
-      <property name="Ellipsize" cname="ellipsize" type="PangoEllipsizeMode" readable="true" writeable="true" />
-      <property name="Alignment" cname="alignment" type="PangoAlignment" readable="true" writeable="true" />
-      <property name="Justify" cname="justify" type="gboolean" readable="true" writeable="true" />
-      <virtual_method name="ClutterLabel1" cname="_clutter_label_1">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterLabel2" cname="_clutter_label_2">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterLabel3" cname="_clutter_label_3">
-        <return-type type="void" />
-      </virtual_method>
-      <virtual_method name="ClutterLabel4" cname="_clutter_label_4">
-        <return-type type="void" />
-      </virtual_method>
-      <method name="GetAlignment" cname="clutter_label_get_alignment">
-        <return-type type="PangoAlignment" />
-      </method>
-      <method name="GetAttributes" cname="clutter_label_get_attributes">
-        <return-type type="PangoAttrList*" />
-      </method>
-      <method name="GetColor" cname="clutter_label_get_color">
-        <return-type type="void" />
+    <object name="Interval" cname="ClutterInterval" parent="GInitiallyUnowned">
+      <field name="Priv" cname="priv" type="ClutterIntervalPrivate*" />
+      <property name="" cname="" type="class" />
+      <virtual_method name="Validate" cname="validate">
+        <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterColor*" name="color" />
+          <parameter type="ClutterInterval*" name="interval" />
+          <parameter type="GParamSpec*" name="pspec" />
+        </parameters>
+      </virtual_method>
+      <virtual_method name="ComputeValue" cname="compute_value">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterInterval*" name="interval" />
+          <parameter type="gdouble" name="factor" />
+          <parameter type="GValue*" name="value" />
+        </parameters>
+      </virtual_method>
+      <method name="Clone" cname="clutter_interval_clone">
+        <return-type type="ClutterInterval*" />
+      </method>
+      <method name="ComputeValue" cname="clutter_interval_compute_value">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gdouble" name="factor" />
+          <parameter type="GValue*" name="value" />
         </parameters>
       </method>
-      <method name="GetEllipsize" cname="clutter_label_get_ellipsize">
-        <return-type type="PangoEllipsizeMode" />
+      <method name="GetFinalValue" cname="clutter_interval_get_final_value">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GValue*" name="value" />
+        </parameters>
       </method>
-      <method name="GetFontName" cname="clutter_label_get_font_name">
-        <return-type type="const-gchar*" />
+      <method name="GetInitialValue" cname="clutter_interval_get_initial_value">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GValue*" name="value" />
+        </parameters>
       </method>
-      <method name="GetJustify" cname="clutter_label_get_justify">
-        <return-type type="gboolean" />
+      <method name="GetInterval" cname="clutter_interval_get_interval">
+        <return-type type="void" />
+        <parameters>
+          <parameter ellipsis="true" />
+        </parameters>
       </method>
-      <method name="GetLayout" cname="clutter_label_get_layout">
-        <return-type type="PangoLayout*" />
-      </method>
-      <method name="GetLineWrap" cname="clutter_label_get_line_wrap">
-        <return-type type="gboolean" />
-      </method>
-      <method name="GetLineWrapMode" cname="clutter_label_get_line_wrap_mode">
-        <return-type type="PangoWrapMode" />
-      </method>
-      <method name="GetText" cname="clutter_label_get_text">
-        <return-type type="const-gchar*" />
-      </method>
-      <method name="GetType" cname="clutter_label_get_type" shared="true">
+      <method name="GetType" cname="clutter_interval_get_type" shared="true">
         <return-type type="GType" />
       </method>
-      <method name="GetUseMarkup" cname="clutter_label_get_use_markup">
+      <method name="GetValueType" cname="clutter_interval_get_value_type">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="clutter_interval_new">
+        <parameters>
+          <parameter type="GType" name="gtype" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </constructor>
+      <constructor cname="clutter_interval_new_with_values">
+        <parameters>
+          <parameter type="GType" name="gtype" />
+          <parameter type="const-GValue*" name="initial" />
+          <parameter type="const-GValue*" name="final" />
+        </parameters>
+      </constructor>
+      <method name="PeekFinalValue" cname="clutter_interval_peek_final_value">
+        <return-type type="GValue*" />
+      </method>
+      <method name="PeekInitialValue" cname="clutter_interval_peek_initial_value">
+        <return-type type="GValue*" />
+      </method>
+      <method name="RegisterProgressFunc" cname="clutter_interval_register_progress_func" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GType" name="value_type" />
+          <parameter type="ClutterProgressFunc" name="func" />
+        </parameters>
+      </method>
+      <method name="SetFinalValue" cname="clutter_interval_set_final_value">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-GValue*" name="value" />
+        </parameters>
+      </method>
+      <method name="SetInitialValue" cname="clutter_interval_set_initial_value">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-GValue*" name="value" />
+        </parameters>
+      </method>
+      <method name="SetInterval" cname="clutter_interval_set_interval">
+        <return-type type="void" />
+        <parameters>
+          <parameter ellipsis="true" />
+        </parameters>
+      </method>
+      <method name="Validate" cname="clutter_interval_validate">
         <return-type type="gboolean" />
-      </method>
-      <constructor cname="clutter_label_new" />
-      <constructor cname="clutter_label_new_full">
         <parameters>
-          <parameter type="const-gchar*" name="font_name" />
-          <parameter type="const-gchar*" name="text" />
-          <parameter type="const-ClutterColor*" name="color" />
-        </parameters>
-      </constructor>
-      <constructor cname="clutter_label_new_with_text">
-        <parameters>
-          <parameter type="const-gchar*" name="font_name" />
-          <parameter type="const-gchar*" name="text" />
-        </parameters>
-      </constructor>
-      <method name="SetAlignment" cname="clutter_label_set_alignment">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="PangoAlignment" name="alignment" />
-        </parameters>
-      </method>
-      <method name="SetAttributes" cname="clutter_label_set_attributes">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="PangoAttrList*" name="attrs" />
-        </parameters>
-      </method>
-      <method name="SetColor" cname="clutter_label_set_color">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-ClutterColor*" name="color" />
-        </parameters>
-      </method>
-      <method name="SetEllipsize" cname="clutter_label_set_ellipsize">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="PangoEllipsizeMode" name="mode" />
-        </parameters>
-      </method>
-      <method name="SetFontName" cname="clutter_label_set_font_name">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-gchar*" name="font_name" />
-        </parameters>
-      </method>
-      <method name="SetJustify" cname="clutter_label_set_justify">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="justify" />
-        </parameters>
-      </method>
-      <method name="SetLineWrap" cname="clutter_label_set_line_wrap">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="wrap" />
-        </parameters>
-      </method>
-      <method name="SetLineWrapMode" cname="clutter_label_set_line_wrap_mode">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="PangoWrapMode" name="wrap_mode" />
-        </parameters>
-      </method>
-      <method name="SetText" cname="clutter_label_set_text">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="const-gchar*" name="text" />
-        </parameters>
-      </method>
-      <method name="SetUseMarkup" cname="clutter_label_set_use_markup">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="setting" />
+          <parameter type="GParamSpec*" name="pspec" />
         </parameters>
       </method>
     </object>
     <object name="ListModel" cname="ClutterListModel" parent="ClutterModel">
+      <field name="Priv" cname="priv" type="ClutterListModelPrivate*" />
       <method name="GetType" cname="clutter_list_model_get_type" shared="true">
         <return-type type="GType" />
       </method>
@@ -2839,6 +2880,7 @@
     </object>
     <object name="Model" cname="ClutterModel" parent="GObject">
       <field name="Priv" cname="priv" type="ClutterModelPrivate*" />
+      <property name="" cname="" type="class" />
       <signal name="RowAdded" cname="row-added" when="LAST" field_name="row_added">
         <return-type type="void" />
         <parameters>
@@ -2977,6 +3019,9 @@
           <parameter type="guint" name="column" />
         </parameters>
       </method>
+      <method name="GetFilterSet" cname="clutter_model_get_filter_set">
+        <return-type type="gboolean" />
+      </method>
       <method name="GetFirstIter" cname="clutter_model_get_first_iter">
         <return-type type="ClutterModelIter*" />
       </method>
@@ -3088,8 +3133,8 @@
     </object>
     <object name="ModelIter" cname="ClutterModelIter" parent="GObject">
       <field name="Priv" cname="priv" type="ClutterModelIterPrivate*" />
-      <property name="Model" cname="model" type="ClutterModel" readable="true" writeable="true" />
-      <property name="Row" cname="row" type="guint" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
       <virtual_method name="GetValue" cname="get_value">
         <return-type type="void" />
         <parameters>
@@ -3227,19 +3272,172 @@
       <field name="DefaultValue" cname="default_value" type="ClutterColor*" access="public" />
     </object>
     <object name="ParamSpecFixed" cname="ClutterParamSpecFixed" parent="GParamSpec">
-      <field name="Minimum" cname="minimum" type="ClutterFixed" access="public" />
-      <field name="Maximum" cname="maximum" type="ClutterFixed" access="public" />
-      <field name="DefaultValue" cname="default_value" type="ClutterFixed" access="public" />
+      <field name="Minimum" cname="minimum" type="CoglFixed" access="public" />
+      <field name="Maximum" cname="maximum" type="CoglFixed" access="public" />
+      <field name="DefaultValue" cname="default_value" type="CoglFixed" access="public" />
     </object>
     <object name="ParamSpecUnit" cname="ClutterParamSpecUnit" parent="GParamSpec">
       <field name="Minimum" cname="minimum" type="ClutterUnit" access="public" />
       <field name="Maximum" cname="maximum" type="ClutterUnit" access="public" />
       <field name="DefaultValue" cname="default_value" type="ClutterUnit" access="public" />
     </object>
+    <object name="Path" cname="ClutterPath" parent="GInitiallyUnowned">
+      <field name="Priv" cname="priv" type="ClutterPathPrivate*" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <method name="AddCairoPath" cname="clutter_path_add_cairo_path">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-cairo_path_t*" name="cpath" />
+        </parameters>
+      </method>
+      <method name="AddClose" cname="clutter_path_add_close">
+        <return-type type="void" />
+      </method>
+      <method name="AddCurveTo" cname="clutter_path_add_curve_to">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="x_1" />
+          <parameter type="gint" name="y_1" />
+          <parameter type="gint" name="x_2" />
+          <parameter type="gint" name="y_2" />
+          <parameter type="gint" name="x_3" />
+          <parameter type="gint" name="y_3" />
+        </parameters>
+      </method>
+      <method name="AddLineTo" cname="clutter_path_add_line_to">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="x" />
+          <parameter type="gint" name="y" />
+        </parameters>
+      </method>
+      <method name="AddMoveTo" cname="clutter_path_add_move_to">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="x" />
+          <parameter type="gint" name="y" />
+        </parameters>
+      </method>
+      <method name="AddNode" cname="clutter_path_add_node">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-ClutterPathNode*" name="node" />
+        </parameters>
+      </method>
+      <method name="AddRelCurveTo" cname="clutter_path_add_rel_curve_to">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="x_1" />
+          <parameter type="gint" name="y_1" />
+          <parameter type="gint" name="x_2" />
+          <parameter type="gint" name="y_2" />
+          <parameter type="gint" name="x_3" />
+          <parameter type="gint" name="y_3" />
+        </parameters>
+      </method>
+      <method name="AddRelLineTo" cname="clutter_path_add_rel_line_to">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="x" />
+          <parameter type="gint" name="y" />
+        </parameters>
+      </method>
+      <method name="AddRelMoveTo" cname="clutter_path_add_rel_move_to">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="x" />
+          <parameter type="gint" name="y" />
+        </parameters>
+      </method>
+      <method name="AddString" cname="clutter_path_add_string">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="str" />
+        </parameters>
+      </method>
+      <method name="Clear" cname="clutter_path_clear">
+        <return-type type="void" />
+      </method>
+      <method name="Foreach" cname="clutter_path_foreach">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterPathCallback" name="callback" />
+          <parameter type="gpointer" name="user_data" />
+        </parameters>
+      </method>
+      <method name="GetDescription" cname="clutter_path_get_description">
+        <return-type type="gchar*" />
+      </method>
+      <method name="GetLength" cname="clutter_path_get_length">
+        <return-type type="guint" />
+      </method>
+      <method name="GetNNodes" cname="clutter_path_get_n_nodes">
+        <return-type type="guint" />
+      </method>
+      <method name="GetNode" cname="clutter_path_get_node">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="index_" />
+          <parameter type="ClutterPathNode*" name="node" />
+        </parameters>
+      </method>
+      <method name="GetNodes" cname="clutter_path_get_nodes">
+        <return-type type="GSList*" />
+      </method>
+      <method name="GetPosition" cname="clutter_path_get_position">
+        <return-type type="guint" />
+        <parameters>
+          <parameter type="gdouble" name="progress" />
+          <parameter type="ClutterKnot*" name="position" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="clutter_path_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="InsertNode" cname="clutter_path_insert_node">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="index_" />
+          <parameter type="const-ClutterPathNode*" name="node" />
+        </parameters>
+      </method>
+      <constructor cname="clutter_path_new" />
+      <constructor cname="clutter_path_new_with_description">
+        <parameters>
+          <parameter type="const-gchar*" name="desc" />
+        </parameters>
+      </constructor>
+      <method name="RemoveNode" cname="clutter_path_remove_node">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="index_" />
+        </parameters>
+      </method>
+      <method name="ReplaceNode" cname="clutter_path_replace_node">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="index_" />
+          <parameter type="const-ClutterPathNode*" name="node" />
+        </parameters>
+      </method>
+      <method name="SetDescription" cname="clutter_path_set_description">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="str" />
+        </parameters>
+      </method>
+      <method name="ToCairoPath" cname="clutter_path_to_cairo_path">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="cairo_t*" name="cr" />
+        </parameters>
+      </method>
+    </object>
     <object name="Rectangle" cname="ClutterRectangle" parent="ClutterActor">
       <field name="Priv" cname="priv" type="ClutterRectanglePrivate*" />
-      <property name="Color" cname="color" type="ClutterColor" readable="true" writeable="true" />
-      <property name="BorderColor" cname="border-color" type="ClutterColor" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
       <property name="BorderWidth" cname="border-width" type="guint" readable="true" writeable="true" />
       <property name="HasBorder" cname="has-border" type="gboolean" readable="true" writeable="true" />
       <virtual_method name="ClutterRectangle1" cname="_clutter_rectangle1">
@@ -3502,10 +3700,10 @@
     </object>
     <object name="Shader" cname="ClutterShader" parent="GObject">
       <field name="Priv" cname="priv" type="ClutterShaderPrivate*" />
-      <property name="VertexSource" cname="vertex-source" type="gchar*" readable="true" writeable="true" />
-      <property name="FragmentSource" cname="fragment-source" type="gchar*" readable="true" writeable="true" />
-      <property name="Compiled" cname="compiled" type="gboolean" readable="true" />
-      <property name="Enabled" cname="enabled" type="gboolean" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
       <method name="Compile" cname="clutter_shader_compile">
         <return-type type="gboolean" />
         <parameters>
@@ -3514,6 +3712,15 @@
       </method>
       <method name="ErrorQuark" cname="clutter_shader_error_quark" shared="true">
         <return-type type="GQuark" />
+      </method>
+      <method name="GetCoglFragmentShader" cname="clutter_shader_get_cogl_fragment_shader">
+        <return-type type="CoglHandle" />
+      </method>
+      <method name="GetCoglProgram" cname="clutter_shader_get_cogl_program">
+        <return-type type="CoglHandle" />
+      </method>
+      <method name="GetCoglVertexShader" cname="clutter_shader_get_cogl_vertex_shader">
+        <return-type type="CoglHandle" />
       </method>
       <method name="GetFragmentSource" cname="clutter_shader_get_fragment_source">
         <return-type type="const-gchar*" />
@@ -3547,11 +3754,11 @@
           <parameter type="gboolean" name="enabled" />
         </parameters>
       </method>
-      <method name="SetUniform1f" cname="clutter_shader_set_uniform_1f">
+      <method name="SetUniform" cname="clutter_shader_set_uniform">
         <return-type type="void" />
         <parameters>
           <parameter type="const-gchar*" name="name" />
-          <parameter type="gfloat" name="value" />
+          <parameter type="const-GValue*" name="value" />
         </parameters>
       </method>
       <method name="SetVertexSource" cname="clutter_shader_set_vertex_source">
@@ -3568,10 +3775,11 @@
       <property name="Offscreen" cname="offscreen" type="gboolean" readable="true" writeable="true" construct="true" />
       <property name="CursorVisible" cname="cursor-visible" type="gboolean" readable="true" writeable="true" construct="true" />
       <property name="UserResizable" cname="user-resizable" type="gboolean" readable="true" writeable="true" construct="true" />
-      <property name="Color" cname="color" type="ClutterColor" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
       <property name="Perspective" cname="perspective" type="ClutterPerspective" readable="true" writeable="true" />
       <property name="Title" cname="title" type="gchar*" readable="true" writeable="true" />
       <property name="UseFog" cname="use-fog" type="gboolean" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
       <signal name="Fullscreen" cname="fullscreen" when="FIRST" field_name="fullscreen">
         <return-type type="void" />
         <parameters>
@@ -3597,6 +3805,9 @@
         </parameters>
       </signal>
       <method name="EnsureCurrent" cname="clutter_stage_ensure_current">
+        <return-type type="void" />
+      </method>
+      <method name="EnsureViewport" cname="clutter_stage_ensure_viewport">
         <return-type type="void" />
       </method>
       <method name="Event" cname="clutter_stage_event">
@@ -3627,14 +3838,6 @@
       <method name="GetFog" cname="clutter_stage_get_fog">
         <return-type type="void" />
         <parameters>
-          <parameter type="gdouble*" name="density" />
-          <parameter type="gdouble*" name="z_near" />
-          <parameter type="gdouble*" name="z_far" />
-        </parameters>
-      </method>
-      <method name="GetFogx" cname="clutter_stage_get_fogx">
-        <return-type type="void" />
-        <parameters>
           <parameter type="ClutterFog*" name="fog" />
         </parameters>
       </method>
@@ -3644,23 +3847,8 @@
       <method name="GetPerspective" cname="clutter_stage_get_perspective">
         <return-type type="void" />
         <parameters>
-          <parameter type="gfloat*" name="fovy" />
-          <parameter type="gfloat*" name="aspect" />
-          <parameter type="gfloat*" name="z_near" />
-          <parameter type="gfloat*" name="z_far" />
-        </parameters>
-      </method>
-      <method name="GetPerspectivex" cname="clutter_stage_get_perspectivex">
-        <return-type type="void" />
-        <parameters>
           <parameter type="ClutterPerspective*" name="perspective" />
         </parameters>
-      </method>
-      <method name="GetResolution" cname="clutter_stage_get_resolution">
-        <return-type type="gdouble" />
-      </method>
-      <method name="GetResolutionx" cname="clutter_stage_get_resolutionx">
-        <return-type type="ClutterFixed" />
       </method>
       <method name="GetTitle" cname="clutter_stage_get_title">
         <return-type type="const-gchar*" />
@@ -3702,14 +3890,6 @@
       <method name="SetFog" cname="clutter_stage_set_fog">
         <return-type type="void" />
         <parameters>
-          <parameter type="gdouble" name="density" />
-          <parameter type="gdouble" name="z_near" />
-          <parameter type="gdouble" name="z_far" />
-        </parameters>
-      </method>
-      <method name="SetFogx" cname="clutter_stage_set_fogx">
-        <return-type type="void" />
-        <parameters>
           <parameter type="ClutterFog*" name="fog" />
         </parameters>
       </method>
@@ -3720,15 +3900,6 @@
         </parameters>
       </method>
       <method name="SetPerspective" cname="clutter_stage_set_perspective">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gfloat" name="fovy" />
-          <parameter type="gfloat" name="aspect" />
-          <parameter type="gfloat" name="z_near" />
-          <parameter type="gfloat" name="z_far" />
-        </parameters>
-      </method>
-      <method name="SetPerspectivex" cname="clutter_stage_set_perspectivex">
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterPerspective*" name="perspective" />
@@ -3794,6 +3965,331 @@
         </parameters>
       </method>
     </object>
+    <object name="Text" cname="ClutterText" parent="ClutterActor">
+      <field name="Priv" cname="priv" type="ClutterTextPrivate*" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <signal name="TextChanged" cname="text-changed" when="LAST" field_name="text_changed">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterText*" name="self" />
+        </parameters>
+      </signal>
+      <signal name="CursorEvent" cname="cursor-event" when="LAST" field_name="cursor_event">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterText*" name="self" />
+          <parameter type="const-ClutterGeometry*" name="geometry" />
+        </parameters>
+      </signal>
+      <signal name="Activate" cname="activate" when="LAST" field_name="activate">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterText*" name="self" />
+        </parameters>
+      </signal>
+      <method name="Activate" cname="clutter_text_activate">
+        <return-type type="gboolean" />
+      </method>
+      <method name="DeleteChars" cname="clutter_text_delete_chars">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="n_chars" />
+        </parameters>
+      </method>
+      <method name="DeleteText" cname="clutter_text_delete_text">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gssize" name="start_pos" />
+          <parameter type="gssize" name="end_pos" />
+        </parameters>
+      </method>
+      <method name="GetActivatable" cname="clutter_text_get_activatable">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetAttributes" cname="clutter_text_get_attributes">
+        <return-type type="PangoAttrList*" />
+      </method>
+      <method name="GetChars" cname="clutter_text_get_chars">
+        <return-type type="gchar*" />
+        <parameters>
+          <parameter type="gssize" name="start_pos" />
+          <parameter type="gssize" name="end_pos" />
+        </parameters>
+      </method>
+      <method name="GetColor" cname="clutter_text_get_color">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="GetCursorColor" cname="clutter_text_get_cursor_color">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="GetCursorPosition" cname="clutter_text_get_cursor_position">
+        <return-type type="gint" />
+      </method>
+      <method name="GetCursorSize" cname="clutter_text_get_cursor_size">
+        <return-type type="guint" />
+      </method>
+      <method name="GetCursorVisible" cname="clutter_text_get_cursor_visible">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetEditable" cname="clutter_text_get_editable">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetEllipsize" cname="clutter_text_get_ellipsize">
+        <return-type type="PangoEllipsizeMode" />
+      </method>
+      <method name="GetFontName" cname="clutter_text_get_font_name">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetJustify" cname="clutter_text_get_justify">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetLayout" cname="clutter_text_get_layout">
+        <return-type type="PangoLayout*" />
+      </method>
+      <method name="GetLineAlignment" cname="clutter_text_get_line_alignment">
+        <return-type type="PangoAlignment" />
+      </method>
+      <method name="GetLineWrap" cname="clutter_text_get_line_wrap">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetLineWrapMode" cname="clutter_text_get_line_wrap_mode">
+        <return-type type="PangoWrapMode" />
+      </method>
+      <method name="GetMaxLength" cname="clutter_text_get_max_length">
+        <return-type type="gint" />
+      </method>
+      <method name="GetPasswordChar" cname="clutter_text_get_password_char">
+        <return-type type="gunichar" />
+      </method>
+      <method name="GetSelectable" cname="clutter_text_get_selectable">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetSelection" cname="clutter_text_get_selection">
+        <return-type type="gchar*" />
+      </method>
+      <method name="GetSelectionBound" cname="clutter_text_get_selection_bound">
+        <return-type type="gint" />
+      </method>
+      <method name="GetSelectionColor" cname="clutter_text_get_selection_color">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="GetSingleLineMode" cname="clutter_text_get_single_line_mode">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetText" cname="clutter_text_get_text">
+        <return-type type="const-gchar*" />
+      </method>
+      <method name="GetType" cname="clutter_text_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetUseMarkup" cname="clutter_text_get_use_markup">
+        <return-type type="gboolean" />
+      </method>
+      <method name="InsertText" cname="clutter_text_insert_text">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="text" />
+          <parameter type="gssize" name="position" />
+        </parameters>
+      </method>
+      <method name="InsertUnichar" cname="clutter_text_insert_unichar">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gunichar" name="wc" />
+        </parameters>
+      </method>
+      <constructor cname="clutter_text_new" />
+      <constructor cname="clutter_text_new_full">
+        <parameters>
+          <parameter type="const-gchar*" name="font_name" />
+          <parameter type="const-gchar*" name="text" />
+          <parameter type="const-ClutterColor*" name="color" />
+        </parameters>
+      </constructor>
+      <constructor cname="clutter_text_new_with_text">
+        <parameters>
+          <parameter type="const-gchar*" name="font_name" />
+          <parameter type="const-gchar*" name="text" />
+        </parameters>
+      </constructor>
+      <method name="SetActivatable" cname="clutter_text_set_activatable">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="activatable" />
+        </parameters>
+      </method>
+      <method name="SetAttributes" cname="clutter_text_set_attributes">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="PangoAttrList*" name="attrs" />
+        </parameters>
+      </method>
+      <method name="SetColor" cname="clutter_text_set_color">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-ClutterColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="SetCursorColor" cname="clutter_text_set_cursor_color">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-ClutterColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="SetCursorPosition" cname="clutter_text_set_cursor_position">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="position" />
+        </parameters>
+      </method>
+      <method name="SetCursorSize" cname="clutter_text_set_cursor_size">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="size" />
+        </parameters>
+      </method>
+      <method name="SetCursorVisible" cname="clutter_text_set_cursor_visible">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="cursor_visible" />
+        </parameters>
+      </method>
+      <method name="SetEditable" cname="clutter_text_set_editable">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="editable" />
+        </parameters>
+      </method>
+      <method name="SetEllipsize" cname="clutter_text_set_ellipsize">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="PangoEllipsizeMode" name="mode" />
+        </parameters>
+      </method>
+      <method name="SetFontName" cname="clutter_text_set_font_name">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="font_name" />
+        </parameters>
+      </method>
+      <method name="SetJustify" cname="clutter_text_set_justify">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="justify" />
+        </parameters>
+      </method>
+      <method name="SetLineAlignment" cname="clutter_text_set_line_alignment">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="PangoAlignment" name="alignment" />
+        </parameters>
+      </method>
+      <method name="SetLineWrap" cname="clutter_text_set_line_wrap">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="line_wrap" />
+        </parameters>
+      </method>
+      <method name="SetLineWrapMode" cname="clutter_text_set_line_wrap_mode">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="PangoWrapMode" name="wrap_mode" />
+        </parameters>
+      </method>
+      <method name="SetMarkup" cname="clutter_text_set_markup">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="markup" />
+        </parameters>
+      </method>
+      <method name="SetMaxLength" cname="clutter_text_set_max_length">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="max" />
+        </parameters>
+      </method>
+      <method name="SetPasswordChar" cname="clutter_text_set_password_char">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gunichar" name="wc" />
+        </parameters>
+      </method>
+      <method name="SetSelectable" cname="clutter_text_set_selectable">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="selectable" />
+        </parameters>
+      </method>
+      <method name="SetSelection" cname="clutter_text_set_selection">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gssize" name="start_pos" />
+          <parameter type="gssize" name="end_pos" />
+        </parameters>
+      </method>
+      <method name="SetSelectionBound" cname="clutter_text_set_selection_bound">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint" name="selection_bound" />
+        </parameters>
+      </method>
+      <method name="SetSelectionColor" cname="clutter_text_set_selection_color">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-ClutterColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="SetSingleLineMode" cname="clutter_text_set_single_line_mode">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="single_line" />
+        </parameters>
+      </method>
+      <method name="SetText" cname="clutter_text_set_text">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gchar*" name="text" />
+        </parameters>
+      </method>
+      <method name="SetUseMarkup" cname="clutter_text_set_use_markup">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="setting" />
+        </parameters>
+      </method>
+    </object>
     <object name="Texture" cname="ClutterTexture" parent="ClutterActor">
       <field name="Priv" cname="priv" type="ClutterTexturePrivate*" />
       <property name="SyncSize" cname="sync-size" type="gboolean" readable="true" writeable="true" />
@@ -3803,9 +4299,12 @@
       <property name="FilterQuality" cname="filter-quality" type="ClutterTextureQuality" readable="true" writeable="true" construct="true" />
       <property name="TileWaste" cname="tile-waste" type="gint" readable="true" writeable="true" construct-only="true" />
       <property name="PixelFormat" cname="pixel-format" type="gint" readable="true" />
-      <property name="CoglTexture" cname="cogl-texture" type="ClutterTextureHandle" readable="true" writeable="true" />
+      <property name="CoglTexture" cname="cogl-texture" type="CoglHandle" readable="true" writeable="true" />
+      <property name="CoglMaterial" cname="cogl-material" type="CoglHandle" readable="true" writeable="true" />
       <property name="Filename" cname="filename" type="gchar*" writeable="true" />
       <property name="KeepAspectRatio" cname="keep-aspect-ratio" type="gboolean" readable="true" writeable="true" />
+      <property name="LoadAsync" cname="load-async" type="gboolean" writeable="true" construct="true" />
+      <property name="LoadDataAsync" cname="load-data-async" type="gboolean" writeable="true" construct="true" />
       <signal name="SizeChange" cname="size-change" when="LAST" field_name="size_change">
         <return-type type="void" />
         <parameters>
@@ -3818,6 +4317,13 @@
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTexture*" name="texture" />
+        </parameters>
+      </signal>
+      <signal name="LoadFinished" cname="load-finished" when="LAST" manual="true" field_name="load_finished">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterTexture*" name="texture" />
+          <parameter type="GError*" name="error" />
         </parameters>
       </signal>
       <virtual_method name="ClutterTexture1" cname="_clutter_texture1">
@@ -3835,9 +4341,6 @@
       <virtual_method name="ClutterTexture5" cname="_clutter_texture5">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterTexture6" cname="_clutter_texture6">
-        <return-type type="void" />
-      </virtual_method>
       <implements>
         <interface cname="ClutterScriptable" />
       </implements>
@@ -3851,6 +4354,9 @@
           <parameter type="gint*" name="height" />
         </parameters>
       </method>
+      <method name="GetCoglMaterial" cname="clutter_texture_get_cogl_material">
+        <return-type type="CoglHandle" />
+      </method>
       <method name="GetCoglTexture" cname="clutter_texture_get_cogl_texture">
         <return-type type="CoglHandle" />
       </method>
@@ -3861,9 +4367,6 @@
         <return-type type="gint" />
       </method>
       <method name="GetType" cname="clutter_texture_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
-      <method name="HandleGetType" cname="clutter_texture_handle_get_type" shared="true">
         <return-type type="GType" />
       </method>
       <constructor cname="clutter_texture_new" />
@@ -3891,6 +4394,12 @@
           <parameter type="gint" name="bpp" />
           <parameter type="ClutterTextureFlags" name="flags" />
           <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="SetCoglMaterial" cname="clutter_texture_set_cogl_material">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="cogl_material" />
         </parameters>
       </method>
       <method name="SetCoglTexture" cname="clutter_texture_set_cogl_texture">
@@ -3944,12 +4453,12 @@
     </object>
     <object name="Timeline" cname="ClutterTimeline" parent="GObject">
       <field name="Priv" cname="priv" type="ClutterTimelinePrivate*" />
-      <property name="Fps" cname="fps" type="guint" readable="true" writeable="true" />
-      <property name="NumFrames" cname="num-frames" type="guint" readable="true" writeable="true" />
-      <property name="Loop" cname="loop" type="gboolean" readable="true" writeable="true" />
-      <property name="Delay" cname="delay" type="guint" readable="true" writeable="true" />
-      <property name="Duration" cname="duration" type="guint" readable="true" writeable="true" />
-      <property name="Direction" cname="direction" type="ClutterTimelineDirection" readable="true" writeable="true" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
+      <property name="" cname="" type="class" />
       <signal name="NewFrame" cname="new-frame" when="LAST" field_name="new_frame">
         <return-type type="void" />
         <parameters>
@@ -4055,7 +4564,7 @@
         <return-type type="gdouble" />
       </method>
       <method name="GetProgressx" cname="clutter_timeline_get_progressx">
-        <return-type type="ClutterFixed" />
+        <return-type type="CoglFixed" />
       </method>
       <method name="GetSpeed" cname="clutter_timeline_get_speed">
         <return-type type="guint" />
@@ -4167,7 +4676,6 @@
         <return-type type="GType" />
       </method>
     </boxed>
-    <alias name="Angle" cname="ClutterAngle" type="gint32" />
     <struct name="AnyEvent" cname="ClutterAnyEvent">
       <field name="Type" cname="type" type="ClutterEventType" />
       <field name="Time" cname="time" type="guint32" />
@@ -4175,6 +4683,7 @@
       <field name="Stage" cname="stage" type="ClutterStage*" />
       <field name="Source" cname="source" type="ClutterActor*" />
     </struct>
+    <struct name="Bezier" cname="ClutterBezier" opaque="true" />
     <struct name="ButtonEvent" cname="ClutterButtonEvent">
       <field name="Type" cname="type" type="ClutterEventType" />
       <field name="Time" cname="time" type="guint32" />
@@ -4192,16 +4701,16 @@
         <return-type type="guint32" />
       </method>
     </struct>
-    <boxed name="Color" cname="ClutterColor">
-      <field name="Red" cname="red" type="guint8" />
-      <field name="Green" cname="green" type="guint8" />
-      <field name="Blue" cname="blue" type="guint8" />
-      <field name="Alpha" cname="alpha" type="guint8" />
+    <boxed name="Color" cname="ClutterColor" opaque="true">
+      <field name="Red" cname="red" type="guint8" access="public" writeable="true" />
+      <field name="Green" cname="green" type="guint8" access="public" writeable="true" />
+      <field name="Blue" cname="blue" type="guint8" access="public" writeable="true" />
+      <field name="Alpha" cname="alpha" type="guint8" access="public" writeable="true" />
       <method name="Add" cname="clutter_color_add">
         <return-type type="void" />
         <parameters>
-          <parameter type="const-ClutterColor*" name="src2" />
-          <parameter type="ClutterColor*" name="dest" />
+          <parameter type="const-ClutterColor*" name="b" />
+          <parameter type="ClutterColor*" name="result" />
         </parameters>
       </method>
       <method name="Copy" cname="clutter_color_copy">
@@ -4210,13 +4719,14 @@
       <method name="Darken" cname="clutter_color_darken">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterColor*" name="dest" />
+          <parameter type="ClutterColor*" name="result" />
         </parameters>
       </method>
-      <method name="Equal" cname="clutter_color_equal">
+      <method name="Equal" cname="clutter_color_equal" shared="true">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="const-ClutterColor*" name="b" />
+          <parameter type="gconstpointer" name="v1" />
+          <parameter type="gconstpointer" name="v2" />
         </parameters>
       </method>
       <method name="Free" cname="clutter_color_free">
@@ -4225,17 +4735,9 @@
       <method name="FromHls" cname="clutter_color_from_hls">
         <return-type type="void" />
         <parameters>
-          <parameter type="guint8" name="hue" />
-          <parameter type="guint8" name="luminance" />
-          <parameter type="guint8" name="saturation" />
-        </parameters>
-      </method>
-      <method name="FromHlsx" cname="clutter_color_from_hlsx">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterFixed" name="hue" />
-          <parameter type="ClutterFixed" name="luminance" />
-          <parameter type="ClutterFixed" name="saturation" />
+          <parameter type="gfloat" name="hue" />
+          <parameter type="gfloat" name="luminance" />
+          <parameter type="gfloat" name="saturation" />
         </parameters>
       </method>
       <method name="FromPixel" cname="clutter_color_from_pixel">
@@ -4244,57 +4746,55 @@
           <parameter type="guint32" name="pixel" />
         </parameters>
       </method>
+      <method name="FromString" cname="clutter_color_from_string">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="str" />
+        </parameters>
+      </method>
       <method name="GetType" cname="clutter_color_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+      <method name="Hash" cname="clutter_color_hash" shared="true">
+        <return-type type="guint" />
+        <parameters>
+          <parameter type="gconstpointer" name="v" />
+        </parameters>
       </method>
       <method name="Lighten" cname="clutter_color_lighten">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterColor*" name="dest" />
+          <parameter type="ClutterColor*" name="result" />
         </parameters>
       </method>
-      <method name="Parse" cname="clutter_color_parse" shared="true">
-        <return-type type="gboolean" />
+      <constructor cname="clutter_color_new">
         <parameters>
-          <parameter type="const-gchar*" name="color" />
-          <parameter type="ClutterColor*" name="dest" />
+          <parameter type="guint8" name="red" />
+          <parameter type="guint8" name="green" />
+          <parameter type="guint8" name="blue" />
+          <parameter type="guint8" name="alpha" />
         </parameters>
-      </method>
+      </constructor>
       <method name="Shade" cname="clutter_color_shade">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterColor*" name="dest" />
-          <parameter type="gdouble" name="shade" />
-        </parameters>
-      </method>
-      <method name="Shadex" cname="clutter_color_shadex">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterColor*" name="dest" />
-          <parameter type="ClutterFixed" name="shade" />
+          <parameter type="gdouble" name="factor" />
+          <parameter type="ClutterColor*" name="result" />
         </parameters>
       </method>
       <method name="Subtract" cname="clutter_color_subtract">
         <return-type type="void" />
         <parameters>
-          <parameter type="const-ClutterColor*" name="src2" />
-          <parameter type="ClutterColor*" name="dest" />
+          <parameter type="const-ClutterColor*" name="b" />
+          <parameter type="ClutterColor*" name="result" />
         </parameters>
       </method>
       <method name="ToHls" cname="clutter_color_to_hls">
         <return-type type="void" />
         <parameters>
-          <parameter type="guint8*" name="hue" />
-          <parameter type="guint8*" name="luminance" />
-          <parameter type="guint8*" name="saturation" />
-        </parameters>
-      </method>
-      <method name="ToHlsx" cname="clutter_color_to_hlsx">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterFixed*" name="hue" />
-          <parameter type="ClutterFixed*" name="luminance" />
-          <parameter type="ClutterFixed*" name="saturation" />
+          <parameter type="gfloat*" name="hue" />
+          <parameter type="gfloat*" name="luminance" />
+          <parameter type="gfloat*" name="saturation" />
         </parameters>
       </method>
       <method name="ToPixel" cname="clutter_color_to_pixel">
@@ -4315,11 +4815,9 @@
       <field name="Device" cname="device" type="ClutterInputDevice*" />
       <field name="Related" cname="related" type="ClutterActor*" />
     </struct>
-    <alias name="Fixed" cname="ClutterFixed" type="gint32" />
     <boxed name="Fog" cname="ClutterFog">
-      <field name="Density" cname="density" type="ClutterFixed" />
-      <field name="ZNear" cname="z_near" type="ClutterFixed" />
-      <field name="ZFar" cname="z_far" type="ClutterFixed" />
+      <field name="ZNear" cname="z_near" type="gfloat" />
+      <field name="ZFar" cname="z_far" type="gfloat" />
       <method name="GetType" cname="clutter_fog_get_type" shared="true">
         <return-type type="GType" />
       </method>
@@ -4372,6 +4870,7 @@
       <field name="Keyval" cname="keyval" type="guint" />
       <field name="HardwareKeycode" cname="hardware_keycode" type="guint16" />
       <field name="UnicodeValue" cname="unicode_value" type="gunichar" />
+      <field name="Device" cname="device" type="ClutterInputDevice*" />
       <method name="Code" cname="clutter_key_event_code">
         <return-type type="guint16" />
       </method>
@@ -4401,6 +4900,9 @@
         <return-type type="GType" />
       </method>
     </boxed>
+    <struct name="ListModelClass" cname="ClutterListModelClass">
+      <field name="ParentClass" cname="parent_class" type="ClutterModelClass" access="private" />
+    </struct>
     <struct name="MotionEvent" cname="ClutterMotionEvent">
       <field name="Type" cname="type" type="ClutterEventType" />
       <field name="Time" cname="time" type="guint32" />
@@ -4413,11 +4915,30 @@
       <field name="Axes" cname="axes" type="gdouble*" />
       <field name="Device" cname="device" type="ClutterInputDevice*" />
     </struct>
+    <boxed name="PathNode" cname="ClutterPathNode">
+      <field name="Type" cname="type" type="ClutterPathNodeType" />
+      <field name="Points" cname="points" array_len="3" type="ClutterKnot" />
+      <method name="Copy" cname="clutter_path_node_copy">
+        <return-type type="ClutterPathNode*" owned="true" />
+      </method>
+      <method name="Equal" cname="clutter_path_node_equal">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-ClutterPathNode*" name="node_b" />
+        </parameters>
+      </method>
+      <method name="Free" cname="clutter_path_node_free">
+        <return-type type="void" />
+      </method>
+      <method name="GetType" cname="clutter_path_node_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </boxed>
     <boxed name="Perspective" cname="ClutterPerspective">
-      <field name="Fovy" cname="fovy" type="ClutterFixed" />
-      <field name="Aspect" cname="aspect" type="ClutterFixed" />
-      <field name="ZNear" cname="z_near" type="ClutterFixed" />
-      <field name="ZFar" cname="z_far" type="ClutterFixed" />
+      <field name="Fovy" cname="fovy" type="gfloat" />
+      <field name="Aspect" cname="aspect" type="gfloat" />
+      <field name="ZNear" cname="z_near" type="gfloat" />
+      <field name="ZFar" cname="z_far" type="gfloat" />
       <method name="GetType" cname="clutter_perspective_get_type" shared="true">
         <return-type type="GType" />
       </method>
@@ -4435,6 +4956,21 @@
       <field name="Axes" cname="axes" type="gdouble*" />
       <field name="Device" cname="device" type="ClutterInputDevice*" />
     </struct>
+    <struct name="ShaderFloat" cname="ClutterShaderFloat" opaque="true">
+      <method name="GetType" cname="clutter_shader_float_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </struct>
+    <struct name="ShaderInt" cname="ClutterShaderInt" opaque="true">
+      <method name="GetType" cname="clutter_shader_int_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </struct>
+    <struct name="ShaderMatrix" cname="ClutterShaderMatrix" opaque="true">
+      <method name="GetType" cname="clutter_shader_matrix_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </struct>
     <struct name="StageStateEvent" cname="ClutterStageStateEvent">
       <field name="Type" cname="type" type="ClutterEventType" />
       <field name="Time" cname="time" type="guint32" />
@@ -4444,11 +4980,16 @@
       <field name="ChangedMask" cname="changed_mask" type="ClutterStageState" />
       <field name="NewState" cname="new_state" type="ClutterStageState" />
     </struct>
+    <struct name="TimeoutInterval" cname="ClutterTimeoutInterval">
+      <field name="StartTime" cname="start_time" type="GTimeVal" />
+      <field name="FrameCount" cname="frame_count" type="guint" />
+      <field name="Fps" cname="fps" type="guint" />
+    </struct>
     <struct name="TimeoutPool" cname="ClutterTimeoutPool" opaque="true">
       <method name="Add" cname="clutter_timeout_pool_add">
         <return-type type="guint" />
         <parameters>
-          <parameter type="guint" name="interval" />
+          <parameter type="guint" name="fps" />
           <parameter type="GSourceFunc" name="func" />
           <parameter type="gpointer" name="data" />
           <parameter type="GDestroyNotify" name="notify" />
@@ -4466,7 +5007,7 @@
         </parameters>
       </method>
     </struct>
-    <alias name="Unit" cname="ClutterUnit" type="gint32" />
+    <alias name="Unit" cname="ClutterUnit" type="float" />
     <boxed name="Vertex" cname="ClutterVertex">
       <field name="X" cname="x" type="ClutterUnit" />
       <field name="Y" cname="y" type="ClutterUnit" />
@@ -4478,6 +5019,13 @@
     <class name="Global" cname="ClutterGlobal">
       <method name="BaseInit" cname="clutter_base_init" shared="true">
         <return-type type="void" />
+      </method>
+      <method name="CairoSetSourceColor" cname="clutter_cairo_set_source_color" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="cairo_t*" name="cr" />
+          <parameter type="const-ClutterColor*" name="color" />
+        </parameters>
       </method>
       <method name="ClearGlyphCache" cname="clutter_clear_glyph_cache" shared="true">
         <return-type type="void" />
@@ -4491,14 +5039,14 @@
       <method name="EventsPending" cname="clutter_events_pending" shared="true">
         <return-type type="gboolean" />
       </method>
-      <method name="FixedGetType" cname="clutter_fixed_get_type" shared="true">
-        <return-type type="GType" />
-      </method>
       <method name="GetActorByGid" cname="clutter_get_actor_by_gid" shared="true">
         <return-type type="ClutterActor*" />
         <parameters>
           <parameter type="guint32" name="id" />
         </parameters>
+      </method>
+      <method name="GetCurrentEventTime" cname="clutter_get_current_event_time" shared="true">
+        <return-type type="guint32" />
       </method>
       <method name="GetDebugEnabled" cname="clutter_get_debug_enabled" shared="true">
         <return-type type="gboolean" />
@@ -4508,6 +5056,12 @@
       </method>
       <method name="GetDefaultFrameRate" cname="clutter_get_default_frame_rate" shared="true">
         <return-type type="guint" />
+      </method>
+      <method name="GetFontFlags" cname="clutter_get_font_flags" shared="true">
+        <return-type type="ClutterFontFlags" />
+      </method>
+      <method name="GetFontMap" cname="clutter_get_font_map" shared="true">
+        <return-type type="PangoFontMap*" />
       </method>
       <method name="GetInputDeviceForId" cname="clutter_get_input_device_for_id" shared="true">
         <return-type type="ClutterInputDevice*" />
@@ -4545,9 +5099,6 @@
       <method name="GetTimestamp" cname="clutter_get_timestamp" shared="true">
         <return-type type="gulong" />
       </method>
-      <method name="GetUseMipmappedText" cname="clutter_get_use_mipmapped_text" shared="true">
-        <return-type type="gboolean" />
-      </method>
       <method name="KeysymToUnicode" cname="clutter_keysym_to_unicode" shared="true">
         <return-type type="guint32" />
         <parameters>
@@ -4558,6 +5109,12 @@
         <return-type type="void" />
         <parameters>
           <parameter type="guint" name="frames_per_sec" />
+        </parameters>
+      </method>
+      <method name="SetFontFlags" cname="clutter_set_font_flags" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="ClutterFontFlags" name="flags" />
         </parameters>
       </method>
       <method name="SetMotionEventsEnabled" cname="clutter_set_motion_events_enabled" shared="true">
@@ -4572,19 +5129,6 @@
           <parameter type="guint" name="frequency" />
         </parameters>
       </method>
-      <method name="SetUseMipmappedText" cname="clutter_set_use_mipmapped_text" shared="true">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="gboolean" name="value" />
-        </parameters>
-      </method>
-      <method name="SquareFunc" cname="clutter_square_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
       <method name="UnitGetType" cname="clutter_unit_get_type" shared="true">
         <return-type type="GType" />
       </method>
@@ -4592,76 +5136,6 @@
         <return-type type="int" />
         <parameters>
           <parameter type="int" name="a" />
-        </parameters>
-      </method>
-    </class>
-    <class name="Effect" cname="ClutterEffect_">
-      <method name="Depth" cname="clutter_effect_depth" shared="true">
-        <return-type type="ClutterTimeline*" />
-        <parameters>
-          <parameter type="ClutterEffectTemplate*" name="template_" />
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="gint" name="depth_end" />
-          <parameter type="ClutterEffectCompleteFunc" name="func" />
-          <parameter type="gpointer" name="data" />
-        </parameters>
-      </method>
-      <method name="Fade" cname="clutter_effect_fade" shared="true">
-        <return-type type="ClutterTimeline*" />
-        <parameters>
-          <parameter type="ClutterEffectTemplate*" name="template_" />
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="guint8" name="opacity_end" />
-          <parameter type="ClutterEffectCompleteFunc" name="func" />
-          <parameter type="gpointer" name="data" />
-        </parameters>
-      </method>
-      <method name="Move" cname="clutter_effect_move" shared="true">
-        <return-type type="ClutterTimeline*" />
-        <parameters>
-          <parameter type="ClutterEffectTemplate*" name="template_" />
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="gint" name="x" />
-          <parameter type="gint" name="y" />
-          <parameter type="ClutterEffectCompleteFunc" name="func" />
-          <parameter type="gpointer" name="data" />
-        </parameters>
-      </method>
-      <method name="Path" cname="clutter_effect_path" shared="true">
-        <return-type type="ClutterTimeline*" />
-        <parameters>
-          <parameter type="ClutterEffectTemplate*" name="template_" />
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="const-ClutterKnot*" name="knots" />
-          <parameter type="guint" name="n_knots" />
-          <parameter type="ClutterEffectCompleteFunc" name="func" />
-          <parameter type="gpointer" name="data" />
-        </parameters>
-      </method>
-      <method name="Rotate" cname="clutter_effect_rotate" shared="true">
-        <return-type type="ClutterTimeline*" />
-        <parameters>
-          <parameter type="ClutterEffectTemplate*" name="template_" />
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterRotateAxis" name="axis" />
-          <parameter type="gdouble" name="angle" />
-          <parameter type="gint" name="center_x" />
-          <parameter type="gint" name="center_y" />
-          <parameter type="gint" name="center_z" />
-          <parameter type="ClutterRotateDirection" name="direction" />
-          <parameter type="ClutterEffectCompleteFunc" name="func" />
-          <parameter type="gpointer" name="data" />
-        </parameters>
-      </method>
-      <method name="Scale" cname="clutter_effect_scale" shared="true">
-        <return-type type="ClutterTimeline*" />
-        <parameters>
-          <parameter type="ClutterEffectTemplate*" name="template_" />
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="gdouble" name="x_scale_end" />
-          <parameter type="gdouble" name="y_scale_end" />
-          <parameter type="ClutterEffectCompleteFunc" name="func" />
-          <parameter type="gpointer" name="data" />
         </parameters>
       </method>
     </class>
@@ -4744,22 +5218,6 @@
         </parameters>
       </method>
     </class>
-    <class name="Exp" cname="ClutterExp_">
-      <method name="DecFunc" cname="clutter_exp_dec_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-      <method name="IncFunc" cname="clutter_exp_inc_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-    </class>
     <class name="Feature" cname="ClutterFeature_">
       <method name="Available" cname="clutter_feature_available" shared="true">
         <return-type type="gboolean" />
@@ -4775,7 +5233,7 @@
       <method name="SourceAdd" cname="clutter_frame_source_add" shared="true">
         <return-type type="guint" />
         <parameters>
-          <parameter type="guint" name="interval" />
+          <parameter type="guint" name="fps" />
           <parameter type="GSourceFunc" name="func" />
           <parameter type="gpointer" name="data" />
         </parameters>
@@ -4784,7 +5242,7 @@
         <return-type type="guint" />
         <parameters>
           <parameter type="gint" name="priority" />
-          <parameter type="guint" name="interval" />
+          <parameter type="guint" name="fps" />
           <parameter type="GSourceFunc" name="func" />
           <parameter type="gpointer" name="data" />
           <parameter type="GDestroyNotify" name="notify" />
@@ -4859,9 +5317,9 @@
           <parameter type="const-gchar*" name="name" />
           <parameter type="const-gchar*" name="nick" />
           <parameter type="const-gchar*" name="blurb" />
-          <parameter type="ClutterFixed" name="minimum" />
-          <parameter type="ClutterFixed" name="maximum" />
-          <parameter type="ClutterFixed" name="default_value" />
+          <parameter type="CoglFixed" name="minimum" />
+          <parameter type="CoglFixed" name="maximum" />
+          <parameter type="CoglFixed" name="default_value" />
           <parameter type="GParamFlags" name="flags" />
         </parameters>
       </method>
@@ -4881,80 +5339,11 @@
         <return-type type="GType" />
       </method>
     </class>
-    <class name="Ramp" cname="ClutterRamp_">
-      <method name="DecFunc" cname="clutter_ramp_dec_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-      <method name="Func" cname="clutter_ramp_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-      <method name="IncFunc" cname="clutter_ramp_inc_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-    </class>
-    <class name="Sine" cname="ClutterSine_">
-      <method name="DecFunc" cname="clutter_sine_dec_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-      <method name="Func" cname="clutter_sine_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-      <method name="HalfFunc" cname="clutter_sine_half_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-      <method name="IncFunc" cname="clutter_sine_inc_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-    </class>
-    <class name="Smoothstep" cname="ClutterSmoothstep_">
-      <method name="DecFunc" cname="clutter_smoothstep_dec_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-      <method name="IncFunc" cname="clutter_smoothstep_inc_func" shared="true">
-        <return-type type="guint32" />
-        <parameters>
-          <parameter type="ClutterAlpha*" name="alpha" />
-          <parameter type="gpointer" name="dummy" />
-        </parameters>
-      </method>
-    </class>
     <class name="Threads" cname="ClutterThreads_">
       <method name="AddFrameSource" cname="clutter_threads_add_frame_source" shared="true">
         <return-type type="guint" />
         <parameters>
-          <parameter type="guint" name="interval" />
+          <parameter type="guint" name="fps" />
           <parameter type="GSourceFunc" name="func" />
           <parameter type="gpointer" name="data" />
         </parameters>
@@ -4963,7 +5352,7 @@
         <return-type type="guint" />
         <parameters>
           <parameter type="gint" name="priority" />
-          <parameter type="guint" name="interval" />
+          <parameter type="guint" name="fps" />
           <parameter type="GSourceFunc" name="func" />
           <parameter type="gpointer" name="data" />
           <parameter type="GDestroyNotify" name="notify" />
@@ -5034,6 +5423,38 @@
         </parameters>
       </method>
     </class>
+    <class name="Units" cname="ClutterUnits_">
+      <method name="Em" cname="clutter_units_em" shared="true">
+        <return-type type="ClutterUnit" />
+        <parameters>
+          <parameter type="gdouble" name="em" />
+        </parameters>
+      </method>
+      <method name="Mm" cname="clutter_units_mm" shared="true">
+        <return-type type="ClutterUnit" />
+        <parameters>
+          <parameter type="gdouble" name="mm" />
+        </parameters>
+      </method>
+      <method name="Pixels" cname="clutter_units_pixels" shared="true">
+        <return-type type="ClutterUnit" />
+        <parameters>
+          <parameter type="gint" name="px" />
+        </parameters>
+      </method>
+      <method name="Pt" cname="clutter_units_pt" shared="true">
+        <return-type type="ClutterUnit" />
+        <parameters>
+          <parameter type="gdouble" name="pt" />
+        </parameters>
+      </method>
+      <method name="ToPixels" cname="clutter_units_to_pixels" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="ClutterUnit" name="units" />
+        </parameters>
+      </method>
+    </class>
     <class name="Value" cname="ClutterValue_">
       <method name="GetColor" cname="clutter_value_get_color" shared="true">
         <return-type type="const-ClutterColor*" />
@@ -5042,9 +5463,30 @@
         </parameters>
       </method>
       <method name="GetFixed" cname="clutter_value_get_fixed" shared="true">
-        <return-type type="ClutterFixed" />
+        <return-type type="CoglFixed" />
         <parameters>
           <parameter type="const-GValue*" name="value" />
+        </parameters>
+      </method>
+      <method name="GetShaderFloat" cname="clutter_value_get_shader_float" shared="true">
+        <return-type type="const-gfloat*" />
+        <parameters>
+          <parameter type="const-GValue*" name="value" />
+          <parameter type="gsize*" name="length" />
+        </parameters>
+      </method>
+      <method name="GetShaderInt" cname="clutter_value_get_shader_int" shared="true">
+        <return-type type="const-COGLint*" />
+        <parameters>
+          <parameter type="const-GValue*" name="value" />
+          <parameter type="gsize*" name="length" />
+        </parameters>
+      </method>
+      <method name="GetShaderMatrix" cname="clutter_value_get_shader_matrix" shared="true">
+        <return-type type="const-gfloat*" />
+        <parameters>
+          <parameter type="const-GValue*" name="value" />
+          <parameter type="gsize*" name="length" />
         </parameters>
       </method>
       <method name="GetUnit" cname="clutter_value_get_unit" shared="true">
@@ -5057,14 +5499,38 @@
         <return-type type="void" />
         <parameters>
           <parameter type="GValue*" name="value" />
-          <parameter type="ClutterColor*" name="color" />
+          <parameter type="const-ClutterColor*" name="color" />
         </parameters>
       </method>
       <method name="SetFixed" cname="clutter_value_set_fixed" shared="true">
         <return-type type="void" />
         <parameters>
           <parameter type="GValue*" name="value" />
-          <parameter type="ClutterFixed" name="fixed_" />
+          <parameter type="CoglFixed" name="fixed_" />
+        </parameters>
+      </method>
+      <method name="SetShaderFloat" cname="clutter_value_set_shader_float" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GValue*" name="value" />
+          <parameter type="gint" name="size" />
+          <parameter type="const-gfloat*" name="floats" />
+        </parameters>
+      </method>
+      <method name="SetShaderInt" cname="clutter_value_set_shader_int" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GValue*" name="value" />
+          <parameter type="gint" name="size" />
+          <parameter type="const-gint*" name="ints" />
+        </parameters>
+      </method>
+      <method name="SetShaderMatrix" cname="clutter_value_set_shader_matrix" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GValue*" name="value" />
+          <parameter type="gint" name="size" />
+          <parameter type="const-gfloat*" name="matrix" />
         </parameters>
       </method>
       <method name="SetUnit" cname="clutter_value_set_unit" shared="true">

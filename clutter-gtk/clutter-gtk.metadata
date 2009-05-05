@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <metadata>
+  <attr path="/api/namespace/interface[@cname='ClutterContainer']/method[@name='AddActor']" name="name">Add</attr>
+  <attr path="/api/namespace/interface[@cname='ClutterContainer']/method[@name='RemoveActor']" name="name">Remove</attr>
+    <!-- ClutterEmbed -->
+	<attr path="/api/namespace/object[@cname='GtkClutterEmbed']/method[@cname='gtk_clutter_embed_get_stage']/return-type" name="type">ClutterStage*</attr>
+
 	<remove-node path="/api/namespace/enum[@cname='ClutterGtkInitError']"/>
 	<add-node path="/api/namespace">
 	  <struct name="GtkUtil">
