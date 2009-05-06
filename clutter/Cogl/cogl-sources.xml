@@ -1,0 +1,10 @@
+<gapi-parser-input>
+	<api filename="cogl-api.raw">
+		<library name="clutter">
+			<namespace name="Cogl">
+				<dir>../../../clutter/clutter/cogl</dir>
+			</namespace>
+		</library>
+	</api>
+</gapi-parser-input>
+

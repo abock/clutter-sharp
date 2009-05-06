@@ -71,4 +71,3 @@
   <remove-node path="/api/namespace/object[@cname='ClutterParamSpecUnit']" />
   <remove-node path="/api/namespace/object[@cname='ClutterParamSpecColor']" />
 </metadata>
-

@@ -78,12 +78,15 @@ AC_OUTPUT([
 	Makefile
 	clutter/clutter-sharp.pc
 	clutter/Makefile
+	clutter/Clutter/Makefile
+	clutter/Cogl/Makefile
 	clutter/AssemblyInfo.cs
 	clutter/clutter-sharp.dll.config
-	clutter-gtk/clutter-gtk-sharp.pc
-	clutter-gtk/Makefile
-	clutter-gtk/AssemblyInfo.cs
-	clutter-gtk/clutter-gtk-sharp.dll.config
 	examples/Makefile
 ])
+
+#	clutter-gtk/clutter-gtk-sharp.pc
+#	clutter-gtk/Makefile
+#	clutter-gtk/AssemblyInfo.cs
+#	clutter-gtk/clutter-gtk-sharp.dll.config
 

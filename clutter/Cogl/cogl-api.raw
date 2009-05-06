@@ -1,0 +1,1420 @@
+<?xml version="1.0"?>
+<api>
+  <!--
+
+        This file was automatically generated.
+        Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
+
+-->
+  <namespace name="Cogl" library="clutter">
+    <enum name="BufferBit" cname="CoglBufferBit" type="flags">
+      <member cname="COGL_BUFFER_BIT_COLOR" name="Color" value="1L&lt;&lt;0" />
+      <member cname="COGL_BUFFER_BIT_DEPTH" name="Depth" value="1L&lt;&lt;1" />
+      <member cname="COGL_BUFFER_BIT_STENCIL" name="Stencil" value="1L&lt;&lt;2" />
+    </enum>
+    <enum name="BufferTarget" cname="CoglBufferTarget" type="flags">
+      <member cname="COGL_WINDOW_BUFFER" name="WindowBuffer" value="1 &lt;&lt; 1" />
+      <member cname="COGL_OFFSCREEN_BUFFER" name="OffscreenBuffer" value="1 &lt;&lt; 2" />
+    </enum>
+    <enum name="DebugFlags" cname="CoglDebugFlags" type="flags">
+      <member cname="COGL_DEBUG_MISC" name="Misc" value="1 &lt;&lt; 0" />
+      <member cname="COGL_DEBUG_TEXTURE" name="Texture" value="1 &lt;&lt; 1" />
+      <member cname="COGL_DEBUG_MATERIAL" name="Material" value="1 &lt;&lt; 2" />
+      <member cname="COGL_DEBUG_SHADER" name="Shader" value="1 &lt;&lt; 3" />
+      <member cname="COGL_DEBUG_OFFSCREEN" name="Offscreen" value="1 &lt;&lt; 4" />
+      <member cname="COGL_DEBUG_DRAW" name="Draw" value="1 &lt;&lt; 5" />
+      <member cname="COGL_DEBUG_PANGO" name="Pango" value="1 &lt;&lt; 6" />
+      <member cname="COGL_DEBUG_RECTANGLES" name="Rectangles" value="1 &lt;&lt; 7" />
+    </enum>
+    <enum name="FeatureFlags" cname="CoglFeatureFlags" type="flags">
+      <member cname="COGL_FEATURE_TEXTURE_RECTANGLE" name="TextureRectangle" value="1 &lt;&lt; 1" />
+      <member cname="COGL_FEATURE_TEXTURE_NPOT" name="TextureNpot" value="1 &lt;&lt; 2" />
+      <member cname="COGL_FEATURE_TEXTURE_YUV" name="TextureYuv" value="1 &lt;&lt; 3" />
+      <member cname="COGL_FEATURE_TEXTURE_READ_PIXELS" name="TextureReadPixels" value="1 &lt;&lt; 4" />
+      <member cname="COGL_FEATURE_SHADERS_GLSL" name="ShadersGlsl" value="1 &lt;&lt; 5" />
+      <member cname="COGL_FEATURE_OFFSCREEN" name="Offscreen" value="1 &lt;&lt; 6" />
+      <member cname="COGL_FEATURE_OFFSCREEN_MULTISAMPLE" name="OffscreenMultisample" value="1 &lt;&lt; 7" />
+      <member cname="COGL_FEATURE_OFFSCREEN_BLIT" name="OffscreenBlit" value="1 &lt;&lt; 8" />
+      <member cname="COGL_FEATURE_FOUR_CLIP_PLANES" name="FourClipPlanes" value="1 &lt;&lt; 9" />
+      <member cname="COGL_FEATURE_STENCIL_BUFFER" name="StencilBuffer" value="1 &lt;&lt; 10" />
+      <member cname="COGL_FEATURE_VBOS" name="Vbos" value="1 &lt;&lt; 11" />
+    </enum>
+    <enum name="FogMode" cname="CoglFogMode" type="enum">
+      <member cname="COGL_FOG_MODE_LINEAR" name="Linear" />
+      <member cname="COGL_FOG_MODE_EXPONENTIAL" name="Exponential" />
+      <member cname="COGL_FOG_MODE_EXPONENTIAL_SQUARED" name="ExponentialSquared" />
+    </enum>
+    <enum name="MaterialAlphaFunc" cname="CoglMaterialAlphaFunc" type="enum">
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_NEVER" name="Never" value="GL_NEVER" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_LESS" name="Less" value="GL_LESS" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_EQUAL" name="Equal" value="GL_EQUAL" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_LEQUAL" name="Lequal" value="GL_LEQUAL" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_GREATER" name="Greater" value="GL_GREATER" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_NOTEQUAL" name="Notequal" value="GL_NOTEQUAL" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_GEQUAL" name="Gequal" value="GL_GEQUAL" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_ALWAYS" name="Always" value="GL_ALWAYS" />
+    </enum>
+    <enum name="MaterialBlendFactor" cname="CoglMaterialBlendFactor" type="enum">
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ZERO" name="Zero" value="GL_ZERO" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE" name="One" value="GL_ONE" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_SRC_COLOR" name="SrcColor" value="GL_SRC_COLOR" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_DST_COLOR" name="DstColor" value="GL_DST_COLOR" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_SRC_COLOR" name="OneMinusSrcColor" value="GL_ONE_MINUS_SRC_COLOR" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_DST_COLOR" name="OneMinusDstColor" value="GL_ONE_MINUS_DST_COLOR" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_SRC_ALPHA" name="SrcAlpha" value="GL_SRC_ALPHA" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA" name="OneMinusSrcAlpha" value="GL_ONE_MINUS_SRC_ALPHA" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_DST_ALPHA" name="DstAlpha" value="GL_DST_ALPHA" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_DST_ALPHA" name="OneMinusDstAlpha" value="GL_ONE_MINUS_DST_ALPHA" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_SRC_ALPHA_SATURATE" name="SrcAlphaSaturate" value="GL_SRC_ALPHA_SATURATE" />
+    </enum>
+    <enum name="MaterialFlushOption" cname="CoglMaterialFlushOption" type="enum">
+      <member cname="COGL_MATERIAL_FLUSH_FALLBACK_MASK" name="FallbackMask" value="1" />
+      <member cname="COGL_MATERIAL_FLUSH_DISABLE_MASK" name="DisableMask" />
+      <member cname="COGL_MATERIAL_FLUSH_LAYER0_OVERRIDE" name="Layer0Override" />
+    </enum>
+    <enum name="MaterialLayerCombineChannels" cname="CoglMaterialLayerCombineChannels" type="enum">
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_CHANNELS_RGB" name="Rgb" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_CHANNELS_ALPHA" name="Alpha" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_CHANNELS_RGBA" name="Rgba" />
+    </enum>
+    <enum name="MaterialLayerCombineFunc" cname="CoglMaterialLayerCombineFunc" type="enum">
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_REPLACE" name="Replace" value="CGL_REPLACE" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_MODULATE" name="Modulate" value="CGL_MODULATE" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_ADD" name="Add" value="CGL_ADD" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_ADD_SIGNED" name="AddSigned" value="CGL_ADD_SIGNED" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_INTERPOLATE" name="Interpolate" value="CGL_INTERPOLATE" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_SUBTRACT" name="Subtract" value="CGL_SUBTRACT" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_DOT3_RGB" name="Dot3Rgb" value="CGL_DOT3_RGB" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_DOT3_RGBA" name="Dot3Rgba" value="CGL_DOT3_RGBA" />
+    </enum>
+    <enum name="MaterialLayerCombineOp" cname="CoglMaterialLayerCombineOp" type="enum">
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_SRC_COLOR" name="SrcColor" value="GL_SRC_COLOR" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_ONE_MINUS_SRC_COLOR" name="OneMinusSrcColor" value="GL_ONE_MINUS_SRC_COLOR" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_SRC_ALPHA" name="SrcAlpha" value="GL_SRC_ALPHA" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_ONE_MINUS_SRC_ALPHA" name="OneMinusSrcAlpha" value="GL_ONE_MINUS_SRC_ALPHA" />
+    </enum>
+    <enum name="MaterialLayerCombineSrc" cname="CoglMaterialLayerCombineSrc" type="enum">
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE" name="Texture" value="GL_TEXTURE" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE0" name="Texture0" value="GL_TEXTURE0" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE1" name="Texture1" value="GL_TEXTURE1" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE2" name="Texture2" value="GL_TEXTURE2" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE3" name="Texture3" value="GL_TEXTURE3" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE4" name="Texture4" value="GL_TEXTURE4" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE5" name="Texture5" value="GL_TEXTURE5" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE6" name="Texture6" value="GL_TEXTURE6" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE7" name="Texture7" value="GL_TEXTURE7" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_CONSTANT" name="Constant" value="CGL_CONSTANT" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_PRIMARY_COLOR" name="PrimaryColor" value="CGL_PRIMARY_COLOR" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_PREVIOUS" name="Previous" value="CGL_PREVIOUS" />
+    </enum>
+    <enum name="MaterialLayerFlags" cname="CoglMaterialLayerFlags" type="flags">
+      <member cname="COGL_MATERIAL_LAYER_FLAG_HAS_USER_MATRIX" name="Matrix" value="1L&lt;&lt;0" />
+    </enum>
+    <enum name="MaterialLayerType" cname="CoglMaterialLayerType" type="enum">
+      <member cname="COGL_MATERIAL_LAYER_TYPE_TEXTURE" name="Texture" />
+    </enum>
+    <enum name="PixelFormat" cname="CoglPixelFormat" type="enum">
+      <member cname="COGL_PIXEL_FORMAT_ANY" name="Any" />
+      <member cname="COGL_PIXEL_FORMAT_A_8" name="A8" value="1 | COGL_A_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_RGB_565" name="Rgb565" value="4" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_4444" name="Rgba4444" value="5 | COGL_A_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_5551" name="Rgba5551" value="6 | COGL_A_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_YUV" name="Yuv" value="7" />
+      <member cname="COGL_PIXEL_FORMAT_G_8" name="G8" value="8" />
+      <member cname="COGL_PIXEL_FORMAT_RGB_888" name="Rgb888" value="Two4" />
+      <member cname="COGL_PIXEL_FORMAT_BGR_888" name="Bgr888" value="COGL_PIXEL_FORMAT_24 |COGL_BGR_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_8888" name="Rgba8888" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_BGRA_8888" name="Bgra8888" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_BGR_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_ARGB_8888" name="Argb8888" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_AFIRST_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_ABGR_8888" name="Abgr8888" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_BGR_BIT         |COGL_AFIRST_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_8888_PRE" name="Rgba8888Pre" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_PREMULT_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_BGRA_8888_PRE" name="Bgra8888Pre" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_PREMULT_BIT     |COGL_BGR_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_ARGB_8888_PRE" name="Argb8888Pre" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_PREMULT_BIT     |COGL_AFIRST_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_ABGR_8888_PRE" name="Abgr8888Pre" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_PREMULT_BIT     |COGL_BGR_BIT         |COGL_AFIRST_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_4444_PRE" name="Rgba4444Pre" value="COGL_PIXEL_FORMAT_RGBA_4444 |COGL_A_BIT                  |COGL_PREMULT_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_5551_PRE" name="Rgba5551Pre" value="COGL_PIXEL_FORMAT_RGBA_5551 |COGL_A_BIT                  |COGL_PREMULT_BIT" />
+    </enum>
+    <enum name="TextureFlags" cname="CoglTextureFlags" type="flags">
+      <member cname="COGL_TEXTURE_NONE" name="None" />
+      <member cname="COGL_TEXTURE_AUTO_MIPMAP" name="AutoMipmap" value="1 &lt;&lt; 0" />
+    </enum>
+    <callback name="FuncPtr" cname="CoglFuncPtr">
+      <return-type type="void" />
+    </callback>
+    <alias name="COGLenum" cname="COGLenum" type="GLenum" />
+    <alias name="COGLint" cname="COGLint" type="GLint" />
+    <alias name="COGLuint" cname="COGLuint" type="GLuint" />
+    <alias name="Angle" cname="CoglAngle" type="gint32" />
+    <struct name="Color" cname="CoglColor" opaque="true">
+      <field name="Red" cname="red" type="guint8" access="private" />
+      <field name="Green" cname="green" type="guint8" access="private" />
+      <field name="Blue" cname="blue" type="guint8" access="private" />
+      <field name="Alpha" cname="alpha" type="guint8" access="private" />
+      <field name="Padding0" cname="padding0" type="guint32" access="private" />
+      <field name="Padding1" cname="padding1" type="guint32" access="private" />
+      <field name="Padding2" cname="padding2" type="guint32" access="private" />
+      <method name="Copy" cname="cogl_color_copy">
+        <return-type type="CoglColor*" owned="true" />
+      </method>
+      <method name="Free" cname="cogl_color_free">
+        <return-type type="void" />
+      </method>
+      <method name="GetAlpha" cname="cogl_color_get_alpha">
+        <return-type type="float" />
+      </method>
+      <method name="GetAlphaFloat" cname="cogl_color_get_alpha_float">
+        <return-type type="float" />
+      </method>
+      <method name="GetBlue" cname="cogl_color_get_blue">
+        <return-type type="float" />
+      </method>
+      <method name="GetBlueFloat" cname="cogl_color_get_blue_float">
+        <return-type type="float" />
+      </method>
+      <method name="GetGreen" cname="cogl_color_get_green">
+        <return-type type="float" />
+      </method>
+      <method name="GetGreenFloat" cname="cogl_color_get_green_float">
+        <return-type type="float" />
+      </method>
+      <method name="GetRed" cname="cogl_color_get_red">
+        <return-type type="float" />
+      </method>
+      <method name="GetRedFloat" cname="cogl_color_get_red_float">
+        <return-type type="float" />
+      </method>
+      <constructor cname="cogl_color_new" />
+      <method name="SetFrom4f" cname="cogl_color_set_from_4f">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="red" />
+          <parameter type="float" name="green" />
+          <parameter type="float" name="blue" />
+          <parameter type="float" name="alpha" />
+        </parameters>
+      </method>
+      <method name="SetFrom4ub" cname="cogl_color_set_from_4ub">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint8" name="red" />
+          <parameter type="guint8" name="green" />
+          <parameter type="guint8" name="blue" />
+          <parameter type="guint8" name="alpha" />
+        </parameters>
+      </method>
+    </struct>
+    <alias name="Fixed" cname="CoglFixed" type="gint32" />
+    <alias name="Handle" cname="CoglHandle" type="gpointer" />
+    <struct name="Matrix" cname="CoglMatrix" opaque="true">
+      <method name="Frustum" cname="cogl_matrix_frustum">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="left" />
+          <parameter type="float" name="right" />
+          <parameter type="float" name="bottom" />
+          <parameter type="float" name="top" />
+          <parameter type="float" name="z_near" />
+          <parameter type="float" name="z_far" />
+        </parameters>
+      </method>
+      <method name="GetArray" cname="cogl_matrix_get_array">
+        <return-type type="const-float*" />
+      </method>
+      <method name="InitFromArray" cname="cogl_matrix_init_from_array">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-float*" name="array" />
+        </parameters>
+      </method>
+      <method name="InitIdentity" cname="cogl_matrix_init_identity">
+        <return-type type="void" />
+      </method>
+      <method name="Multiply" cname="cogl_matrix_multiply">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-CoglMatrix*" name="a" />
+          <parameter type="const-CoglMatrix*" name="b" />
+        </parameters>
+      </method>
+      <method name="Rotate" cname="cogl_matrix_rotate">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="angle" />
+          <parameter type="float" name="x" />
+          <parameter type="float" name="y" />
+          <parameter type="float" name="z" />
+        </parameters>
+      </method>
+      <method name="Scale" cname="cogl_matrix_scale">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="sx" />
+          <parameter type="float" name="sy" />
+          <parameter type="float" name="sz" />
+        </parameters>
+      </method>
+      <method name="TransformPoint" cname="cogl_matrix_transform_point">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float*" name="x" />
+          <parameter type="float*" name="y" />
+          <parameter type="float*" name="z" />
+          <parameter type="float*" name="w" />
+        </parameters>
+      </method>
+      <method name="Translate" cname="cogl_matrix_translate">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x" />
+          <parameter type="float" name="y" />
+          <parameter type="float" name="z" />
+        </parameters>
+      </method>
+    </struct>
+    <struct name="TextureVertex" cname="CoglTextureVertex">
+      <field name="X" cname="x" type="float" />
+      <field name="Y" cname="y" type="float" />
+      <field name="Z" cname="z" type="float" />
+      <field name="Tx" cname="tx" type="float" />
+      <field name="Ty" cname="ty" type="float" />
+      <field name="Color" cname="color" type="CoglColor" />
+    </struct>
+    <class name="Angle" cname="CoglAngle_">
+      <method name="Cos" cname="cogl_angle_cos" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="CoglAngle" name="angle" />
+        </parameters>
+      </method>
+      <method name="Sin" cname="cogl_angle_sin" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="CoglAngle" name="angle" />
+        </parameters>
+      </method>
+      <method name="Tan" cname="cogl_angle_tan" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="CoglAngle" name="angle" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Bitmap" cname="CoglBitmap_">
+      <method name="GetSizeFromFile" cname="cogl_bitmap_get_size_from_file" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="filename" />
+          <parameter type="gint*" name="width" />
+          <parameter type="gint*" name="height" />
+        </parameters>
+      </method>
+      <method name="NewFromFile" cname="cogl_bitmap_new_from_file" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="const-gchar*" name="filename" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Global" cname="CoglGlobal">
+      <method name="CheckExtension" cname="cogl_check_extension" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="const-gchar*" name="name" />
+          <parameter type="const-gchar*" name="ext" />
+        </parameters>
+      </method>
+      <method name="DestroyContext" cname="cogl_destroy_context" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="DisableFog" cname="cogl_disable_fog" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="FeaturesAvailable" cname="cogl_features_available" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglFeatureFlags" name="features" />
+        </parameters>
+      </method>
+      <method name="FlushGlState" cname="cogl_flush_gl_state" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="int" name="flags" />
+        </parameters>
+      </method>
+      <method name="GetBitmasks" cname="cogl_get_bitmasks" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint*" name="red" />
+          <parameter type="gint*" name="green" />
+          <parameter type="gint*" name="blue" />
+          <parameter type="gint*" name="alpha" />
+        </parameters>
+      </method>
+      <method name="GetFeatures" cname="cogl_get_features" shared="true">
+        <return-type type="CoglFeatureFlags" />
+      </method>
+      <method name="GetModelviewMatrix" cname="cogl_get_modelview_matrix" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglMatrix*" name="matrix" />
+        </parameters>
+      </method>
+      <method name="GetOptionGroup" cname="cogl_get_option_group" shared="true">
+        <return-type type="GOptionGroup*" />
+      </method>
+      <method name="GetProcAddress" cname="cogl_get_proc_address" shared="true">
+        <return-type type="CoglFuncPtr" />
+        <parameters>
+          <parameter type="const-gchar*" name="name" />
+        </parameters>
+      </method>
+      <method name="GetProjectionMatrix" cname="cogl_get_projection_matrix" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglMatrix*" name="matrix" />
+        </parameters>
+      </method>
+      <method name="GetViewport" cname="cogl_get_viewport" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" array="true" name="v" />
+        </parameters>
+      </method>
+      <method name="RectanglesWithTextureCoords" cname="cogl_rectangles_with_texture_coords" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-float*" name="verts" />
+          <parameter type="guint" name="n_rects" />
+        </parameters>
+      </method>
+      <method name="SetDrawBuffer" cname="cogl_set_draw_buffer" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglBufferTarget" name="target" />
+          <parameter type="CoglHandle" name="offscreen" />
+        </parameters>
+      </method>
+      <method name="SetFog" cname="cogl_set_fog" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-CoglColor*" name="fog_color" />
+          <parameter type="CoglFogMode" name="mode" />
+          <parameter type="float" name="density" />
+          <parameter type="float" name="z_near" />
+          <parameter type="float" name="z_far" />
+        </parameters>
+      </method>
+      <method name="SetSource" cname="cogl_set_source" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+        </parameters>
+      </method>
+      <method name="SetSourceColor" cname="cogl_set_source_color" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-CoglColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="SetSourceColor4f" cname="cogl_set_source_color4f" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="red" />
+          <parameter type="float" name="green" />
+          <parameter type="float" name="blue" />
+          <parameter type="float" name="alpha" />
+        </parameters>
+      </method>
+      <method name="SetSourceColor4ub" cname="cogl_set_source_color4ub" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint8" name="red" />
+          <parameter type="guint8" name="green" />
+          <parameter type="guint8" name="blue" />
+          <parameter type="guint8" name="alpha" />
+        </parameters>
+      </method>
+      <method name="SetSourceTexture" cname="cogl_set_source_texture" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="texture_handle" />
+        </parameters>
+      </method>
+      <method name="SetupViewport" cname="cogl_setup_viewport" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint" name="width" />
+          <parameter type="guint" name="height" />
+          <parameter type="float" name="fovy" />
+          <parameter type="float" name="aspect" />
+          <parameter type="float" name="z_near" />
+          <parameter type="float" name="z_far" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Clip" cname="CoglClip_">
+      <method name="Ensure" cname="cogl_clip_ensure" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="Pop" cname="cogl_clip_pop" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="Push" cname="cogl_clip_push" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x_offset" />
+          <parameter type="float" name="y_offset" />
+          <parameter type="float" name="width" />
+          <parameter type="float" name="height" />
+        </parameters>
+      </method>
+      <method name="PushFromPath" cname="cogl_clip_push_from_path" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="PushFromPathPreserve" cname="cogl_clip_push_from_path_preserve" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="StackRestore" cname="cogl_clip_stack_restore" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="StackSave" cname="cogl_clip_stack_save" shared="true">
+        <return-type type="void" />
+      </method>
+    </class>
+    <class name="Create" cname="CoglCreate_">
+      <method name="Context" cname="cogl_create_context" shared="true">
+        <return-type type="gboolean" />
+      </method>
+      <method name="Program" cname="cogl_create_program" shared="true">
+        <return-type type="CoglHandle" />
+      </method>
+      <method name="Shader" cname="cogl_create_shader" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="COGLenum" name="shader_type" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Enable" cname="CoglEnable_">
+      <method name="BackfaceCulling" cname="cogl_enable_backface_culling" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="setting" />
+        </parameters>
+      </method>
+      <method name="DepthTest" cname="cogl_enable_depth_test" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="setting" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Fixed" cname="CoglFixed_">
+      <method name="Atan2" cname="cogl_fixed_atan2" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="CoglFixed" name="a" />
+          <parameter type="CoglFixed" name="b" />
+        </parameters>
+      </method>
+      <method name="Atani" cname="cogl_fixed_atani" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="CoglFixed" name="a" />
+        </parameters>
+      </method>
+      <method name="Cos" cname="cogl_fixed_cos" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="CoglFixed" name="angle" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="cogl_fixed_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Log2" cname="cogl_fixed_log2" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="guint" name="x" />
+        </parameters>
+      </method>
+      <method name="Pow" cname="cogl_fixed_pow" shared="true">
+        <return-type type="guint" />
+        <parameters>
+          <parameter type="guint" name="x" />
+          <parameter type="CoglFixed" name="y" />
+        </parameters>
+      </method>
+      <method name="Pow2" cname="cogl_fixed_pow2" shared="true">
+        <return-type type="guint" />
+        <parameters>
+          <parameter type="CoglFixed" name="x" />
+        </parameters>
+      </method>
+      <method name="Sin" cname="cogl_fixed_sin" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="CoglFixed" name="angle" />
+        </parameters>
+      </method>
+      <method name="Sqrt" cname="cogl_fixed_sqrt" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="CoglFixed" name="x" />
+        </parameters>
+      </method>
+      <method name="Tan" cname="cogl_fixed_tan" shared="true">
+        <return-type type="CoglFixed" />
+        <parameters>
+          <parameter type="CoglFixed" name="angle" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Handle" cname="CoglHandle_">
+      <method name="GetType" cname="cogl_handle_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Ref" cname="cogl_handle_ref" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Unref" cname="cogl_handle_unref" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="Handle" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Is" cname="CoglIs_">
+      <method name="Material" cname="cogl_is_material" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Offscreen" cname="cogl_is_offscreen" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Program" cname="cogl_is_program" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Shader" cname="cogl_is_shader" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Texture" cname="cogl_is_texture" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Material" cname="CoglMaterial_">
+      <method name="FlushGlState" cname="cogl_material_flush_gl_state" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter ellipsis="true" />
+        </parameters>
+      </method>
+      <method name="GetAmbient" cname="cogl_material_get_ambient" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="CoglColor*" name="ambient" />
+        </parameters>
+      </method>
+      <method name="GetCoglEnableFlags" cname="cogl_material_get_cogl_enable_flags" shared="true">
+        <return-type type="gulong" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="GetColor" cname="cogl_material_get_color" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="CoglColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="GetDiffuse" cname="cogl_material_get_diffuse" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="CoglColor*" name="diffuse" />
+        </parameters>
+      </method>
+      <method name="GetEmission" cname="cogl_material_get_emission" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="CoglColor*" name="emission" />
+        </parameters>
+      </method>
+      <method name="GetLayers" cname="cogl_material_get_layers" shared="true">
+        <return-type type="const-GList*" />
+        <parameters>
+          <parameter type="CoglHandle" name="material_handle" />
+        </parameters>
+      </method>
+      <method name="GetShininess" cname="cogl_material_get_shininess" shared="true">
+        <return-type type="float" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+        </parameters>
+      </method>
+      <method name="GetSpecular" cname="cogl_material_get_specular" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="CoglColor*" name="specular" />
+        </parameters>
+      </method>
+      <method name="LayerGetFlags" cname="cogl_material_layer_get_flags" shared="true">
+        <return-type type="gulong" />
+        <parameters>
+          <parameter type="CoglHandle" name="layer_handle" />
+        </parameters>
+      </method>
+      <method name="LayerGetTexture" cname="cogl_material_layer_get_texture" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="layer_handle" />
+        </parameters>
+      </method>
+      <method name="LayerGetType" cname="cogl_material_layer_get_type" shared="true">
+        <return-type type="CoglMaterialLayerType" />
+        <parameters>
+          <parameter type="CoglHandle" name="layer_handle" />
+        </parameters>
+      </method>
+      <method name="New" cname="cogl_material_new" shared="true">
+        <return-type type="CoglHandle" />
+      </method>
+      <method name="Ref" cname="cogl_material_ref" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="RemoveLayer" cname="cogl_material_remove_layer" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="gint" name="layer_index" />
+        </parameters>
+      </method>
+      <method name="SetAlphaTestFunction" cname="cogl_material_set_alpha_test_function" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="CoglMaterialAlphaFunc" name="alpha_func" />
+          <parameter type="float" name="alpha_reference" />
+        </parameters>
+      </method>
+      <method name="SetAmbient" cname="cogl_material_set_ambient" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="const-CoglColor*" name="ambient" />
+        </parameters>
+      </method>
+      <method name="SetAmbientAndDiffuse" cname="cogl_material_set_ambient_and_diffuse" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="const-CoglColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="SetBlendFactors" cname="cogl_material_set_blend_factors" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="CoglMaterialBlendFactor" name="src_factor" />
+          <parameter type="CoglMaterialBlendFactor" name="dst_factor" />
+        </parameters>
+      </method>
+      <method name="SetColor" cname="cogl_material_set_color" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="const-CoglColor*" name="color" />
+        </parameters>
+      </method>
+      <method name="SetColor4f" cname="cogl_material_set_color4f" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="float" name="red" />
+          <parameter type="float" name="green" />
+          <parameter type="float" name="blue" />
+          <parameter type="float" name="alpha" />
+        </parameters>
+      </method>
+      <method name="SetColor4ub" cname="cogl_material_set_color4ub" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="guint8" name="red" />
+          <parameter type="guint8" name="green" />
+          <parameter type="guint8" name="blue" />
+          <parameter type="guint8" name="alpha" />
+        </parameters>
+      </method>
+      <method name="SetDiffuse" cname="cogl_material_set_diffuse" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="const-CoglColor*" name="diffuse" />
+        </parameters>
+      </method>
+      <method name="SetEmission" cname="cogl_material_set_emission" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="const-CoglColor*" name="emission" />
+        </parameters>
+      </method>
+      <method name="SetLayer" cname="cogl_material_set_layer" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="gint" name="layer_index" />
+          <parameter type="CoglHandle" name="texture" />
+        </parameters>
+      </method>
+      <method name="SetLayerCombineArgOp" cname="cogl_material_set_layer_combine_arg_op" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="gint" name="layer_index" />
+          <parameter type="gint" name="argument" />
+          <parameter type="CoglMaterialLayerCombineChannels" name="channels" />
+          <parameter type="CoglMaterialLayerCombineOp" name="op" />
+        </parameters>
+      </method>
+      <method name="SetLayerCombineArgSrc" cname="cogl_material_set_layer_combine_arg_src" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="gint" name="layer_index" />
+          <parameter type="gint" name="argument" />
+          <parameter type="CoglMaterialLayerCombineChannels" name="channels" />
+          <parameter type="CoglMaterialLayerCombineSrc" name="src" />
+        </parameters>
+      </method>
+      <method name="SetLayerCombineFunction" cname="cogl_material_set_layer_combine_function" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="gint" name="layer_index" />
+          <parameter type="CoglMaterialLayerCombineChannels" name="channels" />
+          <parameter type="CoglMaterialLayerCombineFunc" name="func" />
+        </parameters>
+      </method>
+      <method name="SetLayerMatrix" cname="cogl_material_set_layer_matrix" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="gint" name="layer_index" />
+          <parameter type="CoglMatrix*" name="matrix" />
+        </parameters>
+      </method>
+      <method name="SetShininess" cname="cogl_material_set_shininess" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="float" name="shininess" />
+        </parameters>
+      </method>
+      <method name="SetSpecular" cname="cogl_material_set_specular" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="material" />
+          <parameter type="const-CoglColor*" name="specular" />
+        </parameters>
+      </method>
+      <method name="Unref" cname="cogl_material_unref" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Offscreen" cname="CoglOffscreen_">
+      <method name="NewToTexture" cname="cogl_offscreen_new_to_texture" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="texhandle" />
+        </parameters>
+      </method>
+      <method name="Ref" cname="cogl_offscreen_ref" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Unref" cname="cogl_offscreen_unref" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Path" cname="CoglPath_">
+      <method name="Arc" cname="cogl_path_arc" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="center_x" />
+          <parameter type="float" name="center_y" />
+          <parameter type="float" name="radius_x" />
+          <parameter type="float" name="radius_y" />
+          <parameter type="float" name="angle_1" />
+          <parameter type="float" name="angle_2" />
+        </parameters>
+      </method>
+      <method name="Close" cname="cogl_path_close" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="CurveTo" cname="cogl_path_curve_to" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x_1" />
+          <parameter type="float" name="y_1" />
+          <parameter type="float" name="x_2" />
+          <parameter type="float" name="y_2" />
+          <parameter type="float" name="x_3" />
+          <parameter type="float" name="y_3" />
+        </parameters>
+      </method>
+      <method name="Ellipse" cname="cogl_path_ellipse" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="center_x" />
+          <parameter type="float" name="center_y" />
+          <parameter type="float" name="radius_x" />
+          <parameter type="float" name="radius_y" />
+        </parameters>
+      </method>
+      <method name="Fill" cname="cogl_path_fill" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="FillPreserve" cname="cogl_path_fill_preserve" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="Line" cname="cogl_path_line" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x_1" />
+          <parameter type="float" name="y_1" />
+          <parameter type="float" name="x_2" />
+          <parameter type="float" name="y_2" />
+        </parameters>
+      </method>
+      <method name="LineTo" cname="cogl_path_line_to" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x" />
+          <parameter type="float" name="y" />
+        </parameters>
+      </method>
+      <method name="MoveTo" cname="cogl_path_move_to" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x" />
+          <parameter type="float" name="y" />
+        </parameters>
+      </method>
+      <method name="New" cname="cogl_path_new" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="Polygon" cname="cogl_path_polygon" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float*" name="coords" />
+          <parameter type="gint" name="num_points" />
+        </parameters>
+      </method>
+      <method name="Polyline" cname="cogl_path_polyline" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float*" name="coords" />
+          <parameter type="gint" name="num_points" />
+        </parameters>
+      </method>
+      <method name="Rectangle" cname="cogl_path_rectangle" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x_1" />
+          <parameter type="float" name="y_1" />
+          <parameter type="float" name="x_2" />
+          <parameter type="float" name="y_2" />
+        </parameters>
+      </method>
+      <method name="RelCurveTo" cname="cogl_path_rel_curve_to" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x_1" />
+          <parameter type="float" name="y_1" />
+          <parameter type="float" name="x_2" />
+          <parameter type="float" name="y_2" />
+          <parameter type="float" name="x_3" />
+          <parameter type="float" name="y_3" />
+        </parameters>
+      </method>
+      <method name="RelLineTo" cname="cogl_path_rel_line_to" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x" />
+          <parameter type="float" name="y" />
+        </parameters>
+      </method>
+      <method name="RelMoveTo" cname="cogl_path_rel_move_to" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x" />
+          <parameter type="float" name="y" />
+        </parameters>
+      </method>
+      <method name="RoundRectangle" cname="cogl_path_round_rectangle" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x_1" />
+          <parameter type="float" name="y_1" />
+          <parameter type="float" name="x_2" />
+          <parameter type="float" name="y_2" />
+          <parameter type="float" name="radius" />
+          <parameter type="float" name="arc_step" />
+        </parameters>
+      </method>
+      <method name="Stroke" cname="cogl_path_stroke" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="StrokePreserve" cname="cogl_path_stroke_preserve" shared="true">
+        <return-type type="void" />
+      </method>
+    </class>
+    <class name="Pop" cname="CoglPop_">
+      <method name="DrawBuffer" cname="cogl_pop_draw_buffer" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="Matrix" cname="cogl_pop_matrix" shared="true">
+        <return-type type="void" />
+      </method>
+    </class>
+    <class name="Program" cname="CoglProgram_">
+      <method name="AttachShader" cname="cogl_program_attach_shader" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="program_handle" />
+          <parameter type="CoglHandle" name="shader_handle" />
+        </parameters>
+      </method>
+      <method name="GetUniformLocation" cname="cogl_program_get_uniform_location" shared="true">
+        <return-type type="COGLint" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="const-gchar*" name="uniform_name" />
+        </parameters>
+      </method>
+      <method name="Link" cname="cogl_program_link" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Ref" cname="cogl_program_ref" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Uniform1f" cname="cogl_program_uniform_1f" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="COGLint" name="uniform_no" />
+          <parameter type="gfloat" name="value" />
+        </parameters>
+      </method>
+      <method name="Uniform1i" cname="cogl_program_uniform_1i" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="COGLint" name="uniform_no" />
+          <parameter type="gint" name="value" />
+        </parameters>
+      </method>
+      <method name="UniformFloat" cname="cogl_program_uniform_float" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="COGLint" name="uniform_no" />
+          <parameter type="gint" name="size" />
+          <parameter type="gint" name="count" />
+          <parameter type="const-GLfloat*" name="value" />
+        </parameters>
+      </method>
+      <method name="UniformInt" cname="cogl_program_uniform_int" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="COGLint" name="uniform_no" />
+          <parameter type="gint" name="size" />
+          <parameter type="gint" name="count" />
+          <parameter type="const-COGLint*" name="value" />
+        </parameters>
+      </method>
+      <method name="UniformMatrix" cname="cogl_program_uniform_matrix" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="COGLint" name="uniform_no" />
+          <parameter type="gint" name="size" />
+          <parameter type="gint" name="count" />
+          <parameter type="gboolean" name="transpose" />
+          <parameter type="const-GLfloat*" name="value" />
+        </parameters>
+      </method>
+      <method name="Unref" cname="cogl_program_unref" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Use" cname="cogl_program_use" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Push" cname="CoglPush_">
+      <method name="DrawBuffer" cname="cogl_push_draw_buffer" shared="true">
+        <return-type type="void" />
+      </method>
+      <method name="Matrix" cname="cogl_push_matrix" shared="true">
+        <return-type type="void" />
+      </method>
+    </class>
+    <class name="Rectangle" cname="CoglRectangle_">
+      <method name="WithMultitextureCoords" cname="cogl_rectangle_with_multitexture_coords" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x1" />
+          <parameter type="float" name="y1" />
+          <parameter type="float" name="x2" />
+          <parameter type="float" name="y2" />
+          <parameter type="const-float*" name="tex_coords" />
+          <parameter type="gint" name="tex_coords_len" />
+        </parameters>
+      </method>
+      <method name="WithTextureCoords" cname="cogl_rectangle_with_texture_coords" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x1" />
+          <parameter type="float" name="y1" />
+          <parameter type="float" name="x2" />
+          <parameter type="float" name="y2" />
+          <parameter type="float" name="tx1" />
+          <parameter type="float" name="ty1" />
+          <parameter type="float" name="tx2" />
+          <parameter type="float" name="ty2" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Shader" cname="CoglShader_">
+      <method name="Compile" cname="cogl_shader_compile" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="GetInfoLog" cname="cogl_shader_get_info_log" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="guint" name="size" />
+          <parameter type="gchar*" name="buffer" />
+        </parameters>
+      </method>
+      <method name="GetParameteriv" cname="cogl_shader_get_parameteriv" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="COGLenum" name="pname" />
+          <parameter type="COGLint*" name="dest" />
+        </parameters>
+      </method>
+      <method name="Ref" cname="cogl_shader_ref" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="Source" cname="cogl_shader_source" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="shader" />
+          <parameter type="const-gchar*" name="source" />
+        </parameters>
+      </method>
+      <method name="Unref" cname="cogl_shader_unref" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Texture" cname="CoglTexture_">
+      <method name="GetData" cname="cogl_texture_get_data" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="CoglPixelFormat" name="format" />
+          <parameter type="guint" name="rowstride" />
+          <parameter type="guchar*" name="data" />
+        </parameters>
+      </method>
+      <method name="GetFormat" cname="cogl_texture_get_format" shared="true">
+        <return-type type="CoglPixelFormat" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="GetGlTexture" cname="cogl_texture_get_gl_texture" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="GLuint*" name="out_gl_handle" />
+          <parameter type="GLenum*" name="out_gl_target" />
+        </parameters>
+      </method>
+      <method name="GetHeight" cname="cogl_texture_get_height" shared="true">
+        <return-type type="guint" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="GetMagFilter" cname="cogl_texture_get_mag_filter" shared="true">
+        <return-type type="COGLenum" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="GetMaxWaste" cname="cogl_texture_get_max_waste" shared="true">
+        <return-type type="gint" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="GetMinFilter" cname="cogl_texture_get_min_filter" shared="true">
+        <return-type type="COGLenum" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="GetRowstride" cname="cogl_texture_get_rowstride" shared="true">
+        <return-type type="guint" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="GetWidth" cname="cogl_texture_get_width" shared="true">
+        <return-type type="guint" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="IsSliced" cname="cogl_texture_is_sliced" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="NewFromBitmap" cname="cogl_texture_new_from_bitmap" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="bmp_handle" />
+          <parameter type="gint" name="max_waste" />
+          <parameter type="CoglTextureFlags" name="flags" />
+          <parameter type="CoglPixelFormat" name="internal_format" />
+        </parameters>
+      </method>
+      <method name="NewFromData" cname="cogl_texture_new_from_data" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="guint" name="width" />
+          <parameter type="guint" name="height" />
+          <parameter type="gint" name="max_waste" />
+          <parameter type="CoglTextureFlags" name="flags" />
+          <parameter type="CoglPixelFormat" name="format" />
+          <parameter type="CoglPixelFormat" name="internal_format" />
+          <parameter type="guint" name="rowstride" />
+          <parameter type="const-guchar*" name="data" />
+        </parameters>
+      </method>
+      <method name="NewFromFile" cname="cogl_texture_new_from_file" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="const-gchar*" name="filename" />
+          <parameter type="gint" name="max_waste" />
+          <parameter type="CoglTextureFlags" name="flags" />
+          <parameter type="CoglPixelFormat" name="internal_format" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="NewFromForeign" cname="cogl_texture_new_from_foreign" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="GLuint" name="gl_handle" />
+          <parameter type="GLenum" name="gl_target" />
+          <parameter type="GLuint" name="width" />
+          <parameter type="GLuint" name="height" />
+          <parameter type="GLuint" name="x_pot_waste" />
+          <parameter type="GLuint" name="y_pot_waste" />
+          <parameter type="CoglPixelFormat" name="format" />
+        </parameters>
+      </method>
+      <method name="NewWithSize" cname="cogl_texture_new_with_size" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="guint" name="width" />
+          <parameter type="guint" name="height" />
+          <parameter type="gint" name="max_waste" />
+          <parameter type="CoglTextureFlags" name="flags" />
+          <parameter type="CoglPixelFormat" name="internal_format" />
+        </parameters>
+      </method>
+      <method name="Ref" cname="cogl_texture_ref" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="SetFilters" cname="cogl_texture_set_filters" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="COGLenum" name="min_filter" />
+          <parameter type="COGLenum" name="mag_filter" />
+        </parameters>
+      </method>
+      <method name="SetRegion" cname="cogl_texture_set_region" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="gint" name="src_x" />
+          <parameter type="gint" name="src_y" />
+          <parameter type="gint" name="dst_x" />
+          <parameter type="gint" name="dst_y" />
+          <parameter type="guint" name="dst_width" />
+          <parameter type="guint" name="dst_height" />
+          <parameter type="gint" name="width" />
+          <parameter type="gint" name="height" />
+          <parameter type="CoglPixelFormat" name="format" />
+          <parameter type="guint" name="rowstride" />
+          <parameter type="const-guchar*" name="data" />
+        </parameters>
+      </method>
+      <method name="Unref" cname="cogl_texture_unref" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+    </class>
+    <class name="Vertex" cname="CoglVertex_">
+      <method name="BufferAdd" cname="cogl_vertex_buffer_add" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="const-char*" name="attribute_name" />
+          <parameter type="guint8" name="n_components" />
+          <parameter type="GLenum" name="gl_type" />
+          <parameter type="gboolean" name="normalized" />
+          <parameter type="guint16" name="stride" />
+          <parameter type="const-void*" name="pointer" />
+        </parameters>
+      </method>
+      <method name="BufferDelete" cname="cogl_vertex_buffer_delete" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="const-char*" name="attribute_name" />
+        </parameters>
+      </method>
+      <method name="BufferDisable" cname="cogl_vertex_buffer_disable" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="const-char*" name="attribute_name" />
+        </parameters>
+      </method>
+      <method name="BufferDraw" cname="cogl_vertex_buffer_draw" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="GLenum" name="mode" />
+          <parameter type="GLint" name="first" />
+          <parameter type="GLsizei" name="count" />
+        </parameters>
+      </method>
+      <method name="BufferDrawElements" cname="cogl_vertex_buffer_draw_elements" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="GLenum" name="mode" />
+          <parameter type="GLuint" name="min_index" />
+          <parameter type="GLuint" name="max_index" />
+          <parameter type="GLsizei" name="count" />
+          <parameter type="GLenum" name="indices_type" />
+          <parameter type="const-GLvoid*" name="indices" />
+        </parameters>
+      </method>
+      <method name="BufferEnable" cname="cogl_vertex_buffer_enable" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+          <parameter type="const-char*" name="attribute_name" />
+        </parameters>
+      </method>
+      <method name="BufferGetNVertices" cname="cogl_vertex_buffer_get_n_vertices" shared="true">
+        <return-type type="guint" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="BufferNew" cname="cogl_vertex_buffer_new" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="guint" name="n_vertices" />
+        </parameters>
+      </method>
+      <method name="BufferRef" cname="cogl_vertex_buffer_ref" shared="true">
+        <return-type type="CoglHandle" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="BufferSubmit" cname="cogl_vertex_buffer_submit" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+      <method name="BufferUnref" cname="cogl_vertex_buffer_unref" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
+        </parameters>
+      </method>
+    </class>
+  </namespace>
+</api>

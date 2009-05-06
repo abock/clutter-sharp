@@ -1,6 +1,6 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
-libdir=@libdir@
+libdir=${exec_prefix}/lib
 gapidir=${prefix}/share/gapi-2.0
 
 Name: clutter-sharp

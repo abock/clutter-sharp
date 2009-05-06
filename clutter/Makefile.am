@@ -1,41 +1,33 @@
-SOURCES_XML = clutter-sources.xml
-CLUTTER_METADATA = clutter.metadata
-CLUTTER_RAW_API = clutter-api.raw
-CLUTTER_FIXED_API = clutter-api.xml
+SUBDIRS = Clutter Cogl .
 
 ASSEMBLY_NAME = clutter-sharp
-ASSEMBLY = clutter-sharp.dll
 
-SYMBOLS = clutter-symbols.xml
+SOURCES = \
+	Clutter/ButtonEvent.cs \
+	Clutter/Application.cs \
+	Clutter/CrossingEvent.cs \
+	Clutter/Event.cs \
+	Clutter/Idle.cs \
+	Clutter/KeyEvent.cs \
+	Clutter/MotionEvent.cs \
+	Clutter/ScrollEvent.cs \
+	Clutter/Source.cs \
+	Clutter/StageStateEvent.cs \
+	Clutter/Timeout.cs
 
-TARGET = $(ASSEMBLY) $(ASSEMBLY).config
+SOURCES += $(wildcard Clutter/generated/*.cs)
 
-custom_extradist = clutter-sharp.pc.in clutter-sharp.dll.config.in
-custom_api_includes =
-custom_references = -r:Mono.Cairo
+CUSTOMS = \
+	Clutter/BehaviourPath.custom \
+	Clutter/Color.custom \
+	Clutter/Exp.custom \
+	Clutter/Knot.custom \
+	Clutter/Ramp.custom \
+	Clutter/Script.custom \
+	Clutter/Smoothstep.custom \
+	Clutter/Script.custom
 
-sources =		\
-	$(srcdir)/ButtonEvent.cs	\
-	$(srcdir)/Application.cs		\
-	$(srcdir)/CrossingEvent.cs	\
-	$(srcdir)/Event.cs		\
-	$(srcdir)/Idle.cs		\
-	$(srcdir)/KeyEvent.cs		\
-	$(srcdir)/MotionEvent.cs	\
-	$(srcdir)/ScrollEvent.cs	\
-	$(srcdir)/Source.cs		\
-	$(srcdir)/StageStateEvent.cs	\
-	$(srcdir)/Timeout.cs	
+EXTRA_DIST =
+CLEANFILES =
 
-customs =			\
-	BehaviourPath.custom		\
-	Color.custom			\
-	Exp.custom			\
-	Knot.custom			\
-	Ramp.custom			\
-	Script.custom			\
-	Smoothstep.custom		\
-	Script.custom
-
-include ../Makefile.include
-
+include $(top_srcdir)/Makefile.assembly

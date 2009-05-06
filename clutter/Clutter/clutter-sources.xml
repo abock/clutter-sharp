@@ -2,7 +2,7 @@
 	<api filename="clutter-api.raw">
 		<library name="clutter">
 			<namespace name="Clutter">
-				<dir>../../clutter/clutter</dir>
+				<dir>../../../clutter/clutter</dir>
 			</namespace>
 		</library>
 	</api>
