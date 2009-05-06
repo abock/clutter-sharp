@@ -1,24 +1,24 @@
-SOURCES_XML = clutter-gtk-sources.xml
-CLUTTER_METADATA = clutter-gtk.metadata
-CLUTTER_RAW_API = clutter-gtk-api.raw
-CLUTTER_FIXED_API = clutter-gtk-api.xml
-
 ASSEMBLY_NAME = clutter-gtk-sharp
-ASSEMBLY = clutter-gtk-sharp.dll
 
-if ENABLE_GTK
-TARGET = $(ASSEMBLY) $(ASSEMBLY).config
-else
-TARGET=
-endif
+GAPI_SOURCES_XML = clutter-gtk-sources.xml
+GAPI_METADATA = clutter-gtk.metadata
+GAPI_RAW_API = clutter-gtk-api.raw
+GAPI_FIXED_API = clutter-gtk-api.xml
 
-custom_extradist=clutter-gtk-sharp.pc.in clutter-gtk-sharp.dll.config.in
-custom_references=-r:../clutter/clutter-sharp.dll
-custom_api_includes=../clutter/clutter-api.xml
+CUSTOM_REFERENCES = -r:$(top_builddir)/clutter/clutter-sharp.dll
+CUSTOM_API_INCLUDES = $(top_builddir)/clutter/Clutter/clutter-api.xml
 
-sources = 
+TARGET = \
+	$(ASSEMBLY_NAME).dll \
+	$(ASSEMBLY_NAME).dll.config \
+	$(ASSEMBLY_NAME).dll.mdb
 
-customs = 
+EXTRA_DIST =
+CLEANFILES =
 
-include ../Makefile.include
+all: $(ASSEMBLY_NAME).dll
 
+include $(top_builddir)/build/assembly.mk
+include $(top_builddir)/build/gapi.mk
+
+MAINTAINERCLEANFILES = Makefile.in

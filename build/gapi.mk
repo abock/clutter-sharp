@@ -6,10 +6,12 @@ gapidir = $(datadir)/gapi-2.0
 gapi_DATA = $(GAPI_FIXED_API)
 
 build_symbols = $(addprefix --symbols=$(srcdir)/, $(GAPI_SYMBOLS))
-api_includes = $(GTKSHARP_CFLAGS) $(custom_api_includes)
+api_includes = $(GTKSHARP_CFLAGS) $(API_INCLUDES)
 
 api:
 	$(GAPI_PARSER) $(GAPI_SOURCES_XML)
+	$(top_srcdir)/build/gapi-parser-post.sed < $(GAPI_RAW_API) > $(GAPI_RAW_API).tmp
+	mv $(GAPI_RAW_API).tmp $(GAPI_RAW_API)
 
 $(GAPI_FIXED_API): $(GAPI_RAW_API) $(GAPI_METADATA) $(GAPI_SYMBOLS)
 	cp $(GAPI_RAW_API) $(GAPI_FIXED_API)

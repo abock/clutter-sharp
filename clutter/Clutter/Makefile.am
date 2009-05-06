@@ -7,5 +7,6 @@ GAPI_SYMBOLS = clutter-symbols.xml
 CLEANFILES =
 EXTRA_DIST =
 
-include $(top_srcdir)/Makefile.gapi
+include $(top_srcdir)/build/gapi.mk
 
+MAINTAINERCLEANFILES = Makefile.in

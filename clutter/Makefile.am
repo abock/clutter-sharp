@@ -13,9 +13,13 @@ SOURCES = \
 	Clutter/ScrollEvent.cs \
 	Clutter/Source.cs \
 	Clutter/StageStateEvent.cs \
-	Clutter/Timeout.cs
+	Clutter/Timeout.cs \
+	Cogl/GL.cs
+	Cogl/BufferBit.cs
+	Cogl/MaterialLayerFlags.cs
 
 SOURCES += $(wildcard Clutter/generated/*.cs)
+SOURCES += $(wildcard Cogl/generated/*.cs)
 
 CUSTOMS = \
 	Clutter/BehaviourPath.custom \
@@ -30,4 +34,11 @@ CUSTOMS = \
 EXTRA_DIST =
 CLEANFILES =
 
-include $(top_srcdir)/Makefile.assembly
+TARGET = \
+	$(ASSEMBLY_NAME).dll \
+	$(ASSEMBLY_NAME).dll.config \
+	$(ASSEMBLY_NAME).dll.mdb
+
+include $(top_srcdir)/build/assembly.mk
+
+MAINTAINERCLEANFILES = Makefile.in

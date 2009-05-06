@@ -45,27 +45,27 @@
       <member cname="COGL_FOG_MODE_EXPONENTIAL_SQUARED" name="ExponentialSquared" />
     </enum>
     <enum name="MaterialAlphaFunc" cname="CoglMaterialAlphaFunc" type="enum">
-      <member cname="COGL_MATERIAL_ALPHA_FUNC_NEVER" name="Never" value="GL_NEVER" />
-      <member cname="COGL_MATERIAL_ALPHA_FUNC_LESS" name="Less" value="GL_LESS" />
-      <member cname="COGL_MATERIAL_ALPHA_FUNC_EQUAL" name="Equal" value="GL_EQUAL" />
-      <member cname="COGL_MATERIAL_ALPHA_FUNC_LEQUAL" name="Lequal" value="GL_LEQUAL" />
-      <member cname="COGL_MATERIAL_ALPHA_FUNC_GREATER" name="Greater" value="GL_GREATER" />
-      <member cname="COGL_MATERIAL_ALPHA_FUNC_NOTEQUAL" name="Notequal" value="GL_NOTEQUAL" />
-      <member cname="COGL_MATERIAL_ALPHA_FUNC_GEQUAL" name="Gequal" value="GL_GEQUAL" />
-      <member cname="COGL_MATERIAL_ALPHA_FUNC_ALWAYS" name="Always" value="GL_ALWAYS" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_NEVER" name="Never" value="GL.GL_NEVER" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_LESS" name="Less" value="GL.GL_LESS" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_EQUAL" name="Equal" value="GL.GL_EQUAL" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_LEQUAL" name="Lequal" value="GL.GL_LEQUAL" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_GREATER" name="Greater" value="GL.GL_GREATER" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_NOTEQUAL" name="Notequal" value="GL.GL_NOTEQUAL" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_GEQUAL" name="Gequal" value="GL.GL_GEQUAL" />
+      <member cname="COGL_MATERIAL_ALPHA_FUNC_ALWAYS" name="Always" value="GL.GL_ALWAYS" />
     </enum>
     <enum name="MaterialBlendFactor" cname="CoglMaterialBlendFactor" type="enum">
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_ZERO" name="Zero" value="GL_ZERO" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE" name="One" value="GL_ONE" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_SRC_COLOR" name="SrcColor" value="GL_SRC_COLOR" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_DST_COLOR" name="DstColor" value="GL_DST_COLOR" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_SRC_COLOR" name="OneMinusSrcColor" value="GL_ONE_MINUS_SRC_COLOR" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_DST_COLOR" name="OneMinusDstColor" value="GL_ONE_MINUS_DST_COLOR" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_SRC_ALPHA" name="SrcAlpha" value="GL_SRC_ALPHA" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA" name="OneMinusSrcAlpha" value="GL_ONE_MINUS_SRC_ALPHA" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_DST_ALPHA" name="DstAlpha" value="GL_DST_ALPHA" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_DST_ALPHA" name="OneMinusDstAlpha" value="GL_ONE_MINUS_DST_ALPHA" />
-      <member cname="COGL_MATERIAL_BLEND_FACTOR_SRC_ALPHA_SATURATE" name="SrcAlphaSaturate" value="GL_SRC_ALPHA_SATURATE" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ZERO" name="Zero" value="GL.GL_ZERO" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE" name="One" value="GL.GL_ONE" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_SRC_COLOR" name="SrcColor" value="GL.GL_SRC_COLOR" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_DST_COLOR" name="DstColor" value="GL.GL_DST_COLOR" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_SRC_COLOR" name="OneMinusSrcColor" value="GL.GL_ONE_MINUS_SRC_COLOR" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_DST_COLOR" name="OneMinusDstColor" value="GL.GL_ONE_MINUS_DST_COLOR" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_SRC_ALPHA" name="SrcAlpha" value="GL.GL_SRC_ALPHA" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA" name="OneMinusSrcAlpha" value="GL.GL_ONE_MINUS_SRC_ALPHA" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_DST_ALPHA" name="DstAlpha" value="GL.GL_DST_ALPHA" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_ONE_MINUS_DST_ALPHA" name="OneMinusDstAlpha" value="GL.GL_ONE_MINUS_DST_ALPHA" />
+      <member cname="COGL_MATERIAL_BLEND_FACTOR_SRC_ALPHA_SATURATE" name="SrcAlphaSaturate" value="GL.GL_SRC_ALPHA_SATURATE" />
     </enum>
     <enum name="MaterialFlushOption" cname="CoglMaterialFlushOption" type="enum">
       <member cname="COGL_MATERIAL_FLUSH_FALLBACK_MASK" name="FallbackMask" value="1" />
@@ -78,34 +78,34 @@
       <member cname="COGL_MATERIAL_LAYER_COMBINE_CHANNELS_RGBA" name="Rgba" />
     </enum>
     <enum name="MaterialLayerCombineFunc" cname="CoglMaterialLayerCombineFunc" type="enum">
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_REPLACE" name="Replace" value="CGL_REPLACE" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_MODULATE" name="Modulate" value="CGL_MODULATE" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_ADD" name="Add" value="CGL_ADD" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_ADD_SIGNED" name="AddSigned" value="CGL_ADD_SIGNED" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_INTERPOLATE" name="Interpolate" value="CGL_INTERPOLATE" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_SUBTRACT" name="Subtract" value="CGL_SUBTRACT" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_DOT3_RGB" name="Dot3Rgb" value="CGL_DOT3_RGB" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_DOT3_RGBA" name="Dot3Rgba" value="CGL_DOT3_RGBA" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_REPLACE" name="Replace" value="GL.GL_REPLACE" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_MODULATE" name="Modulate" value="GL.GL_MODULATE" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_ADD" name="Add" value="GL.GL_ADD" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_ADD_SIGNED" name="AddSigned" value="GL.GL_ADD_SIGNED" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_INTERPOLATE" name="Interpolate" value="GL.GL_INTERPOLATE" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_SUBTRACT" name="Subtract" value="GL.GL_SUBTRACT" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_DOT3_RGB" name="Dot3Rgb" value="GL.GL_DOT3_RGB" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_FUNC_DOT3_RGBA" name="Dot3Rgba" value="GL.GL_DOT3_RGBA" />
     </enum>
     <enum name="MaterialLayerCombineOp" cname="CoglMaterialLayerCombineOp" type="enum">
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_SRC_COLOR" name="SrcColor" value="GL_SRC_COLOR" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_ONE_MINUS_SRC_COLOR" name="OneMinusSrcColor" value="GL_ONE_MINUS_SRC_COLOR" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_SRC_ALPHA" name="SrcAlpha" value="GL_SRC_ALPHA" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_ONE_MINUS_SRC_ALPHA" name="OneMinusSrcAlpha" value="GL_ONE_MINUS_SRC_ALPHA" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_SRC_COLOR" name="SrcColor" value="GL.GL_SRC_COLOR" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_ONE_MINUS_SRC_COLOR" name="OneMinusSrcColor" value="GL.GL_ONE_MINUS_SRC_COLOR" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_SRC_ALPHA" name="SrcAlpha" value="GL.GL_SRC_ALPHA" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_OP_ONE_MINUS_SRC_ALPHA" name="OneMinusSrcAlpha" value="GL.GL_ONE_MINUS_SRC_ALPHA" />
     </enum>
     <enum name="MaterialLayerCombineSrc" cname="CoglMaterialLayerCombineSrc" type="enum">
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE" name="Texture" value="GL_TEXTURE" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE0" name="Texture0" value="GL_TEXTURE0" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE1" name="Texture1" value="GL_TEXTURE1" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE2" name="Texture2" value="GL_TEXTURE2" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE3" name="Texture3" value="GL_TEXTURE3" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE4" name="Texture4" value="GL_TEXTURE4" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE5" name="Texture5" value="GL_TEXTURE5" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE6" name="Texture6" value="GL_TEXTURE6" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE7" name="Texture7" value="GL_TEXTURE7" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_CONSTANT" name="Constant" value="CGL_CONSTANT" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_PRIMARY_COLOR" name="PrimaryColor" value="CGL_PRIMARY_COLOR" />
-      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_PREVIOUS" name="Previous" value="CGL_PREVIOUS" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE" name="Texture" value="GL.GL_TEXTURE" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE0" name="Texture0" value="GL.GL_TEXTURE0" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE1" name="Texture1" value="GL.GL_TEXTURE1" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE2" name="Texture2" value="GL.GL_TEXTURE2" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE3" name="Texture3" value="GL.GL_TEXTURE3" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE4" name="Texture4" value="GL.GL_TEXTURE4" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE5" name="Texture5" value="GL.GL_TEXTURE5" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE6" name="Texture6" value="GL.GL_TEXTURE6" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_TEXTURE7" name="Texture7" value="GL.GL_TEXTURE7" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_CONSTANT" name="Constant" value="GL.GL_CONSTANT" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_PRIMARY_COLOR" name="PrimaryColor" value="GL.GL_PRIMARY_COLOR" />
+      <member cname="COGL_MATERIAL_LAYER_COMBINE_SRC_PREVIOUS" name="Previous" value="GL.GL_PREVIOUS" />
     </enum>
     <enum name="MaterialLayerFlags" cname="CoglMaterialLayerFlags" type="flags">
       <member cname="COGL_MATERIAL_LAYER_FLAG_HAS_USER_MATRIX" name="Matrix" value="1L&lt;&lt;0" />
@@ -115,24 +115,24 @@
     </enum>
     <enum name="PixelFormat" cname="CoglPixelFormat" type="enum">
       <member cname="COGL_PIXEL_FORMAT_ANY" name="Any" />
-      <member cname="COGL_PIXEL_FORMAT_A_8" name="A8" value="1 | COGL_A_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_A_8" name="A8" value="1 | (1 &lt;&lt; 4)" />
       <member cname="COGL_PIXEL_FORMAT_RGB_565" name="Rgb565" value="4" />
-      <member cname="COGL_PIXEL_FORMAT_RGBA_4444" name="Rgba4444" value="5 | COGL_A_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_RGBA_5551" name="Rgba5551" value="6 | COGL_A_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_4444" name="Rgba4444" value="5 | (1 &lt;&lt; 4)" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_5551" name="Rgba5551" value="6 | (1 &lt;&lt; 4)" />
       <member cname="COGL_PIXEL_FORMAT_YUV" name="Yuv" value="7" />
       <member cname="COGL_PIXEL_FORMAT_G_8" name="G8" value="8" />
-      <member cname="COGL_PIXEL_FORMAT_RGB_888" name="Rgb888" value="Two4" />
-      <member cname="COGL_PIXEL_FORMAT_BGR_888" name="Bgr888" value="COGL_PIXEL_FORMAT_24 |COGL_BGR_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_RGBA_8888" name="Rgba8888" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_BGRA_8888" name="Bgra8888" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_BGR_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_ARGB_8888" name="Argb8888" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_AFIRST_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_ABGR_8888" name="Abgr8888" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_BGR_BIT         |COGL_AFIRST_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_RGBA_8888_PRE" name="Rgba8888Pre" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_PREMULT_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_BGRA_8888_PRE" name="Bgra8888Pre" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_PREMULT_BIT     |COGL_BGR_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_ARGB_8888_PRE" name="Argb8888Pre" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_PREMULT_BIT     |COGL_AFIRST_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_ABGR_8888_PRE" name="Abgr8888Pre" value="COGL_PIXEL_FORMAT_32 |COGL_A_BIT           |COGL_PREMULT_BIT     |COGL_BGR_BIT         |COGL_AFIRST_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_RGBA_4444_PRE" name="Rgba4444Pre" value="COGL_PIXEL_FORMAT_RGBA_4444 |COGL_A_BIT                  |COGL_PREMULT_BIT" />
-      <member cname="COGL_PIXEL_FORMAT_RGBA_5551_PRE" name="Rgba5551Pre" value="COGL_PIXEL_FORMAT_RGBA_5551 |COGL_A_BIT                  |COGL_PREMULT_BIT" />
+      <member cname="COGL_PIXEL_FORMAT_RGB_888" name="Rgb888" value="2" />
+      <member cname="COGL_PIXEL_FORMAT_BGR_888" name="Bgr888" value="2 |(1 &lt;&lt; 5)" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_8888" name="Rgba8888" value="3 |(1 &lt;&lt; 4)" />
+      <member cname="COGL_PIXEL_FORMAT_BGRA_8888" name="Bgra8888" value="3 |(1 &lt;&lt; 4)           |(1 &lt;&lt; 5)" />
+      <member cname="COGL_PIXEL_FORMAT_ARGB_8888" name="Argb8888" value="3 |(1 &lt;&lt; 4)           |(1 &lt;&lt; 6)" />
+      <member cname="COGL_PIXEL_FORMAT_ABGR_8888" name="Abgr8888" value="3 |(1 &lt;&lt; 4)           |(1 &lt;&lt; 5)         |(1 &lt;&lt; 6)" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_8888_PRE" name="Rgba8888Pre" value="3 |(1 &lt;&lt; 4)           |(1 &lt;&lt; 7)" />
+      <member cname="COGL_PIXEL_FORMAT_BGRA_8888_PRE" name="Bgra8888Pre" value="3 |(1 &lt;&lt; 4)           |(1 &lt;&lt; 7)     |(1 &lt;&lt; 5)" />
+      <member cname="COGL_PIXEL_FORMAT_ARGB_8888_PRE" name="Argb8888Pre" value="3 |(1 &lt;&lt; 4)           |(1 &lt;&lt; 7)     |(1 &lt;&lt; 6)" />
+      <member cname="COGL_PIXEL_FORMAT_ABGR_8888_PRE" name="Abgr8888Pre" value="3 |(1 &lt;&lt; 4)           |(1 &lt;&lt; 7)     |(1 &lt;&lt; 5)         |(1 &lt;&lt; 6)" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_4444_PRE" name="Rgba4444Pre" value="Rgba4444 |(1 &lt;&lt; 4)                  |(1 &lt;&lt; 7)" />
+      <member cname="COGL_PIXEL_FORMAT_RGBA_5551_PRE" name="Rgba5551Pre" value="Rgba5551 |(1 &lt;&lt; 4)                  |(1 &lt;&lt; 7)" />
     </enum>
     <enum name="TextureFlags" cname="CoglTextureFlags" type="flags">
       <member cname="COGL_TEXTURE_NONE" name="None" />

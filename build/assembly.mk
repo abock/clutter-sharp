@@ -1,5 +1,4 @@
 ASSEMBLY = $(ASSEMBLY_NAME).dll
-TARGET = $(ASSEMBLY) $(ASSEMBLY).config
 REFERENCES = $(GTKSHARP_LIBS) -r:Mono.Cairo $(CUSTOM_REFERENCES)
 
 assemblydir = $(prefix)/lib/clutter-sharp
@@ -11,10 +10,12 @@ pkgconfig_DATA = $(ASSEMBLY_NAME).pc
 clutter-sharp.snk:
 	cp $(top_builddir)/clutter-sharp.snk .
 
-$(ASSEMBLY): $(CLUTTER_FIXED_API) $(sources) clutter-sharp.snk
+$(ASSEMBLY): $(GAPI_FIXED_API) $(SOURCES) clutter-sharp.snk
 	@rm -f $(ASSEMBLY).mdb
 	$(MCS) $(CSFLAGS) -out:$@ -target:library -nowarn:0169 -unsafe \
 		$(REFERENCES) $(SOURCES) AssemblyInfo.cs
+
+$(ASSEMBLY).mdb: $(ASSEMBLY)
 
 install-data-local:
 	$(GACUTIL) /i $(ASSEMBLY) /f /package clutter-sharp /gacdir $(DESTDIR)$(prefix)/lib
@@ -33,7 +34,7 @@ CLEANFILES += \
 	$(ASSEMBLY).mdb \
 	clutter-sharp.snk
 
-DISTCLEANFILES =
+DISTCLEANFILES = \
 	$(ASSEMBLY).config \
 	$(ASSEMBLY_NAME).pc \
 	AssemblyInfo.cs

@@ -1,4 +1,18 @@
 <?xml version="1.0"?>
 <metadata>
   <attr path="/api/namespace" name="name">Clutter.Cogl</attr>
+
+  <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Less']" name="name">LessThan</attr>
+  <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Equal']" name="name">EqualTo</attr>
+  <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Lequal']" name="name">LessThanOrEqualTo</attr>
+  <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Greater']" name="name">GreaterThan</attr>
+  <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Notequal']" name="name">NotEqualTo</attr>
+  <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Gequal']" name="name">GreaterThanOrEqualTo</attr>
+
+  <!-- These enums are defined by hand since they are long and 
+       GAPI only supports the default uint. Fixed in GAPI in 
+       svn trunk on 2009-05-06 -->
+  <remove-node path="/api/namespace/enum[@cname='CoglBufferBit']"/>
+  <remove-node path="/api/namespace/enum[@cname='CoglMaterialLayerFlags']"/>
+
 </metadata>
