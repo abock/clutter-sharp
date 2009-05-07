@@ -1,0 +1,113 @@
+<Type Name="ContainerImplementor" FullName="Clutter.ContainerImplementor">
+  <TypeSignature Language="C#" Value="public interface ContainerImplementor : GLib.IWrapper" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>GLib.IWrapper</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>GLib.GInterface(typeof(Clutter.ContainerAdapter))</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (Clutter.Actor actor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CreateChildMeta">
+      <MemberSignature Language="C#" Value="public void CreateChildMeta (Clutter.Actor actor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="DestroyChildMeta">
+      <MemberSignature Language="C#" Value="public void DestroyChildMeta (Clutter.Actor actor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Foreach">
+      <MemberSignature Language="C#" Value="public void Foreach (Clutter.Callback cb);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="cb" Type="Clutter.Callback" /></Parameters>
+      <Docs><param name="cb">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetChildMeta">
+      <MemberSignature Language="C#" Value="public Clutter.ChildMeta GetChildMeta (Clutter.Actor actor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.ChildMeta</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Lower">
+      <MemberSignature Language="C#" Value="public void Lower (Clutter.Actor actor, Clutter.Actor sibling);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /><Parameter Name="sibling" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><param name="sibling">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Raise">
+      <MemberSignature Language="C#" Value="public void Raise (Clutter.Actor actor, Clutter.Actor sibling);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /><Parameter Name="sibling" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><param name="sibling">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public void Remove (Clutter.Actor actor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SortDepthOrder">
+      <MemberSignature Language="C#" Value="public void SortDepthOrder ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

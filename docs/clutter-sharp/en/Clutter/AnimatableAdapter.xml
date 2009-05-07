@@ -1,0 +1,87 @@
+<Type Name="AnimatableAdapter" FullName="Clutter.AnimatableAdapter">
+  <TypeSignature Language="C#" Value="public class AnimatableAdapter : GLib.GInterfaceAdapter, Clutter.Animatable" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>GLib.GInterfaceAdapter</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Clutter.Animatable</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public AnimatableAdapter ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public AnimatableAdapter (Clutter.AnimatableImplementor implementor);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="implementor" Type="Clutter.AnimatableImplementor" /></Parameters>
+      <Docs><param name="implementor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public AnimatableAdapter (IntPtr handle);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AnimateProperty">
+      <MemberSignature Language="C#" Value="public void AnimateProperty (Clutter.Animation animation, string property_name, GLib.Value initial_value, GLib.Value final_value, double progress, GLib.Value value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="animation" Type="Clutter.Animation" /><Parameter Name="property_name" Type="System.String" /><Parameter Name="initial_value" Type="GLib.Value" /><Parameter Name="final_value" Type="GLib.Value" /><Parameter Name="progress" Type="System.Double" /><Parameter Name="value" Type="GLib.Value" /></Parameters>
+      <Docs><param name="animation">To be added.</param><param name="property_name">To be added.</param><param name="initial_value">To be added.</param><param name="final_value">To be added.</param><param name="progress">To be added.</param><param name="value">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetObject">
+      <MemberSignature Language="C#" Value="public static Clutter.Animatable GetObject (GLib.Object obj);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Animatable</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="obj" Type="GLib.Object" /></Parameters>
+      <Docs><param name="obj">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetObject">
+      <MemberSignature Language="C#" Value="public static Clutter.Animatable GetObject (IntPtr handle, bool owned);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Animatable</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="owned" Type="System.Boolean" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="owned">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Implementor">
+      <MemberSignature Language="C#" Value="public Clutter.AnimatableImplementor Implementor { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.AnimatableImplementor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

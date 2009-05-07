@@ -1,0 +1,205 @@
+<Type Name="Script" FullName="Clutter.Script">
+  <TypeSignature Language="C#" Value="public class Script : GLib.Object" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>GLib.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Script ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected Script (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>System.Obsolete</AttributeName></Attribute></Attributes>
+      <Parameters><Parameter Name="gtype" Type="GLib.GType" /></Parameters>
+      <Docs><param name="gtype">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Script (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="raw" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="raw">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AddSearchPaths">
+      <MemberSignature Language="C#" Value="public void AddSearchPaths (string[] paths);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="paths" Type="System.String[]" /></Parameters>
+      <Docs><param name="paths">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ConnectSignals">
+      <MemberSignature Language="C#" Value="public void ConnectSignals (IntPtr user_data);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="user_data" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="user_data">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ConnectSignalsFull">
+      <MemberSignature Language="C#" Value="public void ConnectSignalsFull (Clutter.ScriptConnectFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="func" Type="Clutter.ScriptConnectFunc" /></Parameters>
+      <Docs><param name="func">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="EnsureObjects">
+      <MemberSignature Language="C#" Value="public void EnsureObjects ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ErrorQuark">
+      <MemberSignature Language="C#" Value="public static int ErrorQuark ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Filename">
+      <MemberSignature Language="C#" Value="public string Filename { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("filename")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.String</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FilenameSet">
+      <MemberSignature Language="C#" Value="public bool FilenameSet { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("filename-set")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetObject">
+      <MemberSignature Language="C#" Value="public GLib.Object GetObject (string name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.Object</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="name" Type="System.String" /></Parameters>
+      <Docs><param name="name">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetObject&lt;TObject&gt;">
+      <MemberSignature Language="C#" Value="public TObject GetObject&lt;TObject&gt; (string name) where TObject : GLib.Object;" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>TObject</ReturnType></ReturnValue>
+      <TypeParameters><TypeParameter Name="TObject"><Constraints><BaseTypeName>GLib.Object</BaseTypeName></Constraints></TypeParameter></TypeParameters>
+      <Parameters><Parameter Name="name" Type="System.String" /></Parameters>
+      <Docs><typeparam name="TObject">To be added.</typeparam><param name="name">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetTypeFromName">
+      <MemberSignature Language="C#" Value="public GLib.GType GetTypeFromName (string type_name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="type_name" Type="System.String" /></Parameters>
+      <Docs><param name="type_name">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ListObjects">
+      <MemberSignature Language="C#" Value="public GLib.List ListObjects ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.List</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LoadFromData">
+      <MemberSignature Language="C#" Value="public uint LoadFromData (string data);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="data" Type="System.String" /></Parameters>
+      <Docs><param name="data">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LoadFromFile">
+      <MemberSignature Language="C#" Value="public uint LoadFromFile (string filename);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="filename" Type="System.String" /></Parameters>
+      <Docs><param name="filename">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LookupFilename">
+      <MemberSignature Language="C#" Value="public string LookupFilename (string filename);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.String</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="filename" Type="System.String" /></Parameters>
+      <Docs><param name="filename">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="UnmergeObjects">
+      <MemberSignature Language="C#" Value="public void UnmergeObjects (uint merge_id);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="merge_id" Type="System.UInt32" /></Parameters>
+      <Docs><param name="merge_id">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

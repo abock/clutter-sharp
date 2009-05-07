@@ -1,0 +1,125 @@
+<Type Name="StageManager" FullName="Clutter.StageManager">
+  <TypeSignature Language="C#" Value="public class StageManager : GLib.Object" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>GLib.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected StageManager ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected StageManager (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>System.Obsolete</AttributeName></Attribute></Attributes>
+      <Parameters><Parameter Name="gtype" Type="GLib.GType" /></Parameters>
+      <Docs><param name="gtype">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public StageManager (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="raw" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="raw">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Default">
+      <MemberSignature Language="C#" Value="public static Clutter.StageManager Default { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.StageManager</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="DefaultStage">
+      <MemberSignature Language="C#" Value="public Clutter.Stage DefaultStage { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("default-stage")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.Stage</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ListStages">
+      <MemberSignature Language="C#" Value="public GLib.SList ListStages ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.SList</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnStageAdded">
+      <MemberSignature Language="C#" Value="protected virtual void OnStageAdded (Clutter.Stage stage);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.StageManager), ConnectionMethod="OverrideStageAdded")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="stage" Type="Clutter.Stage" /></Parameters>
+      <Docs><param name="stage">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnStageRemoved">
+      <MemberSignature Language="C#" Value="protected virtual void OnStageRemoved (Clutter.Stage stage);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.StageManager), ConnectionMethod="OverrideStageRemoved")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="stage" Type="Clutter.Stage" /></Parameters>
+      <Docs><param name="stage">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="StageAdded">
+      <MemberSignature Language="C#" Value="public event Clutter.StageAddedHandler StageAdded;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("stage-added")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.StageAddedHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="StageRemoved">
+      <MemberSignature Language="C#" Value="public event Clutter.StageRemovedHandler StageRemoved;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("stage-removed")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.StageRemovedHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

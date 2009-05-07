@@ -9,6 +9,8 @@ GAPI_FIXED_API = clutter-gtk-api.xml
 CUSTOM_REFERENCES = -r:$(top_builddir)/clutter/clutter-sharp.dll
 CUSTOM_API_INCLUDES = $(top_builddir)/clutter/Clutter/clutter-api.xml
 
+GENERATED_DIRS = $(builddir)
+
 if ENABLE_GTK
 TARGET = \
 	$(ASSEMBLY_NAME).dll \
@@ -18,12 +20,10 @@ else
 TARGET =
 endif
 
-all: $(ASSEMBLY_NAME).dll
-
 EXTRA_DIST =
 CLEANFILES =
 
-include $(top_srcdir)/build/assembly.mk
 include $(top_srcdir)/build/gapi.mk
+include $(top_srcdir)/build/assembly.mk
 
 MAINTAINERCLEANFILES = Makefile.in

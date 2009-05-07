@@ -1,0 +1,116 @@
+<Type Name="Threads" FullName="Clutter.Threads">
+  <TypeSignature Language="C#" Value="public class Threads" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Threads ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AddFrameSource">
+      <MemberSignature Language="C#" Value="public static uint AddFrameSource (uint fps, GLib.GSourceFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="fps" Type="System.UInt32" /><Parameter Name="func" Type="GLib.GSourceFunc" /></Parameters>
+      <Docs><param name="fps">To be added.</param><param name="func">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AddFrameSourceFull">
+      <MemberSignature Language="C#" Value="public static uint AddFrameSourceFull (int priority, uint fps, GLib.GSourceFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="priority" Type="System.Int32" /><Parameter Name="fps" Type="System.UInt32" /><Parameter Name="func" Type="GLib.GSourceFunc" /></Parameters>
+      <Docs><param name="priority">To be added.</param><param name="fps">To be added.</param><param name="func">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AddIdle">
+      <MemberSignature Language="C#" Value="public static uint AddIdle (GLib.GSourceFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="func" Type="GLib.GSourceFunc" /></Parameters>
+      <Docs><param name="func">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AddIdleFull">
+      <MemberSignature Language="C#" Value="public static uint AddIdleFull (int priority, GLib.GSourceFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="priority" Type="System.Int32" /><Parameter Name="func" Type="GLib.GSourceFunc" /></Parameters>
+      <Docs><param name="priority">To be added.</param><param name="func">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AddTimeout">
+      <MemberSignature Language="C#" Value="public static uint AddTimeout (uint interval, GLib.GSourceFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="interval" Type="System.UInt32" /><Parameter Name="func" Type="GLib.GSourceFunc" /></Parameters>
+      <Docs><param name="interval">To be added.</param><param name="func">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AddTimeoutFull">
+      <MemberSignature Language="C#" Value="public static uint AddTimeoutFull (int priority, uint interval, GLib.GSourceFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="priority" Type="System.Int32" /><Parameter Name="interval" Type="System.UInt32" /><Parameter Name="func" Type="GLib.GSourceFunc" /></Parameters>
+      <Docs><param name="priority">To be added.</param><param name="interval">To be added.</param><param name="func">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Enter">
+      <MemberSignature Language="C#" Value="public static void Enter ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Init">
+      <MemberSignature Language="C#" Value="public static void Init ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Leave">
+      <MemberSignature Language="C#" Value="public static void Leave ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

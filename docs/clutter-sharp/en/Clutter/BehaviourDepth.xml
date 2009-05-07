@@ -1,0 +1,94 @@
+<Type Name="BehaviourDepth" FullName="Clutter.BehaviourDepth">
+  <TypeSignature Language="C#" Value="public class BehaviourDepth : Clutter.Behaviour" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Clutter.Behaviour</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected BehaviourDepth (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>System.Obsolete</AttributeName></Attribute></Attributes>
+      <Parameters><Parameter Name="gtype" Type="GLib.GType" /></Parameters>
+      <Docs><param name="gtype">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BehaviourDepth (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="raw" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="raw">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BehaviourDepth (Clutter.Alpha alpha, int depth_start, int depth_end);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="alpha" Type="Clutter.Alpha" /><Parameter Name="depth_start" Type="System.Int32" /><Parameter Name="depth_end" Type="System.Int32" /></Parameters>
+      <Docs><param name="alpha">To be added.</param><param name="depth_start">To be added.</param><param name="depth_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="DepthEnd">
+      <MemberSignature Language="C#" Value="public int DepthEnd { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("depth-end")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="DepthStart">
+      <MemberSignature Language="C#" Value="public int DepthStart { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("depth-start")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetBounds">
+      <MemberSignature Language="C#" Value="public void GetBounds (out int depth_start, out int depth_end);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="depth_start" Type="System.Int32&amp;" RefType="out" /><Parameter Name="depth_end" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="depth_start">To be added.</param><param name="depth_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetBounds">
+      <MemberSignature Language="C#" Value="public void SetBounds (int depth_start, int depth_end);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="depth_start" Type="System.Int32" /><Parameter Name="depth_end" Type="System.Int32" /></Parameters>
+      <Docs><param name="depth_start">To be added.</param><param name="depth_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

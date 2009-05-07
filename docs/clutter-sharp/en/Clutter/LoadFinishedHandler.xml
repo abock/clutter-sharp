@@ -1,0 +1,23 @@
+<Type Name="LoadFinishedHandler" FullName="Clutter.LoadFinishedHandler">
+  <TypeSignature Language="C#" Value="public delegate void LoadFinishedHandler(object o, LoadFinishedArgs args);" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Parameters>
+    <Parameter Name="o" Type="System.Object" />
+    <Parameter Name="args" Type="Clutter.LoadFinishedArgs" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Void</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="o">To be added.</param>
+    <param name="args">To be added.</param>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>

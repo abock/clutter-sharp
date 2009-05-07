@@ -1,0 +1,144 @@
+<Type Name="BindingPool" FullName="Clutter.BindingPool">
+  <TypeSignature Language="C#" Value="public class BindingPool : GLib.Object" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>GLib.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected BindingPool (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>System.Obsolete</AttributeName></Attribute></Attributes>
+      <Parameters><Parameter Name="gtype" Type="GLib.GType" /></Parameters>
+      <Docs><param name="gtype">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BindingPool (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="raw" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="raw">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BindingPool (string name);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="name" Type="System.String" /></Parameters>
+      <Docs><param name="name">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Activate">
+      <MemberSignature Language="C#" Value="public bool Activate (uint key_val, Clutter.ModifierType modifiers, GLib.Object gobject);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="key_val" Type="System.UInt32" /><Parameter Name="modifiers" Type="Clutter.ModifierType" /><Parameter Name="gobject" Type="GLib.Object" /></Parameters>
+      <Docs><param name="key_val">To be added.</param><param name="modifiers">To be added.</param><param name="gobject">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="BlockAction">
+      <MemberSignature Language="C#" Value="public void BlockAction (string action_name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="action_name" Type="System.String" /></Parameters>
+      <Docs><param name="action_name">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Find">
+      <MemberSignature Language="C#" Value="public static Clutter.BindingPool Find (string name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.BindingPool</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="name" Type="System.String" /></Parameters>
+      <Docs><param name="name">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FindAction">
+      <MemberSignature Language="C#" Value="public string FindAction (uint key_val, Clutter.ModifierType modifiers);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.String</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="key_val" Type="System.UInt32" /><Parameter Name="modifiers" Type="Clutter.ModifierType" /></Parameters>
+      <Docs><param name="key_val">To be added.</param><param name="modifiers">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetForClass">
+      <MemberSignature Language="C#" Value="public static Clutter.BindingPool GetForClass (IntPtr klass);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.BindingPool</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="klass" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="klass">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="InstallClosure">
+      <MemberSignature Language="C#" Value="public void InstallClosure (string action_name, uint key_val, Clutter.ModifierType modifiers, IntPtr closure);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="action_name" Type="System.String" /><Parameter Name="key_val" Type="System.UInt32" /><Parameter Name="modifiers" Type="Clutter.ModifierType" /><Parameter Name="closure" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="action_name">To be added.</param><param name="key_val">To be added.</param><param name="modifiers">To be added.</param><param name="closure">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OverrideClosure">
+      <MemberSignature Language="C#" Value="public void OverrideClosure (uint key_val, Clutter.ModifierType modifiers, IntPtr closure);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="key_val" Type="System.UInt32" /><Parameter Name="modifiers" Type="Clutter.ModifierType" /><Parameter Name="closure" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="key_val">To be added.</param><param name="modifiers">To be added.</param><param name="closure">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RemoveAction">
+      <MemberSignature Language="C#" Value="public void RemoveAction (uint key_val, Clutter.ModifierType modifiers);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="key_val" Type="System.UInt32" /><Parameter Name="modifiers" Type="Clutter.ModifierType" /></Parameters>
+      <Docs><param name="key_val">To be added.</param><param name="modifiers">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="UnblockAction">
+      <MemberSignature Language="C#" Value="public void UnblockAction (string action_name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="action_name" Type="System.String" /></Parameters>
+      <Docs><param name="action_name">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

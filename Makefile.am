@@ -1,12 +1,14 @@
 SUBDIRS = \
 	clutter \
-	clutter-gtk
+	clutter-gtk \
+	docs
 
 DIST_SUBDIRS = \
 	build \
 	clutter \
 	clutter-gtk \
-	examples
+	examples \
+	docs
 
 EXTRA_DIST = clutter-sharp.snk
 

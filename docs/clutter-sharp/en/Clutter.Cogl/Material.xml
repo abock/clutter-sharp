@@ -1,0 +1,336 @@
+<Type Name="Material" FullName="Clutter.Cogl.Material">
+  <TypeSignature Language="C#" Value="public class Material" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Material ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetAmbient">
+      <MemberSignature Language="C#" Value="public static void GetAmbient (IntPtr material, Clutter.Cogl.Color ambient);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="ambient" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="ambient">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetCoglEnableFlags">
+      <MemberSignature Language="C#" Value="public static ulong GetCoglEnableFlags (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt64</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetColor">
+      <MemberSignature Language="C#" Value="public static void GetColor (IntPtr material, Clutter.Cogl.Color color);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="color" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="color">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetDiffuse">
+      <MemberSignature Language="C#" Value="public static void GetDiffuse (IntPtr material, Clutter.Cogl.Color diffuse);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="diffuse" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="diffuse">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetEmission">
+      <MemberSignature Language="C#" Value="public static void GetEmission (IntPtr material, Clutter.Cogl.Color emission);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="emission" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="emission">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetLayers">
+      <MemberSignature Language="C#" Value="public static GLib.List GetLayers (IntPtr material_handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.List</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material_handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="material_handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetShininess">
+      <MemberSignature Language="C#" Value="public static float GetShininess (IntPtr material);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="material">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetSpecular">
+      <MemberSignature Language="C#" Value="public static void GetSpecular (IntPtr material, Clutter.Cogl.Color specular);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="specular" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="specular">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LayerGetFlags">
+      <MemberSignature Language="C#" Value="public static ulong LayerGetFlags (IntPtr layer_handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt64</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="layer_handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="layer_handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LayerGetTexture">
+      <MemberSignature Language="C#" Value="public static IntPtr LayerGetTexture (IntPtr layer_handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="layer_handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="layer_handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LayerGetType">
+      <MemberSignature Language="C#" Value="public static Clutter.Cogl.MaterialLayerType LayerGetType (IntPtr layer_handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Cogl.MaterialLayerType</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="layer_handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="layer_handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="New">
+      <MemberSignature Language="C#" Value="public static IntPtr New ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Ref">
+      <MemberSignature Language="C#" Value="public static IntPtr Ref (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RemoveLayer">
+      <MemberSignature Language="C#" Value="public static void RemoveLayer (IntPtr material, int layer_index);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="layer_index" Type="System.Int32" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="layer_index">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetAlphaTestFunction">
+      <MemberSignature Language="C#" Value="public static void SetAlphaTestFunction (IntPtr material, Clutter.Cogl.MaterialAlphaFunc alpha_func, float alpha_reference);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="alpha_func" Type="Clutter.Cogl.MaterialAlphaFunc" /><Parameter Name="alpha_reference" Type="System.Single" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="alpha_func">To be added.</param><param name="alpha_reference">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetAmbient">
+      <MemberSignature Language="C#" Value="public static void SetAmbient (IntPtr material, Clutter.Cogl.Color ambient);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="ambient" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="ambient">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetAmbientAndDiffuse">
+      <MemberSignature Language="C#" Value="public static void SetAmbientAndDiffuse (IntPtr material, Clutter.Cogl.Color color);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="color" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="color">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetBlendFactors">
+      <MemberSignature Language="C#" Value="public static void SetBlendFactors (IntPtr material, Clutter.Cogl.MaterialBlendFactor src_factor, Clutter.Cogl.MaterialBlendFactor dst_factor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="src_factor" Type="Clutter.Cogl.MaterialBlendFactor" /><Parameter Name="dst_factor" Type="Clutter.Cogl.MaterialBlendFactor" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="src_factor">To be added.</param><param name="dst_factor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetColor">
+      <MemberSignature Language="C#" Value="public static void SetColor (IntPtr material, Clutter.Cogl.Color color);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="color" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="color">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetColor4f">
+      <MemberSignature Language="C#" Value="public static void SetColor4f (IntPtr material, float red, float green, float blue, float alpha);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="red" Type="System.Single" /><Parameter Name="green" Type="System.Single" /><Parameter Name="blue" Type="System.Single" /><Parameter Name="alpha" Type="System.Single" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><param name="alpha">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetColor4ub">
+      <MemberSignature Language="C#" Value="public static void SetColor4ub (IntPtr material, byte red, byte green, byte blue, byte alpha);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="red" Type="System.Byte" /><Parameter Name="green" Type="System.Byte" /><Parameter Name="blue" Type="System.Byte" /><Parameter Name="alpha" Type="System.Byte" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><param name="alpha">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetDiffuse">
+      <MemberSignature Language="C#" Value="public static void SetDiffuse (IntPtr material, Clutter.Cogl.Color diffuse);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="diffuse" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="diffuse">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetEmission">
+      <MemberSignature Language="C#" Value="public static void SetEmission (IntPtr material, Clutter.Cogl.Color emission);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="emission" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="emission">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetLayer">
+      <MemberSignature Language="C#" Value="public static void SetLayer (IntPtr material, int layer_index, IntPtr texture);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="layer_index" Type="System.Int32" /><Parameter Name="texture" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="layer_index">To be added.</param><param name="texture">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetLayerCombineArgOp">
+      <MemberSignature Language="C#" Value="public static void SetLayerCombineArgOp (IntPtr material, int layer_index, int argument, Clutter.Cogl.MaterialLayerCombineChannels channels, Clutter.Cogl.MaterialLayerCombineOp op);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="layer_index" Type="System.Int32" /><Parameter Name="argument" Type="System.Int32" /><Parameter Name="channels" Type="Clutter.Cogl.MaterialLayerCombineChannels" /><Parameter Name="op" Type="Clutter.Cogl.MaterialLayerCombineOp" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="layer_index">To be added.</param><param name="argument">To be added.</param><param name="channels">To be added.</param><param name="op">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetLayerCombineArgSrc">
+      <MemberSignature Language="C#" Value="public static void SetLayerCombineArgSrc (IntPtr material, int layer_index, int argument, Clutter.Cogl.MaterialLayerCombineChannels channels, Clutter.Cogl.MaterialLayerCombineSrc src);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="layer_index" Type="System.Int32" /><Parameter Name="argument" Type="System.Int32" /><Parameter Name="channels" Type="Clutter.Cogl.MaterialLayerCombineChannels" /><Parameter Name="src" Type="Clutter.Cogl.MaterialLayerCombineSrc" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="layer_index">To be added.</param><param name="argument">To be added.</param><param name="channels">To be added.</param><param name="src">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetLayerCombineFunction">
+      <MemberSignature Language="C#" Value="public static void SetLayerCombineFunction (IntPtr material, int layer_index, Clutter.Cogl.MaterialLayerCombineChannels channels, Clutter.Cogl.MaterialLayerCombineFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="layer_index" Type="System.Int32" /><Parameter Name="channels" Type="Clutter.Cogl.MaterialLayerCombineChannels" /><Parameter Name="func" Type="Clutter.Cogl.MaterialLayerCombineFunc" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="layer_index">To be added.</param><param name="channels">To be added.</param><param name="func">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetLayerMatrix">
+      <MemberSignature Language="C#" Value="public static void SetLayerMatrix (IntPtr material, int layer_index, Clutter.Cogl.Matrix matrix);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="layer_index" Type="System.Int32" /><Parameter Name="matrix" Type="Clutter.Cogl.Matrix" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="layer_index">To be added.</param><param name="matrix">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetShininess">
+      <MemberSignature Language="C#" Value="public static void SetShininess (IntPtr material, float shininess);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="shininess" Type="System.Single" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="shininess">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetSpecular">
+      <MemberSignature Language="C#" Value="public static void SetSpecular (IntPtr material, Clutter.Cogl.Color specular);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="material" Type="System.IntPtr" /><Parameter Name="specular" Type="Clutter.Cogl.Color" /></Parameters>
+      <Docs><param name="material">To be added.</param><param name="specular">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Unref">
+      <MemberSignature Language="C#" Value="public static void Unref (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

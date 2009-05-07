@@ -1,0 +1,216 @@
+<Type Name="ContainerAdapter" FullName="Clutter.ContainerAdapter">
+  <TypeSignature Language="C#" Value="public class ContainerAdapter : GLib.GInterfaceAdapter, Clutter.Container" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>GLib.GInterfaceAdapter</BaseTypeName>
+  </Base>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>Clutter.Container</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ContainerAdapter ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ContainerAdapter (Clutter.ContainerImplementor implementor);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="implementor" Type="Clutter.ContainerImplementor" /></Parameters>
+      <Docs><param name="implementor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public ContainerAdapter (IntPtr handle);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ActorAdded">
+      <MemberSignature Language="C#" Value="public event Clutter.ActorAddedHandler ActorAdded;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("actor-added")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.ActorAddedHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ActorRemoved">
+      <MemberSignature Language="C#" Value="public event Clutter.ActorRemovedHandler ActorRemoved;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("actor-removed")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.ActorRemovedHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (Clutter.Actor actor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ChildGetProperty">
+      <MemberSignature Language="C#" Value="public void ChildGetProperty (Clutter.Actor child, string property, GLib.Value value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="child" Type="Clutter.Actor" /><Parameter Name="property" Type="System.String" /><Parameter Name="value" Type="GLib.Value" /></Parameters>
+      <Docs><param name="child">To be added.</param><param name="property">To be added.</param><param name="value">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ChildNotify">
+      <MemberSignature Language="C#" Value="public event Clutter.ChildNotifyHandler ChildNotify;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("child-notify")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.ChildNotifyHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Children">
+      <MemberSignature Language="C#" Value="public GLib.List Children { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.List</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ChildSetProperty">
+      <MemberSignature Language="C#" Value="public void ChildSetProperty (Clutter.Actor child, string property, GLib.Value value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="child" Type="Clutter.Actor" /><Parameter Name="property" Type="System.String" /><Parameter Name="value" Type="GLib.Value" /></Parameters>
+      <Docs><param name="child">To be added.</param><param name="property">To be added.</param><param name="value">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FindChildByName">
+      <MemberSignature Language="C#" Value="public Clutter.Actor FindChildByName (string child_name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Actor</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="child_name" Type="System.String" /></Parameters>
+      <Docs><param name="child_name">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Foreach">
+      <MemberSignature Language="C#" Value="public void Foreach (Clutter.Callback cb);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="cb" Type="Clutter.Callback" /></Parameters>
+      <Docs><param name="cb">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetChildMeta">
+      <MemberSignature Language="C#" Value="public Clutter.ChildMeta GetChildMeta (Clutter.Actor actor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.ChildMeta</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetObject">
+      <MemberSignature Language="C#" Value="public static Clutter.Container GetObject (GLib.Object obj);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Container</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="obj" Type="GLib.Object" /></Parameters>
+      <Docs><param name="obj">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetObject">
+      <MemberSignature Language="C#" Value="public static Clutter.Container GetObject (IntPtr handle, bool owned);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Container</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="owned" Type="System.Boolean" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="owned">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Implementor">
+      <MemberSignature Language="C#" Value="public Clutter.ContainerImplementor Implementor { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.ContainerImplementor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LowerChild">
+      <MemberSignature Language="C#" Value="public void LowerChild (Clutter.Actor actor, Clutter.Actor sibling);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /><Parameter Name="sibling" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><param name="sibling">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RaiseChild">
+      <MemberSignature Language="C#" Value="public void RaiseChild (Clutter.Actor actor, Clutter.Actor sibling);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /><Parameter Name="sibling" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><param name="sibling">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Remove">
+      <MemberSignature Language="C#" Value="public void Remove (Clutter.Actor actor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="actor" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="actor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SortDepthOrder">
+      <MemberSignature Language="C#" Value="public void SortDepthOrder ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

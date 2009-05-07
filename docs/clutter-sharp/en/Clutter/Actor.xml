@@ -1,0 +1,1775 @@
+<Type Name="Actor" FullName="Clutter.Actor">
+  <TypeSignature Language="C#" Value="public class Actor : GLib.InitiallyUnowned" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>GLib.InitiallyUnowned</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected Actor ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected Actor (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>System.Obsolete</AttributeName></Attribute></Attributes>
+      <Parameters><Parameter Name="gtype" Type="GLib.GType" /></Parameters>
+      <Docs><param name="gtype">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Actor (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="raw" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="raw">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Allocate">
+      <MemberSignature Language="C#" Value="public void Allocate (Clutter.ActorBox box, bool absolute_origin_changed);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="box" Type="Clutter.ActorBox" /><Parameter Name="absolute_origin_changed" Type="System.Boolean" /></Parameters>
+      <Docs><param name="box">To be added.</param><param name="absolute_origin_changed">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AllocatePreferredSize">
+      <MemberSignature Language="C#" Value="public void AllocatePreferredSize (bool absolute_origin_changed);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="absolute_origin_changed" Type="System.Boolean" /></Parameters>
+      <Docs><param name="absolute_origin_changed">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Allocation">
+      <MemberSignature Language="C#" Value="public Clutter.ActorBox Allocation { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("allocation")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.ActorBox</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AnchorPointFromGravity">
+      <MemberSignature Language="C#" Value="public Clutter.Gravity AnchorPointFromGravity { set; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Gravity</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AnchorPointGravity">
+      <MemberSignature Language="C#" Value="public Clutter.Gravity AnchorPointGravity { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Gravity</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AnchorX">
+      <MemberSignature Language="C#" Value="public int AnchorX { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("anchor-x")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AnchorY">
+      <MemberSignature Language="C#" Value="public int AnchorY { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("anchor-y")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Animatev">
+      <MemberSignature Language="C#" Value="public Clutter.Animation Animatev (ulong mode, uint duration, string[] properties, GLib.Value values);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Animation</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="mode" Type="System.UInt64" /><Parameter Name="duration" Type="System.UInt32" /><Parameter Name="properties" Type="System.String[]" /><Parameter Name="values" Type="GLib.Value" /></Parameters>
+      <Docs><param name="mode">To be added.</param><param name="duration">To be added.</param><param name="properties">To be added.</param><param name="values">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AnimateWithAlphav">
+      <MemberSignature Language="C#" Value="public Clutter.Animation AnimateWithAlphav (Clutter.Alpha alpha, string[] properties, GLib.Value values);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Animation</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="alpha" Type="Clutter.Alpha" /><Parameter Name="properties" Type="System.String[]" /><Parameter Name="values" Type="GLib.Value" /></Parameters>
+      <Docs><param name="alpha">To be added.</param><param name="properties">To be added.</param><param name="values">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AnimateWithTimelinev">
+      <MemberSignature Language="C#" Value="public Clutter.Animation AnimateWithTimelinev (ulong mode, Clutter.Timeline timeline, string[] properties, GLib.Value values);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Animation</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="mode" Type="System.UInt64" /><Parameter Name="timeline" Type="Clutter.Timeline" /><Parameter Name="properties" Type="System.String[]" /><Parameter Name="values" Type="GLib.Value" /></Parameters>
+      <Docs><param name="mode">To be added.</param><param name="timeline">To be added.</param><param name="properties">To be added.</param><param name="values">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Animation">
+      <MemberSignature Language="C#" Value="public Clutter.Animation Animation { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Animation</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ApplyRelativeTransformToPoint">
+      <MemberSignature Language="C#" Value="public void ApplyRelativeTransformToPoint (Clutter.Actor ancestor, Clutter.Vertex point, Clutter.Vertex vertex);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="ancestor" Type="Clutter.Actor" /><Parameter Name="point" Type="Clutter.Vertex" /><Parameter Name="vertex" Type="Clutter.Vertex" /></Parameters>
+      <Docs><param name="ancestor">To be added.</param><param name="point">To be added.</param><param name="vertex">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ApplyTransformToPoint">
+      <MemberSignature Language="C#" Value="public void ApplyTransformToPoint (Clutter.Vertex point, Clutter.Vertex vertex);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="point" Type="Clutter.Vertex" /><Parameter Name="vertex" Type="Clutter.Vertex" /></Parameters>
+      <Docs><param name="point">To be added.</param><param name="vertex">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ButtonPressEvent">
+      <MemberSignature Language="C#" Value="public event Clutter.ButtonPressEventHandler ButtonPressEvent;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("button-press-event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.ButtonPressEventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ButtonReleaseEvent">
+      <MemberSignature Language="C#" Value="public event Clutter.ButtonReleaseEventHandler ButtonReleaseEvent;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("button-release-event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.ButtonReleaseEventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CapturedEvent">
+      <MemberSignature Language="C#" Value="public event Clutter.CapturedEventHandler CapturedEvent;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("captured-event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.CapturedEventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Clip">
+      <MemberSignature Language="C#" Value="public Clutter.Geometry Clip { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("clip")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.Geometry</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CreatePangoContext">
+      <MemberSignature Language="C#" Value="public Pango.Context CreatePangoContext ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Pango.Context</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CreatePangoLayout">
+      <MemberSignature Language="C#" Value="public Pango.Layout CreatePangoLayout (string text);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Pango.Layout</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="text" Type="System.String" /></Parameters>
+      <Docs><param name="text">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Depth">
+      <MemberSignature Language="C#" Value="public int Depth { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("depth")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Depthu">
+      <MemberSignature Language="C#" Value="public float Depthu { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Destroy">
+      <MemberSignature Language="C#" Value="public void Destroy ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Destroyed">
+      <MemberSignature Language="C#" Value="public event EventHandler Destroyed;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("destroy")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Emit">
+      <MemberSignature Language="C#" Value="public bool Emit (Clutter.Event evnt, bool capture);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.Event" /><Parameter Name="capture" Type="System.Boolean" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><param name="capture">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="EnterEvent">
+      <MemberSignature Language="C#" Value="public event Clutter.EnterEventHandler EnterEvent;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("enter-event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.EnterEventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Event">
+      <MemberSignature Language="C#" Value="public event Clutter.EventHandler Event;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.EventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FixedPositionSet">
+      <MemberSignature Language="C#" Value="public bool FixedPositionSet { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("fixed-position-set")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FocusIn">
+      <MemberSignature Language="C#" Value="public event EventHandler FocusIn;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("focus-in")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FocusOut">
+      <MemberSignature Language="C#" Value="public event EventHandler FocusOut;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("focus-out")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetAbsAllocationVertices">
+      <MemberSignature Language="C#" Value="public void GetAbsAllocationVertices (Clutter.Vertex[] verts);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="verts" Type="Clutter.Vertex[]" /></Parameters>
+      <Docs><param name="verts">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetAllocationBox">
+      <MemberSignature Language="C#" Value="public void GetAllocationBox (Clutter.ActorBox box);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="box" Type="Clutter.ActorBox" /></Parameters>
+      <Docs><param name="box">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetAllocationCoords">
+      <MemberSignature Language="C#" Value="public void GetAllocationCoords (out int x_1, out int y_1, out int x_2, out int y_2);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x_1" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y_1" Type="System.Int32&amp;" RefType="out" /><Parameter Name="x_2" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y_2" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="x_1">To be added.</param><param name="y_1">To be added.</param><param name="x_2">To be added.</param><param name="y_2">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetAllocationGeometry">
+      <MemberSignature Language="C#" Value="public void GetAllocationGeometry (Clutter.Geometry geom);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="geom" Type="Clutter.Geometry" /></Parameters>
+      <Docs><param name="geom">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetAllocationVertices">
+      <MemberSignature Language="C#" Value="public void GetAllocationVertices (Clutter.Actor ancestor, Clutter.Vertex[] verts);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="ancestor" Type="Clutter.Actor" /><Parameter Name="verts" Type="Clutter.Vertex[]" /></Parameters>
+      <Docs><param name="ancestor">To be added.</param><param name="verts">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetAnchorPoint">
+      <MemberSignature Language="C#" Value="public void GetAnchorPoint (out int anchor_x, out int anchor_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="anchor_x" Type="System.Int32&amp;" RefType="out" /><Parameter Name="anchor_y" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="anchor_x">To be added.</param><param name="anchor_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetAnchorPointu">
+      <MemberSignature Language="C#" Value="public void GetAnchorPointu (out float anchor_x, out float anchor_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="anchor_x" Type="System.Single&amp;" RefType="out" /><Parameter Name="anchor_y" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="anchor_x">To be added.</param><param name="anchor_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetClip">
+      <MemberSignature Language="C#" Value="public void GetClip (out int xoff, out int yoff, out int width, out int height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="xoff" Type="System.Int32&amp;" RefType="out" /><Parameter Name="yoff" Type="System.Int32&amp;" RefType="out" /><Parameter Name="width" Type="System.Int32&amp;" RefType="out" /><Parameter Name="height" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="xoff">To be added.</param><param name="yoff">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetClipu">
+      <MemberSignature Language="C#" Value="public void GetClipu (out float xoff, out float yoff, out float width, out float height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="xoff" Type="System.Single&amp;" RefType="out" /><Parameter Name="yoff" Type="System.Single&amp;" RefType="out" /><Parameter Name="width" Type="System.Single&amp;" RefType="out" /><Parameter Name="height" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="xoff">To be added.</param><param name="yoff">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetGeometry">
+      <MemberSignature Language="C#" Value="public void GetGeometry (Clutter.Geometry geometry);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="geometry" Type="Clutter.Geometry" /></Parameters>
+      <Docs><param name="geometry">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetPosition">
+      <MemberSignature Language="C#" Value="public void GetPosition (out int x, out int y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetPositionu">
+      <MemberSignature Language="C#" Value="public void GetPositionu (out float x, out float y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Single&amp;" RefType="out" /><Parameter Name="y" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetPreferredHeight">
+      <MemberSignature Language="C#" Value="public void GetPreferredHeight (float for_width, out float min_height_p, out float natural_height_p);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="for_width" Type="System.Single" /><Parameter Name="min_height_p" Type="System.Single&amp;" RefType="out" /><Parameter Name="natural_height_p" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="for_width">To be added.</param><param name="min_height_p">To be added.</param><param name="natural_height_p">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetPreferredSize">
+      <MemberSignature Language="C#" Value="public void GetPreferredSize (out float min_width_p, out float min_height_p, out float natural_width_p, out float natural_height_p);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="min_width_p" Type="System.Single&amp;" RefType="out" /><Parameter Name="min_height_p" Type="System.Single&amp;" RefType="out" /><Parameter Name="natural_width_p" Type="System.Single&amp;" RefType="out" /><Parameter Name="natural_height_p" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="min_width_p">To be added.</param><param name="min_height_p">To be added.</param><param name="natural_width_p">To be added.</param><param name="natural_height_p">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetPreferredWidth">
+      <MemberSignature Language="C#" Value="public void GetPreferredWidth (float for_height, out float min_width_p, out float natural_width_p);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="for_height" Type="System.Single" /><Parameter Name="min_width_p" Type="System.Single&amp;" RefType="out" /><Parameter Name="natural_width_p" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="for_height">To be added.</param><param name="min_width_p">To be added.</param><param name="natural_width_p">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetRotation">
+      <MemberSignature Language="C#" Value="public double GetRotation (Clutter.RotateAxis axis, out int x, out int y, out int z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="axis" Type="Clutter.RotateAxis" /><Parameter Name="x" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y" Type="System.Int32&amp;" RefType="out" /><Parameter Name="z" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="axis">To be added.</param><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetRotationu">
+      <MemberSignature Language="C#" Value="public double GetRotationu (Clutter.RotateAxis axis, out float x, out float y, out float z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="axis" Type="Clutter.RotateAxis" /><Parameter Name="x" Type="System.Single&amp;" RefType="out" /><Parameter Name="y" Type="System.Single&amp;" RefType="out" /><Parameter Name="z" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="axis">To be added.</param><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetScale">
+      <MemberSignature Language="C#" Value="public void GetScale (out double scale_x, out double scale_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="scale_x" Type="System.Double&amp;" RefType="out" /><Parameter Name="scale_y" Type="System.Double&amp;" RefType="out" /></Parameters>
+      <Docs><param name="scale_x">To be added.</param><param name="scale_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetScaleCenter">
+      <MemberSignature Language="C#" Value="public void GetScaleCenter (out int center_x, out int center_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="center_x" Type="System.Int32&amp;" RefType="out" /><Parameter Name="center_y" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="center_x">To be added.</param><param name="center_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetScaleCenteru">
+      <MemberSignature Language="C#" Value="public void GetScaleCenteru (out float center_x, out float center_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="center_x" Type="System.Single&amp;" RefType="out" /><Parameter Name="center_y" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="center_x">To be added.</param><param name="center_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetSize">
+      <MemberSignature Language="C#" Value="public void GetSize (out int width, out int height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.Int32&amp;" RefType="out" /><Parameter Name="height" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetSizeu">
+      <MemberSignature Language="C#" Value="public void GetSizeu (out float width, out float height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.Single&amp;" RefType="out" /><Parameter Name="height" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetTransformedPosition">
+      <MemberSignature Language="C#" Value="public void GetTransformedPosition (out int x, out int y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetTransformedPositionu">
+      <MemberSignature Language="C#" Value="public void GetTransformedPositionu (out float x, out float y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Single&amp;" RefType="out" /><Parameter Name="y" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetTransformedSize">
+      <MemberSignature Language="C#" Value="public void GetTransformedSize (out uint width, out uint height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.UInt32&amp;" RefType="out" /><Parameter Name="height" Type="System.UInt32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetTransformedSizeu">
+      <MemberSignature Language="C#" Value="public void GetTransformedSizeu (out float width, out float height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.Single&amp;" RefType="out" /><Parameter Name="height" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Gid">
+      <MemberSignature Language="C#" Value="public uint Gid { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GrabKeyFocus">
+      <MemberSignature Language="C#" Value="public void GrabKeyFocus ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="HasClip">
+      <MemberSignature Language="C#" Value="public bool HasClip { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("has-clip")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Height">
+      <MemberSignature Language="C#" Value="public uint Height { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("height")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Heightu">
+      <MemberSignature Language="C#" Value="public float Heightu { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Hidden">
+      <MemberSignature Language="C#" Value="public event EventHandler Hidden;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("hide")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Hide">
+      <MemberSignature Language="C#" Value="public void Hide ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="HideAll">
+      <MemberSignature Language="C#" Value="public void HideAll ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="IsRotated">
+      <MemberSignature Language="C#" Value="public bool IsRotated { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="IsScaled">
+      <MemberSignature Language="C#" Value="public bool IsScaled { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="KeyPressEvent">
+      <MemberSignature Language="C#" Value="public event Clutter.KeyPressEventHandler KeyPressEvent;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("key-press-event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.KeyPressEventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="KeyReleaseEvent">
+      <MemberSignature Language="C#" Value="public event Clutter.KeyReleaseEventHandler KeyReleaseEvent;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("key-release-event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.KeyReleaseEventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LeaveEvent">
+      <MemberSignature Language="C#" Value="public event Clutter.LeaveEventHandler LeaveEvent;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("leave-event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.LeaveEventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Lower">
+      <MemberSignature Language="C#" Value="public void Lower (Clutter.Actor above);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="above" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="above">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="LowerBottom">
+      <MemberSignature Language="C#" Value="public void LowerBottom ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MinHeightSet">
+      <MemberSignature Language="C#" Value="public bool MinHeightSet { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("min-height-set")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MinWidthSet">
+      <MemberSignature Language="C#" Value="public bool MinWidthSet { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("min-width-set")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MotionEvent">
+      <MemberSignature Language="C#" Value="public event Clutter.MotionEventHandler MotionEvent;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("motion-event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.MotionEventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MoveAnchorPoint">
+      <MemberSignature Language="C#" Value="public void MoveAnchorPoint (int anchor_x, int anchor_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="anchor_x" Type="System.Int32" /><Parameter Name="anchor_y" Type="System.Int32" /></Parameters>
+      <Docs><param name="anchor_x">To be added.</param><param name="anchor_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MoveAnchorPointFromGravity">
+      <MemberSignature Language="C#" Value="public void MoveAnchorPointFromGravity (Clutter.Gravity gravity);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="gravity" Type="Clutter.Gravity" /></Parameters>
+      <Docs><param name="gravity">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MoveAnchorPointu">
+      <MemberSignature Language="C#" Value="public void MoveAnchorPointu (float anchor_x, float anchor_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="anchor_x" Type="System.Single" /><Parameter Name="anchor_y" Type="System.Single" /></Parameters>
+      <Docs><param name="anchor_x">To be added.</param><param name="anchor_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MoveBy">
+      <MemberSignature Language="C#" Value="public void MoveBy (int dx, int dy);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="dx" Type="System.Int32" /><Parameter Name="dy" Type="System.Int32" /></Parameters>
+      <Docs><param name="dx">To be added.</param><param name="dy">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MoveByu">
+      <MemberSignature Language="C#" Value="public void MoveByu (float dx, float dy);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="dx" Type="System.Single" /><Parameter Name="dy" Type="System.Single" /></Parameters>
+      <Docs><param name="dx">To be added.</param><param name="dy">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Name">
+      <MemberSignature Language="C#" Value="public string Name { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("name")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.String</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="NaturalHeightSet">
+      <MemberSignature Language="C#" Value="public bool NaturalHeightSet { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("natural-height-set")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="NaturalWidthSet">
+      <MemberSignature Language="C#" Value="public bool NaturalWidthSet { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("natural-width-set")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnButtonPressEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnButtonPressEvent (Clutter.ButtonEvent evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideButtonPressEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.ButtonEvent" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnButtonReleaseEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnButtonReleaseEvent (Clutter.ButtonEvent evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideButtonReleaseEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.ButtonEvent" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnCapturedEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnCapturedEvent (Clutter.Event evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideCapturedEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.Event" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnDestroyed">
+      <MemberSignature Language="C#" Value="protected virtual void OnDestroyed ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideDestroyed")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnEnterEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnEnterEvent (Clutter.CrossingEvent evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideEnterEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.CrossingEvent" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnEvent (Clutter.Event evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.Event" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnFocusIn">
+      <MemberSignature Language="C#" Value="protected virtual void OnFocusIn ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideFocusIn")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnFocusOut">
+      <MemberSignature Language="C#" Value="protected virtual void OnFocusOut ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideFocusOut")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnHidden">
+      <MemberSignature Language="C#" Value="protected virtual void OnHidden ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideHidden")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnKeyPressEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnKeyPressEvent (Clutter.KeyEvent evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideKeyPressEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.KeyEvent" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnKeyReleaseEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnKeyReleaseEvent (Clutter.KeyEvent evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideKeyReleaseEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.KeyEvent" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnLeaveEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnLeaveEvent (Clutter.CrossingEvent evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideLeaveEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.CrossingEvent" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnMotionEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnMotionEvent (Clutter.MotionEvent evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideMotionEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.MotionEvent" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnPainted">
+      <MemberSignature Language="C#" Value="protected virtual void OnPainted ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverridePainted")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnParentSet">
+      <MemberSignature Language="C#" Value="protected virtual void OnParentSet (Clutter.Actor old_parent);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideParentSet")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="old_parent" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="old_parent">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnPicked">
+      <MemberSignature Language="C#" Value="protected virtual void OnPicked (Clutter.Color color);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverridePicked")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="color" Type="Clutter.Color" /></Parameters>
+      <Docs><param name="color">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnRealized">
+      <MemberSignature Language="C#" Value="protected virtual void OnRealized ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideRealized")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnRedrawQueued">
+      <MemberSignature Language="C#" Value="protected virtual void OnRedrawQueued (Clutter.Actor leaf_that_queued);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideRedrawQueued")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="leaf_that_queued" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="leaf_that_queued">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnScrollEvent">
+      <MemberSignature Language="C#" Value="protected virtual bool OnScrollEvent (Clutter.ScrollEvent evnt);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideScrollEvent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="evnt" Type="Clutter.ScrollEvent" /></Parameters>
+      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnShown">
+      <MemberSignature Language="C#" Value="protected virtual void OnShown ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideShown")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="OnUnrealized">
+      <MemberSignature Language="C#" Value="protected virtual void OnUnrealized ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideUnrealized")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Opacity">
+      <MemberSignature Language="C#" Value="public byte Opacity { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Byte</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Paint">
+      <MemberSignature Language="C#" Value="public void Paint ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Painted">
+      <MemberSignature Language="C#" Value="public event EventHandler Painted;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("paint")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="PaintOpacity">
+      <MemberSignature Language="C#" Value="public byte PaintOpacity { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Byte</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="PaintVisibility">
+      <MemberSignature Language="C#" Value="public bool PaintVisibility { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="PangoContext">
+      <MemberSignature Language="C#" Value="public Pango.Context PangoContext { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Pango.Context</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Parent">
+      <MemberSignature Language="C#" Value="public Clutter.Actor Parent { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Actor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ParentSet">
+      <MemberSignature Language="C#" Value="public event Clutter.ParentSetHandler ParentSet;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("parent-set")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.ParentSetHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Pick">
+      <MemberSignature Language="C#" Value="public void Pick (Clutter.Color color);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="color" Type="Clutter.Color" /></Parameters>
+      <Docs><param name="color">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Picked">
+      <MemberSignature Language="C#" Value="public event Clutter.PickedHandler Picked;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("pick")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.PickedHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="QueueRedraw">
+      <MemberSignature Language="C#" Value="public void QueueRedraw ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="QueueRelayout">
+      <MemberSignature Language="C#" Value="public void QueueRelayout ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Raise">
+      <MemberSignature Language="C#" Value="public void Raise (Clutter.Actor below);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="below" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="below">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RaiseTop">
+      <MemberSignature Language="C#" Value="public void RaiseTop ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Reactive">
+      <MemberSignature Language="C#" Value="public bool Reactive { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("reactive")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Realize">
+      <MemberSignature Language="C#" Value="public void Realize ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Realized">
+      <MemberSignature Language="C#" Value="public event EventHandler Realized;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("realize")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RedrawQueued">
+      <MemberSignature Language="C#" Value="public event Clutter.RedrawQueuedHandler RedrawQueued;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("queue-redraw")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.RedrawQueuedHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RemoveClip">
+      <MemberSignature Language="C#" Value="public void RemoveClip ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Reparent">
+      <MemberSignature Language="C#" Value="public void Reparent (Clutter.Actor new_parent);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="new_parent" Type="Clutter.Actor" /></Parameters>
+      <Docs><param name="new_parent">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RequestMode">
+      <MemberSignature Language="C#" Value="public Clutter.RequestMode RequestMode { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("request-mode")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.RequestMode</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RotationAngleX">
+      <MemberSignature Language="C#" Value="public double RotationAngleX { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("rotation-angle-x")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RotationAngleY">
+      <MemberSignature Language="C#" Value="public double RotationAngleY { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("rotation-angle-y")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RotationAngleZ">
+      <MemberSignature Language="C#" Value="public double RotationAngleZ { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("rotation-angle-z")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RotationCenterX">
+      <MemberSignature Language="C#" Value="public Clutter.Vertex RotationCenterX { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("rotation-center-x")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.Vertex</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RotationCenterY">
+      <MemberSignature Language="C#" Value="public Clutter.Vertex RotationCenterY { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("rotation-center-y")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.Vertex</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RotationCenterZ">
+      <MemberSignature Language="C#" Value="public Clutter.Vertex RotationCenterZ { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("rotation-center-z")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.Vertex</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ScaleGravity">
+      <MemberSignature Language="C#" Value="public Clutter.Gravity ScaleGravity { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Gravity</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ScaleX">
+      <MemberSignature Language="C#" Value="public double ScaleX { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("scale-x")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ScaleY">
+      <MemberSignature Language="C#" Value="public double ScaleY { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("scale-y")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ScrollEvent">
+      <MemberSignature Language="C#" Value="public event Clutter.ScrollEventHandler ScrollEvent;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("scroll-event")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>Clutter.ScrollEventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetAnchorPoint">
+      <MemberSignature Language="C#" Value="public void SetAnchorPoint (int anchor_x, int anchor_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="anchor_x" Type="System.Int32" /><Parameter Name="anchor_y" Type="System.Int32" /></Parameters>
+      <Docs><param name="anchor_x">To be added.</param><param name="anchor_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetAnchorPointu">
+      <MemberSignature Language="C#" Value="public void SetAnchorPointu (float anchor_x, float anchor_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="anchor_x" Type="System.Single" /><Parameter Name="anchor_y" Type="System.Single" /></Parameters>
+      <Docs><param name="anchor_x">To be added.</param><param name="anchor_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetClip">
+      <MemberSignature Language="C#" Value="public void SetClip (int xoff, int yoff, int width, int height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="xoff" Type="System.Int32" /><Parameter Name="yoff" Type="System.Int32" /><Parameter Name="width" Type="System.Int32" /><Parameter Name="height" Type="System.Int32" /></Parameters>
+      <Docs><param name="xoff">To be added.</param><param name="yoff">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetClipu">
+      <MemberSignature Language="C#" Value="public void SetClipu (float xoff, float yoff, float width, float height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="xoff" Type="System.Single" /><Parameter Name="yoff" Type="System.Single" /><Parameter Name="width" Type="System.Single" /><Parameter Name="height" Type="System.Single" /></Parameters>
+      <Docs><param name="xoff">To be added.</param><param name="yoff">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetGeometry">
+      <MemberSignature Language="C#" Value="public void SetGeometry (Clutter.Geometry geometry);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="geometry" Type="Clutter.Geometry" /></Parameters>
+      <Docs><param name="geometry">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetPosition">
+      <MemberSignature Language="C#" Value="public void SetPosition (int x, int y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32" /><Parameter Name="y" Type="System.Int32" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetPositionu">
+      <MemberSignature Language="C#" Value="public void SetPositionu (float x, float y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Single" /><Parameter Name="y" Type="System.Single" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetRotation">
+      <MemberSignature Language="C#" Value="public void SetRotation (Clutter.RotateAxis axis, double angle, int x, int y, int z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="axis" Type="Clutter.RotateAxis" /><Parameter Name="angle" Type="System.Double" /><Parameter Name="x" Type="System.Int32" /><Parameter Name="y" Type="System.Int32" /><Parameter Name="z" Type="System.Int32" /></Parameters>
+      <Docs><param name="axis">To be added.</param><param name="angle">To be added.</param><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetRotationu">
+      <MemberSignature Language="C#" Value="public void SetRotationu (Clutter.RotateAxis axis, double angle, float x, float y, float z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="axis" Type="Clutter.RotateAxis" /><Parameter Name="angle" Type="System.Double" /><Parameter Name="x" Type="System.Single" /><Parameter Name="y" Type="System.Single" /><Parameter Name="z" Type="System.Single" /></Parameters>
+      <Docs><param name="axis">To be added.</param><param name="angle">To be added.</param><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetScale">
+      <MemberSignature Language="C#" Value="public void SetScale (double scale_x, double scale_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="scale_x" Type="System.Double" /><Parameter Name="scale_y" Type="System.Double" /></Parameters>
+      <Docs><param name="scale_x">To be added.</param><param name="scale_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetScaleFull">
+      <MemberSignature Language="C#" Value="public void SetScaleFull (double scale_x, double scale_y, int center_x, int center_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="scale_x" Type="System.Double" /><Parameter Name="scale_y" Type="System.Double" /><Parameter Name="center_x" Type="System.Int32" /><Parameter Name="center_y" Type="System.Int32" /></Parameters>
+      <Docs><param name="scale_x">To be added.</param><param name="scale_y">To be added.</param><param name="center_x">To be added.</param><param name="center_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetScaleFullu">
+      <MemberSignature Language="C#" Value="public void SetScaleFullu (double scale_x, double scale_y, float center_x, float center_y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="scale_x" Type="System.Double" /><Parameter Name="scale_y" Type="System.Double" /><Parameter Name="center_x" Type="System.Single" /><Parameter Name="center_y" Type="System.Single" /></Parameters>
+      <Docs><param name="scale_x">To be added.</param><param name="scale_y">To be added.</param><param name="center_x">To be added.</param><param name="center_y">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetScaleWithGravity">
+      <MemberSignature Language="C#" Value="public void SetScaleWithGravity (double scale_x, double scale_y, Clutter.Gravity gravity);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="scale_x" Type="System.Double" /><Parameter Name="scale_y" Type="System.Double" /><Parameter Name="gravity" Type="Clutter.Gravity" /></Parameters>
+      <Docs><param name="scale_x">To be added.</param><param name="scale_y">To be added.</param><param name="gravity">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetShader">
+      <MemberSignature Language="C#" Value="public bool SetShader (Clutter.Shader shader);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="shader" Type="Clutter.Shader" /></Parameters>
+      <Docs><param name="shader">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetShaderParam">
+      <MemberSignature Language="C#" Value="public void SetShaderParam (string param, GLib.Value value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="param" Type="System.String" /><Parameter Name="value" Type="GLib.Value" /></Parameters>
+      <Docs><param name="param">To be added.</param><param name="value">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetShaderParamFloat">
+      <MemberSignature Language="C#" Value="public void SetShaderParamFloat (string param, float value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="param" Type="System.String" /><Parameter Name="value" Type="System.Single" /></Parameters>
+      <Docs><param name="param">To be added.</param><param name="value">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetShaderParamInt">
+      <MemberSignature Language="C#" Value="public void SetShaderParamInt (string param, int value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="param" Type="System.String" /><Parameter Name="value" Type="System.Int32" /></Parameters>
+      <Docs><param name="param">To be added.</param><param name="value">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetSize">
+      <MemberSignature Language="C#" Value="public void SetSize (int width, int height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.Int32" /><Parameter Name="height" Type="System.Int32" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetSizeu">
+      <MemberSignature Language="C#" Value="public void SetSizeu (float width, float height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.Single" /><Parameter Name="height" Type="System.Single" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetZRotationFromGravity">
+      <MemberSignature Language="C#" Value="public void SetZRotationFromGravity (double angle, Clutter.Gravity gravity);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="angle" Type="System.Double" /><Parameter Name="gravity" Type="Clutter.Gravity" /></Parameters>
+      <Docs><param name="angle">To be added.</param><param name="gravity">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Shader">
+      <MemberSignature Language="C#" Value="public Clutter.Shader Shader { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Shader</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ShouldPickPaint">
+      <MemberSignature Language="C#" Value="public bool ShouldPickPaint ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Show">
+      <MemberSignature Language="C#" Value="public void Show ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ShowAll">
+      <MemberSignature Language="C#" Value="public void ShowAll ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Shown">
+      <MemberSignature Language="C#" Value="public event EventHandler Shown;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("show")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ShowOnSetParent">
+      <MemberSignature Language="C#" Value="public bool ShowOnSetParent { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("show-on-set-parent")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Stage">
+      <MemberSignature Language="C#" Value="public Clutter.Actor Stage { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Actor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="TransformStagePoint">
+      <MemberSignature Language="C#" Value="public bool TransformStagePoint (float x, float y, out float x_out, out float y_out);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Single" /><Parameter Name="y" Type="System.Single" /><Parameter Name="x_out" Type="System.Single&amp;" RefType="out" /><Parameter Name="y_out" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><param name="x_out">To be added.</param><param name="y_out">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Unparent">
+      <MemberSignature Language="C#" Value="public void Unparent ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Unrealize">
+      <MemberSignature Language="C#" Value="public void Unrealize ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Unrealized">
+      <MemberSignature Language="C#" Value="public event EventHandler Unrealized;" />
+      <MemberType>Event</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Signal("unrealize")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Visible">
+      <MemberSignature Language="C#" Value="public bool Visible { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("visible")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Width">
+      <MemberSignature Language="C#" Value="public uint Width { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("width")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Widthu">
+      <MemberSignature Language="C#" Value="public float Widthu { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="X">
+      <MemberSignature Language="C#" Value="public int X { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("x")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Xu">
+      <MemberSignature Language="C#" Value="public float Xu { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Y">
+      <MemberSignature Language="C#" Value="public int Y { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>GLib.Property("y")</AttributeName></Attribute></Attributes>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Yu">
+      <MemberSignature Language="C#" Value="public float Yu { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ZRotationGravity">
+      <MemberSignature Language="C#" Value="public Clutter.Gravity ZRotationGravity { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Gravity</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

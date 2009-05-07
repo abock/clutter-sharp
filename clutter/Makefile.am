@@ -18,8 +18,7 @@ SOURCES = \
 	Cogl/BufferBit.cs
 	Cogl/MaterialLayerFlags.cs
 
-SOURCES += $(wildcard Clutter/generated/*.cs)
-SOURCES += $(wildcard Cogl/generated/*.cs)
+GENERATED_DIRS = $(builddir)/Clutter $(builddir)/Cogl
 
 CUSTOMS = \
 	Clutter/BehaviourPath.custom \

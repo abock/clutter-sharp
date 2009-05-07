@@ -1,0 +1,248 @@
+<Type Name="Color" FullName="Clutter.Color">
+  <TypeSignature Language="C#" Value="public class Color : GLib.Opaque" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>GLib.Opaque</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Color (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="raw" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="raw">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Color (uint rgbaColor);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="rgbaColor" Type="System.UInt32" /></Parameters>
+      <Docs><param name="rgbaColor">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Color (byte red, byte green, byte blue);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="red" Type="System.Byte" /><Parameter Name="green" Type="System.Byte" /><Parameter Name="blue" Type="System.Byte" /></Parameters>
+      <Docs><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Color (double red, double green, double blue);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="red" Type="System.Double" /><Parameter Name="green" Type="System.Double" /><Parameter Name="blue" Type="System.Double" /></Parameters>
+      <Docs><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Color (byte red, byte green, byte blue, byte alpha);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="red" Type="System.Byte" /><Parameter Name="green" Type="System.Byte" /><Parameter Name="blue" Type="System.Byte" /><Parameter Name="alpha" Type="System.Byte" /></Parameters>
+      <Docs><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><param name="alpha">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Color (double red, double green, double blue, double alpha);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="red" Type="System.Double" /><Parameter Name="green" Type="System.Double" /><Parameter Name="blue" Type="System.Double" /><Parameter Name="alpha" Type="System.Double" /></Parameters>
+      <Docs><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><param name="alpha">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public void Add (Clutter.Color b, Clutter.Color result);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="b" Type="Clutter.Color" /><Parameter Name="result" Type="Clutter.Color" /></Parameters>
+      <Docs><param name="b">To be added.</param><param name="result">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Black">
+      <MemberSignature Language="C#" Value="public static Clutter.Color Black;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Color</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Copy">
+      <MemberSignature Language="C#" Value="public Clutter.Color Copy ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Color</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Darken">
+      <MemberSignature Language="C#" Value="public void Darken (Clutter.Color result);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="result" Type="Clutter.Color" /></Parameters>
+      <Docs><param name="result">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Equal">
+      <MemberSignature Language="C#" Value="public static bool Equal (IntPtr v1, IntPtr v2);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="v1" Type="System.IntPtr" /><Parameter Name="v2" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="v1">To be added.</param><param name="v2">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FromHls">
+      <MemberSignature Language="C#" Value="public void FromHls (float hue, float luminance, float saturation);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="hue" Type="System.Single" /><Parameter Name="luminance" Type="System.Single" /><Parameter Name="saturation" Type="System.Single" /></Parameters>
+      <Docs><param name="hue">To be added.</param><param name="luminance">To be added.</param><param name="saturation">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FromPixel">
+      <MemberSignature Language="C#" Value="public void FromPixel (uint pixel);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="pixel" Type="System.UInt32" /></Parameters>
+      <Docs><param name="pixel">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FromRgb">
+      <MemberSignature Language="C#" Value="public static Clutter.Color FromRgb (uint rgbColor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Color</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="rgbColor" Type="System.UInt32" /></Parameters>
+      <Docs><param name="rgbColor">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FromRgba">
+      <MemberSignature Language="C#" Value="public static Clutter.Color FromRgba (uint rgbaColor);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Color</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="rgbaColor" Type="System.UInt32" /></Parameters>
+      <Docs><param name="rgbaColor">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FromString">
+      <MemberSignature Language="C#" Value="public bool FromString (string str);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="str" Type="System.String" /></Parameters>
+      <Docs><param name="str">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Hash">
+      <MemberSignature Language="C#" Value="public static uint Hash (IntPtr v);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="v" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="v">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Lighten">
+      <MemberSignature Language="C#" Value="public void Lighten (Clutter.Color result);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="result" Type="Clutter.Color" /></Parameters>
+      <Docs><param name="result">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Shade">
+      <MemberSignature Language="C#" Value="public void Shade (double factor, Clutter.Color result);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="factor" Type="System.Double" /><Parameter Name="result" Type="Clutter.Color" /></Parameters>
+      <Docs><param name="factor">To be added.</param><param name="result">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Subtract">
+      <MemberSignature Language="C#" Value="public void Subtract (Clutter.Color b, Clutter.Color result);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="b" Type="Clutter.Color" /><Parameter Name="result" Type="Clutter.Color" /></Parameters>
+      <Docs><param name="b">To be added.</param><param name="result">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ToHls">
+      <MemberSignature Language="C#" Value="public void ToHls (out float hue, out float luminance, out float saturation);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="hue" Type="System.Single&amp;" RefType="out" /><Parameter Name="luminance" Type="System.Single&amp;" RefType="out" /><Parameter Name="saturation" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="hue">To be added.</param><param name="luminance">To be added.</param><param name="saturation">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ToPixel">
+      <MemberSignature Language="C#" Value="public uint ToPixel ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="White">
+      <MemberSignature Language="C#" Value="public static Clutter.Color White;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.Color</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

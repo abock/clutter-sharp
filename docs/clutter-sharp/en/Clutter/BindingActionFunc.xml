@@ -1,0 +1,28 @@
+<Type Name="BindingActionFunc" FullName="Clutter.BindingActionFunc">
+  <TypeSignature Language="C#" Value="public delegate bool BindingActionFunc(Object gobject, string action_name, uint key_val, ModifierType modifiers);" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Parameters>
+    <Parameter Name="gobject" Type="GLib.Object" />
+    <Parameter Name="action_name" Type="System.String" />
+    <Parameter Name="key_val" Type="System.UInt32" />
+    <Parameter Name="modifiers" Type="Clutter.ModifierType" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Boolean</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="gobject">To be added.</param>
+    <param name="action_name">To be added.</param>
+    <param name="key_val">To be added.</param>
+    <param name="modifiers">To be added.</param>
+    <summary>To be added.</summary>
+    <value>To be added.</value>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>

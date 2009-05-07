@@ -1,0 +1,33 @@
+<Type Name="AnimatableImplementor" FullName="Clutter.AnimatableImplementor">
+  <TypeSignature Language="C#" Value="public interface AnimatableImplementor : GLib.IWrapper" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Interfaces>
+    <Interface>
+      <InterfaceName>GLib.IWrapper</InterfaceName>
+    </Interface>
+  </Interfaces>
+  <Attributes>
+    <Attribute>
+      <AttributeName>GLib.GInterface(typeof(Clutter.AnimatableAdapter))</AttributeName>
+    </Attribute>
+  </Attributes>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName="AnimateProperty">
+      <MemberSignature Language="C#" Value="public void AnimateProperty (Clutter.Animation animation, string property_name, GLib.Value initial_value, GLib.Value final_value, double progress, GLib.Value value);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="animation" Type="Clutter.Animation" /><Parameter Name="property_name" Type="System.String" /><Parameter Name="initial_value" Type="GLib.Value" /><Parameter Name="final_value" Type="GLib.Value" /><Parameter Name="progress" Type="System.Double" /><Parameter Name="value" Type="GLib.Value" /></Parameters>
+      <Docs><param name="animation">To be added.</param><param name="property_name">To be added.</param><param name="initial_value">To be added.</param><param name="final_value">To be added.</param><param name="progress">To be added.</param><param name="value">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

@@ -1,0 +1,112 @@
+<Type Name="BehaviourRotate" FullName="Clutter.BehaviourRotate">
+  <TypeSignature Language="C#" Value="public class BehaviourRotate : Clutter.Behaviour" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Clutter.Behaviour</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="protected BehaviourRotate (GLib.GType gtype);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Attributes><Attribute><AttributeName>System.Obsolete</AttributeName></Attribute></Attributes>
+      <Parameters><Parameter Name="gtype" Type="GLib.GType" /></Parameters>
+      <Docs><param name="gtype">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BehaviourRotate (IntPtr raw);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="raw" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="raw">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BehaviourRotate (Clutter.Alpha alpha, Clutter.RotateAxis axis, Clutter.RotateDirection direction, double angle_start, double angle_end);" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters><Parameter Name="alpha" Type="Clutter.Alpha" /><Parameter Name="axis" Type="Clutter.RotateAxis" /><Parameter Name="direction" Type="Clutter.RotateDirection" /><Parameter Name="angle_start" Type="System.Double" /><Parameter Name="angle_end" Type="System.Double" /></Parameters>
+      <Docs><param name="alpha">To be added.</param><param name="axis">To be added.</param><param name="direction">To be added.</param><param name="angle_start">To be added.</param><param name="angle_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Axis">
+      <MemberSignature Language="C#" Value="public Clutter.RotateAxis Axis { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.RotateAxis</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Direction">
+      <MemberSignature Language="C#" Value="public Clutter.RotateDirection Direction { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Clutter.RotateDirection</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetBounds">
+      <MemberSignature Language="C#" Value="public void GetBounds (out double angle_start, out double angle_end);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="angle_start" Type="System.Double&amp;" RefType="out" /><Parameter Name="angle_end" Type="System.Double&amp;" RefType="out" /></Parameters>
+      <Docs><param name="angle_start">To be added.</param><param name="angle_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetCenter">
+      <MemberSignature Language="C#" Value="public void GetCenter (out int x, out int y, out int z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y" Type="System.Int32&amp;" RefType="out" /><Parameter Name="z" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetBounds">
+      <MemberSignature Language="C#" Value="public void SetBounds (double angle_start, double angle_end);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="angle_start" Type="System.Double" /><Parameter Name="angle_end" Type="System.Double" /></Parameters>
+      <Docs><param name="angle_start">To be added.</param><param name="angle_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetCenter">
+      <MemberSignature Language="C#" Value="public void SetCenter (int x, int y, int z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32" /><Parameter Name="y" Type="System.Int32" /><Parameter Name="z" Type="System.Int32" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

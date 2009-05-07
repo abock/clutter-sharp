@@ -1,0 +1,46 @@
+<Type Name="Frame" FullName="Clutter.Frame">
+  <TypeSignature Language="C#" Value="public class Frame" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Frame ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SourceAdd">
+      <MemberSignature Language="C#" Value="public static uint SourceAdd (uint fps, GLib.GSourceFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="fps" Type="System.UInt32" /><Parameter Name="func" Type="GLib.GSourceFunc" /></Parameters>
+      <Docs><param name="fps">To be added.</param><param name="func">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SourceAddFull">
+      <MemberSignature Language="C#" Value="public static uint SourceAddFull (int priority, uint fps, GLib.GSourceFunc func);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="priority" Type="System.Int32" /><Parameter Name="fps" Type="System.UInt32" /><Parameter Name="func" Type="GLib.GSourceFunc" /></Parameters>
+      <Docs><param name="priority">To be added.</param><param name="fps">To be added.</param><param name="func">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>
