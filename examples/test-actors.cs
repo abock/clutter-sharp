@@ -49,11 +49,11 @@ public class SuperOH
 
 	static void Main ()
 	{
-		ClutterRun.Init (); 
+		Clutter.Application.Init (); 
 
 		Stage stage = Stage.Default;	 
 		stage.SetSize (800, 600);
-		stage.Color = new Clutter.Color (0x61, 0x64, 0x8c, 0xff);
+		stage.SetColor (new Clutter.Color (0x61, 0x64, 0x8c, 0xff));
 
 		SuperOH oh = new SuperOH();
 		CurrentOH = oh;
@@ -80,11 +80,11 @@ public class SuperOH
 
 			oh.Hands[i].SetPosition (x, y);
 
-			oh.Group.AddActor (oh.Hands[i]);
+			oh.Group.Add (oh.Hands[i]);
 		}
 
 		oh.Group.ShowAll ();
-		stage.AddActor (oh.Group);
+		stage.Add (oh.Group);
 		stage.ButtonPressEvent += HandleButtonPress;
 		stage.KeyPressEvent += HandleKeyPress;
 
@@ -95,7 +95,7 @@ public class SuperOH
 		timeline.NewFrame += HandleNewFrame;
 		timeline.Start ();
 
-		ClutterRun.Main ();
+		Clutter.Application.Run ();
 	} 
 
 }

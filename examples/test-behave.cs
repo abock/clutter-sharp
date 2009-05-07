@@ -11,7 +11,7 @@ namespace ClutterTest
 
 		public static void Main(string[] args)
 		{
-			ClutterRun.Init ();
+			Application.Init ();
 
 			Stage stage = Stage.Default as Stage;
 			(stage as Stage).KeyPressEvent += delegate { 
@@ -20,10 +20,10 @@ namespace ClutterTest
 
 			// fixme: add constructor
 			Clutter.Color stage_color = new Clutter.Color (0xcc, 0xcc, 0xcc, 0xff);
-			stage.Color = stage_color;
+			stage.SetColor (stage_color);
 
 			Clutter.Group group = new Group();
-			stage.AddActor (group);
+			stage.Add (group);
 			group.Show ();
 
 			// Make a hand
@@ -37,18 +37,18 @@ namespace ClutterTest
 			rect.SetSize ((int)hand.Width, (int)hand.Height);
 
 			Clutter.Color rect_bg_color = new Clutter.Color (0x33, 0x22, 0x22, 0xff);
-			rect.Color = rect_bg_color;
+			rect.SetColor (rect_bg_color);
 			rect.BorderWidth = 10;
 			rect.Show ();
 
-			group.AddActor (rect);
-			group.AddActor (hand);
+			group.Add (rect);
+			group.Add (hand);
 
 			// Make a timeline
 			Timeline timeline = new Timeline (100, 26);
 			timeline.Loop = true;
 
-			Alpha alpha = new Alpha (timeline, Ramp.Func);
+			Alpha alpha = new Alpha (timeline, (a) => a.Value);
 
 			Behaviour o_behave = new BehaviourOpacity (alpha, 0x33, 0xff); 
 			o_behave.Apply (group);
@@ -63,7 +63,7 @@ namespace ClutterTest
 			stage.ShowAll();
 
 			// launch
-			ClutterRun.Main ();
+			Application.Run ();
 		}
 	}
 }

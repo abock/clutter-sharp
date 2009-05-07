@@ -14,6 +14,9 @@ generated/
 Makefile
 Makefile.in
 
+*-docs.tree
+*-docs.zip
+
 examples/clutter-gtk-sharp.dll.config.in
 examples/clutter-sharp.dll.config.in
 

@@ -13,7 +13,7 @@ $(GAPI_FIXED_API): $(GAPI_RAW_API) $(GAPI_METADATA) $(GAPI_SYMBOLS)
 	cp $(GAPI_RAW_API) $(GAPI_FIXED_API)
 	chmod +w $(GAPI_FIXED_API)
 	$(GAPI_FIXUP) --api=$(GAPI_FIXED_API) --metadata=$(GAPI_METADATA) $(build_symbols)
-	$(GAPI_CODEGEN) --outdir=./generated --customdir=. $(api_includes) --generate $(GAPI_FIXED_API)
+	$(GAPI_CODEGEN) --outdir=./generated --customdir=$(srcdir) $(api_includes) --generate $(GAPI_FIXED_API)
 
 clean-local:
 	rm -rf generated
