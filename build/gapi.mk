@@ -18,9 +18,6 @@ $(GAPI_FIXED_API): $(GAPI_RAW_API) $(GAPI_METADATA) $(GAPI_SYMBOLS)
 	$(GAPI_FIXUP) --api=$(GAPI_FIXED_API) --metadata=$(GAPI_METADATA) $(build_symbols)
 	$(GAPI_CODEGEN) --outdir=./generated --customdir=. $(api_includes) --generate $(GAPI_FIXED_API)
 
-clean-local:
-	rm -rf generated
-
 EXTRA_DIST += \
 	$(GAPI_RAW_API) \
 	$(GAPI_METADATA) \
@@ -29,4 +26,5 @@ EXTRA_DIST += \
 
 CLEANFILES += \
 	generated-stamp \
+	generated/*.cs \
 	$(GAPI_FIXED_API)

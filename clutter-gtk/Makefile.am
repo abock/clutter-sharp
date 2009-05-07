@@ -13,10 +13,10 @@ TARGET = \
 	$(ASSEMBLY_NAME).dll.config \
 	$(ASSEMBLY_NAME).dll.mdb
 
+all: $(ASSEMBLY_NAME).dll
+
 EXTRA_DIST =
 CLEANFILES =
-
-all: $(ASSEMBLY_NAME).dll
 
 include $(top_builddir)/build/assembly.mk
 include $(top_builddir)/build/gapi.mk
