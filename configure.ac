@@ -1,8 +1,19 @@
-AC_INIT([clutter-sharp], [0.9.0])
+AC_PREREQ(2.52)
+
+m4_define(clutter_sharp_version_major, 0)
+m4_define(clutter_sharp_version_minor, 9)
+m4_define(clutter_sharp_version_micro, 0)
+
+AC_INIT([clutter-sharp], 
+	[clutter_sharp_version_major.clutter_sharp_version_minor.clutter_sharp_version_micro])
+
 AC_CONFIG_SRCDIR([README])
 AC_CANONICAL_SYSTEM
-AM_INIT_AUTOMAKE([foreign])
+
+AM_INIT_AUTOMAKE([1.9 foreign dist-bzip2 tar-ustar])
 AM_MAINTAINER_MODE
+
+PKG_PROG_PKG_CONFIG
 
 AC_PATH_PROG(MONO, mono, no)
 if test "x$MONO" = "xno"; then
@@ -19,15 +30,9 @@ if test "x$GACUTIL" = "xno"; then
 	AC_MSG_ERROR([Cannot find the "gacutil" program in your PATH])
 fi
 
-AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
-if test "x$PKG_CONFIG" = "xno"; then
-	AC_MSG_ERROR([Cannot find the "pkg-config" program in your PATH])
-fi
-
 AC_ARG_ENABLE(docs,
-              AC_HELP_STRING([--disable-docs],
-                             [Do not build Monodoc documentation]),
-              with_docs=no, with_docs=yes)
+	AC_HELP_STRING([--disable-docs], [Do not build Monodoc documentation]),
+	with_docs=no, with_docs=yes)
 
 if test "x$with_docs" = "xyes"; then
 	AC_PATH_PROG(MONODOCER, monodocer, no)
@@ -75,6 +80,7 @@ AC_SUBST(CLUTTER_BACKEND)
 
 AC_OUTPUT([
 	Makefile
+	build/Makefile
 	clutter/clutter-sharp.pc
 	clutter/Makefile
 	clutter/Clutter/Makefile

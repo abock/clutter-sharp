@@ -3,5 +3,5 @@ using System.Runtime.CompilerServices;
 
 [assembly:AssemblyVersion("@VERSION@")]
 [assembly:AssemblyDelaySign(false)]
-[assembly:AssemblyKeyFile("@srcdir@/clutter-sharp.snk")]
+[assembly:AssemblyKeyFile("@top_srcdir@/clutter-sharp.snk")]
 

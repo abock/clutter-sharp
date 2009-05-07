@@ -1,7 +1,3 @@
-GAPI_PARSER = gapi2-parser
-GAPI_CODEGEN = gapi2-codegen
-GAPI_FIXUP = gapi2-fixup
-
 gapidir = $(datadir)/gapi-2.0
 gapi_DATA = $(GAPI_FIXED_API)
 
@@ -15,8 +11,12 @@ api:
 
 $(GAPI_FIXED_API): $(GAPI_RAW_API) $(GAPI_METADATA) $(GAPI_SYMBOLS)
 	cp $(GAPI_RAW_API) $(GAPI_FIXED_API)
+	chmod +w $(GAPI_FIXED_API)
 	$(GAPI_FIXUP) --api=$(GAPI_FIXED_API) --metadata=$(GAPI_METADATA) $(build_symbols)
 	$(GAPI_CODEGEN) --outdir=./generated --customdir=. $(api_includes) --generate $(GAPI_FIXED_API)
+
+clean-local:
+	rm -rf generated
 
 EXTRA_DIST += \
 	$(GAPI_RAW_API) \

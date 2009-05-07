@@ -7,13 +7,12 @@ assembly_DATA = $(TARGET)
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = $(ASSEMBLY_NAME).pc
 
-clutter-sharp.snk:
-	cp $(top_builddir)/clutter-sharp.snk .
+SOURCES_BUILD = $(addprefix $(srcdir)/, $(SOURCES))
 
-$(ASSEMBLY): $(GAPI_FIXED_API) $(SOURCES) clutter-sharp.snk
+$(ASSEMBLY): $(GAPI_FIXED_API) $(SOURCES_BUILD)
 	@rm -f $(ASSEMBLY).mdb
-	$(MCS) $(CSFLAGS) -out:$@ -target:library -nowarn:0169 -unsafe \
-		$(REFERENCES) $(SOURCES) AssemblyInfo.cs
+	$(MCS) $(CSFLAGS) -out:$@ -debug -target:library -nowarn:0169 -unsafe \
+		$(REFERENCES) $(SOURCES_BUILD) AssemblyInfo.cs
 
 $(ASSEMBLY).mdb: $(ASSEMBLY)
 
@@ -31,8 +30,7 @@ EXTRA_DIST += \
 
 CLEANFILES += \
 	$(ASSEMBLY) \
-	$(ASSEMBLY).mdb \
-	clutter-sharp.snk
+	$(ASSEMBLY).mdb
 
 DISTCLEANFILES = \
 	$(ASSEMBLY).config \

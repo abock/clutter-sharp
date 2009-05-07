@@ -1,8 +1,9 @@
-GAPI_SOURCES_XML = clutter-sources.xml
-GAPI_METADATA = clutter.metadata
-GAPI_RAW_API = clutter-api.raw
-GAPI_FIXED_API = clutter-api.xml
-GAPI_SYMBOLS = clutter-symbols.xml
+GAPI_SOURCES_XML = $(srcdir)/clutter-sources.xml
+GAPI_METADATA = $(srcdir)/clutter.metadata
+GAPI_RAW_API = $(srcdir)/clutter-api.raw
+GAPI_SYMBOLS = $(srcdir)/clutter-symbols.xml
+
+GAPI_FIXED_API = $(builddir)/clutter-api.xml
 
 CLEANFILES =
 EXTRA_DIST =
