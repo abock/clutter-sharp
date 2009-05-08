@@ -1,0 +1,124 @@
+<Type Name="MaterialLayerCombineSrc" FullName="Cogl.MaterialLayerCombineSrc">
+  <TypeSignature Language="C#" Value="public enum MaterialLayerCombineSrc" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName="Constant">
+      <MemberSignature Language="C#" Value="Constant" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Previous">
+      <MemberSignature Language="C#" Value="Previous" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="PrimaryColor">
+      <MemberSignature Language="C#" Value="PrimaryColor" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Texture">
+      <MemberSignature Language="C#" Value="Texture" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Texture0">
+      <MemberSignature Language="C#" Value="Texture0" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Texture1">
+      <MemberSignature Language="C#" Value="Texture1" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Texture2">
+      <MemberSignature Language="C#" Value="Texture2" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Texture3">
+      <MemberSignature Language="C#" Value="Texture3" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Texture4">
+      <MemberSignature Language="C#" Value="Texture4" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Texture5">
+      <MemberSignature Language="C#" Value="Texture5" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Texture6">
+      <MemberSignature Language="C#" Value="Texture6" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Texture7">
+      <MemberSignature Language="C#" Value="Texture7" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialLayerCombineSrc</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member>
+  </Members>
+</Type>

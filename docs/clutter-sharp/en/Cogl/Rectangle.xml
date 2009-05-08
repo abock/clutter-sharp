@@ -1,0 +1,46 @@
+<Type Name="Rectangle" FullName="Cogl.Rectangle">
+  <TypeSignature Language="C#" Value="public class Rectangle" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Rectangle ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="WithMultitextureCoords">
+      <MemberSignature Language="C#" Value="public static float WithMultitextureCoords (float x1, float y1, float x2, float y2, int tex_coords_len);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x1" Type="System.Single" /><Parameter Name="y1" Type="System.Single" /><Parameter Name="x2" Type="System.Single" /><Parameter Name="y2" Type="System.Single" /><Parameter Name="tex_coords_len" Type="System.Int32" /></Parameters>
+      <Docs><param name="x1">To be added.</param><param name="y1">To be added.</param><param name="x2">To be added.</param><param name="y2">To be added.</param><param name="tex_coords_len">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="WithTextureCoords">
+      <MemberSignature Language="C#" Value="public static void WithTextureCoords (float x1, float y1, float x2, float y2, float tx1, float ty1, float tx2, float ty2);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x1" Type="System.Single" /><Parameter Name="y1" Type="System.Single" /><Parameter Name="x2" Type="System.Single" /><Parameter Name="y2" Type="System.Single" /><Parameter Name="tx1" Type="System.Single" /><Parameter Name="ty1" Type="System.Single" /><Parameter Name="tx2" Type="System.Single" /><Parameter Name="ty2" Type="System.Single" /></Parameters>
+      <Docs><param name="x1">To be added.</param><param name="y1">To be added.</param><param name="x2">To be added.</param><param name="y2">To be added.</param><param name="tx1">To be added.</param><param name="ty1">To be added.</param><param name="tx2">To be added.</param><param name="ty2">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

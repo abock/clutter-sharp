@@ -198,21 +198,21 @@
       <Type Name="Vertex" Kind="Structure" />
     </Namespace>
     <Namespace Name="Clutter.Cogl">
+    </Namespace>
+    <Namespace Name="Cogl">
       <Type Name="Angle" Kind="Class" />
       <Type Name="Bitmap" Kind="Class" />
+      <Type Name="BufferBit" Kind="Enumeration" />
       <Type Name="BufferTarget" Kind="Enumeration" />
       <Type Name="Clip" Kind="Class" />
       <Type Name="Color" Kind="Class" />
-      <Type Name="Create" Kind="Class" />
       <Type Name="DebugFlags" Kind="Enumeration" />
-      <Type Name="Enable" Kind="Class" />
       <Type Name="FeatureFlags" Kind="Enumeration" />
       <Type Name="Fixed" Kind="Class" />
       <Type Name="FogMode" Kind="Enumeration" />
       <Type Name="FuncPtr" Kind="Delegate" />
-      <Type Name="Global" Kind="Class" />
+      <Type Name="General" Kind="Class" />
       <Type Name="Handle" Kind="Class" />
-      <Type Name="Is" Kind="Class" />
       <Type Name="Material" Kind="Class" />
       <Type Name="MaterialAlphaFunc" Kind="Enumeration" />
       <Type Name="MaterialBlendFactor" Kind="Enumeration" />
@@ -221,14 +221,13 @@
       <Type Name="MaterialLayerCombineFunc" Kind="Enumeration" />
       <Type Name="MaterialLayerCombineOp" Kind="Enumeration" />
       <Type Name="MaterialLayerCombineSrc" Kind="Enumeration" />
+      <Type Name="MaterialLayerFlags" Kind="Enumeration" />
       <Type Name="MaterialLayerType" Kind="Enumeration" />
-      <Type Name="Matrix" Kind="Class" />
+      <Type Name="Matrix" Kind="Structure" />
       <Type Name="Offscreen" Kind="Class" />
       <Type Name="Path" Kind="Class" />
       <Type Name="PixelFormat" Kind="Enumeration" />
-      <Type Name="Pop" Kind="Class" />
       <Type Name="Program" Kind="Class" />
-      <Type Name="Push" Kind="Class" />
       <Type Name="Rectangle" Kind="Class" />
       <Type Name="Shader" Kind="Class" />
       <Type Name="Texture" Kind="Class" />

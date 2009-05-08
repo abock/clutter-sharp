@@ -1,0 +1,323 @@
+<Type Name="General" FullName="Cogl.General">
+  <TypeSignature Language="C#" Value="public static class General" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName="AreFeaturesAvailable">
+      <MemberSignature Language="C#" Value="public static bool AreFeaturesAvailable (Cogl.FeatureFlags features);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="features" Type="Cogl.FeatureFlags" /></Parameters>
+      <Docs><param name="features">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="AvailableFeatures">
+      <MemberSignature Language="C#" Value="public static Cogl.FeatureFlags AvailableFeatures { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.FeatureFlags</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CheckExtension">
+      <MemberSignature Language="C#" Value="public static bool CheckExtension (string name, string extension);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="name" Type="System.String" /><Parameter Name="extension" Type="System.String" /></Parameters>
+      <Docs><param name="name">To be added.</param><param name="extension">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Clear">
+      <MemberSignature Language="C#" Value="public static void Clear (Cogl.Color color, ulong buffers);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="color" Type="Cogl.Color" /><Parameter Name="buffers" Type="System.UInt64" /></Parameters>
+      <Docs><param name="color">To be added.</param><param name="buffers">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="CreateContext">
+      <MemberSignature Language="C#" Value="public static void CreateContext ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="DestroyContext">
+      <MemberSignature Language="C#" Value="public static void DestroyContext ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="DisableFog">
+      <MemberSignature Language="C#" Value="public static void DisableFog ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="EnableBackfaceCulling">
+      <MemberSignature Language="C#" Value="public static void EnableBackfaceCulling (bool setting);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="setting" Type="System.Boolean" /></Parameters>
+      <Docs><param name="setting">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="EnableDepthTest">
+      <MemberSignature Language="C#" Value="public static void EnableDepthTest (bool setting);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="setting" Type="System.Boolean" /></Parameters>
+      <Docs><param name="setting">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FlushGlState">
+      <MemberSignature Language="C#" Value="public static void FlushGlState (int flags);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="flags" Type="System.Int32" /></Parameters>
+      <Docs><param name="flags">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Frustum">
+      <MemberSignature Language="C#" Value="public static void Frustum (float left, float right, float bottom, float top, float zNear, float zFar);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="left" Type="System.Single" /><Parameter Name="right" Type="System.Single" /><Parameter Name="bottom" Type="System.Single" /><Parameter Name="top" Type="System.Single" /><Parameter Name="zNear" Type="System.Single" /><Parameter Name="zFar" Type="System.Single" /></Parameters>
+      <Docs><param name="left">To be added.</param><param name="right">To be added.</param><param name="bottom">To be added.</param><param name="top">To be added.</param><param name="zNear">To be added.</param><param name="zFar">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetBitmasks">
+      <MemberSignature Language="C#" Value="public static void GetBitmasks (out int red, out int green, out int blue, out int alpha);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="red" Type="System.Int32&amp;" RefType="out" /><Parameter Name="green" Type="System.Int32&amp;" RefType="out" /><Parameter Name="blue" Type="System.Int32&amp;" RefType="out" /><Parameter Name="alpha" Type="System.Int32&amp;" RefType="out" /></Parameters>
+      <Docs><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><param name="alpha">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetProcAddress">
+      <MemberSignature Language="C#" Value="public static Cogl.FuncPtr GetProcAddress (string name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.FuncPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="name" Type="System.String" /></Parameters>
+      <Docs><param name="name">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ModelViewMatrix">
+      <MemberSignature Language="C#" Value="public static Cogl.Matrix ModelViewMatrix { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.Matrix</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Perspective">
+      <MemberSignature Language="C#" Value="public static void Perspective (float fovy, float aspect, float zNear, float zFar);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="fovy" Type="System.Single" /><Parameter Name="aspect" Type="System.Single" /><Parameter Name="zNear" Type="System.Single" /><Parameter Name="zFar" Type="System.Single" /></Parameters>
+      <Docs><param name="fovy">To be added.</param><param name="aspect">To be added.</param><param name="zNear">To be added.</param><param name="zFar">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="PopMatrix">
+      <MemberSignature Language="C#" Value="public static void PopMatrix ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ProjectionMatrix">
+      <MemberSignature Language="C#" Value="public static Cogl.Matrix ProjectionMatrix { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.Matrix</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="PushMatrix">
+      <MemberSignature Language="C#" Value="public static void PushMatrix ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Rotate">
+      <MemberSignature Language="C#" Value="public static void Rotate (float angle, float x, float y, float z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="angle" Type="System.Single" /><Parameter Name="x" Type="System.Single" /><Parameter Name="y" Type="System.Single" /><Parameter Name="z" Type="System.Single" /></Parameters>
+      <Docs><param name="angle">To be added.</param><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Scale">
+      <MemberSignature Language="C#" Value="public static void Scale (float x, float y, float z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Single" /><Parameter Name="y" Type="System.Single" /><Parameter Name="z" Type="System.Single" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetFog">
+      <MemberSignature Language="C#" Value="public static void SetFog (Cogl.Color color, Cogl.FogMode mode, float density, float zNear, float zFar);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="color" Type="Cogl.Color" /><Parameter Name="mode" Type="Cogl.FogMode" /><Parameter Name="density" Type="System.Single" /><Parameter Name="zNear" Type="System.Single" /><Parameter Name="zFar" Type="System.Single" /></Parameters>
+      <Docs><param name="color">To be added.</param><param name="mode">To be added.</param><param name="density">To be added.</param><param name="zNear">To be added.</param><param name="zFar">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetSource">
+      <MemberSignature Language="C#" Value="public static void SetSource (IntPtr coglMaterial);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="coglMaterial" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="coglMaterial">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetSourceColor">
+      <MemberSignature Language="C#" Value="public static void SetSourceColor (Cogl.Color color);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="color" Type="Cogl.Color" /></Parameters>
+      <Docs><param name="color">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetSourceColor4f">
+      <MemberSignature Language="C#" Value="public static void SetSourceColor4f (double red, double green, double blue, double alpha);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="red" Type="System.Double" /><Parameter Name="green" Type="System.Double" /><Parameter Name="blue" Type="System.Double" /><Parameter Name="alpha" Type="System.Double" /></Parameters>
+      <Docs><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><param name="alpha">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetSourceColor4f">
+      <MemberSignature Language="C#" Value="public static void SetSourceColor4f (float red, float green, float blue, float alpha);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="red" Type="System.Single" /><Parameter Name="green" Type="System.Single" /><Parameter Name="blue" Type="System.Single" /><Parameter Name="alpha" Type="System.Single" /></Parameters>
+      <Docs><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><param name="alpha">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetSourceColor4ub">
+      <MemberSignature Language="C#" Value="public static void SetSourceColor4ub (byte red, byte green, byte blue, byte alpha);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="red" Type="System.Byte" /><Parameter Name="green" Type="System.Byte" /><Parameter Name="blue" Type="System.Byte" /><Parameter Name="alpha" Type="System.Byte" /></Parameters>
+      <Docs><param name="red">To be added.</param><param name="green">To be added.</param><param name="blue">To be added.</param><param name="alpha">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetSourceTexture">
+      <MemberSignature Language="C#" Value="public static void SetSourceTexture (IntPtr coglTexture);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="coglTexture" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="coglTexture">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetupViewport">
+      <MemberSignature Language="C#" Value="public static void SetupViewport (uint width, uint height);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.UInt32" /><Parameter Name="height" Type="System.UInt32" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetupViewport">
+      <MemberSignature Language="C#" Value="public static void SetupViewport (uint width, uint height, float fovy, float aspect, float zNear, float zFar);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.UInt32" /><Parameter Name="height" Type="System.UInt32" /><Parameter Name="fovy" Type="System.Single" /><Parameter Name="aspect" Type="System.Single" /><Parameter Name="zNear" Type="System.Single" /><Parameter Name="zFar" Type="System.Single" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><param name="fovy">To be added.</param><param name="aspect">To be added.</param><param name="zNear">To be added.</param><param name="zFar">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Translate">
+      <MemberSignature Language="C#" Value="public static void Translate (float x, float y, float z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Single" /><Parameter Name="y" Type="System.Single" /><Parameter Name="z" Type="System.Single" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Viewport">
+      <MemberSignature Language="C#" Value="public static float[] Viewport { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single[]</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

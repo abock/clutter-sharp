@@ -9,7 +9,7 @@ api:
 	$(top_srcdir)/build/gapi-parser-post.sed < $(GAPI_RAW_API) > $(GAPI_RAW_API).tmp
 	mv $(GAPI_RAW_API).tmp $(GAPI_RAW_API)
 
-$(GAPI_FIXED_API): $(GAPI_RAW_API) $(GAPI_METADATA) $(GAPI_SYMBOLS)
+$(GAPI_FIXED_API): $(GAPI_RAW_API) $(GAPI_METADATA) $(GAPI_SYMBOLS) $(wildcard *.custom)
 	cp $(GAPI_RAW_API) $(GAPI_FIXED_API)
 	chmod +w $(GAPI_FIXED_API)
 	$(GAPI_FIXUP) --api=$(GAPI_FIXED_API) --metadata=$(GAPI_METADATA) $(build_symbols)

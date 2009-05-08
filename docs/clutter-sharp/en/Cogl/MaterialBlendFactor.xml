@@ -1,0 +1,115 @@
+<Type Name="MaterialBlendFactor" FullName="Cogl.MaterialBlendFactor">
+  <TypeSignature Language="C#" Value="public enum MaterialBlendFactor" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Enum</BaseTypeName>
+  </Base>
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName="DstAlpha">
+      <MemberSignature Language="C#" Value="DstAlpha" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="DstColor">
+      <MemberSignature Language="C#" Value="DstColor" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="One">
+      <MemberSignature Language="C#" Value="One" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="OneMinusDstAlpha">
+      <MemberSignature Language="C#" Value="OneMinusDstAlpha" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="OneMinusDstColor">
+      <MemberSignature Language="C#" Value="OneMinusDstColor" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="OneMinusSrcAlpha">
+      <MemberSignature Language="C#" Value="OneMinusSrcAlpha" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="OneMinusSrcColor">
+      <MemberSignature Language="C#" Value="OneMinusSrcColor" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="SrcAlpha">
+      <MemberSignature Language="C#" Value="SrcAlpha" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="SrcAlphaSaturate">
+      <MemberSignature Language="C#" Value="SrcAlphaSaturate" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="SrcColor">
+      <MemberSignature Language="C#" Value="SrcColor" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member><Member MemberName="Zero">
+      <MemberSignature Language="C#" Value="Zero" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.MaterialBlendFactor</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary></Docs>
+    </Member>
+  </Members>
+</Type>

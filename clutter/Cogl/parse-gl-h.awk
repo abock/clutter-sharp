@@ -6,7 +6,7 @@ BEGIN {
 	print ""
 	print "using System;"
 	print ""
-	print "namespace Clutter.Cogl"
+	print "namespace Cogl"
 	print "{"
 	print "    internal class GL"
 	print "    {"

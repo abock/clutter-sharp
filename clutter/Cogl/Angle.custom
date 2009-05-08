@@ -1,0 +1,30 @@
+public static int FromDeg (float a)
+{
+    return (int)((a * 1024.0f) / 360.0f);
+}
+
+public static int FromDeg (double a)
+{
+    return FromDeg ((float)a);
+}
+
+public static int FromDeg (int a)
+{
+    return FromDeg ((float)a);
+}
+
+public static int FromDegFixed (int a)
+{
+    return Fixed.ToInt (((a / 360) * 1024) + Fixed.Fixed_0_5);
+}
+
+public static float ToDeg (int coglAngle)
+{
+    return ((float)coglAngle * 360.0f) / 1024.0f;
+}
+
+public static int ToDegFixed (int coglAngle)
+{
+    return Fixed.FromInt (coglAngle * 45) / 128;
+}
+

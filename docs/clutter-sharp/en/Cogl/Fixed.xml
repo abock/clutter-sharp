@@ -1,0 +1,465 @@
+<Type Name="Fixed" FullName="Cogl.Fixed">
+  <TypeSignature Language="C#" Value="public class Fixed" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Fixed ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Atan2">
+      <MemberSignature Language="C#" Value="public static int Atan2 (int a, int b);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="a" Type="System.Int32" /><Parameter Name="b" Type="System.Int32" /></Parameters>
+      <Docs><param name="a">To be added.</param><param name="b">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Atani">
+      <MemberSignature Language="C#" Value="public static int Atani (int a);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="a" Type="System.Int32" /></Parameters>
+      <Docs><param name="a">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Bits">
+      <MemberSignature Language="C#" Value="public static readonly int Bits = 32;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>32</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Ceiling">
+      <MemberSignature Language="C#" Value="public static int Ceiling (int x);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32" /></Parameters>
+      <Docs><param name="x">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Cos">
+      <MemberSignature Language="C#" Value="public static int Cos (int angle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="angle" Type="System.Int32" /></Parameters>
+      <Docs><param name="angle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Div">
+      <MemberSignature Language="C#" Value="public static int Div (int a, int b);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="a" Type="System.Int32" /><Parameter Name="b" Type="System.Int32" /></Parameters>
+      <Docs><param name="a">To be added.</param><param name="b">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Epsilon">
+      <MemberSignature Language="C#" Value="public static readonly int Epsilon = 1;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>1</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_0_5">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_0_5 = 32768;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>32768</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_1">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_1 = 65536;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>65536</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_120">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_120 = 7864320;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>7864320</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_180">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_180 = 11796480;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>11796480</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_2_PI">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_2_PI = 411775;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>411775</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_240">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_240 = 15728640;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>15728640</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_255">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_255 = 16711680;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>16711680</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_270">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_270 = 17694720;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>17694720</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_30">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_30 = 1966080;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>1966080</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_360">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_360 = 23592960;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>23592960</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_45">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_45 = 2949120;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>2949120</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_60">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_60 = 3932160;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>3932160</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_90">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_90 = 5898240;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>5898240</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_PI">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_PI = 205887;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>205887</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_PI_2">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_PI_2 = 102944;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>102944</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fixed_PI_4">
+      <MemberSignature Language="C#" Value="public static readonly int Fixed_PI_4 = 51472;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>51472</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FixedQ">
+      <MemberSignature Language="C#" Value="public static readonly int FixedQ = 16;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>16</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Floor">
+      <MemberSignature Language="C#" Value="public static int Floor (int x);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32" /></Parameters>
+      <Docs><param name="x">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Fraction">
+      <MemberSignature Language="C#" Value="public static int Fraction (int x);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32" /></Parameters>
+      <Docs><param name="x">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FromDouble">
+      <MemberSignature Language="C#" Value="public static int FromDouble (double val);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="val" Type="System.Double" /></Parameters>
+      <Docs><param name="val">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FromFloat">
+      <MemberSignature Language="C#" Value="public static int FromFloat (float val);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="val" Type="System.Single" /></Parameters>
+      <Docs><param name="val">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="FromInt">
+      <MemberSignature Language="C#" Value="public static int FromInt (int val);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="val" Type="System.Int32" /></Parameters>
+      <Docs><param name="val">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GType">
+      <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>GLib.GType</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Log2">
+      <MemberSignature Language="C#" Value="public static int Log2 (uint x);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.UInt32" /></Parameters>
+      <Docs><param name="x">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MaxValue">
+      <MemberSignature Language="C#" Value="public static readonly int MaxValue = 2147483647;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>2147483647</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MinValue">
+      <MemberSignature Language="C#" Value="public static readonly int MinValue = -2147483648;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>-2147483648</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Mul">
+      <MemberSignature Language="C#" Value="public static int Mul (int a, int b);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="a" Type="System.Int32" /><Parameter Name="b" Type="System.Int32" /></Parameters>
+      <Docs><param name="a">To be added.</param><param name="b">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="MulDiv">
+      <MemberSignature Language="C#" Value="public static int MulDiv (int a, int b, int c);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="a" Type="System.Int32" /><Parameter Name="b" Type="System.Int32" /><Parameter Name="c" Type="System.Int32" /></Parameters>
+      <Docs><param name="a">To be added.</param><param name="b">To be added.</param><param name="c">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Pow">
+      <MemberSignature Language="C#" Value="public static uint Pow (uint x, int y);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.UInt32" /><Parameter Name="y" Type="System.Int32" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Pow2">
+      <MemberSignature Language="C#" Value="public static uint Pow2 (int x);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32" /></Parameters>
+      <Docs><param name="x">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="RadiansToDegrees">
+      <MemberSignature Language="C#" Value="public static readonly int RadiansToDegrees = 3754936;" />
+      <MemberType>Field</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <MemberValue>3754936</MemberValue>
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Sin">
+      <MemberSignature Language="C#" Value="public static int Sin (int angle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="angle" Type="System.Int32" /></Parameters>
+      <Docs><param name="angle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Sqrt">
+      <MemberSignature Language="C#" Value="public static int Sqrt (int x);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Int32" /></Parameters>
+      <Docs><param name="x">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Tan">
+      <MemberSignature Language="C#" Value="public static int Tan (int angle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="angle" Type="System.Int32" /></Parameters>
+      <Docs><param name="angle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ToDouble">
+      <MemberSignature Language="C#" Value="public static double ToDouble (int fix);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="fix" Type="System.Int32" /></Parameters>
+      <Docs><param name="fix">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ToFloat">
+      <MemberSignature Language="C#" Value="public static float ToFloat (int fix);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="fix" Type="System.Int32" /></Parameters>
+      <Docs><param name="fix">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ToInt">
+      <MemberSignature Language="C#" Value="public static int ToInt (int fix);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="fix" Type="System.Int32" /></Parameters>
+      <Docs><param name="fix">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

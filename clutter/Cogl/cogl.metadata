@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <metadata>
-  <attr path="/api/namespace" name="name">Clutter.Cogl</attr>
-
   <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Less']" name="name">LessThan</attr>
   <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Equal']" name="name">EqualTo</attr>
   <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Lequal']" name="name">LessThanOrEqualTo</attr>
@@ -15,4 +13,15 @@
   <remove-node path="/api/namespace/enum[@cname='CoglBufferBit']"/>
   <remove-node path="/api/namespace/enum[@cname='CoglMaterialLayerFlags']"/>
 
+  <!-- Currently defined by hand, though it needs testing; might
+       be better to modify it be an auto-bound struct (not opaque) -->
+  <remove-node path="/api/namespace/struct[@cname='CoglMatrix']"/>
+  <!-- <attr path="/api/namespace/struct[@cname='CoglMatrix']" name="opaque">false</attr> -->
+
+  <remove-node path="/api/namespace/class[@name='Is']"/>
+  <remove-node path="/api/namespace/class[@name='Push']"/>
+  <remove-node path="/api/namespace/class[@name='Pop']"/>
+  <remove-node path="/api/namespace/class[@name='Enable']"/>
+  <remove-node path="/api/namespace/class[@name='Create']"/>
+  <remove-node path="/api/namespace/class[@name='Global']"/>
 </metadata>

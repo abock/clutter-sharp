@@ -1,0 +1,251 @@
+<Type Name="Matrix" FullName="Cogl.Matrix">
+  <TypeSignature Language="C#" Value="public struct Matrix" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.ValueType</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName="Frustum">
+      <MemberSignature Language="C#" Value="public void Frustum (float left, float right, float bottom, float top, float z_near, float z_far);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="left" Type="System.Single" /><Parameter Name="right" Type="System.Single" /><Parameter Name="bottom" Type="System.Single" /><Parameter Name="top" Type="System.Single" /><Parameter Name="z_near" Type="System.Single" /><Parameter Name="z_far" Type="System.Single" /></Parameters>
+      <Docs><param name="left">To be added.</param><param name="right">To be added.</param><param name="bottom">To be added.</param><param name="top">To be added.</param><param name="z_near">To be added.</param><param name="z_far">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetArray">
+      <MemberSignature Language="C#" Value="public float[] GetArray ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single[]</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="InitFromArray">
+      <MemberSignature Language="C#" Value="public void InitFromArray (float[] array);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="array" Type="System.Single[]" /></Parameters>
+      <Docs><param name="array">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="InitIdentity">
+      <MemberSignature Language="C#" Value="public void InitIdentity ();" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Multiply">
+      <MemberSignature Language="C#" Value="public void Multiply (Cogl.Matrix a, Cogl.Matrix b);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="a" Type="Cogl.Matrix" /><Parameter Name="b" Type="Cogl.Matrix" /></Parameters>
+      <Docs><param name="a">To be added.</param><param name="b">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Rotate">
+      <MemberSignature Language="C#" Value="public void Rotate (float angle, float x, float y, float z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="angle" Type="System.Single" /><Parameter Name="x" Type="System.Single" /><Parameter Name="y" Type="System.Single" /><Parameter Name="z" Type="System.Single" /></Parameters>
+      <Docs><param name="angle">To be added.</param><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Scale">
+      <MemberSignature Language="C#" Value="public void Scale (float sx, float sy, float sz);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="sx" Type="System.Single" /><Parameter Name="sy" Type="System.Single" /><Parameter Name="sz" Type="System.Single" /></Parameters>
+      <Docs><param name="sx">To be added.</param><param name="sy">To be added.</param><param name="sz">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="TransformPoint">
+      <MemberSignature Language="C#" Value="public void TransformPoint (out float x, out float y, out float z, out float w);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Single&amp;" RefType="out" /><Parameter Name="y" Type="System.Single&amp;" RefType="out" /><Parameter Name="z" Type="System.Single&amp;" RefType="out" /><Parameter Name="w" Type="System.Single&amp;" RefType="out" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><param name="w">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Translate">
+      <MemberSignature Language="C#" Value="public void Translate (float x, float y, float z);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="x" Type="System.Single" /><Parameter Name="y" Type="System.Single" /><Parameter Name="z" Type="System.Single" /></Parameters>
+      <Docs><param name="x">To be added.</param><param name="y">To be added.</param><param name="z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="WW">
+      <MemberSignature Language="C#" Value="public float WW { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="WX">
+      <MemberSignature Language="C#" Value="public float WX { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="WY">
+      <MemberSignature Language="C#" Value="public float WY { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="WZ">
+      <MemberSignature Language="C#" Value="public float WZ { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="XW">
+      <MemberSignature Language="C#" Value="public float XW { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="XX">
+      <MemberSignature Language="C#" Value="public float XX { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="XY">
+      <MemberSignature Language="C#" Value="public float XY { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="XZ">
+      <MemberSignature Language="C#" Value="public float XZ { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="YW">
+      <MemberSignature Language="C#" Value="public float YW { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="YX">
+      <MemberSignature Language="C#" Value="public float YX { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="YY">
+      <MemberSignature Language="C#" Value="public float YY { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="YZ">
+      <MemberSignature Language="C#" Value="public float YZ { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ZW">
+      <MemberSignature Language="C#" Value="public float ZW { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ZX">
+      <MemberSignature Language="C#" Value="public float ZX { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ZY">
+      <MemberSignature Language="C#" Value="public float ZY { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="ZZ">
+      <MemberSignature Language="C#" Value="public float ZZ { set; get; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
+      <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

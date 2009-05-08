@@ -1,0 +1,166 @@
+<Type Name="Texture" FullName="Cogl.Texture">
+  <TypeSignature Language="C#" Value="public class Texture" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public Texture ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetData">
+      <MemberSignature Language="C#" Value="public static int GetData (IntPtr handle, Cogl.PixelFormat format, uint rowstride, out byte data);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="format" Type="Cogl.PixelFormat" /><Parameter Name="rowstride" Type="System.UInt32" /><Parameter Name="data" Type="System.Byte&amp;" RefType="out" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="format">To be added.</param><param name="rowstride">To be added.</param><param name="data">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetFormat">
+      <MemberSignature Language="C#" Value="public static Cogl.PixelFormat GetFormat (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>Cogl.PixelFormat</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetHeight">
+      <MemberSignature Language="C#" Value="public static uint GetHeight (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetMaxWaste">
+      <MemberSignature Language="C#" Value="public static int GetMaxWaste (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetRowstride">
+      <MemberSignature Language="C#" Value="public static uint GetRowstride (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetWidth">
+      <MemberSignature Language="C#" Value="public static uint GetWidth (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="IsSliced">
+      <MemberSignature Language="C#" Value="public static bool IsSliced (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="NewFromBitmap">
+      <MemberSignature Language="C#" Value="public static IntPtr NewFromBitmap (IntPtr bmp_handle, int max_waste, Cogl.TextureFlags flags, Cogl.PixelFormat internal_format);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="bmp_handle" Type="System.IntPtr" /><Parameter Name="max_waste" Type="System.Int32" /><Parameter Name="flags" Type="Cogl.TextureFlags" /><Parameter Name="internal_format" Type="Cogl.PixelFormat" /></Parameters>
+      <Docs><param name="bmp_handle">To be added.</param><param name="max_waste">To be added.</param><param name="flags">To be added.</param><param name="internal_format">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="NewFromData">
+      <MemberSignature Language="C#" Value="public static IntPtr NewFromData (uint width, uint height, int max_waste, Cogl.TextureFlags flags, Cogl.PixelFormat format, Cogl.PixelFormat internal_format, uint rowstride, out byte data);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.UInt32" /><Parameter Name="height" Type="System.UInt32" /><Parameter Name="max_waste" Type="System.Int32" /><Parameter Name="flags" Type="Cogl.TextureFlags" /><Parameter Name="format" Type="Cogl.PixelFormat" /><Parameter Name="internal_format" Type="Cogl.PixelFormat" /><Parameter Name="rowstride" Type="System.UInt32" /><Parameter Name="data" Type="System.Byte&amp;" RefType="out" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><param name="max_waste">To be added.</param><param name="flags">To be added.</param><param name="format">To be added.</param><param name="internal_format">To be added.</param><param name="rowstride">To be added.</param><param name="data">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="NewFromFile">
+      <MemberSignature Language="C#" Value="public static IntPtr NewFromFile (string filename, int max_waste, Cogl.TextureFlags flags, Cogl.PixelFormat internal_format);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="filename" Type="System.String" /><Parameter Name="max_waste" Type="System.Int32" /><Parameter Name="flags" Type="Cogl.TextureFlags" /><Parameter Name="internal_format" Type="Cogl.PixelFormat" /></Parameters>
+      <Docs><param name="filename">To be added.</param><param name="max_waste">To be added.</param><param name="flags">To be added.</param><param name="internal_format">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="NewWithSize">
+      <MemberSignature Language="C#" Value="public static IntPtr NewWithSize (uint width, uint height, int max_waste, Cogl.TextureFlags flags, Cogl.PixelFormat internal_format);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="width" Type="System.UInt32" /><Parameter Name="height" Type="System.UInt32" /><Parameter Name="max_waste" Type="System.Int32" /><Parameter Name="flags" Type="Cogl.TextureFlags" /><Parameter Name="internal_format" Type="Cogl.PixelFormat" /></Parameters>
+      <Docs><param name="width">To be added.</param><param name="height">To be added.</param><param name="max_waste">To be added.</param><param name="flags">To be added.</param><param name="internal_format">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Ref">
+      <MemberSignature Language="C#" Value="public static IntPtr Ref (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetRegion">
+      <MemberSignature Language="C#" Value="public static bool SetRegion (IntPtr handle, int src_x, int src_y, int dst_x, int dst_y, uint dst_width, uint dst_height, int width, int height, Cogl.PixelFormat format, uint rowstride, out byte data);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="src_x" Type="System.Int32" /><Parameter Name="src_y" Type="System.Int32" /><Parameter Name="dst_x" Type="System.Int32" /><Parameter Name="dst_y" Type="System.Int32" /><Parameter Name="dst_width" Type="System.UInt32" /><Parameter Name="dst_height" Type="System.UInt32" /><Parameter Name="width" Type="System.Int32" /><Parameter Name="height" Type="System.Int32" /><Parameter Name="format" Type="Cogl.PixelFormat" /><Parameter Name="rowstride" Type="System.UInt32" /><Parameter Name="data" Type="System.Byte&amp;" RefType="out" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="src_x">To be added.</param><param name="src_y">To be added.</param><param name="dst_x">To be added.</param><param name="dst_y">To be added.</param><param name="dst_width">To be added.</param><param name="dst_height">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><param name="format">To be added.</param><param name="rowstride">To be added.</param><param name="data">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Unref">
+      <MemberSignature Language="C#" Value="public static void Unref (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

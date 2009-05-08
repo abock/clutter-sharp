@@ -22,6 +22,9 @@ examples/clutter-sharp.dll.config.in
 
 *.swp
 
+*.tar.bz2
+*.tar.gz
+
 COPYING
 INSTALL
 configure

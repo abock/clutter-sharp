@@ -3,7 +3,7 @@
 
 using System;
 
-namespace Clutter.Cogl
+namespace Cogl
 {
     internal class GL
     {

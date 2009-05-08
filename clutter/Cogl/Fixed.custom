@@ -1,0 +1,86 @@
+public static readonly int Bits = 32;
+public static readonly int FixedQ = Bits - 16;
+public static readonly int MaxValue = 0x7fffffff;
+public static readonly int MinValue = unchecked ((int)0x80000000);
+
+public static readonly int Epsilon = 1;
+public static readonly int Fixed_1 = (1 << FixedQ);
+public static readonly int Fixed_0_5 = 32768;
+public static readonly int Fixed_30 = FromInt (30);
+public static readonly int Fixed_45 = FromInt (45);
+public static readonly int Fixed_60 = FromInt (60);
+public static readonly int Fixed_90 = FromInt (90);
+public static readonly int Fixed_120 = FromInt (120);
+public static readonly int Fixed_180 = FromInt (180);
+public static readonly int Fixed_240 = FromInt (240);
+public static readonly int Fixed_255 = FromInt (255);
+public static readonly int Fixed_270 = FromInt (270);
+public static readonly int Fixed_360 = FromInt (360);
+public static readonly int Fixed_2_PI = 0x0006487f;
+public static readonly int Fixed_PI = 0x0003243f;
+public static readonly int Fixed_PI_2 = 0x00019220;
+public static readonly int Fixed_PI_4 = 0x0000c910;
+public static readonly int RadiansToDegrees = 0x394bb8;
+
+public static int Fraction (int x)
+{
+    return x & ((1 << FixedQ) - 1);
+}
+
+public static int Floor (int x)
+{
+    return x >= 0
+        ? x >> FixedQ
+        : ~((~x) >> FixedQ);
+}
+
+public static int Ceiling (int x)
+{
+    return Floor (x) + 0xffff;
+}
+
+public static int FromFloat (float val)
+{
+    return (int)(val * (double)Fixed_1);
+}
+
+public static int FromDouble (double val)
+{
+    return (int)(val * (double)Fixed_1);
+}
+
+public static int FromInt (int val)
+{
+    return val << FixedQ;
+}
+
+public static float ToFloat (int fix)
+{
+    return (float)((int)fix / 65536.0);
+}
+
+public static double ToDouble (int fix)
+{
+    return (double)((int)fix / 65536.0);
+}
+
+public static int ToInt (int fix)
+{
+    return fix >> FixedQ;
+}
+
+public static int Mul (int a, int b)
+{
+    return (int)(((long)a * (long)b) >> FixedQ);
+}
+
+public static int Div (int a, int b)
+{
+    return (int)((((long) a) << FixedQ) / b);
+}
+
+public static int MulDiv (int a, int b, int c)
+{
+    return Div (Mul (a, b), c);
+}
+

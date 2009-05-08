@@ -14,9 +14,11 @@ SOURCES = \
 	Clutter/Source.cs \
 	Clutter/StageStateEvent.cs \
 	Clutter/Timeout.cs \
-	Cogl/GL.cs
-	Cogl/BufferBit.cs
-	Cogl/MaterialLayerFlags.cs
+	Cogl/GL.cs \
+	Cogl/BufferBit.cs \
+	Cogl/MaterialLayerFlags.cs \
+	Cogl/Matrix.cs \
+	Cogl/General.cs
 
 GENERATED_DIRS = $(builddir)/Clutter $(builddir)/Cogl
 
@@ -28,7 +30,9 @@ CUSTOMS = \
 	Clutter/Ramp.custom \
 	Clutter/Script.custom \
 	Clutter/Smoothstep.custom \
-	Clutter/Script.custom
+	Clutter/Script.custom \
+	Cogl/Fixed.custom \
+	Cogl/Angle.custom
 
 EXTRA_DIST =
 CLEANFILES =
