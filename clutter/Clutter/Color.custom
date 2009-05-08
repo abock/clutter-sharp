@@ -1,59 +1,168 @@
-public static Color Black = new Color (0, 0, 0, 255);
-public static Color White = new Color (255, 255, 255, 255);
+public byte R { get; set; }
+public byte G { get; set; }
+public byte B { get; set; }
+public byte A { get; set; }
 
-public Color (byte red, byte green, byte blue, byte alpha)
+public Color (byte r, byte g, byte b, byte a)
 {
-    Red = red;
-    Green = green;
-    Blue = blue;
-    Alpha = alpha;
+    R = r;
+    G = g;
+    B = b;
+    A = a;
 }
 
-public Color (byte red, byte green, byte blue)
-	: this (red, green, blue, 255)
-{
-}
-
-public Color (double red, double green, double blue) 
-    : this ((byte)(red * 255.0), (byte)(green * 255.0), (byte)(blue * 255.0))
+public Color (byte r, byte g, byte b) : this (r, g, b, 0xff)
 {
 }
 
-public Color (double red, double green, double blue, double alpha)
-    : this ((byte)(red * 255.0), (byte)(green * 255.0), (byte)(blue * 255.0), (byte)(alpha * 255.0))
+public Color (float r, float g, float b, float a)
+    : this ((byte)(r * 0xff), (byte)(g * 0xff), (byte)(b * 0xff), (byte)(a * 0xff))
 {
 }
 
-public Color (uint rgbaColor) : this (
-    (byte)(rgbaColor >> 24),
-    (byte)((rgbaColor >> 16) & 0xff),
-    (byte)((rgbaColor >> 8) & 0xff),
-    (byte)(rgbaColor & 0xff))
+public Color (float r, float g, float b) : this (r, g, b, 1.0f)
 {
 }
 
-public static Color FromRgb (uint rgbColor)
+public Color (double r, double g, double b, double a)
+    : this ((byte)(r * 0xff), (byte)(g * 0xff), (byte)(b * 0xff), (byte)(a * 0xff))
 {
-    return new Color ((rgbColor << 8) | 0xff);
+
 }
 
-public static Color FromRgba (uint rgbaColor)
+public Color (double r, double g, double b) : this (r, g, b, 1.0)
 {
-    return new Color (rgbaColor);
-}
-
-public static Color NewFromHls (float h, float l, float s)
-{
-    Color color = new Color ();
-    color.FromHls (h, l, s);
-    return color;
 }
 
 [DllImport ("clutter")]
-private static extern void clutter_color_from_hls (ref Color color, float h, float l, float s);
+private static extern void clutter_color_lighten (ref Color color, ref Color result);
 
-public void FromHls (float h, float l, float s)
+public Color Lighten ()
 {
-    clutter_color_from_hls (ref this, h, l, s);
+    Color result = new Color ();
+    clutter_color_lighten (ref this, ref result);
+    return result;
+}
+
+[DllImport ("clutter")]
+private static extern void clutter_color_darken (ref Color color, ref Color result);
+
+public Color Darken ()
+{
+    Color result = new Color ();
+    clutter_color_darken (ref this, ref result);
+    return result;
+}
+
+[DllImport ("clutter")]
+private static extern void clutter_color_shade (ref Color color, double factor, ref Color result);
+
+public Color Shade (double factor)
+{
+    Color result = new Color ();
+    clutter_color_shade (ref this, factor, ref result);
+    return result;
+}
+
+[DllImport ("clutter")]
+private static extern void clutter_color_add (ref Color color, ref Color b, ref Color result);
+
+public Color Add (Color b)
+{
+    Color result = new Color ();
+    clutter_color_add (ref this, ref b, ref result);
+    return result;
+}
+
+[DllImport ("clutter")]
+private static extern void clutter_color_subtract (ref Color color, ref Color b, ref Color result);
+
+public Color Subtract (Color b)
+{
+    Color result = new Color ();
+    clutter_color_subtract (ref this, ref b, ref result);
+    return result;
+}
+
+[DllImport ("clutter")]
+private static extern void clutter_color_from_hls (ref Color color, float hue, float luminance, float saturation);
+
+public void FromHls (float hue, float luminance, float saturation)
+{
+    clutter_color_from_hls (ref this, hue, luminance, saturation);
+}
+
+[DllImport ("clutter")]
+private static extern void clutter_color_to_hls (ref Color color, out float hue, out float luminance, out float saturation);
+
+public void ToHls (out float hue, out float luminance, out float saturation)
+{
+    clutter_color_to_hls (ref this, out hue, out luminance, out saturation);
+}
+
+[DllImport ("clutter")]
+private static extern uint clutter_color_to_pixel (ref Color color);
+
+public uint ToPixel ()
+{
+    return clutter_color_to_pixel (ref this);
+}
+
+[DllImport ("clutter")]
+private static extern void clutter_color_from_pixel (ref Color color, uint pixel);
+
+public void FromPixel (uint pixel)
+{
+    clutter_color_from_pixel (ref this, pixel);
+}
+
+[DllImport ("clutter")]
+private static extern bool clutter_color_from_string (ref Color color, IntPtr str);
+
+public bool FromString (string str)
+{
+    IntPtr str_ptr = IntPtr.Zero;
+    try {
+        str_ptr = GLib.Marshaller.StringToPtrGStrdup (str);
+        return clutter_color_from_string (ref this, str_ptr);
+    } finally {
+        GLib.Marshaller.Free (str_ptr);
+    }
+}
+
+[DllImport ("clutter")]
+private static extern IntPtr clutter_color_to_string (ref Color color);
+
+public override string ToString ()
+{
+    return GLib.Marshaller.PtrToStringGFree (clutter_color_to_string (ref this));
+}
+
+[DllImport ("clutter")]
+private static extern bool clutter_color_equal (ref Color a, ref Color b);
+
+public override bool Equals (object obj)
+{
+    if (obj is Color) {
+        Color c = (Color)obj;
+        return clutter_color_equal (ref this, ref c);
+    }
+    
+    return false;
+}
+
+[DllImport ("clutter")]
+private static extern uint clutter_color_hash (ref Color color);
+
+public override int GetHashCode ()
+{
+    return (int)clutter_color_hash (ref this);
+}
+
+[DllImport ("clutter")]
+private static extern IntPtr clutter_color_get_type ();
+
+public static GLib.GType GType { 
+    get { return new GLib.GType (clutter_color_get_type ()); }
 }
 

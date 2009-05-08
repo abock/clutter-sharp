@@ -85,7 +85,7 @@ public static class TestCoglVertexBuffer
         
         InitQuadMesh ();
         
-        stage.SetColor (new Color (0, 0, 0, 0xff));
+        stage.Color = new Color (0, 0, 0, 0xff);
         stage.Add (dummy);
         stage.ShowAll ();
         
@@ -266,9 +266,9 @@ public static class TestCoglVertexBuffer
                 color.FromHls (h * 360.0f, l, s);
 
                 byte *c = &quad_mesh_colors[4 * vert_index];
-                c[0] = color.Red;
-                c[1] = color.Green;
-                c[2] = color.Blue;
+                c[0] = color.R;
+                c[1] = color.G;
+                c[2] = color.B;
             }
         }
         

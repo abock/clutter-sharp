@@ -24,7 +24,6 @@ GENERATED_DIRS = $(builddir)/Clutter $(builddir)/Cogl
 
 CUSTOMS = \
 	Clutter/BehaviourPath.custom \
-	Clutter/Color.custom \
 	Clutter/Exp.custom \
 	Clutter/Knot.custom \
 	Clutter/Ramp.custom \
@@ -34,6 +33,8 @@ CUSTOMS = \
 	Clutter/Group.custom \
 	Clutter/Timeline.custom \
 	Clutter/Path.custom \
+	Clutter/Stage.custom \
+	Clutter/Color.custom \
 	Cogl/Fixed.custom \
 	Cogl/Angle.custom
 

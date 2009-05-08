@@ -56,6 +56,8 @@
   <attr path="/api/namespace/object[@cname='ClutterStage']/signal[@name='Fullscreen']" name="name">FullscreenEvent</attr>
   <attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='Fullscreen']" name="name">SetFullscreen</attr>
   <attr path="/api/namespace/object[@cname='ClutterStage']/signal[@name='Unfullscreen']" name="name">UnfullscreenEvent</attr>
+  <remove-node path="/api/namespace/object[@cname='ClutterStage']/method[@name='GetColor']"/>
+  <remove-node path="/api/namespace/object[@cname='ClutterStage']/method[@name='SetColor']"/>
 
   <!-- ClutterPathNodeType - the 32 is CLUTTER_PATH_RELATIVE -->
   <attr path="/api/namespace/enum[@cname='ClutterPathNodeType']/member[@name='RelMoveTo']" name="value">MoveTo | 32</attr>
@@ -89,7 +91,12 @@
   <attr path="/api/namespace/object[@cname='ClutterActor']/method[@name='GetAllocationGeometry']/*/*[@name='geom']" name="pass_as">out</attr>
   <attr path="/api/namespace/object[@cname='ClutterActor']/method[@name='GetGeometry']/*/*[@name='geometry']" name="pass_as">out</attr>
 
-  <!-- ClutterColor -->
+  <!--<remove-node path="/api/namespace/boxed[@cname='ClutterColor']"/>
+  <add-node path="/api">
+    <symbol type="manual" cname="ClutterColor" name="Clutter.Color"/>
+    <symbol type="marshal" cname="ClutterColor" name="Clutter.Color" marshal_type="Clutter.Color" call_fmt="{0}" />
+  </add-node>-->
+
   <attr path="/api/namespace/boxed[@cname='ClutterColor']" name="opaque">false</attr>
-  <remove-node path="/api/namespace/boxed[@cname='ClutterColor']/method[@name='FromHls']"/>
+  <attr path="/api/namespace/boxed[@cname='ClutterColor']/*" name="hidden">1</attr>
 </metadata>

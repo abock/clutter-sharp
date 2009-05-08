@@ -1,0 +1,16 @@
+[DllImport ("clutter")]
+private static extern void clutter_stage_get_color (IntPtr stage, ref Clutter.Color color);
+
+[DllImport ("clutter")]
+private static extern void clutter_stage_set_color (IntPtr stage, ref Clutter.Color color);
+
+public Color Color {
+    get {
+        Clutter.Color color = new Clutter.Color ();
+        clutter_stage_get_color (Handle, ref color);
+        return color;
+    }
+
+    set { clutter_stage_set_color (Handle, ref value); }
+}
+
