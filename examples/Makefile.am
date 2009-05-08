@@ -1,5 +1,6 @@
 SAMPLES = \
 	test-cogl-primitives.cs \
+	test-cogl-vertex-buffer.cs \
 	test-actors.cs \
 	test-behave.cs \
 	test-entry.cs \
@@ -19,7 +20,7 @@ SAMPLES += \
 ASSEMBLIES += clutter-gtk-sharp.dll
 endif
 
-MCSFLAGS = -debug $(GTKSHARP_LIBS) $(addprefix -r:, $(ASSEMBLIES)) -r:Mono.Cairo 
+MCSFLAGS = -debug -unsafe $(GTKSHARP_LIBS) $(addprefix -r:, $(ASSEMBLIES)) -r:Mono.Cairo 
 
 noinst_SCRIPTS = $(SAMPLES:.cs=.exe)
 

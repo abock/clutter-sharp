@@ -8,7 +8,7 @@ BEGIN {
 	print ""
 	print "namespace Cogl"
 	print "{"
-	print "    internal class GL"
+	print "    public static class GL"
 	print "    {"
 }
 

@@ -1,5 +1,13 @@
-public static Color Black = new Color (0, 0, 0);
-public static Color White = new Color (255, 255, 255);
+public static Color Black = new Color (0, 0, 0, 255);
+public static Color White = new Color (255, 255, 255, 255);
+
+public Color (byte red, byte green, byte blue, byte alpha)
+{
+    Red = red;
+    Green = green;
+    Blue = blue;
+    Alpha = alpha;
+}
 
 public Color (byte red, byte green, byte blue)
 	: this (red, green, blue, 255)
@@ -33,4 +41,10 @@ public static Color FromRgba (uint rgbaColor)
 {
     return new Color (rgbaColor);
 }
- 
+
+public static Color NewFromHls (float h, float l, float s)
+{
+    Color color = new Color ();
+    color.FromHls (h, l, s);
+    return color;
+}

@@ -5,7 +5,7 @@ using System;
 
 namespace Cogl
 {
-    internal class GL
+    public static class GL
     {
 
         public const int GL_VERSION_1_1 = 1;

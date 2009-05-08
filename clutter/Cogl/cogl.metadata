@@ -27,4 +27,31 @@
 
   <remove-node path="/api/namespace/class[@name='Path']/method[@name='Polygon']"/>
   <remove-node path="/api/namespace/class[@name='Path']/method[@name='Polyline']"/>
+
+  <!-- VertexBuffer -->
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferAdd']/*/*[@name='gl_type']" name="type">guint</attr>
+
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDraw']/*/*[@name='mode']" name="type">guint</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDraw']/*/*[@name='first']" name="type">gint</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDraw']/*/*[@name='count']" name="type">gint</attr>
+
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDrawElements']/*/*[@name='mode']" name="type">guint</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDrawElements']/*/*[@name='min_index']" name="type">guint</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDrawElements']/*/*[@name='max_index']" name="type">guint</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDrawElements']/*/*[@name='count']" name="type">gint</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDrawElements']/*/*[@name='indices_type']" name="type">guint</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDrawElements']/*/*[@name='indices']" name="type">gpointer</attr>
+
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferNew']" name="name">New</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferAdd']" name="name">Add</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDelete']" name="name">Delete</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDisable']" name="name">Disable</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferEnable']" name="name">Enable</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferRef']" name="name">Ref</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferUnref']" name="name">Unref</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferSubmit']" name="name">Submit</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferGetNVertices']" name="name">GetNVertices</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDraw']" name="name">Draw</attr>
+  <attr path="/api/namespace/class[@name='Vertex']/method[@name='BufferDrawElements']" name="name">DrawElements</attr>
+  <attr path="/api/namespace/class[@name='Vertex']" name="name">VertexBuffer</attr>
 </metadata>

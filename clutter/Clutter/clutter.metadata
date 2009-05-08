@@ -84,4 +84,11 @@
   <!-- ClutterTimeline -->
   <attr path="/api/namespace/object[@cname='ClutterTimeline']/method[@name='GetNFrames']" name="name">GetFrameCount</attr>
   <attr path="/api/namespace/object[@cname='ClutterTimeline']/method[@name='SetNFrames']" name="name">SetFrameCount</attr>
+
+  <!-- ClutterActor -->
+  <attr path="/api/namespace/object[@cname='ClutterActor']/method[@name='GetAllocationGeometry']/*/*[@name='geom']" name="pass_as">out</attr>
+  <attr path="/api/namespace/object[@cname='ClutterActor']/method[@name='GetGeometry']/*/*[@name='geometry']" name="pass_as">out</attr>
+
+  <!-- ClutterColor -->
+  <attr path="/api/namespace/boxed[@cname='ClutterColor']" name="opaque">false</attr>
 </metadata>
