@@ -24,4 +24,7 @@
   <remove-node path="/api/namespace/class[@name='Enable']"/>
   <remove-node path="/api/namespace/class[@name='Create']"/>
   <remove-node path="/api/namespace/class[@name='Global']"/>
+
+  <remove-node path="/api/namespace/class[@name='Path']/method[@name='Polygon']"/>
+  <remove-node path="/api/namespace/class[@name='Path']/method[@name='Polyline']"/>
 </metadata>

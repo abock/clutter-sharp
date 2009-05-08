@@ -130,25 +130,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters />
       <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="Polygon">
-      <MemberSignature Language="C#" Value="public static float Polygon (int num_points);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
-      <Parameters><Parameter Name="num_points" Type="System.Int32" /></Parameters>
-      <Docs><param name="num_points">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="Polyline">
-      <MemberSignature Language="C#" Value="public static float Polyline (int num_points);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
-      <Parameters><Parameter Name="num_points" Type="System.Int32" /></Parameters>
-      <Docs><param name="num_points">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="Rectangle">
+    </Member><Member MemberName="Polygon"><MemberSignature Language="C#" Value="public static void Polygon (float[] coords);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="coords" Type="System.Single[]" /></Parameters><Docs><param name="coords">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="Polyline"><MemberSignature Language="C#" Value="public static void Polyline (float[] coords);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="coords" Type="System.Single[]" /></Parameters><Docs><param name="coords">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="Rectangle">
       <MemberSignature Language="C#" Value="public static void Rectangle (float x_1, float y_1, float x_2, float y_2);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>

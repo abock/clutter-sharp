@@ -1,4 +1,5 @@
 SAMPLES = \
+	test-cogl-primitives.cs \
 	test-actors.cs \
 	test-behave.cs \
 	test-entry.cs \
@@ -22,7 +23,7 @@ MCSFLAGS = -debug $(GTKSHARP_LIBS) $(addprefix -r:, $(ASSEMBLIES)) -r:Mono.Cairo
 
 noinst_SCRIPTS = $(SAMPLES:.cs=.exe)
 
-%.exe: %.cs $(assemblies)
+%.exe: %.cs $(ASSEMBLIES)
 	$(MCS) $(MCSFLAGS) -out:$@ $<
 
 clutter-sharp.dll: $(top_builddir)/clutter/clutter-sharp.dll

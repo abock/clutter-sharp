@@ -19,30 +19,6 @@
   <Members>
     
     
-    <Member MemberName="XAxis">
-      <MemberSignature Language="C#" Value="XAxis" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>Clutter.RotateAxis</ReturnType></ReturnValue>
-      <Docs><summary>To be added.</summary></Docs>
-    </Member><Member MemberName="YAxis">
-      <MemberSignature Language="C#" Value="YAxis" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>Clutter.RotateAxis</ReturnType></ReturnValue>
-      <Docs><summary>To be added.</summary></Docs>
-    </Member><Member MemberName="ZAxis">
-      <MemberSignature Language="C#" Value="ZAxis" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>Clutter.RotateAxis</ReturnType></ReturnValue>
-      <Docs><summary>To be added.</summary></Docs>
-    </Member>
-  </Members>
+    
+  <Member MemberName="X"><MemberSignature Language="C#" Value="X" /><MemberType>Field</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Clutter.RotateAxis</ReturnType></ReturnValue><Docs><summary>To be added.</summary></Docs></Member><Member MemberName="Y"><MemberSignature Language="C#" Value="Y" /><MemberType>Field</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Clutter.RotateAxis</ReturnType></ReturnValue><Docs><summary>To be added.</summary></Docs></Member><Member MemberName="Z"><MemberSignature Language="C#" Value="Z" /><MemberType>Field</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Clutter.RotateAxis</ReturnType></ReturnValue><Docs><summary>To be added.</summary></Docs></Member></Members>
 </Type>

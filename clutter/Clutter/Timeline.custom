@@ -1,0 +1,3 @@
+public Timeline () : this (1)
+{
+}

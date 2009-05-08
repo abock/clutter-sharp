@@ -1,0 +1,23 @@
+[DllImport ("clutter")]
+private static extern void cogl_path_polyline (float [] coords, int num_points);
+
+public static void Polyline (float [] coords)
+{
+    if (coords == null) {
+        throw new ArgumentNullException ("coords");
+    }
+
+    cogl_path_polyline (coords, coords.Length);
+}
+
+[DllImport ("clutter")]
+private static extern void cogl_path_polygon (float [] coords, int num_points);
+
+public static void Polygon (float [] coords)
+{
+    if (coords == null) {
+        throw new ArgumentNullException ("coords");
+    }
+
+    cogl_path_polygon (coords, coords.Length);
+}

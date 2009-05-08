@@ -31,6 +31,9 @@ CUSTOMS = \
 	Clutter/Script.custom \
 	Clutter/Smoothstep.custom \
 	Clutter/Script.custom \
+	Clutter/Group.custom \
+	Clutter/Timeline.custom \
+	Clutter/Path.custom \
 	Cogl/Fixed.custom \
 	Cogl/Angle.custom
 

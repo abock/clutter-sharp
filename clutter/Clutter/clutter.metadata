@@ -36,10 +36,20 @@
 
   <!-- ClutterBehaviourPath constructor removal -->
   <remove-node path="/api/namespace/object[@name='BehaviourPath']/constructor[@cname='clutter_behaviour_path_new']" />
+  
+  <add-node path="/api/namespace/object[@cname='ClutterGroup']">
+    <implements>
+      <interface name="System.Collections.Generic.IEnumerable&lt;Clutter.Actor&gt;" />
+    </implements>
+  </add-node>
 
-  <!-- ClutterGroup renames -->
   <remove-node path="/api/namespace/interface[@cname='ClutterContainer']/method[@name='AddValist']"/>
   <remove-node path="/api/namespace/interface[@cname='ClutterContainer']/method[@name='RemoveValist']"/>
+
+  <!-- RotateAxis -->
+  <attr path="/api/namespace/enum[@cname='ClutterRotateAxis']/member[@name='XAxis']" name="name">X</attr>
+  <attr path="/api/namespace/enum[@cname='ClutterRotateAxis']/member[@name='YAxis']" name="name">Y</attr>
+  <attr path="/api/namespace/enum[@cname='ClutterRotateAxis']/member[@name='ZAxis']" name="name">Z</attr>
 
   <!-- ClutterStage fixes -->
   <attr path="/api/namespace/object[@cname='ClutterStage']/method[@name='GetDefault']/return-type" name="type">ClutterStage*</attr>
@@ -70,4 +80,8 @@
   <remove-node path="/api/namespace/object[@cname='ClutterParamSpecFixed']" />
   <remove-node path="/api/namespace/object[@cname='ClutterParamSpecUnit']" />
   <remove-node path="/api/namespace/object[@cname='ClutterParamSpecColor']" />
+
+  <!-- ClutterTimeline -->
+  <attr path="/api/namespace/object[@cname='ClutterTimeline']/method[@name='GetNFrames']" name="name">GetFrameCount</attr>
+  <attr path="/api/namespace/object[@cname='ClutterTimeline']/method[@name='SetNFrames']" name="name">SetFrameCount</attr>
 </metadata>

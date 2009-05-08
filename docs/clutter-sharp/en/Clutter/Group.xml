@@ -1,5 +1,5 @@
 <Type Name="Group" FullName="Clutter.Group">
-  <TypeSignature Language="C#" Value="public class Group : Clutter.Actor, Clutter.Container" />
+  <TypeSignature Language="C#" Value="public class Group : Clutter.Actor, Clutter.Container, System.Collections.Generic.IEnumerable&lt;Clutter.Actor&gt;" />
   <AssemblyInfo>
     <AssemblyName>clutter-sharp</AssemblyName>
     <AssemblyVersion>0.9.0.0</AssemblyVersion>
@@ -10,6 +10,9 @@
   <Interfaces>
     <Interface>
       <InterfaceName>Clutter.Container</InterfaceName>
+    </Interface>
+    <Interface>
+      <InterfaceName>System.Collections.Generic.IEnumerable&lt;Clutter.Actor&gt;</InterfaceName>
     </Interface>
   </Interfaces>
   <Docs>
@@ -40,7 +43,8 @@
     
     
     
-    <Member MemberName=".ctor">
+    
+  <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="public Group ();" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -154,7 +158,7 @@
       <ReturnValue><ReturnType>Clutter.ChildMeta</ReturnType></ReturnValue>
       <Parameters><Parameter Name="actor" Type="Clutter.Actor" /></Parameters>
       <Docs><param name="actor">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetNthChild">
+    </Member><Member MemberName="GetEnumerator"><MemberSignature Language="C#" Value="public System.Collections.Generic.IEnumerator&lt;Clutter.Actor&gt; GetEnumerator ();" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Attributes><Attribute><AttributeName>System.Diagnostics.DebuggerHidden</AttributeName></Attribute></Attributes><ReturnValue><ReturnType>System.Collections.Generic.IEnumerator&lt;Clutter.Actor&gt;</ReturnType></ReturnValue><Parameters /><Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="GetNthChild">
       <MemberSignature Language="C#" Value="public Clutter.Actor GetNthChild (int index_);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -254,6 +258,5 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters />
       <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member>
-  </Members>
+    </Member><Member MemberName="System.Collections.IEnumerable.GetEnumerator"><MemberSignature Language="C#" Value="System.Collections.IEnumerator IEnumerable.GetEnumerator ();" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Collections.IEnumerator</ReturnType></ReturnValue><Parameters /><Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member></Members>
 </Type>

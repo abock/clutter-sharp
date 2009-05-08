@@ -17,7 +17,7 @@ public class SuperOH
 
 	static void HandleNewFrame (object o, NewFrameArgs args) 
 	{
- 		CurrentOH.Group.SetRotation (RotateAxis.ZAxis,
+ 		CurrentOH.Group.SetRotation (RotateAxis.Z,
 					     args.FrameNum, 
  					     (int)Stage.Default.Width / 2, 
  					     (int)Stage.Default.Height / 2,
@@ -25,7 +25,7 @@ public class SuperOH
 
 
 		foreach (Actor hand in CurrentOH.Hands) {
-		 	hand.SetRotation (RotateAxis.ZAxis,
+		 	hand.SetRotation (RotateAxis.Z,
 					  -6.0F * args.FrameNum,
 				      	  (int)hand.Width / 2,
 				          (int)hand.Height / 2,
