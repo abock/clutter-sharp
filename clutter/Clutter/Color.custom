@@ -48,3 +48,12 @@ public static Color NewFromHls (float h, float l, float s)
     color.FromHls (h, l, s);
     return color;
 }
+
+[DllImport ("clutter")]
+private static extern void clutter_color_from_hls (ref Color color, float h, float l, float s);
+
+public void FromHls (float h, float l, float s)
+{
+    clutter_color_from_hls (ref this, h, l, s);
+}
+

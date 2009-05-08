@@ -91,4 +91,5 @@
 
   <!-- ClutterColor -->
   <attr path="/api/namespace/boxed[@cname='ClutterColor']" name="opaque">false</attr>
+  <remove-node path="/api/namespace/boxed[@cname='ClutterColor']/method[@name='FromHls']"/>
 </metadata>

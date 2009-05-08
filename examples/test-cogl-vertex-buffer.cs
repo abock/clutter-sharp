@@ -227,6 +227,7 @@ public static class TestCoglVertexBuffer
     
     static unsafe void OnNewFrame (object o, NewFrameArgs args)
     {
+        Color color = Color.Zero;
         uint n_frames = timeline.FrameCount;
         int frame_num = args.FrameNum;
         float period_progress = ((float)frame_num / (float)n_frames) * 2.0f * (float)Math.PI;
@@ -261,12 +262,13 @@ public static class TestCoglVertexBuffer
                     + period_progress_sin) * HSL_SCALE;
                 float s = 0.5f;
                 float l = 0.25f + (period_progress_sin + 1.0f) / 4.0f;
-                Color c = Color.NewFromHls (h * 360.0f, l, s);
                 
-                byte *color = &quad_mesh_colors[4 * vert_index];
-                color[0] = c.Red;
-                color[1] = c.Green;
-                color[2] = c.Blue;
+                color.FromHls (h * 360.0f, l, s);
+
+                byte *c = &quad_mesh_colors[4 * vert_index];
+                c[0] = color.Red;
+                c[1] = color.Green;
+                c[2] = color.Blue;
             }
         }
         
@@ -293,7 +295,7 @@ public static class TestCoglVertexBuffer
             (int)((MESH_WIDTH * QUAD_WIDTH) / 2),
             (int)((MESH_HEIGHT * QUAD_HEIGHT) / 2),
             0);
-            
+
         dummy.SetRotation (RotateAxis.X,
             frame_num,
             (int)((MESH_WIDTH * QUAD_WIDTH) / 2),
