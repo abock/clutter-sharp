@@ -32,7 +32,6 @@ CUSTOMS = \
 	Clutter/Script.custom \
 	Clutter/Group.custom \
 	Clutter/Timeline.custom \
-	Clutter/Path.custom \
 	Clutter/Stage.custom \
 	Clutter/Color.custom \
 	Cogl/Fixed.custom \
