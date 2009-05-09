@@ -9,7 +9,7 @@ GAPI_FIXED_API = clutter-gtk-api.xml
 CUSTOM_REFERENCES = -r:$(top_builddir)/clutter/clutter-sharp.dll
 CUSTOM_API_INCLUDES = $(top_builddir)/clutter/Clutter/clutter-api.xml
 
-GENERATED_DIRS = $(builddir)
+GENERATED_DIRS = .
 
 if ENABLE_GTK
 TARGET = \

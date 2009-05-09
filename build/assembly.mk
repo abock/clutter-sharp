@@ -9,10 +9,10 @@ pkgconfig_DATA = $(ASSEMBLY_NAME).pc
 
 SOURCES_BUILD = $(addprefix $(srcdir)/, $(SOURCES))
 
-$(ASSEMBLY): $(GAPI_FIXED_API) $(SOURCES_BUILD) $(foreach dir, $(GENERATED_DIRS), $(wildcard $(dir)/generated/*.cs))
+$(ASSEMBLY): $(GAPI_FIXED_API) $(SOURCES_BUILD)
 	@rm -f $(ASSEMBLY).mdb
 	$(MCS) $(CSFLAGS) -out:$@ -debug -target:library -nowarn:0169 -unsafe \
-		$(REFERENCES) $(SOURCES_BUILD) AssemblyInfo.cs $(foreach dir, $(GENERATED_DIRS), $(wildcard $(dir)/generated/*.cs))
+		$(REFERENCES) $(SOURCES_BUILD) AssemblyInfo.cs $(foreach dir, $(GENERATED_DIRS), $(dir)/generated/*.cs)
 
 $(ASSEMBLY).mdb: $(ASSEMBLY)
 

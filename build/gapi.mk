@@ -2,7 +2,7 @@ gapidir = $(datadir)/gapi-2.0
 gapi_DATA = $(GAPI_FIXED_API)
 
 build_symbols = $(addprefix --symbols=$(srcdir)/, $(GAPI_SYMBOLS))
-api_includes = $(GTKSHARP_CFLAGS) $(API_INCLUDES)
+api_includes = $(GTKSHARP_CFLAGS) $(CUSTOM_API_INCLUDES)
 
 api:
 	$(GAPI_PARSER) $(GAPI_SOURCES_XML)
