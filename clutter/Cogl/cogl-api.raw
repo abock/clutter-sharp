@@ -25,6 +25,7 @@
       <member cname="COGL_DEBUG_DRAW" name="Draw" value="1 &lt;&lt; 5" />
       <member cname="COGL_DEBUG_PANGO" name="Pango" value="1 &lt;&lt; 6" />
       <member cname="COGL_DEBUG_RECTANGLES" name="Rectangles" value="1 &lt;&lt; 7" />
+      <member cname="COGL_DEBUG_HANDLE" name="Handle" value="1 &lt;&lt; 8" />
     </enum>
     <enum name="FeatureFlags" cname="CoglFeatureFlags" type="flags">
       <member cname="COGL_FEATURE_TEXTURE_RECTANGLE" name="TextureRectangle" value="1 &lt;&lt; 1" />
@@ -134,6 +135,18 @@
       <member cname="COGL_PIXEL_FORMAT_RGBA_4444_PRE" name="Rgba4444Pre" value="Rgba4444 |(1 &lt;&lt; 4)                  |(1 &lt;&lt; 7)" />
       <member cname="COGL_PIXEL_FORMAT_RGBA_5551_PRE" name="Rgba5551Pre" value="Rgba5551 |(1 &lt;&lt; 4)                  |(1 &lt;&lt; 7)" />
     </enum>
+    <enum name="ShaderType" cname="CoglShaderType" type="enum">
+      <member cname="COGL_SHADER_TYPE_VERTEX" name="Vertex" />
+      <member cname="COGL_SHADER_TYPE_FRAGMENT" name="Fragment" />
+    </enum>
+    <enum name="TextureFilter" cname="CoglTextureFilter" type="enum">
+      <member cname="COGL_TEXTURE_FILTER_NEAREST" name="Nearest" value="GL.GL_NEAREST" />
+      <member cname="COGL_TEXTURE_FILTER_LINEAR" name="Linear" value="GL.GL_LINEAR" />
+      <member cname="COGL_TEXTURE_FILTER_NEAREST_MIPMAP_NEAREST" name="NearestMipmapNearest" value="GL.GL_NEAREST_MIPMAP_NEAREST" />
+      <member cname="COGL_TEXTURE_FILTER_LINEAR_MIPMAP_NEAREST" name="LinearMipmapNearest" value="GL.GL_LINEAR_MIPMAP_NEAREST" />
+      <member cname="COGL_TEXTURE_FILTER_NEAREST_MIPMAP_LINEAR" name="NearestMipmapLinear" value="GL.GL_NEAREST_MIPMAP_LINEAR" />
+      <member cname="COGL_TEXTURE_FILTER_LINEAR_MIPMAP_LINEAR" name="LinearMipmapLinear" value="GL.GL_LINEAR_MIPMAP_LINEAR" />
+    </enum>
     <enum name="TextureFlags" cname="CoglTextureFlags" type="flags">
       <member cname="COGL_TEXTURE_NONE" name="None" />
       <member cname="COGL_TEXTURE_AUTO_MIPMAP" name="AutoMipmap" value="1 &lt;&lt; 0" />
@@ -141,9 +154,6 @@
     <callback name="FuncPtr" cname="CoglFuncPtr">
       <return-type type="void" />
     </callback>
-    <alias name="COGLenum" cname="COGLenum" type="GLenum" />
-    <alias name="COGLint" cname="COGLint" type="GLint" />
-    <alias name="COGLuint" cname="COGLuint" type="GLuint" />
     <alias name="Angle" cname="CoglAngle" type="gint32" />
     <struct name="Color" cname="CoglColor" opaque="true">
       <field name="Red" cname="red" type="guint8" access="private" />
@@ -475,6 +485,15 @@
       <method name="PushFromPathPreserve" cname="cogl_clip_push_from_path_preserve" shared="true">
         <return-type type="void" />
       </method>
+      <method name="PushWindowRect" cname="cogl_clip_push_window_rect" shared="true">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="float" name="x_offset" />
+          <parameter type="float" name="y_offset" />
+          <parameter type="float" name="width" />
+          <parameter type="float" name="height" />
+        </parameters>
+      </method>
       <method name="StackRestore" cname="cogl_clip_stack_restore" shared="true">
         <return-type type="void" />
       </method>
@@ -492,7 +511,7 @@
       <method name="Shader" cname="cogl_create_shader" shared="true">
         <return-type type="CoglHandle" />
         <parameters>
-          <parameter type="COGLenum" name="shader_type" />
+          <parameter type="CoglShaderType" name="shader_type" />
         </parameters>
       </method>
     </class>
@@ -1022,10 +1041,10 @@
         </parameters>
       </method>
       <method name="GetUniformLocation" cname="cogl_program_get_uniform_location" shared="true">
-        <return-type type="COGLint" />
+        <return-type type="int" />
         <parameters>
           <parameter type="CoglHandle" name="handle" />
-          <parameter type="const-gchar*" name="uniform_name" />
+          <parameter type="const-char*" name="uniform_name" />
         </parameters>
       </method>
       <method name="Link" cname="cogl_program_link" shared="true">
@@ -1043,43 +1062,43 @@
       <method name="Uniform1f" cname="cogl_program_uniform_1f" shared="true">
         <return-type type="void" />
         <parameters>
-          <parameter type="COGLint" name="uniform_no" />
-          <parameter type="gfloat" name="value" />
+          <parameter type="int" name="uniform_no" />
+          <parameter type="float" name="value" />
         </parameters>
       </method>
       <method name="Uniform1i" cname="cogl_program_uniform_1i" shared="true">
         <return-type type="void" />
         <parameters>
-          <parameter type="COGLint" name="uniform_no" />
-          <parameter type="gint" name="value" />
+          <parameter type="int" name="uniform_no" />
+          <parameter type="int" name="value" />
         </parameters>
       </method>
       <method name="UniformFloat" cname="cogl_program_uniform_float" shared="true">
         <return-type type="void" />
         <parameters>
-          <parameter type="COGLint" name="uniform_no" />
-          <parameter type="gint" name="size" />
-          <parameter type="gint" name="count" />
+          <parameter type="int" name="uniform_no" />
+          <parameter type="int" name="size" />
+          <parameter type="int" name="count" />
           <parameter type="const-GLfloat*" name="value" />
         </parameters>
       </method>
       <method name="UniformInt" cname="cogl_program_uniform_int" shared="true">
         <return-type type="void" />
         <parameters>
-          <parameter type="COGLint" name="uniform_no" />
-          <parameter type="gint" name="size" />
-          <parameter type="gint" name="count" />
-          <parameter type="const-COGLint*" name="value" />
+          <parameter type="int" name="uniform_no" />
+          <parameter type="int" name="size" />
+          <parameter type="int" name="count" />
+          <parameter type="const-int*" name="value" />
         </parameters>
       </method>
       <method name="UniformMatrix" cname="cogl_program_uniform_matrix" shared="true">
         <return-type type="void" />
         <parameters>
-          <parameter type="COGLint" name="uniform_no" />
-          <parameter type="gint" name="size" />
-          <parameter type="gint" name="count" />
+          <parameter type="int" name="uniform_no" />
+          <parameter type="int" name="size" />
+          <parameter type="int" name="count" />
           <parameter type="gboolean" name="transpose" />
-          <parameter type="const-GLfloat*" name="value" />
+          <parameter type="const-float*" name="value" />
         </parameters>
       </method>
       <method name="Unref" cname="cogl_program_unref" shared="true">
@@ -1140,16 +1159,20 @@
         <return-type type="void" />
         <parameters>
           <parameter type="CoglHandle" name="handle" />
-          <parameter type="guint" name="size" />
-          <parameter type="gchar*" name="buffer" />
+          <parameter type="size_t" name="size" />
+          <parameter type="char*" name="buffer" />
         </parameters>
       </method>
-      <method name="GetParameteriv" cname="cogl_shader_get_parameteriv" shared="true">
-        <return-type type="void" />
+      <method name="GetType" cname="cogl_shader_get_type" shared="true">
+        <return-type type="CoglShaderType" />
         <parameters>
           <parameter type="CoglHandle" name="handle" />
-          <parameter type="COGLenum" name="pname" />
-          <parameter type="COGLint*" name="dest" />
+        </parameters>
+      </method>
+      <method name="IsCompiled" cname="cogl_shader_is_compiled" shared="true">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="CoglHandle" name="handle" />
         </parameters>
       </method>
       <method name="Ref" cname="cogl_shader_ref" shared="true">
@@ -1162,7 +1185,7 @@
         <return-type type="void" />
         <parameters>
           <parameter type="CoglHandle" name="shader" />
-          <parameter type="const-gchar*" name="source" />
+          <parameter type="const-char*" name="source" />
         </parameters>
       </method>
       <method name="Unref" cname="cogl_shader_unref" shared="true">
@@ -1203,7 +1226,7 @@
         </parameters>
       </method>
       <method name="GetMagFilter" cname="cogl_texture_get_mag_filter" shared="true">
-        <return-type type="COGLenum" />
+        <return-type type="CoglTextureFilter" />
         <parameters>
           <parameter type="CoglHandle" name="handle" />
         </parameters>
@@ -1215,7 +1238,7 @@
         </parameters>
       </method>
       <method name="GetMinFilter" cname="cogl_texture_get_min_filter" shared="true">
-        <return-type type="COGLenum" />
+        <return-type type="CoglTextureFilter" />
         <parameters>
           <parameter type="CoglHandle" name="handle" />
         </parameters>
@@ -1302,8 +1325,8 @@
         <return-type type="void" />
         <parameters>
           <parameter type="CoglHandle" name="handle" />
-          <parameter type="COGLenum" name="min_filter" />
-          <parameter type="COGLenum" name="mag_filter" />
+          <parameter type="CoglTextureFilter" name="min_filter" />
+          <parameter type="CoglTextureFilter" name="mag_filter" />
         </parameters>
       </method>
       <method name="SetRegion" cname="cogl_texture_set_region" shared="true">

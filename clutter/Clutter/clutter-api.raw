@@ -187,6 +187,7 @@
       <member cname="CLUTTER_TEXTURE_ERROR_BAD_FORMAT" name="BadFormat" />
     </enum>
     <enum name="TextureFlags" cname="ClutterTextureFlags" gtype="clutter_texture_flags_get_type" type="flags">
+      <member cname="CLUTTER_TEXTURE_NONE" name="None" />
       <member cname="CLUTTER_TEXTURE_RGB_FLAG_BGR" name="RgbFlagBgr" value="1 &lt;&lt; 1" />
       <member cname="CLUTTER_TEXTURE_RGB_FLAG_PREMULT" name="RgbFlagPremult" value="1 &lt;&lt; 2" />
       <member cname="CLUTTER_TEXTURE_YUV_FLAG_YUV2" name="YuvFlagYuv2" value="1 &lt;&lt; 3" />
@@ -1753,7 +1754,7 @@
         </parameters>
       </method>
     </object>
-    <object name="Animation" cname="ClutterAnimation" parent="GInitiallyUnowned">
+    <object name="Animation" cname="ClutterAnimation" parent="GObject">
       <field name="Priv" cname="priv" type="ClutterAnimationPrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
@@ -2650,6 +2651,9 @@
       <virtual_method name="ClutterCairo4" cname="_clutter_cairo_4">
         <return-type type="void" />
       </virtual_method>
+      <method name="Clear" cname="clutter_cairo_texture_clear">
+        <return-type type="void" />
+      </method>
       <method name="Create" cname="clutter_cairo_texture_create">
         <return-type type="cairo_t*" />
       </method>
@@ -2974,6 +2978,18 @@
       <virtual_method name="ClutterModel4" cname="_clutter_model_4">
         <return-type type="void" />
       </virtual_method>
+      <virtual_method name="ClutterModel5" cname="_clutter_model_5">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterModel6" cname="_clutter_model_6">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterModel7" cname="_clutter_model_7">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterModel8" cname="_clutter_model_8">
+        <return-type type="void" />
+      </virtual_method>
       <method name="Append" cname="clutter_model_append">
         <return-type type="void" />
         <parameters>
@@ -3203,6 +3219,18 @@
         <return-type type="void" />
       </virtual_method>
       <virtual_method name="ClutterModelIter4" cname="_clutter_model_iter_4">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterModelIter5" cname="_clutter_model_iter_5">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterModelIter6" cname="_clutter_model_iter_6">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterModelIter7" cname="_clutter_model_iter_7">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterModelIter8" cname="_clutter_model_iter_8">
         <return-type type="void" />
       </virtual_method>
       <method name="Copy" cname="clutter_model_iter_copy">
@@ -4019,6 +4047,9 @@
           <parameter type="guint" name="n_chars" />
         </parameters>
       </method>
+      <method name="DeleteSelection" cname="clutter_text_delete_selection">
+        <return-type type="gboolean" />
+      </method>
       <method name="DeleteText" cname="clutter_text_delete_text">
         <return-type type="void" />
         <parameters>
@@ -4144,6 +4175,15 @@
           <parameter type="const-gchar*" name="text" />
         </parameters>
       </constructor>
+      <method name="PositionToCoords" cname="clutter_text_position_to_coords">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="gint" name="position" />
+          <parameter type="gfloat*" name="x" />
+          <parameter type="gfloat*" name="y" />
+          <parameter type="gfloat*" name="line_height" />
+        </parameters>
+      </method>
       <method name="SetActivatable" cname="clutter_text_set_activatable">
         <return-type type="void" />
         <parameters>
@@ -4298,7 +4338,7 @@
       <property name="RepeatY" cname="repeat-y" type="gboolean" readable="true" writeable="true" />
       <property name="FilterQuality" cname="filter-quality" type="ClutterTextureQuality" readable="true" writeable="true" construct="true" />
       <property name="TileWaste" cname="tile-waste" type="gint" readable="true" writeable="true" construct-only="true" />
-      <property name="PixelFormat" cname="pixel-format" type="gint" readable="true" />
+      <property name="PixelFormat" cname="pixel-format" type="CoglPixelFormat" readable="true" />
       <property name="CoglTexture" cname="cogl-texture" type="CoglHandle" readable="true" writeable="true" />
       <property name="CoglMaterial" cname="cogl-material" type="CoglHandle" readable="true" writeable="true" />
       <property name="Filename" cname="filename" type="gchar*" writeable="true" />
@@ -4323,7 +4363,7 @@
         <return-type type="void" />
         <parameters>
           <parameter type="ClutterTexture*" name="texture" />
-          <parameter type="GError*" name="error" />
+          <parameter type="const-GError*" name="error" />
         </parameters>
       </signal>
       <virtual_method name="ClutterTexture1" cname="_clutter_texture1">
@@ -4363,8 +4403,30 @@
       <method name="GetFilterQuality" cname="clutter_texture_get_filter_quality">
         <return-type type="ClutterTextureQuality" />
       </method>
+      <method name="GetKeepAspectRatio" cname="clutter_texture_get_keep_aspect_ratio">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetLoadAsync" cname="clutter_texture_get_load_async">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetLoadDataAsync" cname="clutter_texture_get_load_data_async">
+        <return-type type="gboolean" />
+      </method>
       <method name="GetMaxTileWaste" cname="clutter_texture_get_max_tile_waste">
         <return-type type="gint" />
+      </method>
+      <method name="GetPixelFormat" cname="clutter_texture_get_pixel_format">
+        <return-type type="CoglPixelFormat" />
+      </method>
+      <method name="GetRepeat" cname="clutter_texture_get_repeat">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean*" name="repeat_x" />
+          <parameter type="gboolean*" name="repeat_y" />
+        </parameters>
+      </method>
+      <method name="GetSyncSize" cname="clutter_texture_get_sync_size">
+        <return-type type="gboolean" />
       </method>
       <method name="GetType" cname="clutter_texture_get_type" shared="true">
         <return-type type="GType" />
@@ -4444,10 +4506,41 @@
           <parameter type="GError**" name="error" />
         </parameters>
       </method>
+      <method name="SetKeepAspectRatio" cname="clutter_texture_set_keep_aspect_ratio">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="keep_aspect" />
+        </parameters>
+      </method>
+      <method name="SetLoadAsync" cname="clutter_texture_set_load_async">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="load_async" />
+        </parameters>
+      </method>
+      <method name="SetLoadDataAsync" cname="clutter_texture_set_load_data_async">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="load_async" />
+        </parameters>
+      </method>
       <method name="SetMaxTileWaste" cname="clutter_texture_set_max_tile_waste">
         <return-type type="void" />
         <parameters>
           <parameter type="gint" name="max_tile_waste" />
+        </parameters>
+      </method>
+      <method name="SetRepeat" cname="clutter_texture_set_repeat">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="repeat_x" />
+          <parameter type="gboolean" name="repeat_y" />
+        </parameters>
+      </method>
+      <method name="SetSyncSize" cname="clutter_texture_set_sync_size">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gboolean" name="sync_size" />
         </parameters>
       </method>
     </object>
@@ -5476,7 +5569,7 @@
         </parameters>
       </method>
       <method name="GetShaderInt" cname="clutter_value_get_shader_int" shared="true">
-        <return-type type="const-COGLint*" />
+        <return-type type="const-gint*" />
         <parameters>
           <parameter type="const-GValue*" name="value" />
           <parameter type="gsize*" name="length" />
