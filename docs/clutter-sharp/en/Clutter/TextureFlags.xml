@@ -22,7 +22,7 @@
   <Members>
     
     
-    <Member MemberName="RgbFlagBgr">
+    <Member MemberName="None"><MemberSignature Language="C#" Value="None" /><MemberType>Field</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Clutter.TextureFlags</ReturnType></ReturnValue><Docs><summary>To be added.</summary></Docs></Member><Member MemberName="RgbFlagBgr">
       <MemberSignature Language="C#" Value="RgbFlagBgr" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>

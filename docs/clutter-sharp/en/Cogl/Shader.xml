@@ -35,16 +35,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
       <Docs><param name="handle">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetInfoLog">
-      <MemberSignature Language="C#" Value="public static void GetInfoLog (IntPtr handle, uint size, string buffer);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
-      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="size" Type="System.UInt32" /><Parameter Name="buffer" Type="System.String" /></Parameters>
-      <Docs><param name="handle">To be added.</param><param name="size">To be added.</param><param name="buffer">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="Ref">
+    </Member><Member MemberName="GetGType"><MemberSignature Language="C#" Value="public static Cogl.ShaderType GetGType (IntPtr handle);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Cogl.ShaderType</ReturnType></ReturnValue><Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters><Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="GetInfoLog"><MemberSignature Language="C#" Value="public static void GetInfoLog (IntPtr handle, ulong size, string buffer);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="size" Type="System.UInt64" /><Parameter Name="buffer" Type="System.String" /></Parameters><Docs><param name="handle">To be added.</param><param name="size">To be added.</param><param name="buffer">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="IsCompiled"><MemberSignature Language="C#" Value="public static bool IsCompiled (IntPtr handle);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue><Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters><Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="Ref">
       <MemberSignature Language="C#" Value="public static IntPtr Ref (IntPtr handle);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>

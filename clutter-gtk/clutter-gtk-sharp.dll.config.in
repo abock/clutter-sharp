@@ -1,4 +1,4 @@
 <configuration>
-	<dllmap dll="clutter-gtk" target="libclutter-gtk-@CLUTTER_APIVERSION@.so" />
+	<dllmap dll="clutter-gtk" target="libclutter-gtk-@CLUTTER_APIVERSION@.so.0" />
 </configuration>
 

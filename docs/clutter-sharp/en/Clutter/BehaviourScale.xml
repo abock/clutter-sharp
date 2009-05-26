@@ -18,7 +18,8 @@
     
     
     
-    <Member MemberName=".ctor">
+    
+  <Member MemberName=".ctor">
       <MemberSignature Language="C#" Value="protected BehaviourScale (GLib.GType gtype);" />
       <MemberType>Constructor</MemberType>
       <AssemblyInfo>
@@ -43,7 +44,7 @@
       </AssemblyInfo>
       <Parameters><Parameter Name="alpha" Type="Clutter.Alpha" /><Parameter Name="x_scale_start" Type="System.Double" /><Parameter Name="y_scale_start" Type="System.Double" /><Parameter Name="x_scale_end" Type="System.Double" /><Parameter Name="y_scale_end" Type="System.Double" /></Parameters>
       <Docs><param name="alpha">To be added.</param><param name="x_scale_start">To be added.</param><param name="y_scale_start">To be added.</param><param name="x_scale_end">To be added.</param><param name="y_scale_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetBounds">
+    </Member><Member MemberName=".ctor"><MemberSignature Language="C#" Value="public BehaviourScale (Clutter.Alpha alpha, int x_scale_start, int y_scale_start, int x_scale_end, int y_scale_end);" /><MemberType>Constructor</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Parameters><Parameter Name="alpha" Type="Clutter.Alpha" /><Parameter Name="x_scale_start" Type="System.Int32" /><Parameter Name="y_scale_start" Type="System.Int32" /><Parameter Name="x_scale_end" Type="System.Int32" /><Parameter Name="y_scale_end" Type="System.Int32" /></Parameters><Docs><param name="alpha">To be added.</param><param name="x_scale_start">To be added.</param><param name="y_scale_start">To be added.</param><param name="x_scale_end">To be added.</param><param name="y_scale_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="GetBounds">
       <MemberSignature Language="C#" Value="public void GetBounds (out double x_scale_start, out double y_scale_start, out double x_scale_end, out double y_scale_end);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -52,7 +53,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="x_scale_start" Type="System.Double&amp;" RefType="out" /><Parameter Name="y_scale_start" Type="System.Double&amp;" RefType="out" /><Parameter Name="x_scale_end" Type="System.Double&amp;" RefType="out" /><Parameter Name="y_scale_end" Type="System.Double&amp;" RefType="out" /></Parameters>
       <Docs><param name="x_scale_start">To be added.</param><param name="y_scale_start">To be added.</param><param name="x_scale_end">To be added.</param><param name="y_scale_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GType">
+    </Member><Member MemberName="GetBoundsx"><MemberSignature Language="C#" Value="public void GetBoundsx (out int x_scale_start, out int y_scale_start, out int x_scale_end, out int y_scale_end);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="x_scale_start" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y_scale_start" Type="System.Int32&amp;" RefType="out" /><Parameter Name="x_scale_end" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y_scale_end" Type="System.Int32&amp;" RefType="out" /></Parameters><Docs><param name="x_scale_start">To be added.</param><param name="y_scale_start">To be added.</param><param name="x_scale_end">To be added.</param><param name="y_scale_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="GType">
       <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -69,6 +70,5 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="x_scale_start" Type="System.Double" /><Parameter Name="y_scale_start" Type="System.Double" /><Parameter Name="x_scale_end" Type="System.Double" /><Parameter Name="y_scale_end" Type="System.Double" /></Parameters>
       <Docs><param name="x_scale_start">To be added.</param><param name="y_scale_start">To be added.</param><param name="x_scale_end">To be added.</param><param name="y_scale_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member>
-  </Members>
+    </Member><Member MemberName="SetBoundsx"><MemberSignature Language="C#" Value="public void SetBoundsx (int x_scale_start, int y_scale_start, int x_scale_end, int y_scale_end);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="x_scale_start" Type="System.Int32" /><Parameter Name="y_scale_start" Type="System.Int32" /><Parameter Name="x_scale_end" Type="System.Int32" /><Parameter Name="y_scale_end" Type="System.Int32" /></Parameters><Docs><param name="x_scale_start">To be added.</param><param name="y_scale_start">To be added.</param><param name="x_scale_end">To be added.</param><param name="y_scale_end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member></Members>
 </Type>

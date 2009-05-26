@@ -56,7 +56,7 @@
       <Type Name="ChildNotifyArgs" Kind="Class" />
       <Type Name="ChildNotifyHandler" Kind="Delegate" />
       <Type Name="Clone" Kind="Class" />
-      <Type Name="Color" Kind="Class" />
+      <Type Name="Color" Kind="Structure" />
       <Type Name="Container" Kind="Interface" />
       <Type Name="ContainerAdapter" Kind="Class" />
       <Type Name="ContainerImplementor" Kind="Interface" />
@@ -212,6 +212,7 @@
       <Type Name="FogMode" Kind="Enumeration" />
       <Type Name="FuncPtr" Kind="Delegate" />
       <Type Name="General" Kind="Class" />
+      <Type Name="GL" Kind="Class" />
       <Type Name="Handle" Kind="Class" />
       <Type Name="Material" Kind="Class" />
       <Type Name="MaterialAlphaFunc" Kind="Enumeration" />
@@ -230,10 +231,12 @@
       <Type Name="Program" Kind="Class" />
       <Type Name="Rectangle" Kind="Class" />
       <Type Name="Shader" Kind="Class" />
+      <Type Name="ShaderType" Kind="Enumeration" />
       <Type Name="Texture" Kind="Class" />
+      <Type Name="TextureFilter" Kind="Enumeration" />
       <Type Name="TextureFlags" Kind="Enumeration" />
       <Type Name="TextureVertex" Kind="Structure" />
-      <Type Name="Vertex" Kind="Class" />
+      <Type Name="VertexBuffer" Kind="Class" />
     </Namespace>
   </Types>
   <Title>clutter-sharp</Title>

@@ -73,7 +73,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters />
       <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="StackRestore">
+    </Member><Member MemberName="PushWindowRect"><MemberSignature Language="C#" Value="public static void PushWindowRect (float x_offset, float y_offset, float width, float height);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="x_offset" Type="System.Single" /><Parameter Name="y_offset" Type="System.Single" /><Parameter Name="width" Type="System.Single" /><Parameter Name="height" Type="System.Single" /></Parameters><Docs><param name="x_offset">To be added.</param><param name="y_offset">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="StackRestore">
       <MemberSignature Language="C#" Value="public static void StackRestore ();" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>

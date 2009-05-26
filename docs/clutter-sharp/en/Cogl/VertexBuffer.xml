@@ -1,0 +1,136 @@
+<Type Name="VertexBuffer" FullName="Cogl.VertexBuffer">
+  <TypeSignature Language="C#" Value="public class VertexBuffer" />
+  <AssemblyInfo>
+    <AssemblyName>clutter-sharp</AssemblyName>
+    <AssemblyVersion>0.9.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Object</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public VertexBuffer ();" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Add">
+      <MemberSignature Language="C#" Value="public static void Add (IntPtr handle, string attribute_name, byte n_components, uint gl_type, bool normalized, ushort stride, IntPtr pointer);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="attribute_name" Type="System.String" /><Parameter Name="n_components" Type="System.Byte" /><Parameter Name="gl_type" Type="System.UInt32" /><Parameter Name="normalized" Type="System.Boolean" /><Parameter Name="stride" Type="System.UInt16" /><Parameter Name="pointer" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="attribute_name">To be added.</param><param name="n_components">To be added.</param><param name="gl_type">To be added.</param><param name="normalized">To be added.</param><param name="stride">To be added.</param><param name="pointer">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Delete">
+      <MemberSignature Language="C#" Value="public static void Delete (IntPtr handle, string attribute_name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="attribute_name" Type="System.String" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="attribute_name">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Disable">
+      <MemberSignature Language="C#" Value="public static void Disable (IntPtr handle, string attribute_name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="attribute_name" Type="System.String" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="attribute_name">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Draw">
+      <MemberSignature Language="C#" Value="public static void Draw (IntPtr handle, uint mode, int first, int count);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="mode" Type="System.UInt32" /><Parameter Name="first" Type="System.Int32" /><Parameter Name="count" Type="System.Int32" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="mode">To be added.</param><param name="first">To be added.</param><param name="count">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="DrawElements">
+      <MemberSignature Language="C#" Value="public static void DrawElements (IntPtr handle, uint mode, uint min_index, uint max_index, int count, uint indices_type, IntPtr indices);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="mode" Type="System.UInt32" /><Parameter Name="min_index" Type="System.UInt32" /><Parameter Name="max_index" Type="System.UInt32" /><Parameter Name="count" Type="System.Int32" /><Parameter Name="indices_type" Type="System.UInt32" /><Parameter Name="indices" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="mode">To be added.</param><param name="min_index">To be added.</param><param name="max_index">To be added.</param><param name="count">To be added.</param><param name="indices_type">To be added.</param><param name="indices">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Enable">
+      <MemberSignature Language="C#" Value="public static void Enable (IntPtr handle, string attribute_name);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="attribute_name" Type="System.String" /></Parameters>
+      <Docs><param name="handle">To be added.</param><param name="attribute_name">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="GetNVertices">
+      <MemberSignature Language="C#" Value="public static uint GetNVertices (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="New">
+      <MemberSignature Language="C#" Value="public static IntPtr New (uint n_vertices);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="n_vertices" Type="System.UInt32" /></Parameters>
+      <Docs><param name="n_vertices">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Ref">
+      <MemberSignature Language="C#" Value="public static IntPtr Ref (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Submit">
+      <MemberSignature Language="C#" Value="public static void Submit (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="Unref">
+      <MemberSignature Language="C#" Value="public static void Unref (IntPtr handle);" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.9.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
+      <Docs><param name="handle">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member>
+  </Members>
+</Type>

@@ -240,7 +240,7 @@
       <Attributes><Attribute><AttributeName>GLib.Property("allocation")</AttributeName></Attribute></Attributes>
       <ReturnValue><ReturnType>Clutter.ActorBox</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="AnchorPointFromGravity">
+    </Member><Member MemberName="AllocationGeometry"><MemberSignature Language="C#" Value="public Clutter.Geometry AllocationGeometry { get; }" /><MemberType>Property</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Clutter.Geometry</ReturnType></ReturnValue><Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs></Member><Member MemberName="AnchorPointFromGravity">
       <MemberSignature Language="C#" Value="public Clutter.Gravity AnchorPointFromGravity { set; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -470,7 +470,7 @@
       <Attributes><Attribute><AttributeName>GLib.Signal("focus-out")</AttributeName></Attribute></Attributes>
       <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetAbsAllocationVertices">
+    </Member><Member MemberName="Geometry"><MemberSignature Language="C#" Value="public Clutter.Geometry Geometry { get; }" /><MemberType>Property</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Clutter.Geometry</ReturnType></ReturnValue><Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs></Member><Member MemberName="GetAbsAllocationVertices">
       <MemberSignature Language="C#" Value="public void GetAbsAllocationVertices (Clutter.Vertex[] verts);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -497,15 +497,6 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="x_1" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y_1" Type="System.Int32&amp;" RefType="out" /><Parameter Name="x_2" Type="System.Int32&amp;" RefType="out" /><Parameter Name="y_2" Type="System.Int32&amp;" RefType="out" /></Parameters>
       <Docs><param name="x_1">To be added.</param><param name="y_1">To be added.</param><param name="x_2">To be added.</param><param name="y_2">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetAllocationGeometry">
-      <MemberSignature Language="C#" Value="public void GetAllocationGeometry (Clutter.Geometry geom);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
-      <Parameters><Parameter Name="geom" Type="Clutter.Geometry" /></Parameters>
-      <Docs><param name="geom">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
     </Member><Member MemberName="GetAllocationVertices">
       <MemberSignature Language="C#" Value="public void GetAllocationVertices (Clutter.Actor ancestor, Clutter.Vertex[] verts);" />
       <MemberType>Method</MemberType>
@@ -551,15 +542,6 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="xoff" Type="System.Single&amp;" RefType="out" /><Parameter Name="yoff" Type="System.Single&amp;" RefType="out" /><Parameter Name="width" Type="System.Single&amp;" RefType="out" /><Parameter Name="height" Type="System.Single&amp;" RefType="out" /></Parameters>
       <Docs><param name="xoff">To be added.</param><param name="yoff">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetGeometry">
-      <MemberSignature Language="C#" Value="public void GetGeometry (Clutter.Geometry geometry);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
-      <Parameters><Parameter Name="geometry" Type="Clutter.Geometry" /></Parameters>
-      <Docs><param name="geometry">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
     </Member><Member MemberName="GetPosition">
       <MemberSignature Language="C#" Value="public void GetPosition (out int x, out int y);" />
       <MemberType>Method</MemberType>

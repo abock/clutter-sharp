@@ -52,7 +52,7 @@
       </AssemblyInfo>
       <Parameters><Parameter Name="alpha" Type="Clutter.Alpha" /><Parameter Name="x" Type="System.Int32" /><Parameter Name="y" Type="System.Int32" /><Parameter Name="width" Type="System.Int32" /><Parameter Name="height" Type="System.Int32" /><Parameter Name="direction" Type="Clutter.RotateDirection" /><Parameter Name="start" Type="System.Double" /><Parameter Name="end" Type="System.Double" /></Parameters>
       <Docs><param name="alpha">To be added.</param><param name="x">To be added.</param><param name="y">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><param name="direction">To be added.</param><param name="start">To be added.</param><param name="end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="AngleEnd">
+    </Member><Member MemberName=".ctor"><MemberSignature Language="C#" Value="public BehaviourEllipse (Clutter.Alpha alpha, int x, int y, int width, int height, Clutter.RotateDirection direction, int start, int end);" /><MemberType>Constructor</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Parameters><Parameter Name="alpha" Type="Clutter.Alpha" /><Parameter Name="x" Type="System.Int32" /><Parameter Name="y" Type="System.Int32" /><Parameter Name="width" Type="System.Int32" /><Parameter Name="height" Type="System.Int32" /><Parameter Name="direction" Type="Clutter.RotateDirection" /><Parameter Name="start" Type="System.Int32" /><Parameter Name="end" Type="System.Int32" /></Parameters><Docs><param name="alpha">To be added.</param><param name="x">To be added.</param><param name="y">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><param name="direction">To be added.</param><param name="start">To be added.</param><param name="end">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="AngleEnd">
       <MemberSignature Language="C#" Value="public double AngleEnd { set; get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -60,7 +60,7 @@
       </AssemblyInfo>
       <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="AngleStart">
+    </Member><Member MemberName="AngleEndx"><MemberSignature Language="C#" Value="public int AngleEndx { set; get; }" /><MemberType>Property</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue><Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs></Member><Member MemberName="AngleStart">
       <MemberSignature Language="C#" Value="public double AngleStart { set; get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -68,7 +68,7 @@
       </AssemblyInfo>
       <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="Direction">
+    </Member><Member MemberName="AngleStartx"><MemberSignature Language="C#" Value="public int AngleStartx { set; get; }" /><MemberType>Property</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue><Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs></Member><Member MemberName="Direction">
       <MemberSignature Language="C#" Value="public Clutter.RotateDirection Direction { set; get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -85,7 +85,7 @@
       <ReturnValue><ReturnType>System.Double</ReturnType></ReturnValue>
       <Parameters><Parameter Name="axis" Type="Clutter.RotateAxis" /></Parameters>
       <Docs><param name="axis">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetCenter">
+    </Member><Member MemberName="GetAngleTiltx"><MemberSignature Language="C#" Value="public int GetAngleTiltx (Clutter.RotateAxis axis);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue><Parameters><Parameter Name="axis" Type="Clutter.RotateAxis" /></Parameters><Docs><param name="axis">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="GetCenter">
       <MemberSignature Language="C#" Value="public void GetCenter (out int x, out int y);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -103,7 +103,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="angle_tilt_x" Type="System.Double&amp;" RefType="out" /><Parameter Name="angle_tilt_y" Type="System.Double&amp;" RefType="out" /><Parameter Name="angle_tilt_z" Type="System.Double&amp;" RefType="out" /></Parameters>
       <Docs><param name="angle_tilt_x">To be added.</param><param name="angle_tilt_y">To be added.</param><param name="angle_tilt_z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GType">
+    </Member><Member MemberName="GetTiltx"><MemberSignature Language="C#" Value="public void GetTiltx (out int angle_tilt_x, out int angle_tilt_y, out int angle_tilt_z);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="angle_tilt_x" Type="System.Int32&amp;" RefType="out" /><Parameter Name="angle_tilt_y" Type="System.Int32&amp;" RefType="out" /><Parameter Name="angle_tilt_z" Type="System.Int32&amp;" RefType="out" /></Parameters><Docs><param name="angle_tilt_x">To be added.</param><param name="angle_tilt_y">To be added.</param><param name="angle_tilt_z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="GType">
       <MemberSignature Language="C#" Value="public static GLib.GType GType { get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -128,7 +128,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="axis" Type="Clutter.RotateAxis" /><Parameter Name="angle_tilt" Type="System.Double" /></Parameters>
       <Docs><param name="axis">To be added.</param><param name="angle_tilt">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="SetCenter">
+    </Member><Member MemberName="SetAngleTiltx"><MemberSignature Language="C#" Value="public void SetAngleTiltx (Clutter.RotateAxis axis, int angle_tilt);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="axis" Type="Clutter.RotateAxis" /><Parameter Name="angle_tilt" Type="System.Int32" /></Parameters><Docs><param name="axis">To be added.</param><param name="angle_tilt">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="SetCenter">
       <MemberSignature Language="C#" Value="public void SetCenter (int x, int y);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -146,7 +146,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="angle_tilt_x" Type="System.Double" /><Parameter Name="angle_tilt_y" Type="System.Double" /><Parameter Name="angle_tilt_z" Type="System.Double" /></Parameters>
       <Docs><param name="angle_tilt_x">To be added.</param><param name="angle_tilt_y">To be added.</param><param name="angle_tilt_z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="Width">
+    </Member><Member MemberName="SetTiltx"><MemberSignature Language="C#" Value="public void SetTiltx (int angle_tilt_x, int angle_tilt_y, int angle_tilt_z);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="angle_tilt_x" Type="System.Int32" /><Parameter Name="angle_tilt_y" Type="System.Int32" /><Parameter Name="angle_tilt_z" Type="System.Int32" /></Parameters><Docs><param name="angle_tilt_x">To be added.</param><param name="angle_tilt_y">To be added.</param><param name="angle_tilt_z">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="Width">
       <MemberSignature Language="C#" Value="public int Width { set; get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>

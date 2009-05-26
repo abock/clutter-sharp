@@ -62,7 +62,7 @@
       <ReturnValue><ReturnType>System.UInt32</ReturnType></ReturnValue>
       <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
       <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetMaxWaste">
+    </Member><Member MemberName="GetMagFilter"><MemberSignature Language="C#" Value="public static Cogl.TextureFilter GetMagFilter (IntPtr handle);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Cogl.TextureFilter</ReturnType></ReturnValue><Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters><Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="GetMaxWaste">
       <MemberSignature Language="C#" Value="public static int GetMaxWaste (IntPtr handle);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -71,7 +71,7 @@
       <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
       <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
       <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetRowstride">
+    </Member><Member MemberName="GetMinFilter"><MemberSignature Language="C#" Value="public static Cogl.TextureFilter GetMinFilter (IntPtr handle);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Cogl.TextureFilter</ReturnType></ReturnValue><Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters><Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="GetRowstride">
       <MemberSignature Language="C#" Value="public static uint GetRowstride (IntPtr handle);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -143,7 +143,7 @@
       <ReturnValue><ReturnType>System.IntPtr</ReturnType></ReturnValue>
       <Parameters><Parameter Name="handle" Type="System.IntPtr" /></Parameters>
       <Docs><param name="handle">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="SetRegion">
+    </Member><Member MemberName="SetFilters"><MemberSignature Language="C#" Value="public static void SetFilters (IntPtr handle, Cogl.TextureFilter min_filter, Cogl.TextureFilter mag_filter);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="handle" Type="System.IntPtr" /><Parameter Name="min_filter" Type="Cogl.TextureFilter" /><Parameter Name="mag_filter" Type="Cogl.TextureFilter" /></Parameters><Docs><param name="handle">To be added.</param><param name="min_filter">To be added.</param><param name="mag_filter">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="SetRegion">
       <MemberSignature Language="C#" Value="public static bool SetRegion (IntPtr handle, int src_x, int src_y, int dst_x, int dst_y, uint dst_width, uint dst_height, int width, int height, Cogl.PixelFormat format, uint rowstride, out byte data);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>

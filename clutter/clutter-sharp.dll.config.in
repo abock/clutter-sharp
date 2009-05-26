@@ -1,6 +1,6 @@
 <configuration>
-	<dllmap dll="clutter" target="libclutter-@CLUTTER_BACKEND@-@CLUTTER_APIVERSION@.so" />
-	<dllmap dll="glib" target="libglib-2.0.so" />
+	<dllmap dll="clutter" target="libclutter-@CLUTTER_BACKEND@-@CLUTTER_APIVERSION@.so.0" />
+	<dllmap dll="glib" target="libglib-2.0.so.0" />
 	<dllmap dll="gdk-x11" target="libgdk-x11-2.0.so.0"/>
 </configuration>
 

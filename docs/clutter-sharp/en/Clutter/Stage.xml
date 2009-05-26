@@ -83,7 +83,7 @@
       <Attributes><Attribute><AttributeName>GLib.Signal("activate")</AttributeName></Attribute></Attributes>
       <ReturnValue><ReturnType>System.EventHandler</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="CursorVisible">
+    </Member><Member MemberName="Color"><MemberSignature Language="C#" Value="public Clutter.Color Color { set; get; }" /><MemberType>Property</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Clutter.Color</ReturnType></ReturnValue><Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs></Member><Member MemberName="CursorVisible">
       <MemberSignature Language="C#" Value="public bool CursorVisible { set; get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
@@ -163,15 +163,6 @@
       <ReturnValue><ReturnType>Clutter.Actor</ReturnType></ReturnValue>
       <Parameters><Parameter Name="x" Type="System.Int32" /><Parameter Name="y" Type="System.Int32" /></Parameters>
       <Docs><param name="x">To be added.</param><param name="y">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetColor">
-      <MemberSignature Language="C#" Value="public void GetColor (Clutter.Color color);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
-      <Parameters><Parameter Name="color" Type="Clutter.Color" /></Parameters>
-      <Docs><param name="color">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
     </Member><Member MemberName="GetFog">
       <MemberSignature Language="C#" Value="public void GetFog (Clutter.Fog fog);" />
       <MemberType>Method</MemberType>
@@ -299,15 +290,6 @@
       <ReturnValue><ReturnType>System.Byte</ReturnType></ReturnValue>
       <Parameters><Parameter Name="x" Type="System.Int32" /><Parameter Name="y" Type="System.Int32" /><Parameter Name="width" Type="System.Int32" /><Parameter Name="height" Type="System.Int32" /></Parameters>
       <Docs><param name="x">To be added.</param><param name="y">To be added.</param><param name="width">To be added.</param><param name="height">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="SetColor">
-      <MemberSignature Language="C#" Value="public void SetColor (Clutter.Color color);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
-      <Parameters><Parameter Name="color" Type="Clutter.Color" /></Parameters>
-      <Docs><param name="color">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
     </Member><Member MemberName="SetFog">
       <MemberSignature Language="C#" Value="public void SetFog (Clutter.Fog fog);" />
       <MemberType>Method</MemberType>

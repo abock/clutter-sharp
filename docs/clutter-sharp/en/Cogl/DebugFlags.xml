@@ -32,7 +32,7 @@
       </AssemblyInfo>
       <ReturnValue><ReturnType>Cogl.DebugFlags</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary></Docs>
-    </Member><Member MemberName="Material">
+    </Member><Member MemberName="Handle"><MemberSignature Language="C#" Value="Handle" /><MemberType>Field</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>Cogl.DebugFlags</ReturnType></ReturnValue><Docs><summary>To be added.</summary></Docs></Member><Member MemberName="Material">
       <MemberSignature Language="C#" Value="Material" />
       <MemberType>Field</MemberType>
       <AssemblyInfo>

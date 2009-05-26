@@ -39,7 +39,7 @@
       <ReturnValue><ReturnType>Clutter.Color</ReturnType></ReturnValue>
       <Parameters><Parameter Name="value" Type="GLib.Value" /></Parameters>
       <Docs><param name="value">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetShaderFloat">
+    </Member><Member MemberName="GetFixed"><MemberSignature Language="C#" Value="public static int GetFixed (GLib.Value value);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue><Parameters><Parameter Name="value" Type="GLib.Value" /></Parameters><Docs><param name="value">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="GetShaderFloat">
       <MemberSignature Language="C#" Value="public static float GetShaderFloat (GLib.Value value, out ulong length);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -48,7 +48,7 @@
       <ReturnValue><ReturnType>System.Single</ReturnType></ReturnValue>
       <Parameters><Parameter Name="value" Type="GLib.Value" /><Parameter Name="length" Type="System.UInt64&amp;" RefType="out" /></Parameters>
       <Docs><param name="value">To be added.</param><param name="length">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="GetShaderMatrix">
+    </Member><Member MemberName="GetShaderInt"><MemberSignature Language="C#" Value="public static int GetShaderInt (GLib.Value value, out ulong length);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue><Parameters><Parameter Name="value" Type="GLib.Value" /><Parameter Name="length" Type="System.UInt64&amp;" RefType="out" /></Parameters><Docs><param name="value">To be added.</param><param name="length">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="GetShaderMatrix">
       <MemberSignature Language="C#" Value="public static float GetShaderMatrix (GLib.Value value, out ulong length);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -75,7 +75,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="value" Type="GLib.Value" /><Parameter Name="color" Type="Clutter.Color" /></Parameters>
       <Docs><param name="value">To be added.</param><param name="color">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="SetShaderFloat">
+    </Member><Member MemberName="SetFixed"><MemberSignature Language="C#" Value="public static void SetFixed (GLib.Value value, int fixed_);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="value" Type="GLib.Value" /><Parameter Name="fixed_" Type="System.Int32" /></Parameters><Docs><param name="value">To be added.</param><param name="fixed_">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="SetShaderFloat">
       <MemberSignature Language="C#" Value="public static float SetShaderFloat (GLib.Value value, int size);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>

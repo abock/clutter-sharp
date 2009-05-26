@@ -177,7 +177,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters><Parameter Name="n_chars" Type="System.UInt32" /></Parameters>
       <Docs><param name="n_chars">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="DeleteText">
+    </Member><Member MemberName="DeleteSelection"><MemberSignature Language="C#" Value="public bool DeleteSelection ();" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue><Parameters /><Docs><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="DeleteText">
       <MemberSignature Language="C#" Value="public void DeleteText (long start_pos, long end_pos);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -366,7 +366,7 @@
       </AssemblyInfo>
       <ReturnValue><ReturnType>System.Char</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="Selectable">
+    </Member><Member MemberName="PositionToCoords"><MemberSignature Language="C#" Value="public bool PositionToCoords (int position, out float x, out float y, out float line_height);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue><Parameters><Parameter Name="position" Type="System.Int32" /><Parameter Name="x" Type="System.Single&amp;" RefType="out" /><Parameter Name="y" Type="System.Single&amp;" RefType="out" /><Parameter Name="line_height" Type="System.Single&amp;" RefType="out" /></Parameters><Docs><param name="position">To be added.</param><param name="x">To be added.</param><param name="y">To be added.</param><param name="line_height">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="Selectable">
       <MemberSignature Language="C#" Value="public bool Selectable { set; get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>

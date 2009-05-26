@@ -1,11 +1,11 @@
 <Type Name="Animation" FullName="Clutter.Animation">
-  <TypeSignature Language="C#" Value="public class Animation : GLib.InitiallyUnowned" />
+  <TypeSignature Language="C#" Value="public class Animation : GLib.Object" />
   <AssemblyInfo>
     <AssemblyName>clutter-sharp</AssemblyName>
     <AssemblyVersion>0.9.0.0</AssemblyVersion>
   </AssemblyInfo>
   <Base>
-    <BaseTypeName>GLib.InitiallyUnowned</BaseTypeName>
+    <BaseTypeName>GLib.Object</BaseTypeName>
   </Base>
   <Interfaces />
   <Docs>

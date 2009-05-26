@@ -17,6 +17,7 @@
       <Type Name="Scrollable" Kind="Interface" />
       <Type Name="ScrollableAdapter" Kind="Class" />
       <Type Name="ScrollableImplementor" Kind="Interface" />
+      <Type Name="Viewport" Kind="Class" />
     </Namespace>
     <Namespace Name="GtkSharp.ClutterSharp">
       <Type Name="ObjectManager" Kind="Class" />

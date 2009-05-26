@@ -14,45 +14,25 @@
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
+    
     <Member MemberName="GetAdjustments">
       <MemberSignature Language="C#" Value="public void GetAdjustments (Gtk.Adjustment h_adjust, Gtk.Adjustment v_adjust);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.9.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="h_adjust" Type="Gtk.Adjustment" />
-        <Parameter Name="v_adjust" Type="Gtk.Adjustment" />
-      </Parameters>
-      <Docs>
-        <param name="h_adjust">To be added.</param>
-        <param name="v_adjust">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetAdjustments">
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="h_adjust" Type="Gtk.Adjustment" /><Parameter Name="v_adjust" Type="Gtk.Adjustment" /></Parameters>
+      <Docs><param name="h_adjust">To be added.</param><param name="v_adjust">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
+    </Member><Member MemberName="SetAdjustments">
       <MemberSignature Language="C#" Value="public void SetAdjustments (Gtk.Adjustment h_adjust, Gtk.Adjustment v_adjust);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.9.0.0</AssemblyVersion>
       </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="h_adjust" Type="Gtk.Adjustment" />
-        <Parameter Name="v_adjust" Type="Gtk.Adjustment" />
-      </Parameters>
-      <Docs>
-        <param name="h_adjust">To be added.</param>
-        <param name="v_adjust">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
+      <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
+      <Parameters><Parameter Name="h_adjust" Type="Gtk.Adjustment" /><Parameter Name="v_adjust" Type="Gtk.Adjustment" /></Parameters>
+      <Docs><param name="h_adjust">To be added.</param><param name="v_adjust">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
     </Member>
   </Members>
 </Type>
