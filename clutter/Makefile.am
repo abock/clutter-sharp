@@ -1,4 +1,4 @@
-SUBDIRS = Clutter Cogl .
+SUBDIRS = Cogl Clutter .
 
 ASSEMBLY_NAME = clutter-sharp
 
