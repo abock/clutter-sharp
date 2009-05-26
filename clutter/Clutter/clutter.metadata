@@ -94,6 +94,7 @@
   <!-- ClutterActor -->
   <attr path="/api/namespace/object[@cname='ClutterActor']/method[@name='GetAllocationGeometry']/*/*[@name='geom']" name="pass_as">out</attr>
   <attr path="/api/namespace/object[@cname='ClutterActor']/method[@name='GetGeometry']/*/*[@name='geometry']" name="pass_as">out</attr>
+  <attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Event']" name="name">ClutterEvent</attr>
 
   <!--<remove-node path="/api/namespace/boxed[@cname='ClutterColor']"/>
   <add-node path="/api">
@@ -103,4 +104,8 @@
 
   <attr path="/api/namespace/boxed[@cname='ClutterColor']" name="opaque">false</attr>
   <attr path="/api/namespace/boxed[@cname='ClutterColor']/*" name="hidden">1</attr>
+
+
+  <!-- Rename Clutter.EventHandler to Clutter.ClutterEventHandler -->
+
 </metadata>
