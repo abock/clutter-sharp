@@ -59,6 +59,10 @@
   <remove-node path="/api/namespace/object[@cname='ClutterStage']/method[@name='GetColor']"/>
   <remove-node path="/api/namespace/object[@cname='ClutterStage']/method[@name='SetColor']"/>
 
+  <!-- ClutterRectangle fixes -->
+  <remove-node path="/api/namespace/object[@cname='ClutterRectangle']/method[@name='GetColor']"/>
+  <remove-node path="/api/namespace/object[@cname='ClutterRectangle']/method[@name='SetColor']"/>
+
   <!-- ClutterPathNodeType - the 32 is CLUTTER_PATH_RELATIVE -->
   <attr path="/api/namespace/enum[@cname='ClutterPathNodeType']/member[@name='RelMoveTo']" name="value">MoveTo | 32</attr>
   <attr path="/api/namespace/enum[@cname='ClutterPathNodeType']/member[@name='RelLineTo']" name="value">LineTo | 32</attr>
