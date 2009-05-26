@@ -19,15 +19,13 @@ $(DOC_PACKAGE).zip: $(srcdir)/en/*/*.xml $(srcdir)/en/*.xml
 update-docs: $(ASSEMBLIES)
 	$(DOC_UPDATER) $(ASSEMBLIES_BUILD) -path:en/
 
-update-svn:
-	@for remove in $$(find en -iregex .*\.remove$$); do \
-		real_remove=$${remove%.remove}; \
-		mv $$remove $$real_remove; \
-		svn delete $$real_remove; \
+update-git:
+	@for remove in $$(find en -name \*.xml.remove); do \
+		git rm $${remove%.remove}; \
+		rm $$remove; \
 	done; \
-	for add in $$(svn status | grep ^? | awk '{print $$2}'); do \
-		svn add $$add; \
-	done;
+	find en -name \*.xml -exec git add {} \; ; \
+	git status
 
 endif
 
