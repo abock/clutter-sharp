@@ -19,6 +19,10 @@ DISTCHECK_CONFIGURE_FLAGS="--disable-docs"
 AC_SUBST(DISTCHECK_CONFIGURE_FLAGS)
 
 dnl check for Mono
+dnl 2.4 is required for non-signal VMs that we
+dnl get with the in-tree GAPI and GType extensions
+PKG_CHECK_MODULES(MONO_RUNTIME, mono >= 2.4)
+
 AC_PATH_PROG(MONO, mono, no)
 if test "x$MONO" = "xno"; then
 	AC_MSG_ERROR([Cannot find the "mono" runtime in your PATH])
