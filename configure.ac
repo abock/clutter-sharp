@@ -45,7 +45,7 @@ dnl VM support for non-signal methods
 #AC_PATH_PROG(GAPI_FIXUP, gapi2-fixup, no)
 #AC_PATH_PROG(GAPI_CODEGEN, gapi2-codegen, no)
 GAPI_FIXUP="mono \$(top_builddir)/gapi/parser/gapi-fixup.exe"
-GAPI_PARSER="mono \$(top_builddir)/gapi/parser/gapi-parser.exe"
+GAPI_PARSER="mono \$(top_builddir)/gapi/parser/gapi-parser.exe \$(top_srcdir)/gapi/parser/"
 GAPI_CODEGEN="mono \$(top_builddir)/gapi/generator/gapi_codegen.exe"
 AC_SUBST(GAPI_FIXUP)
 AC_SUBST(GAPI_PARSER)

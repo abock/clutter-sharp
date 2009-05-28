@@ -33,15 +33,23 @@ namespace GtkSharp.Parsing {
 
 		public static int Main (string[] args)
 		{
-			if (args.Length != 1) {
+			if (args.Length < 1) {
 				Console.WriteLine ("Usage: gapi2-parser <filename>");
 				return 0;
 			}
 
 			XmlDocument src_doc = new XmlDocument ();
+			string input_path = null;
+			string pl_path = null;
+			if (args.Length > 1) {
+				pl_path = args[0];
+				input_path = args[1];
+			} else {
+				input_path = args[0];
+			}
 
 			try {
-				using (Stream stream = File.OpenRead (args [0]))
+				using (Stream stream = File.OpenRead (input_path))
 					src_doc.Load (stream);
 			} catch (XmlException e) {
 				Console.WriteLine ("Couldn't open source file.");
@@ -51,7 +59,7 @@ namespace GtkSharp.Parsing {
 
 			XmlNode root = src_doc.DocumentElement;
 			if (root.Name != "gapi-parser-input") {
-				Console.WriteLine ("Improperly formatted input file: " + args [0]);
+				Console.WriteLine ("Improperly formatted input file: " + input_path);
 				return 1;
 			}
 
@@ -152,7 +160,7 @@ namespace GtkSharp.Parsing {
 								
 						string[] filenames = (string[]) realfiles.ToArray (typeof (string));
 						string pp_args = String.Join (" ", filenames);
-						system ("gapi_pp.pl " + pp_args + " | gapi2xml.pl " + ns + " " + prefile + " " + lib);
+						system (pl_path + "gapi_pp.pl " + pp_args + " | " + pl_path + "gapi2xml.pl " + ns + " " + prefile + " " + lib);
 					}
 				}
 			
