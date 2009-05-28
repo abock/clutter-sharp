@@ -363,7 +363,7 @@
       <Attributes><Attribute><AttributeName>GLib.Property("clip")</AttributeName></Attribute></Attributes>
       <ReturnValue><ReturnType>Clutter.Geometry</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="CreatePangoContext">
+    </Member><Member MemberName="ClutterEvent"><MemberSignature Language="C#" Value="public event Clutter.ClutterEventHandler ClutterEvent;" /><MemberType>Event</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Attributes><Attribute><AttributeName>GLib.Signal("event")</AttributeName></Attribute></Attributes><ReturnValue><ReturnType>Clutter.ClutterEventHandler</ReturnType></ReturnValue><Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="CreatePangoContext">
       <MemberSignature Language="C#" Value="public Pango.Context CreatePangoContext ();" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -433,15 +433,6 @@
       </AssemblyInfo>
       <Attributes><Attribute><AttributeName>GLib.Signal("enter-event")</AttributeName></Attribute></Attributes>
       <ReturnValue><ReturnType>Clutter.EnterEventHandler</ReturnType></ReturnValue>
-      <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="Event">
-      <MemberSignature Language="C#" Value="public event Clutter.EventHandler Event;" />
-      <MemberType>Event</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes><Attribute><AttributeName>GLib.Signal("event")</AttributeName></Attribute></Attributes>
-      <ReturnValue><ReturnType>Clutter.EventHandler</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
     </Member><Member MemberName="FixedPositionSet">
       <MemberSignature Language="C#" Value="public bool FixedPositionSet { set; get; }" />
@@ -924,7 +915,7 @@
       <Attributes><Attribute><AttributeName>GLib.Property("natural-width-set")</AttributeName></Attribute></Attributes>
       <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="OnButtonPressEvent">
+    </Member><Member MemberName="OnAllocate"><MemberSignature Language="C#" Value="protected virtual void OnAllocate (Clutter.ActorBox box, bool absolute_origin_changed);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideAllocate")</AttributeName></Attribute></Attributes><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="box" Type="Clutter.ActorBox" /><Parameter Name="absolute_origin_changed" Type="System.Boolean" /></Parameters><Docs><param name="box">To be added.</param><param name="absolute_origin_changed">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="OnButtonPressEvent">
       <MemberSignature Language="C#" Value="protected virtual bool OnButtonPressEvent (Clutter.ButtonEvent evnt);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -954,7 +945,7 @@
       <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
       <Parameters><Parameter Name="evnt" Type="Clutter.Event" /></Parameters>
       <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="OnDestroyed">
+    </Member><Member MemberName="OnClutterEvent"><MemberSignature Language="C#" Value="protected virtual bool OnClutterEvent (Clutter.Event evnt);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideClutterEvent")</AttributeName></Attribute></Attributes><ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue><Parameters><Parameter Name="evnt" Type="Clutter.Event" /></Parameters><Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs></Member><Member MemberName="OnDestroyed">
       <MemberSignature Language="C#" Value="protected virtual void OnDestroyed ();" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -973,16 +964,6 @@
       <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideEnterEvent")</AttributeName></Attribute></Attributes>
       <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
       <Parameters><Parameter Name="evnt" Type="Clutter.CrossingEvent" /></Parameters>
-      <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="OnEvent">
-      <MemberSignature Language="C#" Value="protected virtual bool OnEvent (Clutter.Event evnt);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.9.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideEvent")</AttributeName></Attribute></Attributes>
-      <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
-      <Parameters><Parameter Name="evnt" Type="Clutter.Event" /></Parameters>
       <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
     </Member><Member MemberName="OnFocusIn">
       <MemberSignature Language="C#" Value="protected virtual void OnFocusIn ();" />
@@ -1004,7 +985,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters />
       <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="OnHidden">
+    </Member><Member MemberName="OnGetPreferredHeight"><MemberSignature Language="C#" Value="protected virtual void OnGetPreferredHeight (float for_width, out float min_height_p, out float natural_height_p);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideGetPreferredHeight")</AttributeName></Attribute></Attributes><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="for_width" Type="System.Single" /><Parameter Name="min_height_p" Type="System.Single&amp;" RefType="out" /><Parameter Name="natural_height_p" Type="System.Single&amp;" RefType="out" /></Parameters><Docs><param name="for_width">To be added.</param><param name="min_height_p">To be added.</param><param name="natural_height_p">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="OnGetPreferredWidth"><MemberSignature Language="C#" Value="protected virtual void OnGetPreferredWidth (float for_height, out float min_width_p, out float natural_width_p);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideGetPreferredWidth")</AttributeName></Attribute></Attributes><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="for_height" Type="System.Single" /><Parameter Name="min_width_p" Type="System.Single&amp;" RefType="out" /><Parameter Name="natural_width_p" Type="System.Single&amp;" RefType="out" /></Parameters><Docs><param name="for_height">To be added.</param><param name="min_width_p">To be added.</param><param name="natural_width_p">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="OnHidden">
       <MemberSignature Language="C#" Value="protected virtual void OnHidden ();" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1014,7 +995,7 @@
       <ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue>
       <Parameters />
       <Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="OnKeyPressEvent">
+    </Member><Member MemberName="OnHideAll"><MemberSignature Language="C#" Value="protected virtual void OnHideAll ();" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideHideAll")</AttributeName></Attribute></Attributes><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters /><Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="OnKeyPressEvent">
       <MemberSignature Language="C#" Value="protected virtual bool OnKeyPressEvent (Clutter.KeyEvent evnt);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
@@ -1114,7 +1095,7 @@
       <ReturnValue><ReturnType>System.Boolean</ReturnType></ReturnValue>
       <Parameters><Parameter Name="evnt" Type="Clutter.ScrollEvent" /></Parameters>
       <Docs><param name="evnt">To be added.</param><summary>To be added.</summary><returns>To be added.</returns><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="OnShown">
+    </Member><Member MemberName="OnShowAll"><MemberSignature Language="C#" Value="protected virtual void OnShowAll ();" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Actor), ConnectionMethod="OverrideShowAll")</AttributeName></Attribute></Attributes><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters /><Docs><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="OnShown">
       <MemberSignature Language="C#" Value="protected virtual void OnShown ();" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>

@@ -56,6 +56,8 @@
       <Type Name="ChildNotifyArgs" Kind="Class" />
       <Type Name="ChildNotifyHandler" Kind="Delegate" />
       <Type Name="Clone" Kind="Class" />
+      <Type Name="ClutterEventArgs" Kind="Class" />
+      <Type Name="ClutterEventHandler" Kind="Delegate" />
       <Type Name="Color" Kind="Structure" />
       <Type Name="Container" Kind="Interface" />
       <Type Name="ContainerAdapter" Kind="Class" />
@@ -69,9 +71,7 @@
       <Type Name="ErrorArgs" Kind="Class" />
       <Type Name="ErrorHandler" Kind="Delegate" />
       <Type Name="Event" Kind="Class" />
-      <Type Name="EventArgs" Kind="Class" />
       <Type Name="EventFlags" Kind="Enumeration" />
-      <Type Name="EventHandler" Kind="Delegate" />
       <Type Name="EventHelper" Kind="Class" />
       <Type Name="EventType" Kind="Enumeration" />
       <Type Name="Feature" Kind="Class" />

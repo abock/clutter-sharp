@@ -21,7 +21,7 @@
   <Members>
     
     <Member MemberName="Id">
-      <MemberSignature Language="C#" Value="public string Id { set; }" />
+      <MemberSignature Language="C#" Value="public string Id { set; get; }" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>0.9.0.0</AssemblyVersion>

@@ -1,5 +1,5 @@
-<Type Name="EventHandler" FullName="Clutter.EventHandler">
-  <TypeSignature Language="C#" Value="public delegate void EventHandler(object o, EventArgs args);" />
+<Type Name="ClutterEventHandler" FullName="Clutter.ClutterEventHandler">
+  <TypeSignature Language="C#" Value="public delegate void ClutterEventHandler(object o, ClutterEventArgs args);" />
   <AssemblyInfo>
     <AssemblyName>clutter-sharp</AssemblyName>
     <AssemblyVersion>0.9.0.0</AssemblyVersion>
@@ -9,7 +9,7 @@
   </Base>
   <Parameters>
     <Parameter Name="o" Type="System.Object" />
-    <Parameter Name="args" Type="Clutter.EventArgs" />
+    <Parameter Name="args" Type="Clutter.ClutterEventArgs" />
   </Parameters>
   <ReturnValue>
     <ReturnType>System.Void</ReturnType>

@@ -132,7 +132,7 @@
       </AssemblyInfo>
       <ReturnValue><ReturnType>System.Int32</ReturnType></ReturnValue>
       <Docs><summary>To be added.</summary><value>To be added.</value><remarks>To be added.</remarks></Docs>
-    </Member><Member MemberName="OnApplied">
+    </Member><Member MemberName="OnAlphaNotify"><MemberSignature Language="C#" Value="protected virtual void OnAlphaNotify (double alpha_value);" /><MemberType>Method</MemberType><AssemblyInfo><AssemblyVersion>0.9.0.0</AssemblyVersion></AssemblyInfo><Attributes><Attribute><AttributeName>GLib.DefaultSignalHandler(Type=typeof(Clutter.Behaviour), ConnectionMethod="OverrideAlphaNotify")</AttributeName></Attribute></Attributes><ReturnValue><ReturnType>System.Void</ReturnType></ReturnValue><Parameters><Parameter Name="alpha_value" Type="System.Double" /></Parameters><Docs><param name="alpha_value">To be added.</param><summary>To be added.</summary><remarks>To be added.</remarks></Docs></Member><Member MemberName="OnApplied">
       <MemberSignature Language="C#" Value="protected virtual void OnApplied (Clutter.Actor actor);" />
       <MemberType>Method</MemberType>
       <AssemblyInfo>
