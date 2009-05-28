@@ -1,0 +1,9 @@
+public float Width {
+    get { return X2 - X1; }
+    set { X2 = X1 + value; }
+}
+
+public float Height {
+    get { return Y2 - Y1; }
+    set { Y2 = Y1 + value; }
+}

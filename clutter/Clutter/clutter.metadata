@@ -94,6 +94,7 @@
   <!-- ClutterActor -->
   <attr path="/api/namespace/object[@cname='ClutterActor']/method[@name='GetAllocationGeometry']/*/*[@name='geom']" name="pass_as">out</attr>
   <attr path="/api/namespace/object[@cname='ClutterActor']/method[@name='GetGeometry']/*/*[@name='geometry']" name="pass_as">out</attr>
+  <attr path="/api/namespace/object[@cname='ClutterActor']/method[@name='ApplyTransformToPoint']/*/*[@name='vertex']" name="pass_as">out</attr>
   <attr path="/api/namespace/object[@cname='ClutterActor']/signal[@name='Event']" name="name">ClutterEvent</attr>
 
   <!--<remove-node path="/api/namespace/boxed[@cname='ClutterColor']"/>

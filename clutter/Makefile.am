@@ -32,6 +32,7 @@ CUSTOMS = \
 	Clutter/Timeline.custom \
 	Clutter/Stage.custom \
 	Clutter/Color.custom \
+	Clutter/ActorBox.custom \
 	Cogl/Fixed.custom \
 	Cogl/Angle.custom
 
