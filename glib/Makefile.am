@@ -8,7 +8,8 @@ assembly_DATA = \
 all: patch-glib
 
 patch-glib: patch.dll
-	monodis glib-sharp.dll | awk -v mode=1 -f apply-patch.awk > glib-sharp.il
+	monodis glib-sharp.dll | awk -v self=$(srcdir)/apply-patch.awk \
+		-v mode=1 -f $(srcdir)/apply-patch.awk > glib-sharp.il
 	ilasm2 /dll /output:glib-sharp.dll glib-sharp.il
 	rm glib-sharp.il
 
@@ -23,6 +24,6 @@ patch.dll: patch.cs glib-sharp.dll
 		esac; \
 	done
 
-EXTRA_DIST = $(wildcard *.cs)
+EXTRA_DIST = $(wildcard *.cs) apply-patch.awk
 CLEANFILES = $(wildcard *.dll) $(wildcard *.config)
 MAINTAINERCLEANFILES = Makefile.in

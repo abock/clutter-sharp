@@ -35,10 +35,11 @@ fi
 CSC=$MCS
 AC_SUBST(CSC)
 
-AC_PATH_PROG(GACUTIL, gacutil, no)
-if test "x$GACUTIL" = "xno"; then
-	AC_MSG_ERROR([Cannot find the "gacutil" program in your PATH])
-fi
+dnl not GACing until stable API
+#AC_PATH_PROG(GACUTIL, gacutil, no)
+#if test "x$GACUTIL" = "xno"; then
+#	AC_MSG_ERROR([Cannot find the "gacutil" program in your PATH])
+#fi
 
 dnl check for GAPI
 dnl GAPI from gtk-sharp trunk is now required,

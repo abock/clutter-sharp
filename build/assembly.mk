@@ -16,11 +16,12 @@ $(ASSEMBLY): $(GAPI_FIXED_API) $(SOURCES_BUILD)
 
 $(ASSEMBLY).mdb: $(ASSEMBLY)
 
-install-data-local:
-	$(GACUTIL) /i $(ASSEMBLY) /f /package clutter-sharp /gacdir $(DESTDIR)$(prefix)/lib
-
-uninstall-local:
-	$(GACUTIL) /u $(ASSEMBLY_NAME) /package clutter-sharp /gacdir $(DESTDIR)$(prefix)/lib
+# not GACing until API is stable
+#install-data-local:
+#	$(GACUTIL) /i $(ASSEMBLY) /f /package clutter-sharp /gacdir $(DESTDIR)$(prefix)/lib
+#
+#uninstall-local:
+#	$(GACUTIL) /u $(ASSEMBLY_NAME) /package clutter-sharp /gacdir $(DESTDIR)$(prefix)/lib
 
 EXTRA_DIST += \
 	$(ASSEMBLY_NAME).pc.in \

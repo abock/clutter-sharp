@@ -6,7 +6,7 @@
 		if (mode == 1) {
 			print
 			print "// BEGIN PATCH"
-			system ("monodis patch.dll | awk -v mode=0 -f apply-patch.awk")
+			system ("monodis patch.dll | awk -v mode=0 -f " self)
 			print "// END PATCH"
 		}
 	} else if (in_method == 1 && $0 ~ /}/) {
