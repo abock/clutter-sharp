@@ -2,6 +2,7 @@ prefix=@prefix@
 exec_prefix=@exec_prefix@
 libdir=${exec_prefix}/lib
 gapidir=${prefix}/share/gapi-2.0
+bundlefiles=${libdir}/clutter-sharp/clutter-sharp.dll ${libdir}/clutter-sharp/clutter-sharp.dll.mdb ${libdir}/clutter-sharp/clutter-sharp.dll.config ${libdir}/clutter-sharp/glib-sharp.dll ${libdir}/clutter-sharp/glib-sharp.dll.config
 
 Name: clutter-sharp
 Description: clutter-sharp - clutter C#/Mono Bindings

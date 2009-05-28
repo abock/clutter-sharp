@@ -1,9 +1,8 @@
 <configuration>
-	<dllmap dll="clutter" target="libclutter-@CLUTTER_BACKEND@-@CLUTTER_APIVERSION@.so.0" />
-	<dllmap dll="glib" target="libglib-2.0.so.0" />
-	<dllmap dll="gdk-x11" target="libgdk-x11-2.0.so.0"/>
-
-	<!-- For the GTypeExtensions -->
-	<dllmap dll="libgobject-2.0-0.dll" target="libgobject-2.0.so.0" />
+  <dllmap 
+    dll="libclutter-win32-@CLUTTER_API_VERSION@-0.dll"
+    target="libclutter-@CLUTTER_BACKEND@-@CLUTTER_API_VERSION@.so.0"
+  />
+  <dllmap dll="libgobject-2.0-0.dll" target="libgobject-2.0.so.0"/>
+  <dllmap dll="gdk-x11" target="libgdk-x11-2.0.so.0"/>
 </configuration>
-

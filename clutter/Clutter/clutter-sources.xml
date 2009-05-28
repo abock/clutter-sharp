@@ -1,6 +1,6 @@
 <gapi-parser-input>
 	<api filename="clutter-api.raw">
-		<library name="clutter">
+		<library name="libclutter-win32-0.9-0.dll">
 			<namespace name="Clutter">
 				<dir>../../../clutter/clutter</dir>
 			</namespace>

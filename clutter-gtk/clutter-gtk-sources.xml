@@ -1,6 +1,6 @@
 <gapi-parser-input>
 	<api filename="clutter-gtk-api.raw">
-		<library name="clutter-gtk">
+		<library name="libclutter-gtk-win32-0.9-0.dll">
 			<namespace name="Clutter">
 				<dir>../../clutter-gtk/clutter-gtk</dir>
 			</namespace>

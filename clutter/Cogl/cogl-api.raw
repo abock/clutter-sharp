@@ -6,7 +6,7 @@
         Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
 
 -->
-  <namespace name="Cogl" library="clutter">
+  <namespace name="Cogl" library="libclutter-win32-0.9-0.dll">
     <enum name="BufferBit" cname="CoglBufferBit" type="flags">
       <member cname="COGL_BUFFER_BIT_COLOR" name="Color" value="1L&lt;&lt;0" />
       <member cname="COGL_BUFFER_BIT_DEPTH" name="Depth" value="1L&lt;&lt;1" />

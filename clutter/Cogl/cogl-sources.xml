@@ -1,6 +1,6 @@
 <gapi-parser-input>
 	<api filename="cogl-api.raw">
-		<library name="clutter">
+		<library name="libclutter-win32-0.9-0.dll">
 			<namespace name="Cogl">
 				<dir>../../../clutter/clutter/cogl</dir>
 			</namespace>

@@ -6,7 +6,7 @@
         Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
 
 -->
-  <namespace name="Clutter" library="clutter">
+  <namespace name="Clutter" library="libclutter-win32-0.9-0.dll">
     <enum name="ActorFlags" cname="ClutterActorFlags" gtype="clutter_actor_flags_get_type" type="flags">
       <member cname="CLUTTER_ACTOR_MAPPED" name="Mapped" value="1 &lt;&lt; 1" />
       <member cname="CLUTTER_ACTOR_REALIZED" name="Realized" value="1 &lt;&lt; 2" />

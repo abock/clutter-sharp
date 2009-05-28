@@ -1,7 +1,7 @@
 <configuration>
-	<dllmap dll="clutter-gtk" target="libclutter-gtk-@CLUTTER_APIVERSION@.so.0" />
-
-	<!-- For the GTypeExtensions -->
-	<dllmap dll="libgobject-2.0-0.dll" target="libgobject-2.0.so.0" />
+  <dllmap 
+    dll="libclutter-gtk-win32-@CLUTTER_API_VERSION@-0.dll"
+    target="libclutter-gtk-@CLUTTER_API_VERSION@.so.0"
+  />
+  <dllmap dll="libgobject-2.0-0.dll" target="libgobject-2.0.so.0"/>
 </configuration>
-

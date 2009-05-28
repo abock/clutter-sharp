@@ -1,9 +1,9 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
 libdir=@libdir@
+bundlefiles: ${libdir}/clutter-sharp/clutter-sharp.dll ${libdir}/clutter-sharp/clutter-gtk-sharp.dll.mdb ${libdir}/clutter-sharp/clutter-gtk-sharp.dll.config
 
 Name: clutter-gtk-sharp
 Description: clutter-sharp - Clutter-Gtk C#/Mono Bindings
 Version: @VERSION@
 Libs: -r:${libdir}/clutter-sharp/clutter-gtk-sharp.dll
-

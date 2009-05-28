@@ -10,7 +10,7 @@ SAMPLES = \
 	test-scroll-actor.cs \
 	test-threads.cs
 
-ASSEMBLIES = clutter-sharp.dll glib-sharp.dll pango-sharp.dll
+ASSEMBLIES = clutter-sharp.dll glib-sharp.dll
 
 if ENABLE_GTK
 SAMPLES += \
@@ -28,16 +28,13 @@ noinst_SCRIPTS = $(SAMPLES:.cs=.exe)
 	$(MCS) $(MCSFLAGS) -out:$@ $<
 
 clutter-sharp.dll: $(top_builddir)/clutter/clutter-sharp.dll
-	cp $(top_builddir)/clutter/clutter-sharp.dll* .
+	cp $(top_builddir)/clutter/clutter-sharp.dll{,.config,.mdb} .
 
 clutter-gtk-sharp.dll: $(top_builddir)/clutter-gtk/clutter-gtk-sharp.dll
-	cp $(top_builddir)/clutter-gtk/clutter-gtk-sharp.dll* .
+	cp $(top_builddir)/clutter-gtk/clutter-gtk-sharp.dll{,.config,.mdb} .
 
 glib-sharp.dll: $(top_builddir)/glib/glib-sharp.dll
-	cp $(top_builddir)/glib/glib-sharp.dll* .
-
-pango-sharp.dll: $(top_builddir)/glib/pango-sharp.dll
-	cp $(top_builddir)/glib/pango-sharp.dll* .
+	cp $(top_builddir)/glib/glib-sharp.dll{,.config} .
 
 EXTRA_DIST = $(wildcard *.cs)
-CLEANFILES = *.exe *.mdb *.pdb *.dll
+CLEANFILES = *.exe *.mdb *.dll *.config

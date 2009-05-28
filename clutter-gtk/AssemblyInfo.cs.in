@@ -1,7 +1,6 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-[assembly:AssemblyVersion("@VERSION@")]
-[assembly:AssemblyDelaySign(false)]
-[assembly:AssemblyKeyFile("@top_srcdir@/clutter-sharp.snk")]
-
+[assembly:AssemblyVersion ("@ASSEMBLY_VERSION@")]
+[assembly:AssemblyDelaySign (false)]
+[assembly:AssemblyKeyFile ("@top_srcdir@/clutter-sharp.snk")]

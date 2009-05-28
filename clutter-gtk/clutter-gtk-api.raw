@@ -6,7 +6,7 @@
         Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
 
 -->
-  <namespace name="Clutter" library="clutter-gtk">
+  <namespace name="Clutter" library="libclutter-gtk-win32-0.9-0.dll">
     <enum name="GtkInitError" cname="ClutterGtkInitError" type="enum">
       <member cname="CLUTTER_INIT_ERROR_LAST" name="Last" value="Internal" />
       <member cname="CLUTTER_INIT_ERROR_GTK" name="Gtk" value="CLUTTER_INIT_ERROR_LAST - 1" />
