@@ -16,7 +16,7 @@ internal static class GTypeExtensions
 		return Marshal.ReadIntPtr (klass);
 	}
 
-    public static bool IsInstance (GType type, IntPtr raw)
+	public static bool IsInstance (GType type, IntPtr raw)
 	{
 		return Is (ValFromInstancePtr (raw), type);
 	}
