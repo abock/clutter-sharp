@@ -10,7 +10,7 @@ SAMPLES = \
 	test-scroll-actor.cs \
 	test-threads.cs
 
-ASSEMBLIES = clutter-sharp.dll
+ASSEMBLIES = clutter-sharp.dll glib-sharp.dll pango-sharp.dll
 
 if ENABLE_GTK
 SAMPLES += \
@@ -32,6 +32,12 @@ clutter-sharp.dll: $(top_builddir)/clutter/clutter-sharp.dll
 
 clutter-gtk-sharp.dll: $(top_builddir)/clutter-gtk/clutter-gtk-sharp.dll
 	cp $(top_builddir)/clutter-gtk/clutter-gtk-sharp.dll* .
+
+glib-sharp.dll: $(top_builddir)/glib/glib-sharp.dll
+	cp $(top_builddir)/glib/glib-sharp.dll* .
+
+pango-sharp.dll: $(top_builddir)/glib/pango-sharp.dll
+	cp $(top_builddir)/glib/pango-sharp.dll* .
 
 EXTRA_DIST = $(wildcard *.cs)
 CLEANFILES = *.exe *.mdb *.pdb *.dll
