@@ -6,5 +6,5 @@ gapidir=${prefix}/share/gapi-2.0
 Name: clutter-sharp
 Description: clutter-sharp - clutter C#/Mono Bindings
 Version: @VERSION@
-Libs: -r:${libdir}/mono/clutter-sharp/clutter-sharp.dll
+Libs: -r:${libdir}/clutter-sharp/clutter-sharp.dll
 Cflags: -I:${gapidir}/clutter-api.xml

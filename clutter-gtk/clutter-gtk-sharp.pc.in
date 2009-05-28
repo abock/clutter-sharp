@@ -5,5 +5,5 @@ libdir=@libdir@
 Name: clutter-gtk-sharp
 Description: clutter-sharp - Clutter-Gtk C#/Mono Bindings
 Version: @VERSION@
-Libs: -r:${libdir}/mono/clutter-sharp/clutter-gtk-sharp.dll
+Libs: -r:${libdir}/clutter-sharp/clutter-gtk-sharp.dll
 
