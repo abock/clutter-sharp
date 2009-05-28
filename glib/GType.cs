@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 using GLib;
 
-public static class GTypeExtensions
+internal static class GTypeExtensions
 {
 	internal static IntPtr ValFromInstancePtr (IntPtr handle)
 	{
