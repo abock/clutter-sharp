@@ -1,36 +1,39 @@
-// Clutter.Event.cs - Custom event wrapper 
-//
-// Adapted from GdkEvent
-//
-// Author:  Stephane Delcroix <stephane@delcroix.org> 
-//
-// Copyright (c) 2009 Novell, Inc.
-//
-// This program is free software; you can redistribute it and/or
-// modify it under the terms of version 2 of the Lesser GNU General 
-// Public License as published by the Free Software Foundation.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-// Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public
-// License along with this program; if not, write to the
-// Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-// Boston, MA 02111-1307, USA.
+// 
+// Event.cs
+//  
+// Author:
+//   Stephane Delcroix <stephane@delcroix.org>
+// 
+// Copyright 2009 Novell, Inc.
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
+using System;
+using System.Runtime.InteropServices;
 
-namespace Clutter {
+namespace Clutter 
+{
+	public class Event : GLib.IWrapper
+	{
+		private IntPtr raw;
 
-	using System;
-	using System.Runtime.InteropServices;
-
-	public class Event : GLib.IWrapper {
-
-		IntPtr raw;
-
-		public Event(IntPtr raw) 
+		public Event (IntPtr raw) 
 		{
 			this.raw = raw;
 		}
@@ -47,7 +50,8 @@ namespace Clutter {
 		}
 
 		[StructLayout (LayoutKind.Sequential)]
-		struct NativeStruct {
+		private struct NativeStruct
+		{
 			public EventType type;
 			public int time;
 			public EventFlags flags;
@@ -55,8 +59,8 @@ namespace Clutter {
 			public IntPtr source;
 		}
 
-		NativeStruct Native {
-			get { return (NativeStruct) Marshal.PtrToStructure (raw, typeof(NativeStruct)); }
+		private NativeStruct Native {
+			get { return (NativeStruct)Marshal.PtrToStructure (raw, typeof (NativeStruct)); }
 		}
 
 		public EventType Type {
@@ -111,32 +115,39 @@ namespace Clutter {
 
 		public static Event GetEvent (IntPtr raw)
 		{
-			if (raw == IntPtr.Zero)
+			if (raw == IntPtr.Zero) {
 				return null;
-
-			NativeStruct native = (NativeStruct) Marshal.PtrToStructure (raw, typeof(NativeStruct));
+            }
+            
+			NativeStruct native = (NativeStruct)Marshal.PtrToStructure (raw, typeof (NativeStruct));
 			switch (native.type) {
-			case EventType.KeyPress:
-			case EventType.KeyRelease:
-				return new KeyEvent (raw);
-			case EventType.ButtonPress:
-			case EventType.ButtonRelease:
-				return new ButtonEvent (raw);
-			case EventType.Motion:
-				return new MotionEvent (raw);
-			case EventType.Enter:
-			case EventType.Leave:
-				return new CrossingEvent (raw);
-			case EventType.Scroll:
-				return new ScrollEvent (raw);
-			case EventType.StageState:
-				return new StageStateEvent (raw);
-			case EventType.DestroyNotify:
-			case EventType.ClientMessage:
-			case EventType.Delete:
-			case EventType.Nothing:
-			default:
-				return new Clutter.Event (raw);
+			    case EventType.KeyPress:
+			    case EventType.KeyRelease:
+				    return new KeyEvent (raw);
+
+			    case EventType.ButtonPress:
+			    case EventType.ButtonRelease:
+				    return new ButtonEvent (raw);
+
+			    case EventType.Motion:
+				    return new MotionEvent (raw);
+
+			    case EventType.Enter:
+			    case EventType.Leave:
+				    return new CrossingEvent (raw);
+
+			    case EventType.Scroll:
+				    return new ScrollEvent (raw);
+
+			    case EventType.StageState:
+				    return new StageStateEvent (raw);
+
+			    case EventType.DestroyNotify:
+			    case EventType.ClientMessage:
+			    case EventType.Delete:
+			    case EventType.Nothing:
+			    default:
+				    return new Clutter.Event (raw);
 			}
 		}
 	}
