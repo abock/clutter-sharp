@@ -39,13 +39,19 @@ namespace GtkSharp.Generation {
 
 				string result = "\t\t" + member.GetAttribute("name");
 				if (member.HasAttribute("value")) {
-					string value = member.GetAttribute("value");
-					if (value.EndsWith("U")) {
-						enum_type = " : uint";
-						value = value.TrimEnd('U');
-					} else if (value.EndsWith("L")) {
-						enum_type = " : long";
-						value = value.TrimEnd('L');
+					string value = member.GetAttribute("value").Trim ();
+					if (!Char.IsLetter (value[0]) && value[0] != '_') {
+					    value = value.ToLower ();
+					    if (value.EndsWith ("u")) {
+						    enum_type = " : uint";
+						    value = value.TrimEnd ('u');
+					    } else if (value.EndsWith ("l")) {
+						    enum_type = " : long";
+						    value = value.TrimEnd ('l');
+					    } else if (value.EndsWith ("ul")) {
+						    enum_type = " : ulong";
+						    value = value.Substring (0, value.Length - 2);
+					    }
 					}
 					result += " = " + value;
 				}
