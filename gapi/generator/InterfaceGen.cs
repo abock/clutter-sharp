@@ -140,7 +140,7 @@ namespace GtkSharp.Generation {
 
 			sw.WriteLine ("\t\tpublic " + Name + "Adapter (IntPtr handle)");
 			sw.WriteLine ("\t\t{");
-			sw.WriteLine ("\t\t\tif (!_gtype.IsInstance (handle))");
+			sw.WriteLine ("\t\t\tif (!GTypeExtensions.IsInstance (_gtype, handle))");
 			sw.WriteLine ("\t\t\t\tthrow new ArgumentException (\"The gobject doesn't implement the GInterface of this adapter\", \"handle\");");
 			sw.WriteLine ("\t\t\tthis.handle = handle;");
 			sw.WriteLine ("\t\t}");

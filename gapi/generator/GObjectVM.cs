@@ -204,7 +204,7 @@ namespace GtkSharp.Generation {
 
 			this.GenerateMethodBody (sw, null);
 			// Find the first unmanaged ancestor
-			sw.WriteLine ("\t\t\t{0}NativeDelegate unmanaged = GetClassStruct (this.LookupGType ().ThresholdType, true).{0};", this.Name);
+			sw.WriteLine ("\t\t\t{0}NativeDelegate unmanaged = GetClassStruct (GTypeExtensions.GetThresholdType (this.LookupGType ()), true).{0};", this.Name);
 			sw.Write ("\t\t\tif (unmanaged == null) ");
 			if (parms.HasOutParam)
 				sw.WriteLine ("throw new InvalidOperationException (\"No base method to invoke\");");
@@ -325,7 +325,7 @@ namespace GtkSharp.Generation {
 
 			GenerateMethodBody (sw, null);
 			Body.Initialize (gen_info, false, false, String.Empty);
-			string glue_call_string = "this.LookupGType ().ThresholdType.ClassPtr";
+			string glue_call_string = "GTypeExtensions.GetClassPtr (GTypeExtensions.GetThresholdType (this.LookupGType ()))";
 			if (!IsStatic)
 				glue_call_string += ", Handle";
 			if (parms.Count > 0)
