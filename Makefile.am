@@ -1,10 +1,14 @@
 SUBDIRS = \
+	gapi \
+	glib \
 	clutter \
 	clutter-gtk \
 	docs
 
 DIST_SUBDIRS = \
 	build \
+	gapi \
+	glib \
 	clutter \
 	clutter-gtk \
 	examples \

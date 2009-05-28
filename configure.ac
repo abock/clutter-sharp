@@ -28,6 +28,8 @@ AC_PATH_PROG(MCS, gmcs, no)
 if test "x$MCS" = "xno"; then
 	AC_MSG_ERROR([Cannot find the "gmcs" compiler in your PATH])
 fi
+CSC=$MCS
+AC_SUBST(CSC)
 
 AC_PATH_PROG(GACUTIL, gacutil, no)
 if test "x$GACUTIL" = "xno"; then
@@ -35,13 +37,19 @@ if test "x$GACUTIL" = "xno"; then
 fi
 
 dnl check for GAPI
-PKG_CHECK_MODULES(GAPI, gapi-2.0 >= 2.12.1)
-AC_PATH_PROG(GAPI_PARSER, gapi2-parser, no)
-AC_PATH_PROG(GAPI_CODEGEN, gapi2-codegen, no)
-AC_PATH_PROG(GAPI_FIXUP, gapi2-fixup, no)
+dnl GAPI from gtk-sharp trunk is now required,
+dnl so we are bundling it. Necessary for generating
+dnl VM support for non-signal methods
+#PKG_CHECK_MODULES(GAPI, gapi-2.0 >= 2.12.1)
+#AC_PATH_PROG(GAPI_PARSER, gapi2-parser, no)
+#AC_PATH_PROG(GAPI_FIXUP, gapi2-fixup, no)
+#AC_PATH_PROG(GAPI_CODEGEN, gapi2-codegen, no)
+GAPI_FIXUP="mono \$(top_builddir)/gapi/parser/gapi-fixup.exe"
+GAPI_PARSER="mono \$(top_builddir)/gapi/parser/gapi-parser.exe"
+GAPI_CODEGEN="mono \$(top_builddir)/gapi/generator/gapi_codegen.exe"
 AC_SUBST(GAPI_FIXUP)
-AC_SUBST(GAPI_CODEGEN)
 AC_SUBST(GAPI_PARSER)
+AC_SUBST(GAPI_CODEGEN)
 
 dnl check for Gtk#
 PKG_CHECK_MODULES(GTKSHARP, gtk-sharp-2.0 > 2.12)
@@ -87,6 +95,10 @@ AC_OUTPUT([
 	docs/Makefile
 	docs/clutter-sharp/Makefile
 	docs/clutter-gtk-sharp/Makefile
+	gapi/Makefile
+	gapi/parser/Makefile
+	gapi/generator/Makefile
+	glib/Makefile
 	clutter/clutter-sharp.pc
 	clutter/Makefile
 	clutter/Clutter/Makefile

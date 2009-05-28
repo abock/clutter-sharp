@@ -12,7 +12,7 @@ SOURCES_BUILD = $(addprefix $(srcdir)/, $(SOURCES))
 $(ASSEMBLY): $(GAPI_FIXED_API) $(SOURCES_BUILD)
 	@rm -f $(ASSEMBLY).mdb
 	$(MCS) $(CSFLAGS) -out:$@ -debug -target:library -nowarn:0169 -unsafe \
-		$(REFERENCES) $(SOURCES_BUILD) AssemblyInfo.cs $(foreach dir, $(GENERATED_DIRS), $(dir)/generated/*.cs)
+		$(REFERENCES) $(SOURCES_BUILD) AssemblyInfo.cs $(top_srcdir)/glib/*.cs $(foreach dir, $(GENERATED_DIRS), $(dir)/generated/*.cs)
 
 $(ASSEMBLY).mdb: $(ASSEMBLY)
 
