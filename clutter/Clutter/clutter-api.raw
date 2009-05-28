@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<api>
+<api parser_version="2">
   <!--
 
         This file was automatically generated.
@@ -286,10 +286,13 @@
       </parameters>
     </callback>
     <interface name="Animatable" cname="ClutterAnimatable">
+      <class_struct cname="ClutterAnimatableIface">
+        <field name="ParentIface" cname="parent_iface" type="GTypeInterface" />
+        <method vm="animate_property" />
+      </class_struct>
       <virtual_method name="AnimateProperty" cname="animate_property">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterAnimatable*" name="animatable" />
           <parameter type="ClutterAnimation*" name="animation" />
           <parameter type="const-gchar*" name="property_name" />
           <parameter type="const-GValue*" name="initial_value" />
@@ -314,24 +317,37 @@
       </method>
     </interface>
     <interface name="Container" cname="ClutterContainer">
+      <class_struct cname="ClutterContainerIface">
+        <field name="GIface" cname="g_iface" type="GTypeInterface" />
+        <method vm="add" />
+        <method vm="remove" />
+        <method vm="foreach" />
+        <method vm="raise" />
+        <method vm="lower" />
+        <method vm="sort_depth_order" />
+        <field name="ChildMetaType" cname="child_meta_type" type="GType" />
+        <method vm="create_child_meta" />
+        <method vm="destroy_child_meta" />
+        <method vm="get_child_meta" />
+        <method signal_vm="actor_added" />
+        <method signal_vm="actor_removed" />
+        <method signal_vm="child_notify" />
+      </class_struct>
       <signal name="ActorAdded" cname="actor-added" when="FIRST" field_name="actor_added">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </signal>
       <signal name="ActorRemoved" cname="actor-removed" when="FIRST" field_name="actor_removed">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </signal>
       <signal name="ChildNotify" cname="child-notify" when="FIRST" field_name="child_notify">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
           <parameter type="GParamSpec*" name="pspec" />
         </parameters>
@@ -339,21 +355,18 @@
       <virtual_method name="Add" cname="add">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </virtual_method>
       <virtual_method name="Remove" cname="remove">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </virtual_method>
       <virtual_method name="Foreach" cname="foreach">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterCallback" name="callback" />
           <parameter type="gpointer" name="user_data" />
         </parameters>
@@ -361,7 +374,6 @@
       <virtual_method name="Raise" cname="raise">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterActor*" name="sibling" />
         </parameters>
@@ -369,35 +381,29 @@
       <virtual_method name="Lower" cname="lower">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterActor*" name="sibling" />
         </parameters>
       </virtual_method>
       <virtual_method name="SortDepthOrder" cname="sort_depth_order">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterContainer*" name="container" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="CreateChildMeta" cname="create_child_meta">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </virtual_method>
       <virtual_method name="DestroyChildMeta" cname="destroy_child_meta">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </virtual_method>
       <virtual_method name="GetChildMeta" cname="get_child_meta">
         <return-type type="ClutterChildMeta*" />
         <parameters>
-          <parameter type="ClutterContainer*" name="container" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </virtual_method>
@@ -531,6 +537,11 @@
       </method>
     </interface>
     <interface name="Media" cname="ClutterMedia">
+      <class_struct cname="ClutterMediaIface">
+        <field name="BaseIface" cname="base_iface" type="GTypeInterface" />
+        <method signal_vm="eos" />
+        <method signal_vm="error" />
+      </class_struct>
       <property name="" cname="" type="ginterface" />
       <property name="" cname="" type="ginterface" />
       <property name="" cname="" type="ginterface" />
@@ -540,14 +551,11 @@
       <property name="" cname="" type="ginterface" />
       <signal name="Eos" cname="eos" when="LAST" field_name="eos">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterMedia*" name="media" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Error" cname="error" when="LAST" manual="true" field_name="error">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterMedia*" name="media" />
           <parameter type="const-GError*" name="error" />
         </parameters>
       </signal>
@@ -607,17 +615,26 @@
       </method>
     </interface>
     <interface name="Scriptable" cname="ClutterScriptable">
+      <class_struct cname="ClutterScriptableIface">
+        <field name="GIface" cname="g_iface" type="GTypeInterface" />
+        <method vm="set_id" />
+        <method vm="get_id" />
+        <method vm="parse_custom_node" />
+        <method vm="set_custom_property" />
+      </class_struct>
       <virtual_method name="SetId" cname="set_id">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterScriptable*" name="scriptable" />
           <parameter type="const-gchar*" name="name" />
         </parameters>
+      </virtual_method>
+      <virtual_method name="GetId" cname="get_id">
+        <return-type type="gchar*" />
+        <parameters />
       </virtual_method>
       <virtual_method name="ParseCustomNode" cname="parse_custom_node">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterScriptable*" name="scriptable" />
           <parameter type="ClutterScript*" name="script" />
           <parameter type="GValue*" name="value" />
           <parameter type="const-gchar*" name="name" />
@@ -627,7 +644,6 @@
       <virtual_method name="SetCustomProperty" cname="set_custom_property">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterScriptable*" name="scriptable" />
           <parameter type="ClutterScript*" name="script" />
           <parameter type="const-gchar*" name="name" />
           <parameter type="const-GValue*" name="value" />
@@ -664,37 +680,39 @@
       </method>
     </interface>
     <interface name="StageWindow" cname="ClutterStageWindow">
+      <class_struct cname="ClutterStageWindowIface">
+        <field name="ParentIface" cname="parent_iface" type="GTypeInterface" />
+        <method vm="get_wrapper" />
+        <method vm="set_title" />
+        <method vm="set_fullscreen" />
+        <method vm="set_cursor_visible" />
+        <method vm="set_user_resizable" />
+      </class_struct>
       <virtual_method name="GetWrapper" cname="get_wrapper">
         <return-type type="ClutterActor*" />
-        <parameters>
-          <parameter type="ClutterStageWindow*" name="stage_window" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="SetTitle" cname="set_title">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterStageWindow*" name="stage_window" />
           <parameter type="const-gchar*" name="title" />
         </parameters>
       </virtual_method>
       <virtual_method name="SetFullscreen" cname="set_fullscreen">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterStageWindow*" name="stage_window" />
           <parameter type="gboolean" name="is_fullscreen" />
         </parameters>
       </virtual_method>
       <virtual_method name="SetCursorVisible" cname="set_cursor_visible">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterStageWindow*" name="stage_window" />
           <parameter type="gboolean" name="cursor_visible" />
         </parameters>
       </virtual_method>
       <virtual_method name="SetUserResizable" cname="set_user_resizable">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterStageWindow*" name="stage_window" />
           <parameter type="gboolean" name="is_resizable" />
         </parameters>
       </virtual_method>
@@ -703,6 +721,36 @@
       </method>
     </interface>
     <object name="Actor" cname="ClutterActor" parent="GInitiallyUnowned">
+      <class_struct cname="ClutterActorClass">
+        <field name="ParentClass" cname="parent_class" type="GInitiallyUnownedClass" />
+        <method signal_vm="show" />
+        <method vm="show_all" />
+        <method signal_vm="hide" />
+        <method vm="hide_all" />
+        <method signal_vm="realize" />
+        <method signal_vm="unrealize" />
+        <method signal_vm="paint" />
+        <method signal_vm="parent_set" />
+        <method signal_vm="destroy" />
+        <method signal_vm="pick" />
+        <method signal_vm="queue_redraw" />
+        <method vm="get_preferred_width" />
+        <method vm="get_preferred_height" />
+        <method vm="allocate" />
+        <method signal_vm="event" />
+        <method signal_vm="button_press_event" />
+        <method signal_vm="button_release_event" />
+        <method signal_vm="scroll_event" />
+        <method signal_vm="key_press_event" />
+        <method signal_vm="key_release_event" />
+        <method signal_vm="motion_event" />
+        <method signal_vm="enter_event" />
+        <method signal_vm="leave_event" />
+        <method signal_vm="captured_event" />
+        <method signal_vm="focus_in" />
+        <method signal_vm="focus_out" />
+        <field name="PaddingDummy" cname="_padding_dummy" type="gpointer" array_len="32" />
+      </class_struct>
       <field name="Flags" cname="flags" type="guint32" access="public" />
       <field name="PrivateFlags" cname="private_flags" type="guint32" />
       <field name="Priv" cname="priv" type="ClutterActorPrivate*" />
@@ -747,82 +795,127 @@
       <property name="" cname="" type="class" />
       <property name="ShowOnSetParent" cname="show-on-set-parent" type="gboolean" readable="true" writeable="true" />
       <property name="" cname="" type="class" />
-      <virtual_method name="ShowAll" cname="show_all">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </virtual_method>
       <signal name="Destroy" cname="destroy" when="CLEANUP" field_name="destroy">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Show" cname="show" when="FIRST" field_name="show">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
+        <parameters />
       </signal>
-      <virtual_method name="HideAll" cname="hide_all">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </virtual_method>
       <signal name="Hide" cname="hide" when="FIRST" field_name="hide">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="ParentSet" cname="parent-set" when="LAST" field_name="parent_set">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterActor*" name="old_parent" />
         </parameters>
       </signal>
       <signal name="QueueRedraw" cname="queue-redraw" when="LAST" field_name="queue_redraw">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterActor*" name="leaf_that_queued" />
         </parameters>
       </signal>
       <signal name="Event" cname="event" when="LAST" field_name="event">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterEvent*" name="event" />
         </parameters>
       </signal>
       <signal name="ButtonPressEvent" cname="button-press-event" when="LAST" field_name="button_press_event">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterButtonEvent*" name="event" />
         </parameters>
       </signal>
       <signal name="ButtonReleaseEvent" cname="button-release-event" when="LAST" field_name="button_release_event">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterButtonEvent*" name="event" />
         </parameters>
       </signal>
       <signal name="ScrollEvent" cname="scroll-event" when="LAST" field_name="scroll_event">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterScrollEvent*" name="event" />
         </parameters>
       </signal>
+      <signal name="KeyPressEvent" cname="key-press-event" when="LAST" field_name="key_press_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterKeyEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="KeyReleaseEvent" cname="key-release-event" when="LAST" field_name="key_release_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterKeyEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="MotionEvent" cname="motion-event" when="LAST" field_name="motion_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterMotionEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="FocusIn" cname="focus-in" when="LAST" field_name="focus_in">
+        <return-type type="void" />
+        <parameters />
+      </signal>
+      <signal name="FocusOut" cname="focus-out" when="LAST" field_name="focus_out">
+        <return-type type="void" />
+        <parameters />
+      </signal>
+      <signal name="EnterEvent" cname="enter-event" when="LAST" field_name="enter_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterCrossingEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="LeaveEvent" cname="leave-event" when="LAST" field_name="leave_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterCrossingEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="CapturedEvent" cname="captured-event" when="LAST" field_name="captured_event">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="ClutterEvent*" name="event" />
+        </parameters>
+      </signal>
+      <signal name="Paint" cname="paint" when="LAST" field_name="paint">
+        <return-type type="void" />
+        <parameters />
+      </signal>
+      <signal name="Realize" cname="realize" when="LAST" field_name="realize">
+        <return-type type="void" />
+        <parameters />
+      </signal>
+      <signal name="Unrealize" cname="unrealize" when="LAST" field_name="unrealize">
+        <return-type type="void" />
+        <parameters />
+      </signal>
+      <signal name="Pick" cname="pick" when="LAST" field_name="pick">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-ClutterColor*" name="color" />
+        </parameters>
+      </signal>
+      <virtual_method name="ShowAll" cname="show_all">
+        <return-type type="void" />
+        <parameters />
+      </virtual_method>
+      <virtual_method name="HideAll" cname="hide_all">
+        <return-type type="void" />
+        <parameters />
+      </virtual_method>
       <virtual_method name="GetPreferredWidth" cname="get_preferred_width">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterUnit" name="for_height" />
           <parameter type="ClutterUnit*" name="min_width_p" />
           <parameter type="ClutterUnit*" name="natural_width_p" />
@@ -831,7 +924,6 @@
       <virtual_method name="GetPreferredHeight" cname="get_preferred_height">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterActor*" name="actor" />
           <parameter type="ClutterUnit" name="for_width" />
           <parameter type="ClutterUnit*" name="min_height_p" />
           <parameter type="ClutterUnit*" name="natural_height_p" />
@@ -840,90 +932,10 @@
       <virtual_method name="Allocate" cname="allocate">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterActor*" name="actor" />
           <parameter type="const-ClutterActorBox*" name="box" />
           <parameter type="gboolean" name="absolute_origin_changed" />
         </parameters>
       </virtual_method>
-      <signal name="KeyPressEvent" cname="key-press-event" when="LAST" field_name="key_press_event">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterKeyEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="KeyReleaseEvent" cname="key-release-event" when="LAST" field_name="key_release_event">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterKeyEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="MotionEvent" cname="motion-event" when="LAST" field_name="motion_event">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterMotionEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="FocusIn" cname="focus-in" when="LAST" field_name="focus_in">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="FocusOut" cname="focus-out" when="LAST" field_name="focus_out">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="EnterEvent" cname="enter-event" when="LAST" field_name="enter_event">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterCrossingEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="LeaveEvent" cname="leave-event" when="LAST" field_name="leave_event">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterCrossingEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="CapturedEvent" cname="captured-event" when="LAST" field_name="captured_event">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="ClutterEvent*" name="event" />
-        </parameters>
-      </signal>
-      <signal name="Paint" cname="paint" when="LAST" field_name="paint">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="Realize" cname="realize" when="LAST" field_name="realize">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="Unrealize" cname="unrealize" when="LAST" field_name="unrealize">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-        </parameters>
-      </signal>
-      <signal name="Pick" cname="pick" when="LAST" field_name="pick">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterActor*" name="actor" />
-          <parameter type="const-ClutterColor*" name="color" />
-        </parameters>
-      </signal>
       <method name="Allocate" cname="clutter_actor_allocate">
         <return-type type="void" />
         <parameters>
@@ -1668,23 +1680,31 @@
       </method>
     </object>
     <object name="Alpha" cname="ClutterAlpha" parent="GInitiallyUnowned">
+      <class_struct cname="ClutterAlphaClass">
+        <field name="ParentClass" cname="parent_class" type="GInitiallyUnownedClass" />
+        <method vm="_clutter_alpha_1" />
+        <method vm="_clutter_alpha_2" />
+        <method vm="_clutter_alpha_3" />
+        <method vm="_clutter_alpha_4" />
+        <method vm="_clutter_alpha_5" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterAlphaPrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
-      <virtual_method name="ClutterAlpha1" cname="_clutter_alpha_1">
+      <virtual_method name="ClutterAlpha1" cname="_clutter_alpha_1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterAlpha2" cname="_clutter_alpha_2">
+      <virtual_method name="ClutterAlpha2" cname="_clutter_alpha_2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterAlpha3" cname="_clutter_alpha_3">
+      <virtual_method name="ClutterAlpha3" cname="_clutter_alpha_3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterAlpha4" cname="_clutter_alpha_4">
+      <virtual_method name="ClutterAlpha4" cname="_clutter_alpha_4" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterAlpha5" cname="_clutter_alpha_5">
+      <virtual_method name="ClutterAlpha5" cname="_clutter_alpha_5" shared="true">
         <return-type type="void" />
       </virtual_method>
       <method name="GetAlpha" cname="clutter_alpha_get_alpha">
@@ -1755,6 +1775,19 @@
       </method>
     </object>
     <object name="Animation" cname="ClutterAnimation" parent="GObject">
+      <class_struct cname="ClutterAnimationClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+        <method signal_vm="started" />
+        <method signal_vm="completed" />
+        <method vm="_clutter_reserved1" />
+        <method vm="_clutter_reserved2" />
+        <method vm="_clutter_reserved3" />
+        <method vm="_clutter_reserved4" />
+        <method vm="_clutter_reserved5" />
+        <method vm="_clutter_reserved6" />
+        <method vm="_clutter_reserved7" />
+        <method vm="_clutter_reserved8" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterAnimationPrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
@@ -1764,16 +1797,36 @@
       <property name="" cname="" type="class" />
       <signal name="Started" cname="started" when="LAST" field_name="started">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterAnimation*" name="animation" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Completed" cname="completed" when="LAST" field_name="completed">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterAnimation*" name="animation" />
-        </parameters>
+        <parameters />
       </signal>
+      <virtual_method name="ClutterReserved1" cname="_clutter_reserved1" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved2" cname="_clutter_reserved2" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved3" cname="_clutter_reserved3" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved4" cname="_clutter_reserved4" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved5" cname="_clutter_reserved5" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved6" cname="_clutter_reserved6" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved7" cname="_clutter_reserved7" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved8" cname="_clutter_reserved8" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
       <method name="Bind" cname="clutter_animation_bind">
         <return-type type="ClutterAnimation*" />
         <parameters>
@@ -1876,80 +1929,78 @@
       </method>
     </object>
     <object name="Backend" cname="ClutterBackend" parent="GObject">
+      <class_struct cname="ClutterBackendClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+        <method vm="pre_parse" />
+        <method vm="post_parse" />
+        <method vm="create_stage" />
+        <method vm="init_events" />
+        <method vm="init_features" />
+        <method vm="add_options" />
+        <method vm="get_features" />
+        <method vm="redraw" />
+        <method vm="ensure_context" />
+        <method signal_vm="resolution_changed" />
+        <method signal_vm="font_changed" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterBackendPrivate*" />
+      <signal name="ResolutionChanged" cname="resolution-changed" when="FIRST" field_name="resolution_changed">
+        <return-type type="void" />
+        <parameters />
+      </signal>
+      <signal name="FontChanged" cname="font-changed" when="FIRST" field_name="font_changed">
+        <return-type type="void" />
+        <parameters />
+      </signal>
       <virtual_method name="PreParse" cname="pre_parse">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
           <parameter type="GError**" name="error" />
         </parameters>
       </virtual_method>
       <virtual_method name="PostParse" cname="post_parse">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
           <parameter type="GError**" name="error" />
         </parameters>
       </virtual_method>
       <virtual_method name="CreateStage" cname="create_stage">
         <return-type type="ClutterActor*" />
         <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
           <parameter type="ClutterStage*" name="wrapper" />
           <parameter type="GError**" name="error" />
         </parameters>
       </virtual_method>
       <virtual_method name="InitEvents" cname="init_events">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="InitFeatures" cname="init_features">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="AddOptions" cname="add_options">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
           <parameter type="GOptionGroup*" name="group" />
         </parameters>
       </virtual_method>
       <virtual_method name="GetFeatures" cname="get_features">
         <return-type type="ClutterFeatureFlags" />
-        <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="Redraw" cname="redraw">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
           <parameter type="ClutterStage*" name="stage" />
         </parameters>
       </virtual_method>
       <virtual_method name="EnsureContext" cname="ensure_context">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
           <parameter type="ClutterStage*" name="stage" />
         </parameters>
       </virtual_method>
-      <signal name="ResolutionChanged" cname="resolution-changed" when="FIRST" field_name="resolution_changed">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
-        </parameters>
-      </signal>
-      <signal name="FontChanged" cname="font-changed" when="FIRST" field_name="font_changed">
-        <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterBackend*" name="backend" />
-        </parameters>
-      </signal>
       <method name="GetDoubleClickDistance" cname="clutter_backend_get_double_click_distance">
         <return-type type="guint" />
       </method>
@@ -2000,45 +2051,54 @@
       </method>
     </object>
     <object name="Behaviour" cname="ClutterBehaviour" parent="GObject">
+      <class_struct cname="ClutterBehaviourClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+        <method vm="alpha_notify" />
+        <method signal_vm="applied" />
+        <method signal_vm="removed" />
+        <method vm="_clutter_behaviour1" />
+        <method vm="_clutter_behaviour2" />
+        <method vm="_clutter_behaviour3" />
+        <method vm="_clutter_behaviour4" />
+        <method vm="_clutter_behaviour5" />
+        <method vm="_clutter_behaviour6" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterBehaviourPrivate*" />
       <property name="Alpha" cname="alpha" type="ClutterAlpha" readable="true" writeable="true" />
       <signal name="Applied" cname="applied" when="FIRST" field_name="applied">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterBehaviour*" name="behave" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </signal>
       <signal name="Removed" cname="removed" when="FIRST" field_name="removed">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterBehaviour*" name="behave" />
           <parameter type="ClutterActor*" name="actor" />
         </parameters>
       </signal>
       <virtual_method name="AlphaNotify" cname="alpha_notify">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterBehaviour*" name="behave" />
           <parameter type="gdouble" name="alpha_value" />
         </parameters>
       </virtual_method>
-      <virtual_method name="ClutterBehaviour1" cname="_clutter_behaviour1">
+      <virtual_method name="ClutterBehaviour1" cname="_clutter_behaviour1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterBehaviour2" cname="_clutter_behaviour2">
+      <virtual_method name="ClutterBehaviour2" cname="_clutter_behaviour2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterBehaviour3" cname="_clutter_behaviour3">
+      <virtual_method name="ClutterBehaviour3" cname="_clutter_behaviour3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterBehaviour4" cname="_clutter_behaviour4">
+      <virtual_method name="ClutterBehaviour4" cname="_clutter_behaviour4" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterBehaviour5" cname="_clutter_behaviour5">
+      <virtual_method name="ClutterBehaviour5" cname="_clutter_behaviour5" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterBehaviour6" cname="_clutter_behaviour6">
+      <virtual_method name="ClutterBehaviour6" cname="_clutter_behaviour6" shared="true">
         <return-type type="void" />
       </virtual_method>
       <method name="ActorsForeach" cname="clutter_behaviour_actors_foreach">
@@ -2095,6 +2155,9 @@
       </method>
     </object>
     <object name="BehaviourDepth" cname="ClutterBehaviourDepth" parent="ClutterBehaviour">
+      <class_struct cname="ClutterBehaviourDepthClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterBehaviourClass" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterBehaviourDepthPrivate*" />
       <property name="DepthStart" cname="depth-start" type="gint" readable="true" writeable="true" />
       <property name="DepthEnd" cname="depth-end" type="gint" readable="true" writeable="true" />
@@ -2124,6 +2187,9 @@
       </method>
     </object>
     <object name="BehaviourEllipse" cname="ClutterBehaviourEllipse" parent="ClutterBehaviour">
+      <class_struct cname="ClutterBehaviourEllipseClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterBehaviourClass" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterBehaviourEllipsePrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
@@ -2298,6 +2364,9 @@
       </method>
     </object>
     <object name="BehaviourOpacity" cname="ClutterBehaviourOpacity" parent="ClutterBehaviour">
+      <class_struct cname="ClutterBehaviourOpacityClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterBehaviourClass" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterBehaviourOpacityPrivate*" />
       <property name="OpacityStart" cname="opacity-start" type="guint" readable="true" writeable="true" />
       <property name="OpacityEnd" cname="opacity-end" type="guint" readable="true" writeable="true" />
@@ -2327,25 +2396,32 @@
       </method>
     </object>
     <object name="BehaviourPath" cname="ClutterBehaviourPath" parent="ClutterBehaviour">
+      <class_struct cname="ClutterBehaviourPathClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterBehaviourClass" />
+        <method signal_vm="knot_reached" />
+        <method vm="_clutter_path_1" />
+        <method vm="_clutter_path_2" />
+        <method vm="_clutter_path_3" />
+        <method vm="_clutter_path_4" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterBehaviourPathPrivate*" />
       <property name="" cname="" type="class" />
       <signal name="KnotReached" cname="knot-reached" when="LAST" field_name="knot_reached">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterBehaviourPath*" name="pathb" />
           <parameter type="guint" name="knot_num" />
         </parameters>
       </signal>
-      <virtual_method name="ClutterPath1" cname="_clutter_path_1">
+      <virtual_method name="ClutterPath1" cname="_clutter_path_1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterPath2" cname="_clutter_path_2">
+      <virtual_method name="ClutterPath2" cname="_clutter_path_2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterPath3" cname="_clutter_path_3">
+      <virtual_method name="ClutterPath3" cname="_clutter_path_3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterPath4" cname="_clutter_path_4">
+      <virtual_method name="ClutterPath4" cname="_clutter_path_4" shared="true">
         <return-type type="void" />
       </virtual_method>
       <implements>
@@ -2384,6 +2460,9 @@
       </method>
     </object>
     <object name="BehaviourRotate" cname="ClutterBehaviourRotate" parent="ClutterBehaviour">
+      <class_struct cname="ClutterBehaviourRotateClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterBehaviourClass" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterBehaviourRotatePrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
@@ -2477,6 +2556,9 @@
       </method>
     </object>
     <object name="BehaviourScale" cname="ClutterBehaviourScale" parent="ClutterBehaviour">
+      <class_struct cname="ClutterBehaviourScaleClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterBehaviourClass" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterBehaviourScalePrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
@@ -2636,19 +2718,26 @@
       </method>
     </object>
     <object name="CairoTexture" cname="ClutterCairoTexture" parent="ClutterTexture">
+      <class_struct cname="ClutterCairoTextureClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterTextureClass" />
+        <method vm="_clutter_cairo_1" />
+        <method vm="_clutter_cairo_2" />
+        <method vm="_clutter_cairo_3" />
+        <method vm="_clutter_cairo_4" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterCairoTexturePrivate*" />
       <property name="SurfaceWidth" cname="surface-width" type="guint" readable="true" writeable="true" />
       <property name="SurfaceHeight" cname="surface-height" type="guint" readable="true" writeable="true" />
-      <virtual_method name="ClutterCairo1" cname="_clutter_cairo_1">
+      <virtual_method name="ClutterCairo1" cname="_clutter_cairo_1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterCairo2" cname="_clutter_cairo_2">
+      <virtual_method name="ClutterCairo2" cname="_clutter_cairo_2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterCairo3" cname="_clutter_cairo_3">
+      <virtual_method name="ClutterCairo3" cname="_clutter_cairo_3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterCairo4" cname="_clutter_cairo_4">
+      <virtual_method name="ClutterCairo4" cname="_clutter_cairo_4" shared="true">
         <return-type type="void" />
       </virtual_method>
       <method name="Clear" cname="clutter_cairo_texture_clear">
@@ -2691,6 +2780,9 @@
       </method>
     </object>
     <object name="ChildMeta" cname="ClutterChildMeta" parent="GObject">
+      <class_struct cname="ClutterChildMetaClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+      </class_struct>
       <field name="Container" cname="container" type="ClutterContainer*" access="public" />
       <field name="Actor" cname="actor" type="ClutterActor*" access="public" />
       <property name="" cname="" type="class" />
@@ -2706,18 +2798,25 @@
       </method>
     </object>
     <object name="Clone" cname="ClutterClone" parent="ClutterActor">
+      <class_struct cname="ClutterCloneClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterActorClass" />
+        <method vm="_clutter_actor_clone1" />
+        <method vm="_clutter_actor_clone2" />
+        <method vm="_clutter_actor_clone3" />
+        <method vm="_clutter_actor_clone4" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterClonePrivate*" />
       <property name="" cname="" type="class" />
-      <virtual_method name="ClutterActorClone1" cname="_clutter_actor_clone1">
+      <virtual_method name="ClutterActorClone1" cname="_clutter_actor_clone1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterActorClone2" cname="_clutter_actor_clone2">
+      <virtual_method name="ClutterActorClone2" cname="_clutter_actor_clone2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterActorClone3" cname="_clutter_actor_clone3">
+      <virtual_method name="ClutterActorClone3" cname="_clutter_actor_clone3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterActorClone4" cname="_clutter_actor_clone4">
+      <virtual_method name="ClutterActorClone4" cname="_clutter_actor_clone4" shared="true">
         <return-type type="void" />
       </virtual_method>
       <method name="GetSource" cname="clutter_clone_get_source">
@@ -2739,7 +2838,34 @@
       </method>
     </object>
     <object name="Group" cname="ClutterGroup" parent="ClutterActor">
+      <class_struct cname="ClutterGroupClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterActorClass" />
+        <method vm="_clutter_reserved1" />
+        <method vm="_clutter_reserved2" />
+        <method vm="_clutter_reserved3" />
+        <method vm="_clutter_reserved4" />
+        <method vm="_clutter_reserved5" />
+        <method vm="_clutter_reserved6" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterGroupPrivate*" />
+      <virtual_method name="ClutterReserved1" cname="_clutter_reserved1" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved2" cname="_clutter_reserved2" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved3" cname="_clutter_reserved3" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved4" cname="_clutter_reserved4" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved5" cname="_clutter_reserved5" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved6" cname="_clutter_reserved6" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
       <implements>
         <interface cname="ClutterContainer" />
       </implements>
@@ -2761,22 +2887,49 @@
       </method>
     </object>
     <object name="Interval" cname="ClutterInterval" parent="GInitiallyUnowned">
+      <class_struct cname="ClutterIntervalClass">
+        <field name="ParentClass" cname="parent_class" type="GInitiallyUnownedClass" />
+        <method vm="validate" />
+        <method vm="compute_value" />
+        <method vm="_clutter_reserved1" />
+        <method vm="_clutter_reserved2" />
+        <method vm="_clutter_reserved3" />
+        <method vm="_clutter_reserved4" />
+        <method vm="_clutter_reserved5" />
+        <method vm="_clutter_reserved6" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterIntervalPrivate*" />
       <property name="" cname="" type="class" />
       <virtual_method name="Validate" cname="validate">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterInterval*" name="interval" />
           <parameter type="GParamSpec*" name="pspec" />
         </parameters>
       </virtual_method>
       <virtual_method name="ComputeValue" cname="compute_value">
         <return-type type="gboolean" />
         <parameters>
-          <parameter type="ClutterInterval*" name="interval" />
           <parameter type="gdouble" name="factor" />
           <parameter type="GValue*" name="value" />
         </parameters>
+      </virtual_method>
+      <virtual_method name="ClutterReserved1" cname="_clutter_reserved1" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved2" cname="_clutter_reserved2" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved3" cname="_clutter_reserved3" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved4" cname="_clutter_reserved4" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved5" cname="_clutter_reserved5" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved6" cname="_clutter_reserved6" shared="true" padding="true">
+        <return-type type="void" />
       </virtual_method>
       <method name="Clone" cname="clutter_interval_clone">
         <return-type type="ClutterInterval*" />
@@ -2883,111 +3036,125 @@
       </constructor>
     </object>
     <object name="Model" cname="ClutterModel" parent="GObject">
+      <class_struct cname="ClutterModelClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+        <method vm="get_n_rows" />
+        <method vm="get_n_columns" />
+        <method vm="get_column_name" />
+        <method vm="get_column_type" />
+        <method vm="insert_row" />
+        <method vm="remove_row" />
+        <method vm="get_iter_at_row" />
+        <method vm="resort" />
+        <method signal_vm="row_added" />
+        <method signal_vm="row_removed" />
+        <method signal_vm="row_changed" />
+        <method signal_vm="sort_changed" />
+        <method signal_vm="filter_changed" />
+        <method vm="_clutter_model_1" />
+        <method vm="_clutter_model_2" />
+        <method vm="_clutter_model_3" />
+        <method vm="_clutter_model_4" />
+        <method vm="_clutter_model_5" />
+        <method vm="_clutter_model_6" />
+        <method vm="_clutter_model_7" />
+        <method vm="_clutter_model_8" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterModelPrivate*" />
       <property name="" cname="" type="class" />
       <signal name="RowAdded" cname="row-added" when="LAST" field_name="row_added">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterModel*" name="model" />
           <parameter type="ClutterModelIter*" name="iter" />
         </parameters>
       </signal>
       <signal name="RowRemoved" cname="row-removed" when="LAST" field_name="row_removed">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterModel*" name="model" />
           <parameter type="ClutterModelIter*" name="iter" />
         </parameters>
       </signal>
       <signal name="RowChanged" cname="row-changed" when="LAST" field_name="row_changed">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterModel*" name="model" />
           <parameter type="ClutterModelIter*" name="iter" />
         </parameters>
       </signal>
       <signal name="SortChanged" cname="sort-changed" when="LAST" field_name="sort_changed">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterModel*" name="model" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="FilterChanged" cname="filter-changed" when="LAST" field_name="filter_changed">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterModel*" name="model" />
-        </parameters>
+        <parameters />
       </signal>
       <virtual_method name="GetNRows" cname="get_n_rows">
         <return-type type="guint" />
-        <parameters>
-          <parameter type="ClutterModel*" name="model" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="GetNColumns" cname="get_n_columns">
         <return-type type="guint" />
+        <parameters />
+      </virtual_method>
+      <virtual_method name="GetColumnName" cname="get_column_name">
+        <return-type type="gchar*" />
         <parameters>
-          <parameter type="ClutterModel*" name="model" />
+          <parameter type="guint" name="column" />
         </parameters>
       </virtual_method>
       <virtual_method name="GetColumnType" cname="get_column_type">
         <return-type type="GType" />
         <parameters>
-          <parameter type="ClutterModel*" name="model" />
           <parameter type="guint" name="column" />
         </parameters>
       </virtual_method>
       <virtual_method name="InsertRow" cname="insert_row">
         <return-type type="ClutterModelIter*" />
         <parameters>
-          <parameter type="ClutterModel*" name="model" />
           <parameter type="gint" name="index_" />
         </parameters>
       </virtual_method>
       <virtual_method name="RemoveRow" cname="remove_row">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterModel*" name="model" />
           <parameter type="guint" name="row" />
         </parameters>
       </virtual_method>
       <virtual_method name="GetIterAtRow" cname="get_iter_at_row">
         <return-type type="ClutterModelIter*" />
         <parameters>
-          <parameter type="ClutterModel*" name="model" />
           <parameter type="guint" name="row" />
         </parameters>
       </virtual_method>
       <virtual_method name="Resort" cname="resort">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterModel*" name="model" />
           <parameter type="ClutterModelSortFunc" name="func" />
           <parameter type="gpointer" name="data" />
         </parameters>
       </virtual_method>
-      <virtual_method name="ClutterModel1" cname="_clutter_model_1">
+      <virtual_method name="ClutterModel1" cname="_clutter_model_1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModel2" cname="_clutter_model_2">
+      <virtual_method name="ClutterModel2" cname="_clutter_model_2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModel3" cname="_clutter_model_3">
+      <virtual_method name="ClutterModel3" cname="_clutter_model_3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModel4" cname="_clutter_model_4">
+      <virtual_method name="ClutterModel4" cname="_clutter_model_4" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModel5" cname="_clutter_model_5">
+      <virtual_method name="ClutterModel5" cname="_clutter_model_5" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModel6" cname="_clutter_model_6">
+      <virtual_method name="ClutterModel6" cname="_clutter_model_6" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModel7" cname="_clutter_model_7">
+      <virtual_method name="ClutterModel7" cname="_clutter_model_7" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModel8" cname="_clutter_model_8">
+      <virtual_method name="ClutterModel8" cname="_clutter_model_8" shared="true">
         <return-type type="void" />
       </virtual_method>
       <method name="Append" cname="clutter_model_append">
@@ -3148,13 +3315,32 @@
       </method>
     </object>
     <object name="ModelIter" cname="ClutterModelIter" parent="GObject">
+      <class_struct cname="ClutterModelIterClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+        <method vm="get_value" />
+        <method vm="set_value" />
+        <method vm="is_first" />
+        <method vm="is_last" />
+        <method vm="next" />
+        <method vm="prev" />
+        <method vm="get_model" />
+        <method vm="get_row" />
+        <method vm="copy" />
+        <method vm="_clutter_model_iter_1" />
+        <method vm="_clutter_model_iter_2" />
+        <method vm="_clutter_model_iter_3" />
+        <method vm="_clutter_model_iter_4" />
+        <method vm="_clutter_model_iter_5" />
+        <method vm="_clutter_model_iter_6" />
+        <method vm="_clutter_model_iter_7" />
+        <method vm="_clutter_model_iter_8" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterModelIterPrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
       <virtual_method name="GetValue" cname="get_value">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterModelIter*" name="iter" />
           <parameter type="guint" name="column" />
           <parameter type="GValue*" name="value" />
         </parameters>
@@ -3162,75 +3348,60 @@
       <virtual_method name="SetValue" cname="set_value">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterModelIter*" name="iter" />
           <parameter type="guint" name="column" />
           <parameter type="const-GValue*" name="value" />
         </parameters>
       </virtual_method>
       <virtual_method name="IsFirst" cname="is_first">
         <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterModelIter*" name="iter" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="IsLast" cname="is_last">
         <return-type type="gboolean" />
-        <parameters>
-          <parameter type="ClutterModelIter*" name="iter" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="Next" cname="next">
         <return-type type="ClutterModelIter*" />
-        <parameters>
-          <parameter type="ClutterModelIter*" name="iter" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="Prev" cname="prev">
         <return-type type="ClutterModelIter*" />
-        <parameters>
-          <parameter type="ClutterModelIter*" name="iter" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="GetModel" cname="get_model">
         <return-type type="ClutterModel*" />
-        <parameters>
-          <parameter type="ClutterModelIter*" name="iter" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="GetRow" cname="get_row">
         <return-type type="guint" />
-        <parameters>
-          <parameter type="ClutterModelIter*" name="iter" />
-        </parameters>
+        <parameters />
       </virtual_method>
       <virtual_method name="Copy" cname="copy">
         <return-type type="ClutterModelIter*" owned="true" />
-        <parameters>
-          <parameter type="ClutterModelIter*" name="iter" />
-        </parameters>
+        <parameters />
       </virtual_method>
-      <virtual_method name="ClutterModelIter1" cname="_clutter_model_iter_1">
+      <virtual_method name="ClutterModelIter1" cname="_clutter_model_iter_1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModelIter2" cname="_clutter_model_iter_2">
+      <virtual_method name="ClutterModelIter2" cname="_clutter_model_iter_2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModelIter3" cname="_clutter_model_iter_3">
+      <virtual_method name="ClutterModelIter3" cname="_clutter_model_iter_3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModelIter4" cname="_clutter_model_iter_4">
+      <virtual_method name="ClutterModelIter4" cname="_clutter_model_iter_4" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModelIter5" cname="_clutter_model_iter_5">
+      <virtual_method name="ClutterModelIter5" cname="_clutter_model_iter_5" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModelIter6" cname="_clutter_model_iter_6">
+      <virtual_method name="ClutterModelIter6" cname="_clutter_model_iter_6" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModelIter7" cname="_clutter_model_iter_7">
+      <virtual_method name="ClutterModelIter7" cname="_clutter_model_iter_7" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterModelIter8" cname="_clutter_model_iter_8">
+      <virtual_method name="ClutterModelIter8" cname="_clutter_model_iter_8" shared="true">
         <return-type type="void" />
       </virtual_method>
       <method name="Copy" cname="clutter_model_iter_copy">
@@ -3310,6 +3481,9 @@
       <field name="DefaultValue" cname="default_value" type="ClutterUnit" access="public" />
     </object>
     <object name="Path" cname="ClutterPath" parent="GInitiallyUnowned">
+      <class_struct cname="ClutterPathClass">
+        <field name="ParentClass" cname="parent_class" type="GInitiallyUnownedClass" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterPathPrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
@@ -3463,21 +3637,28 @@
       </method>
     </object>
     <object name="Rectangle" cname="ClutterRectangle" parent="ClutterActor">
+      <class_struct cname="ClutterRectangleClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterActorClass" />
+        <method vm="_clutter_rectangle1" />
+        <method vm="_clutter_rectangle2" />
+        <method vm="_clutter_rectangle3" />
+        <method vm="_clutter_rectangle4" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterRectanglePrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
       <property name="BorderWidth" cname="border-width" type="guint" readable="true" writeable="true" />
       <property name="HasBorder" cname="has-border" type="gboolean" readable="true" writeable="true" />
-      <virtual_method name="ClutterRectangle1" cname="_clutter_rectangle1">
+      <virtual_method name="ClutterRectangle1" cname="_clutter_rectangle1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterRectangle2" cname="_clutter_rectangle2">
+      <virtual_method name="ClutterRectangle2" cname="_clutter_rectangle2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterRectangle3" cname="_clutter_rectangle3">
+      <virtual_method name="ClutterRectangle3" cname="_clutter_rectangle3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterRectangle4" cname="_clutter_rectangle4">
+      <virtual_method name="ClutterRectangle4" cname="_clutter_rectangle4" shared="true">
         <return-type type="void" />
       </virtual_method>
       <method name="GetBorderColor" cname="clutter_rectangle_get_border_color">
@@ -3524,53 +3705,58 @@
       </method>
     </object>
     <object name="Score" cname="ClutterScore" parent="GObject">
+      <class_struct cname="ClutterScoreClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+        <method signal_vm="timeline_started" />
+        <method signal_vm="timeline_completed" />
+        <method signal_vm="started" />
+        <method signal_vm="completed" />
+        <method signal_vm="paused" />
+        <method vm="_clutter_score_1" />
+        <method vm="_clutter_score_2" />
+        <method vm="_clutter_score_3" />
+        <method vm="_clutter_score_4" />
+        <method vm="_clutter_score_5" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterScorePrivate*" />
       <property name="Loop" cname="loop" type="gboolean" readable="true" writeable="true" />
       <signal name="TimelineStarted" cname="timeline-started" when="LAST" field_name="timeline_started">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterScore*" name="score" />
           <parameter type="ClutterTimeline*" name="timeline" />
         </parameters>
       </signal>
       <signal name="TimelineCompleted" cname="timeline-completed" when="LAST" field_name="timeline_completed">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterScore*" name="score" />
           <parameter type="ClutterTimeline*" name="timeline" />
         </parameters>
       </signal>
       <signal name="Completed" cname="completed" when="LAST" field_name="completed">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterScore*" name="score" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Started" cname="started" when="LAST" field_name="started">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterScore*" name="score" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Paused" cname="paused" when="LAST" field_name="paused">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterScore*" name="score" />
-        </parameters>
+        <parameters />
       </signal>
-      <virtual_method name="ClutterScore1" cname="_clutter_score_1">
+      <virtual_method name="ClutterScore1" cname="_clutter_score_1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterScore2" cname="_clutter_score_2">
+      <virtual_method name="ClutterScore2" cname="_clutter_score_2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterScore3" cname="_clutter_score_3">
+      <virtual_method name="ClutterScore3" cname="_clutter_score_3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterScore4" cname="_clutter_score_4">
+      <virtual_method name="ClutterScore4" cname="_clutter_score_4" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterScore5" cname="_clutter_score_5">
+      <virtual_method name="ClutterScore5" cname="_clutter_score_5" shared="true">
         <return-type type="void" />
       </virtual_method>
       <method name="Append" cname="clutter_score_append">
@@ -3636,15 +3822,50 @@
       </method>
     </object>
     <object name="Script" cname="ClutterScript" parent="GObject">
+      <class_struct cname="ClutterScriptClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+        <method vm="get_type_from_name" />
+        <method vm="_clutter_reserved1" />
+        <method vm="_clutter_reserved2" />
+        <method vm="_clutter_reserved3" />
+        <method vm="_clutter_reserved4" />
+        <method vm="_clutter_reserved5" />
+        <method vm="_clutter_reserved6" />
+        <method vm="_clutter_reserved7" />
+        <method vm="_clutter_reserved8" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterScriptPrivate*" />
       <property name="FilenameSet" cname="filename-set" type="gboolean" readable="true" />
       <property name="Filename" cname="filename" type="gchar*" readable="true" />
       <virtual_method name="GetTypeFromName" cname="get_type_from_name">
         <return-type type="GType" />
         <parameters>
-          <parameter type="ClutterScript*" name="script" />
           <parameter type="const-gchar*" name="type_name" />
         </parameters>
+      </virtual_method>
+      <virtual_method name="ClutterReserved1" cname="_clutter_reserved1" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved2" cname="_clutter_reserved2" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved3" cname="_clutter_reserved3" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved4" cname="_clutter_reserved4" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved5" cname="_clutter_reserved5" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved6" cname="_clutter_reserved6" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved7" cname="_clutter_reserved7" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved8" cname="_clutter_reserved8" shared="true" padding="true">
+        <return-type type="void" />
       </virtual_method>
       <method name="AddSearchPaths" cname="clutter_script_add_search_paths">
         <return-type type="void" />
@@ -3727,6 +3948,9 @@
       </method>
     </object>
     <object name="Shader" cname="ClutterShader" parent="GObject">
+      <class_struct cname="ClutterShaderClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterShaderPrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
@@ -3798,6 +4022,14 @@
       </method>
     </object>
     <object name="Stage" cname="ClutterStage" parent="ClutterGroup">
+      <class_struct cname="ClutterStageClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterGroupClass" />
+        <method signal_vm="fullscreen" />
+        <method signal_vm="unfullscreen" />
+        <method signal_vm="activate" />
+        <method signal_vm="deactivate" />
+        <field name="PaddingDummy" cname="_padding_dummy" type="gpointer" array_len="32" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterStagePrivate*" />
       <property name="Fullscreen" cname="fullscreen" type="gboolean" readable="true" writeable="true" construct="true" />
       <property name="Offscreen" cname="offscreen" type="gboolean" readable="true" writeable="true" construct="true" />
@@ -3810,27 +4042,19 @@
       <property name="" cname="" type="class" />
       <signal name="Fullscreen" cname="fullscreen" when="FIRST" field_name="fullscreen">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterStage*" name="stage" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Unfullscreen" cname="unfullscreen" when="LAST" field_name="unfullscreen">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterStage*" name="stage" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Activate" cname="activate" when="LAST" field_name="activate">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterStage*" name="stage" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Deactivate" cname="deactivate" when="LAST" field_name="deactivate">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterStage*" name="stage" />
-        </parameters>
+        <parameters />
       </signal>
       <method name="EnsureCurrent" cname="clutter_stage_ensure_current">
         <return-type type="void" />
@@ -3959,18 +4183,21 @@
       </method>
     </object>
     <object name="StageManager" cname="ClutterStageManager" parent="GObject">
+      <class_struct cname="ClutterStageManagerClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+        <method signal_vm="stage_added" />
+        <method signal_vm="stage_removed" />
+      </class_struct>
       <property name="DefaultStage" cname="default-stage" type="ClutterStage" readable="true" writeable="true" />
       <signal name="StageAdded" cname="stage-added" when="LAST" field_name="stage_added">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterStageManager*" name="stage_manager" />
           <parameter type="ClutterStage*" name="stage" />
         </parameters>
       </signal>
       <signal name="StageRemoved" cname="stage-removed" when="LAST" field_name="stage_removed">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterStageManager*" name="stage_manager" />
           <parameter type="ClutterStage*" name="stage" />
         </parameters>
       </signal>
@@ -3994,6 +4221,20 @@
       </method>
     </object>
     <object name="Text" cname="ClutterText" parent="ClutterActor">
+      <class_struct cname="ClutterTextClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterActorClass" />
+        <method signal_vm="text_changed" />
+        <method signal_vm="activate" />
+        <method signal_vm="cursor_event" />
+        <method vm="_clutter_reserved1" />
+        <method vm="_clutter_reserved2" />
+        <method vm="_clutter_reserved3" />
+        <method vm="_clutter_reserved4" />
+        <method vm="_clutter_reserved5" />
+        <method vm="_clutter_reserved6" />
+        <method vm="_clutter_reserved7" />
+        <method vm="_clutter_reserved8" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterTextPrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
@@ -4021,23 +4262,42 @@
       <property name="" cname="" type="class" />
       <signal name="TextChanged" cname="text-changed" when="LAST" field_name="text_changed">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterText*" name="self" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="CursorEvent" cname="cursor-event" when="LAST" field_name="cursor_event">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterText*" name="self" />
           <parameter type="const-ClutterGeometry*" name="geometry" />
         </parameters>
       </signal>
       <signal name="Activate" cname="activate" when="LAST" field_name="activate">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterText*" name="self" />
-        </parameters>
+        <parameters />
       </signal>
+      <virtual_method name="ClutterReserved1" cname="_clutter_reserved1" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved2" cname="_clutter_reserved2" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved3" cname="_clutter_reserved3" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved4" cname="_clutter_reserved4" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved5" cname="_clutter_reserved5" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved6" cname="_clutter_reserved6" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved7" cname="_clutter_reserved7" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterReserved8" cname="_clutter_reserved8" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
       <method name="Activate" cname="clutter_text_activate">
         <return-type type="gboolean" />
       </method>
@@ -4331,6 +4591,17 @@
       </method>
     </object>
     <object name="Texture" cname="ClutterTexture" parent="ClutterActor">
+      <class_struct cname="ClutterTextureClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterActorClass" />
+        <method signal_vm="size_change" />
+        <method signal_vm="pixbuf_change" />
+        <method signal_vm="load_finished" />
+        <method vm="_clutter_texture1" />
+        <method vm="_clutter_texture2" />
+        <method vm="_clutter_texture3" />
+        <method vm="_clutter_texture4" />
+        <method vm="_clutter_texture5" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterTexturePrivate*" />
       <property name="SyncSize" cname="sync-size" type="gboolean" readable="true" writeable="true" />
       <property name="DisableSlicing" cname="disable-slicing" type="gboolean" readable="true" writeable="true" construct-only="true" />
@@ -4348,37 +4619,33 @@
       <signal name="SizeChange" cname="size-change" when="LAST" field_name="size_change">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterTexture*" name="texture" />
           <parameter type="gint" name="width" />
           <parameter type="gint" name="height" />
         </parameters>
       </signal>
       <signal name="PixbufChange" cname="pixbuf-change" when="LAST" field_name="pixbuf_change">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterTexture*" name="texture" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="LoadFinished" cname="load-finished" when="LAST" manual="true" field_name="load_finished">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterTexture*" name="texture" />
           <parameter type="const-GError*" name="error" />
         </parameters>
       </signal>
-      <virtual_method name="ClutterTexture1" cname="_clutter_texture1">
+      <virtual_method name="ClutterTexture1" cname="_clutter_texture1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterTexture2" cname="_clutter_texture2">
+      <virtual_method name="ClutterTexture2" cname="_clutter_texture2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterTexture3" cname="_clutter_texture3">
+      <virtual_method name="ClutterTexture3" cname="_clutter_texture3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterTexture4" cname="_clutter_texture4">
+      <virtual_method name="ClutterTexture4" cname="_clutter_texture4" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterTexture5" cname="_clutter_texture5">
+      <virtual_method name="ClutterTexture5" cname="_clutter_texture5" shared="true">
         <return-type type="void" />
       </virtual_method>
       <implements>
@@ -4545,6 +4812,19 @@
       </method>
     </object>
     <object name="Timeline" cname="ClutterTimeline" parent="GObject">
+      <class_struct cname="ClutterTimelineClass">
+        <field name="ParentClass" cname="parent_class" type="GObjectClass" />
+        <method signal_vm="started" />
+        <method signal_vm="completed" />
+        <method signal_vm="paused" />
+        <method signal_vm="new_frame" />
+        <method signal_vm="marker_reached" />
+        <method vm="_clutter_timeline_1" />
+        <method vm="_clutter_timeline_2" />
+        <method vm="_clutter_timeline_3" />
+        <method vm="_clutter_timeline_4" />
+        <method vm="_clutter_timeline_5" />
+      </class_struct>
       <field name="Priv" cname="priv" type="ClutterTimelinePrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
@@ -4555,49 +4835,41 @@
       <signal name="NewFrame" cname="new-frame" when="LAST" field_name="new_frame">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterTimeline*" name="timeline" />
           <parameter type="gint" name="frame_num" />
         </parameters>
       </signal>
       <signal name="Completed" cname="completed" when="LAST" field_name="completed">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterTimeline*" name="timeline" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Started" cname="started" when="LAST" field_name="started">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterTimeline*" name="timeline" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="Paused" cname="paused" when="LAST" field_name="paused">
         <return-type type="void" />
-        <parameters>
-          <parameter type="ClutterTimeline*" name="timeline" />
-        </parameters>
+        <parameters />
       </signal>
       <signal name="MarkerReached" cname="marker-reached" when="LAST" field_name="marker_reached">
         <return-type type="void" />
         <parameters>
-          <parameter type="ClutterTimeline*" name="timeline" />
           <parameter type="const-gchar*" name="marker_name" />
           <parameter type="gint" name="frame_num" />
         </parameters>
       </signal>
-      <virtual_method name="ClutterTimeline1" cname="_clutter_timeline_1">
+      <virtual_method name="ClutterTimeline1" cname="_clutter_timeline_1" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterTimeline2" cname="_clutter_timeline_2">
+      <virtual_method name="ClutterTimeline2" cname="_clutter_timeline_2" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterTimeline3" cname="_clutter_timeline_3">
+      <virtual_method name="ClutterTimeline3" cname="_clutter_timeline_3" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterTimeline4" cname="_clutter_timeline_4">
+      <virtual_method name="ClutterTimeline4" cname="_clutter_timeline_4" shared="true">
         <return-type type="void" />
       </virtual_method>
-      <virtual_method name="ClutterTimeline5" cname="_clutter_timeline_5">
+      <virtual_method name="ClutterTimeline5" cname="_clutter_timeline_5" shared="true">
         <return-type type="void" />
       </virtual_method>
       <method name="AddMarkerAtFrame" cname="clutter_timeline_add_marker_at_frame">

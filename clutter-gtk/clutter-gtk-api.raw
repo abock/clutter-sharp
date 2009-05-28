@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<api>
+<api parser_version="2">
   <!--
 
         This file was automatically generated.
@@ -12,12 +12,16 @@
       <member cname="CLUTTER_INIT_ERROR_GTK" name="Gtk" value="CLUTTER_INIT_ERROR_LAST - 1" />
     </enum>
     <interface name="Scrollable" cname="GtkClutterScrollable">
+      <class_struct cname="GtkClutterScrollableIface">
+        <field name="ParentIface" cname="parent_iface" type="GTypeInterface" />
+        <method vm="set_adjustments" />
+        <method vm="get_adjustments" />
+      </class_struct>
       <property name="" cname="" type="ginterface" />
       <property name="" cname="" type="ginterface" />
       <virtual_method name="SetAdjustments" cname="set_adjustments">
         <return-type type="void" />
         <parameters>
-          <parameter type="GtkClutterScrollable*" name="scrollable" />
           <parameter type="GtkAdjustment*" name="h_adjust" />
           <parameter type="GtkAdjustment*" name="v_adjust" />
         </parameters>
@@ -25,7 +29,6 @@
       <virtual_method name="GetAdjustments" cname="get_adjustments">
         <return-type type="void" />
         <parameters>
-          <parameter type="GtkClutterScrollable*" name="scrollable" />
           <parameter type="GtkAdjustment**" name="h_adjust" />
           <parameter type="GtkAdjustment**" name="v_adjust" />
         </parameters>
@@ -49,7 +52,34 @@
       </method>
     </interface>
     <object name="Embed" cname="GtkClutterEmbed" parent="GtkWidget">
+      <class_struct cname="GtkClutterEmbedClass">
+        <field name="ParentClass" cname="parent_class" type="GtkWidgetClass" />
+        <method vm="_clutter_gtk_reserved1" />
+        <method vm="_clutter_gtk_reserved2" />
+        <method vm="_clutter_gtk_reserved3" />
+        <method vm="_clutter_gtk_reserved4" />
+        <method vm="_clutter_gtk_reserved5" />
+        <method vm="_clutter_gtk_reserved6" />
+      </class_struct>
       <field name="Priv" cname="priv" type="GtkClutterEmbedPrivate*" />
+      <virtual_method name="ClutterGtkReserved1" cname="_clutter_gtk_reserved1" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterGtkReserved2" cname="_clutter_gtk_reserved2" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterGtkReserved3" cname="_clutter_gtk_reserved3" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterGtkReserved4" cname="_clutter_gtk_reserved4" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterGtkReserved5" cname="_clutter_gtk_reserved5" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
+      <virtual_method name="ClutterGtkReserved6" cname="_clutter_gtk_reserved6" shared="true" padding="true">
+        <return-type type="void" />
+      </virtual_method>
       <method name="GetStage" cname="gtk_clutter_embed_get_stage">
         <return-type type="ClutterActor*" />
       </method>
@@ -59,6 +89,9 @@
       <constructor cname="gtk_clutter_embed_new" />
     </object>
     <object name="Viewport" cname="GtkClutterViewport" parent="ClutterActor">
+      <class_struct cname="GtkClutterViewportClass">
+        <field name="ParentClass" cname="parent_class" type="ClutterActorClass" />
+      </class_struct>
       <field name="Priv" cname="priv" type="GtkClutterViewportPrivate*" />
       <property name="" cname="" type="class" />
       <property name="" cname="" type="class" />
