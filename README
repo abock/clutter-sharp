@@ -1,5 +1,18 @@
-clutter-mono offers C#/Mono bindings to clutter
+clutter-sharp offers C#/.NET bindings to Clutter
 
-	clutter: http://www.clutter-project.com
-	Mono: http://www.mono-project.com
+  Clutter: http://www.clutter-project.com
+  Mono:    http://www.mono-project.com
 
+This project is still very young and is not API complete or stable. While
+it is currently very useful and usable for complex Clutter usage, there
+are still many bugs and APIs to smooth out. If you use clutter-sharp at
+this stage, expect future releases to break API and require you to update
+your application code.
+
+Applications must copy the system-installed clutter-sharp and bundled
+dependencies with their application. The list of files to copy can be
+obtained through:
+
+  $ pkg-config --variable=bundlefiles clutter-sharp
+
+clutter-sharp requires Mono 2.4 or better, and gtk-sharp 2.12.1 or better
