@@ -7,12 +7,6 @@
   <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Notequal']" name="name">NotEqualTo</attr>
   <attr path="/api/namespace/enum[@cname='CoglMaterialAlphaFunc']/member[@name='Gequal']" name="name">GreaterThanOrEqualTo</attr>
 
-  <!-- These enums are defined by hand since they are long and 
-       GAPI only supports the default uint. Fixed in GAPI in 
-       svn trunk on 2009-05-06 -->
-  <remove-node path="/api/namespace/enum[@cname='CoglBufferBit']"/>
-  <remove-node path="/api/namespace/enum[@cname='CoglMaterialLayerFlags']"/>
-
   <!-- Currently defined by hand, though it needs testing; might
        be better to modify it be an auto-bound struct (not opaque) -->
   <remove-node path="/api/namespace/struct[@cname='CoglMatrix']"/>

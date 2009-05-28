@@ -15,8 +15,6 @@ SOURCES = \
 	Clutter/StageStateEvent.cs \
 	Clutter/Timeout.cs \
 	Cogl/GL.cs \
-	Cogl/BufferBit.cs \
-	Cogl/MaterialLayerFlags.cs \
 	Cogl/Matrix.cs \
 	Cogl/General.cs
 
