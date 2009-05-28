@@ -46,7 +46,7 @@ namespace Clutter
             }
         }
 
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void clutter_main ();
 
         public static void Run ()
@@ -54,7 +54,7 @@ namespace Clutter
             clutter_main ();
         }
 
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void clutter_main_quit ();
 
         public static void Quit ()
@@ -62,7 +62,7 @@ namespace Clutter
             clutter_main_quit ();
         }
     
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern InitError clutter_init (IntPtr argc, IntPtr argv);
         
         public static void Init ()
@@ -90,7 +90,7 @@ namespace Clutter
             [DllImport ("gdk-x11")]
             private static extern IntPtr gdk_x11_display_get_xdisplay (IntPtr display);
         
-            [DllImport ("clutter")]
+            [DllImport ("libclutter-win32-0.9-0.dll")]
             private static extern void clutter_x11_set_display (IntPtr xdisplay);
             
             public static void SetDisplay (Gdk.Display display)
@@ -100,7 +100,7 @@ namespace Clutter
                     : gdk_x11_display_get_xdisplay (display.Handle));
             }
             
-            [DllImport ("clutter")]
+            [DllImport ("libclutter-win32-0.9-0.dll")]
             private static extern void clutter_x11_disable_event_retrieval ();
             
             public static void DisableEventRetrieval ()
@@ -111,7 +111,7 @@ namespace Clutter
         
         public static class Win32
         {
-            [DllImport ("clutter")]
+            [DllImport ("libclutter-win32-0.9-0.dll")]
             private static extern void clutter_win32_disable_event_retrieval ();
             
             public static void DisableEventRetrieval ()

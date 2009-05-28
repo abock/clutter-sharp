@@ -1,0 +1,13 @@
+#!/bin/bash
+
+FROM_MAP="$1"
+TO_MAP="$2"
+
+for source in $(find clutter clutter-gtk -name \*.cs -o -name \*.custom); do
+	[[ "$source" =~ "generated" ]] && continue
+
+	sed -r \
+		's,DllImport[ ]*\(\"'${FROM_MAP}'\",DllImport \(\"'${TO_MAP}'\",g' \
+		< "$source" > "$source.tmp" && mv "$source.tmp" "$source"
+	rm -f "$source.tmp"
+done

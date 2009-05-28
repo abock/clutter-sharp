@@ -24,7 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void cogl_path_polyline (float [] coords, int num_points);
 
 public static void Polyline (float [] coords)
@@ -36,7 +36,7 @@ public static void Polyline (float [] coords)
     cogl_path_polyline (coords, coords.Length);
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void cogl_path_polygon (float [] coords, int num_points);
 
 public static void Polygon (float [] coords)

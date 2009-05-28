@@ -24,7 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern IntPtr clutter_behaviour_path_new (IntPtr alpha, ref Knot knots, uint n_knots);
 
 public BehaviourPath (Clutter.Alpha alpha, Clutter.Knot [] knots) : base (IntPtr.Zero)

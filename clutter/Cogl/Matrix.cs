@@ -61,7 +61,7 @@ namespace Cogl
             throw new NotImplementedException ();
         }
 
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void cogl_matrix_init_identity (ref Matrix matrix);
 
         public void InitIdentity ()
@@ -69,7 +69,7 @@ namespace Cogl
             cogl_matrix_init_identity (ref this);
         }
         
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void cogl_matrix_init_from_array (ref Matrix matrix, float [] array);
 
         public void InitFromArray (float [] array)
@@ -77,7 +77,7 @@ namespace Cogl
             cogl_matrix_init_from_array (ref this, array);
         }
 
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void cogl_matrix_rotate (ref Matrix matrix, float angle, float x, float y, float z);
 
         public void Rotate (float angle, float x, float y, float z) 
@@ -85,7 +85,7 @@ namespace Cogl
             cogl_matrix_rotate (ref this, angle, x, y, z);
         }
 
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void cogl_matrix_frustum (ref Matrix matrix, float left, float right, float bottom, 
             float top, float z_near, float z_far);
 
@@ -94,7 +94,7 @@ namespace Cogl
             cogl_matrix_frustum (ref this, left, right, bottom, top, z_near, z_far);
         }
 
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void cogl_matrix_transform_point (ref Matrix matrix, out float x, out float y, out float z, out float w);
 
         public void TransformPoint (out float x, out float y, out float z, out float w)
@@ -102,7 +102,7 @@ namespace Cogl
             cogl_matrix_transform_point (ref this, out x, out y, out z, out w);
         }
 
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void cogl_matrix_multiply (ref Matrix matrix, ref Matrix a, ref Matrix b);
 
         public void Multiply (Matrix a, Matrix b)
@@ -110,7 +110,7 @@ namespace Cogl
             cogl_matrix_multiply (ref this, ref a, ref b);
         }
 
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void cogl_matrix_translate (ref Matrix matrix, float x, float y, float z);
 
         public void Translate (float x, float y, float z)
@@ -118,7 +118,7 @@ namespace Cogl
             cogl_matrix_translate (ref this, x, y, z);
         }
 
-        [DllImport ("clutter")]
+        [DllImport ("libclutter-win32-0.9-0.dll")]
         private static extern void cogl_matrix_scale (ref Matrix matrix, float sx, float sy, float sz);
 
         public void Scale (float sx, float sy, float sz)

@@ -42,7 +42,7 @@ namespace Clutter
 			get { return raw; }
 		}
 
-		[DllImport("clutter")]
+		[DllImport ("libclutter-win32-0.9-0.dll")]
 		static extern IntPtr gdk_event_get_type ();
 
 		public static GLib.GType GType {

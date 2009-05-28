@@ -24,10 +24,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_rectangle_get_color (IntPtr stage, ref Clutter.Color color);
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_rectangle_set_color (IntPtr stage, ref Clutter.Color color);
 
 public Color Color {

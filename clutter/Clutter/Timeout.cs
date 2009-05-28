@@ -56,7 +56,7 @@ namespace Clutter
 			}
 		}
 		
-		[DllImport ("clutter")]
+		[DllImport ("libclutter-win32-0.9-0.dll")]
 		private static extern uint clutter_threads_add_timeout (uint interval, TimeoutHandlerInternal d, IntPtr data);
 
 		public static uint Add (uint interval, TimeoutHandler handler)

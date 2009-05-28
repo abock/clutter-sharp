@@ -60,7 +60,7 @@ public Color (double r, double g, double b) : this (r, g, b, 1.0)
 {
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_color_lighten (ref Color color, ref Color result);
 
 public Color Lighten ()
@@ -70,7 +70,7 @@ public Color Lighten ()
     return result;
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_color_darken (ref Color color, ref Color result);
 
 public Color Darken ()
@@ -80,7 +80,7 @@ public Color Darken ()
     return result;
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_color_shade (ref Color color, double factor, ref Color result);
 
 public Color Shade (double factor)
@@ -90,7 +90,7 @@ public Color Shade (double factor)
     return result;
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_color_add (ref Color color, ref Color b, ref Color result);
 
 public Color Add (Color b)
@@ -100,7 +100,7 @@ public Color Add (Color b)
     return result;
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_color_subtract (ref Color color, ref Color b, ref Color result);
 
 public Color Subtract (Color b)
@@ -110,7 +110,7 @@ public Color Subtract (Color b)
     return result;
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_color_from_hls (ref Color color, float hue, float luminance, float saturation);
 
 public void FromHls (float hue, float luminance, float saturation)
@@ -118,7 +118,7 @@ public void FromHls (float hue, float luminance, float saturation)
     clutter_color_from_hls (ref this, hue, luminance, saturation);
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_color_to_hls (ref Color color, out float hue, out float luminance, out float saturation);
 
 public void ToHls (out float hue, out float luminance, out float saturation)
@@ -126,7 +126,7 @@ public void ToHls (out float hue, out float luminance, out float saturation)
     clutter_color_to_hls (ref this, out hue, out luminance, out saturation);
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern uint clutter_color_to_pixel (ref Color color);
 
 public uint ToPixel ()
@@ -134,7 +134,7 @@ public uint ToPixel ()
     return clutter_color_to_pixel (ref this);
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern void clutter_color_from_pixel (ref Color color, uint pixel);
 
 public void FromPixel (uint pixel)
@@ -142,7 +142,7 @@ public void FromPixel (uint pixel)
     clutter_color_from_pixel (ref this, pixel);
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern bool clutter_color_from_string (ref Color color, IntPtr str);
 
 public bool FromString (string str)
@@ -156,7 +156,7 @@ public bool FromString (string str)
     }
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern IntPtr clutter_color_to_string (ref Color color);
 
 public override string ToString ()
@@ -164,7 +164,7 @@ public override string ToString ()
     return GLib.Marshaller.PtrToStringGFree (clutter_color_to_string (ref this));
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern bool clutter_color_equal (ref Color a, ref Color b);
 
 public override bool Equals (object obj)
@@ -177,7 +177,7 @@ public override bool Equals (object obj)
     return false;
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern uint clutter_color_hash (ref Color color);
 
 public override int GetHashCode ()
@@ -185,7 +185,7 @@ public override int GetHashCode ()
     return (int)clutter_color_hash (ref this);
 }
 
-[DllImport ("clutter")]
+[DllImport ("libclutter-win32-0.9-0.dll")]
 private static extern IntPtr clutter_color_get_type ();
 
 public static GLib.GType GType { 
